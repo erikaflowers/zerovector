@@ -161,22 +161,25 @@ function InvestiturePage() {
             <p className="inv-section-body">{inv.skills.body}</p>
           </Animate>
           <Animate delay={1}>
-            <div className="inv-chain-flow">{inv.skills.flow}</div>
-          </Animate>
-          <Animate delay={2}>
-            <div className="inv-chain">
-              {inv.skills.chain.map((skill, i) => (
-                <div key={i} className="inv-chain-entry">
-                  <div className="inv-chain-entry-header">
-                    <span className="inv-chain-entry-name">{skill.name}</span>
-                    <span className="inv-chain-entry-role">{skill.role}</span>
-                  </div>
-                  <p className="inv-chain-entry-desc">{skill.desc}</p>
-                  <p className="inv-chain-entry-when">{skill.when}</p>
+            <div className="inv-skill-list">
+              {inv.skills.groups.map((group, gi) => (
+                <div key={gi} className="inv-skill-group">
+                  <div className="inv-skill-group-name">{group.name}</div>
+                  {group.skills.map((skill, si) => (
+                    <div key={si} className="inv-skill-row">
+                      <span className="inv-skill-cmd">{skill.cmd}</span>
+                      <span className="inv-skill-desc">{skill.desc}</span>
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
-            <p className="inv-reading-caption">{inv.skills.flowCaption}</p>
+          </Animate>
+          <Animate delay={2}>
+            <div className="inv-skill-list-footer">
+              <p className="inv-reading-caption">{inv.skills.flowCaption}</p>
+              <Link to={inv.skills.skillsPageUrl} className="inv-skill-list-link">{inv.skills.skillsPageCta}</Link>
+            </div>
           </Animate>
         </div>
       </section>

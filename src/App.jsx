@@ -9,6 +9,7 @@ import ReadingPage from './pages/ReadingPage';
 import OriginPage from './pages/OriginPage';
 import InvestiturePage from './pages/InvestiturePage';
 import InvestitureChangelogPage from './pages/InvestitureChangelogPage';
+import InvestitureSkillsPage from './pages/InvestitureSkillsPage';
 
 import AskPage from './pages/AskPage';
 import QuizPage from './pages/QuizPage';
@@ -47,6 +48,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="/investiture/changelog" element={<InvestitureChangelogPage />} />
+      <Route path="/investiture/skills" element={<InvestitureSkillsPage />} />
       <Route path="/investiture" element={<InvestiturePage />} />
     </Routes>
   );
