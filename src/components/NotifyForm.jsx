@@ -25,7 +25,7 @@ function NotifyForm({ variant = 'dark', tag = 'zerovector' }) {
     setErrorMessage('');
 
     try {
-      const response = await fetch('https://kestris.ai/api/subscribe', {
+      const response = await fetch('https://kestris.netlify.app/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, tag }),

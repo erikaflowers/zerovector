@@ -6,7 +6,7 @@ const supabase = process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_K
   : null;
 
 // Kestris — where applications are stored
-const KESTRIS_API_URL = process.env.KESTRIS_API_URL || 'https://kestris.ai';
+const KESTRIS_API_URL = process.env.KESTRIS_API_URL || 'https://kestris.netlify.app';
 const KESTRIS_API_KEY = process.env.KESTRIS_API_KEY;
 
 function json(body, status = 200) {
