@@ -8257,6 +8257,49 @@ code.inv-skills-entry-meta-value {
   letter-spacing: 0.02em;
 }
 
+.zh-prize-includes {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--zh-teal);
+  margin-top: 8px;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 10px rgba(0, 229, 200, 0.15);
+}
+
+.zh-prize-card--hero .zh-prize-includes {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* Why Mac mini explainer */
+.zh-why-mini {
+  margin-bottom: 40px;
+  padding: 32px;
+  border-left: 3px solid var(--zh-teal);
+  background: rgba(0, 229, 200, 0.025);
+  border-radius: 0 6px 6px 0;
+}
+
+.zh-why-mini-headline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--zh-teal);
+  margin-bottom: 12px;
+  text-shadow: 0 0 16px rgba(0, 229, 200, 0.12);
+}
+
+.zh-why-mini-body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--zh-text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
 .zh-prizes-all {
   padding: 24px 0 0;
   border: none;
@@ -8476,6 +8519,62 @@ code.inv-skills-entry-meta-value {
   background-clip: text;
 }
 
+.zh-bg-subtitle {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--zh-peach);
+  margin-bottom: 48px;
+}
+
+.zh-bg-h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--zh-cream);
+  margin-top: 64px;
+  margin-bottom: 20px;
+}
+
+.zh-bg-rule {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--zh-hotpink), var(--zh-teal), transparent);
+  margin: 64px 0;
+  opacity: 0.4;
+}
+
+.zh-bg-emphasis {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--zh-coral);
+  line-height: 1.5;
+  margin: 32px 0;
+}
+
+.zh-bg-cta-block {
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255, 45, 138, 0.08);
+}
+
+.zh-bg-cta-block p {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--zh-cream-dim);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
 .zh-bg-body {
   font-family: 'Outfit', sans-serif;
   font-size: 17px;
@@ -8608,10 +8707,120 @@ code.inv-skills-entry-meta-value {
 }
 
 .zh-apply-submit:disabled {
-  opacity: 0.5;
+  opacity: 0.35;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
+}
+
+/* Section dividers within the form */
+.zh-apply-section-label {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--zh-teal);
+  letter-spacing: 0.04em;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 229, 200, 0.12);
+  text-shadow: 0 0 10px rgba(0, 229, 200, 0.15);
+}
+
+/* Commitment checkbox */
+.zh-apply-commitment {
+  padding: 28px;
+  background: rgba(255, 45, 138, 0.03);
+  border: 2px solid rgba(255, 45, 138, 0.15);
+  border-radius: 8px;
+}
+
+.zh-apply-commitment-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+.zh-apply-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.zh-apply-checkmark {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border: 2px solid rgba(255, 45, 138, 0.35);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-top: 2px;
+}
+
+.zh-apply-checkmark::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--zh-hotpink);
+  box-shadow: 0 0 12px var(--zh-hotpink), 0 0 24px rgba(255, 45, 138, 0.3);
+  transform: scale(0);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zh-apply-checkbox:checked + .zh-apply-checkmark {
+  border-color: var(--zh-hotpink);
+  background: rgba(255, 45, 138, 0.06);
+}
+
+.zh-apply-checkbox:checked + .zh-apply-checkmark::after {
+  transform: scale(1);
+}
+
+.zh-apply-checkbox:focus-visible + .zh-apply-checkmark {
+  outline: 2px solid var(--zh-hotpink);
+  outline-offset: 2px;
+}
+
+.zh-apply-commitment-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--zh-cream-dim);
+  line-height: 1.6;
+}
+
+.zh-apply-commitment-text strong {
+  color: var(--zh-cream);
+  font-weight: 600;
+}
+
+.zh-apply-commitment-req {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--zh-hotpink);
+  text-shadow: 0 0 8px rgba(255, 45, 138, 0.15);
+}
+
+/* Error message */
+.zh-apply-error {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--zh-hotpink);
+  padding: 12px 16px;
+  background: rgba(255, 45, 138, 0.06);
+  border: 1px solid rgba(255, 45, 138, 0.15);
+  border-radius: 6px;
 }
 
 @media (max-width: 768px) {

@@ -136,7 +136,7 @@ function ZerohackPage() {
               &larr; {zh.nav.back}
             </Link>
             <span className="zh-nav-sep" />
-            <span className="zh-nav-brand">{zh.nav.brand}</span>
+            <Link to="/zerohack" className="zh-nav-brand-link">{zh.nav.brand}</Link>
             <span className="zh-nav-sep" />
             <Link to="/zerohack/background" className="zh-nav-link">Background</Link>
           </div>
@@ -260,6 +260,7 @@ function ZerohackPage() {
             <div className="zh-prize-card zh-prize-card--first zh-prize-card--hero">
               <div className="zh-prize-place">{zh.prizes.tiers[0].place}</div>
               <div className="zh-prize-name">{zh.prizes.tiers[0].prize}</div>
+              <div className="zh-prize-includes">+ {zh.prizes.tiers[0].includes}</div>
             </div>
           </Animate>
           <div className="zh-prizes-grid">
@@ -268,10 +269,17 @@ function ZerohackPage() {
                 <div className="zh-prize-card">
                   <div className="zh-prize-place">{tier.place}</div>
                   <div className="zh-prize-name">{tier.prize}</div>
+                  <div className="zh-prize-includes">+ {tier.includes}</div>
                 </div>
               </Animate>
             ))}
           </div>
+          <Animate>
+            <div className="zh-why-mini">
+              <h3 className="zh-why-mini-headline">{zh.prizes.whyMacMini.headline}</h3>
+              <p className="zh-why-mini-body">{zh.prizes.whyMacMini.body}</p>
+            </div>
+          </Animate>
           <Animate>
             <div className="zh-prizes-all">
               <div className="zh-prizes-all-label">{zh.prizes.allParticipants.label}</div>

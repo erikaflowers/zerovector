@@ -99,10 +99,14 @@ const zerohack = {
     headline: 'We\u2019re not giving away gift cards.',
     subline: 'We\u2019re giving away capability.',
     tiers: [
-      { place: '1st', prize: 'Mac mini M4 home-lab kit' },
-      { place: '2nd', prize: 'Mac mini M4 home-lab kit' },
-      { place: '3rd', prize: 'Mac mini M4 home-lab kit' },
+      { place: '1st', prize: 'Mac mini M4 home-lab kit', includes: '1 hour of dedicated setup time' },
+      { place: '2nd', prize: 'Mac mini M4 home-lab kit', includes: '1 hour of dedicated setup time' },
+      { place: '3rd', prize: 'Mac mini M4 home-lab kit', includes: '1 hour of dedicated setup time' },
     ],
+    whyMacMini: {
+      headline: 'Why a Mac mini?',
+      body: 'Because agents don\u2019t sleep when you do. A Mac mini is an always-on home lab \u2014 your agents keep running when you close your laptop. Part of the prize is the setup: Tailscale for remote access from anywhere, tmux for persistent sessions, and the configuration to talk to your agents from your phone, your tablet, or a beach. Close the lid on your MacBook and your agents go dark. The mini stays awake.',
+    },
     allParticipants: {
       label: 'EVERY PARTICIPANT WALKS AWAY WITH',
       items: [
