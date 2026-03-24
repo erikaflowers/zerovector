@@ -22,6 +22,7 @@ import investiture from './investiture';
 import name from './name';
 import enterprise from './enterprise';
 import join from './join';
+import zerohack from './zerohack';
 
 import recommendedReading from './recommended-reading';
 
@@ -40,6 +41,7 @@ const en = {
   quiz,
   investiture,
   name,
+  zerohack,
   recommendedReading,
 };
 

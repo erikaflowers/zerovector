@@ -10,6 +10,9 @@ import OriginPage from './pages/OriginPage';
 import InvestiturePage from './pages/InvestiturePage';
 import InvestitureChangelogPage from './pages/InvestitureChangelogPage';
 import InvestitureSkillsPage from './pages/InvestitureSkillsPage';
+import ZerohackPage from './pages/ZerohackPage';
+import ZerohackBackgroundPage from './pages/ZerohackBackgroundPage';
+import ZerohackApplyPage from './pages/ZerohackApplyPage';
 
 import AskPage from './pages/AskPage';
 import QuizPage from './pages/QuizPage';
@@ -50,6 +53,9 @@ function App() {
       <Route path="/investiture/changelog" element={<InvestitureChangelogPage />} />
       <Route path="/investiture/skills" element={<InvestitureSkillsPage />} />
       <Route path="/investiture" element={<InvestiturePage />} />
+      <Route path="/zerohack/apply" element={<ZerohackApplyPage />} />
+      <Route path="/zerohack/background" element={<ZerohackBackgroundPage />} />
+      <Route path="/zerohack" element={<ZerohackPage />} />
     </Routes>
   );
 }
