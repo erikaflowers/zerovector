@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Animate from '../components/Animate';
 import { useInView } from '../hooks/useInView';
@@ -111,11 +111,6 @@ function ZerohackPage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
     <div className="zh-page">
       {/* Scroll Progress */}
@@ -146,6 +141,7 @@ function ZerohackPage() {
         </div>
       </nav>
 
+      <main>
       {/* Hero */}
       <section ref={heroRef} className="zh-hero">
         <div ref={heroBgRef} className="zh-hero-bg" aria-hidden="true" />
@@ -162,7 +158,10 @@ function ZerohackPage() {
             <span className="zh-hero-dot">&middot;</span>
             <span className="zh-hero-format-inline">{zh.hero.format}</span>
           </div>
-          <h1 className="zh-hero-headline">{zh.hero.headline}</h1>
+          <h1 className="zh-hero-headline">
+            <span className="zh-hero-headline-line" data-text={zh.hero.headlineTop}>{zh.hero.headlineTop}</span>
+            <span className="zh-hero-headline-line" data-text={zh.hero.headlineBottom}>{zh.hero.headlineBottom}</span>
+          </h1>
           <p className="zh-hero-subline">{zh.hero.subline}</p>
           <Link to="/zerohack/apply" className="zh-btn zh-btn--primary zh-btn--lg">
             {zh.hero.cta} &rarr;
@@ -248,6 +247,39 @@ function ZerohackPage() {
         </div>
       </section>
 
+      {/* Hosts */}
+      <section className="zh-section zh-hosts">
+        <div className="zh-hosts-bg" aria-hidden="true" />
+        <div className="zh-hosts-overlay" aria-hidden="true" />
+        <div className="zh-hosts-grain" aria-hidden="true" />
+        <div className="zh-container zh-hosts-inner">
+          <Animate>
+            <div className="zh-label">{zh.hosts.label}</div>
+            <h2 className="zh-section-headline zh-hosts-headline">{zh.hosts.headline}</h2>
+          </Animate>
+          <div className="zh-hosts-grid">
+            {zh.hosts.people.map((person, i) => (
+              <Animate key={i} delay={Math.min(i + 1, 3)}>
+                <div className={`zh-host-card ${i === 0 ? 'zh-host-card--featured' : ''}`}>
+                  <div className="zh-host-photo">
+                    {person.photo
+                      ? <img src={person.photo} alt={person.name} />
+                      : <span className="zh-host-photo-placeholder">{person.name === 'TBD' ? '?' : person.name.charAt(0)}</span>
+                    }
+                  </div>
+                  <div className="zh-host-flash" aria-hidden="true" />
+                  <div className="zh-host-info">
+                    <div className="zh-host-name">{person.name}</div>
+                    <div className="zh-host-role">{person.role}</div>
+                    <p className="zh-host-bio">{person.bio}</p>
+                  </div>
+                </div>
+              </Animate>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Prizes */}
       <section className="zh-section zh-section--warm">
         <div className="zh-container">
@@ -295,6 +327,7 @@ function ZerohackPage() {
 
       {/* Registration */}
       <section id="register" className="zh-section zh-register">
+        <div className="zh-register-bg" aria-hidden="true" />
         <div className="zh-register-mesh" aria-hidden="true" />
         <div className="zh-register-grain" aria-hidden="true" />
         <div className="zh-container zh-register-inner">
@@ -316,6 +349,8 @@ function ZerohackPage() {
           </Animate>
         </div>
       </section>
+
+      </main>
 
       {/* Footer */}
       <footer className="zh-footer">

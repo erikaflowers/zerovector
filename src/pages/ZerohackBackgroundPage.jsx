@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useSEO from '../hooks/useSEO';
 import '../styles/site.css';
+import en from '../content/en';
+
+const { zerohack: zh } = en;
 
 function ZerohackBackgroundPage() {
   const { pathname } = useLocation();
@@ -41,11 +44,12 @@ function ZerohackBackgroundPage() {
             <span className="zh-nav-brand">Background</span>
           </div>
           <Link to="/zerohack/apply" className="zh-nav-cta">
-            Apply Now &rarr;
+            {zh.nav.cta} &rarr;
           </Link>
         </div>
       </nav>
 
+      <main>
       {/* Article */}
       <article className="zh-bg-article">
         <div className="zh-bg-container">
@@ -278,14 +282,15 @@ function ZerohackBackgroundPage() {
           </div>
         </div>
       </article>
+      </main>
 
       {/* Footer */}
       <footer className="zh-footer">
         <div className="zh-footer-inner">
           <div className="zh-footer-brand">
-            <a href="https://zerovector.design" className="zh-footer-link">Zero Vector Design LLC</a>
+            <a href={zh.footer.url} className="zh-footer-link">{zh.footer.brand}</a>
           </div>
-          <div className="zh-footer-tagline">Start with a person. End with a product.</div>
+          <div className="zh-footer-tagline">{zh.footer.tagline}</div>
         </div>
       </footer>
     </div>

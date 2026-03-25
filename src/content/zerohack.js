@@ -10,7 +10,8 @@ const zerohack = {
   },
 
   hero: {
-    headline: 'ZERO HACK',
+    headlineTop: 'ZERO',
+    headlineBottom: 'HACK',
     subline: 'Build for a person. Not a demo.',
     date: 'April 26\u201327, 2026',
     format: 'Two days. Four sessions. Virtual.',
@@ -90,6 +91,37 @@ const zerohack = {
         name: 'Customer Validation',
         question: 'Did real humans use it?',
         desc: 'You put it in front of 3\u20135 actual people. They gave you feedback. You changed something because of it. That\u2019s the whole game.',
+      },
+    ],
+  },
+
+  hosts: {
+    label: '\u201CWho\u2019s running this?\u201D',
+    headline: 'Your Hackathon Hosts',
+    people: [
+      {
+        name: 'Erika Flowers',
+        role: 'HOST \u00B7 FOUNDER',
+        bio: '30 years of design leadership. Ex-NASA. Systems Auteur. The person who built Zero Vector and won a VR hackathon with clip-art.',
+        photo: null,
+      },
+      {
+        name: 'TBD',
+        role: 'JUDGE',
+        bio: 'Announcement coming soon.',
+        photo: null,
+      },
+      {
+        name: 'TBD',
+        role: 'JUDGE',
+        bio: 'Announcement coming soon.',
+        photo: null,
+      },
+      {
+        name: 'TBD',
+        role: 'JUDGE',
+        bio: 'Announcement coming soon.',
+        photo: null,
       },
     ],
   },

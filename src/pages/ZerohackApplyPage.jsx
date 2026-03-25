@@ -5,6 +5,9 @@ import { supabase } from '../lib/supabase';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
 import '../styles/site.css';
+import en from '../content/en';
+
+const { zerohack: zh } = en;
 
 function ZerohackApplyPage() {
   const { pathname } = useLocation();
@@ -99,12 +102,10 @@ function ZerohackApplyPage() {
             <span className="zh-nav-sep" />
             <Link to="/zerohack/background" className="zh-nav-link">Background</Link>
           </div>
-          <Link to="/zerohack/apply" className="zh-nav-cta">
-            Apply Now &rarr;
-          </Link>
         </div>
       </nav>
 
+      <main>
       <div className="zh-apply-page">
         <div className="zh-bg-container">
 
@@ -309,13 +310,15 @@ function ZerohackApplyPage() {
         </div>
       </div>
 
+      </main>
+
       {/* Footer */}
       <footer className="zh-footer">
         <div className="zh-footer-inner">
           <div className="zh-footer-brand">
-            <a href="https://zerovector.design" className="zh-footer-link">Zero Vector Design LLC</a>
+            <a href={zh.footer.url} className="zh-footer-link">{zh.footer.brand}</a>
           </div>
-          <div className="zh-footer-tagline">Start with a person. End with a product.</div>
+          <div className="zh-footer-tagline">{zh.footer.tagline}</div>
         </div>
       </footer>
     </div>
