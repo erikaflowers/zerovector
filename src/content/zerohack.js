@@ -13,7 +13,7 @@ const zerohack = {
     headlineTop: 'ZERO',
     headlineBottom: 'HACK',
     subline: 'Build for a person. Not a demo.',
-    date: 'April 26\u201327, 2026',
+    date: 'May 9\u201310, 2026',
     format: 'Two days. Four sessions. Virtual.',
     cta: 'Apply Now',
     ctaUrl: '/zerohack/apply',

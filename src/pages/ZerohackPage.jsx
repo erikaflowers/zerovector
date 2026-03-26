@@ -44,14 +44,14 @@ function ZerohackPage() {
 
   useSEO({
     title: 'Zero Hack — Build for a Person, Not a Demo',
-    description: 'Build for a person, not a demo. The first Zero Vector hackathon — two days, four sessions, real products for real users. April 26–27, 2026. Virtual.',
+    description: 'Build for a person, not a demo. The first Zero Vector hackathon — two days, four sessions, real products for real users. May 9–10, 2026. Virtual.',
     path: '/zerohack',
     ogImage: 'https://zerovector.design/og/zerohack.png',
   });
 
   useEffect(() => {
     console.log(
-      '%c🌅 ZERO HACK %c April 26–27, 2026',
+      '%c🌅 ZERO HACK %c May 9–10, 2026',
       'background: linear-gradient(135deg, #E04A10, #5A1A5C); color: #FFF5EB; font-size: 18px; font-weight: 900; padding: 8px 16px; border-radius: 4px;',
       'color: #F0C850; font-size: 14px; font-weight: 400; padding: 8px 4px;'
     );
