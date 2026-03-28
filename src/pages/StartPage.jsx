@@ -38,7 +38,7 @@ function StartPage() {
       </section>
 
       {/* Two Big CTAs — Investiture + Open Vector */}
-      <section className="zv-section" style={{ paddingTop: 0 }}>
+      <section className="zv-section zv-start-actions-section">
         <div className="zv-container">
           <div className="zv-start-actions">
             <Animate>
@@ -83,7 +83,7 @@ function StartPage() {
           <Animate>
             <h2 className="zv-section-title">{start.connect.title}</h2>
           </Animate>
-          <div className="zv-start-connect" style={{ marginTop: 32 }}>
+          <div className="zv-start-connect zv-start-connect--spaced">
             {start.connect.items.map((item, i) => (
               <Animate key={i} delay={i + 1}>
                 <a href={item.url} target="_blank" rel="noopener noreferrer" className="zv-start-connect-card">

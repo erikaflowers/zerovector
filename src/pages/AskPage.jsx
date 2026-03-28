@@ -138,7 +138,7 @@ function AskPage() {
               {/* Messages */}
               {messages.length === 0 && bootPhase >= 4 && (
                 <div className="zv-terminal-suggestions">
-                  <div className="zv-terminal-line zv-terminal-system" style={{ marginBottom: 12 }}>
+                  <div className="zv-terminal-line zv-terminal-system zv-terminal-suggestions-header">
                     [SUGGESTED QUERIES]
                   </div>
                   {suggestions.map((suggestion, i) => (

@@ -4686,10 +4686,17 @@ a:hover {
 }
 
 /* Builders inline style replacements */
+/* Inline style replacements (global utilities) */
 .zv-builders-start-cta { margin-top: 16px; }
 .zv-resource-list--spaced { margin-top: 32px; }
 .zv-builders-coaching-desc { margin-bottom: 32px; }
 .zv-builders-community--spaced { margin-top: 32px; }
+.zv-enterprise-contact-desc { margin-bottom: 32px; }
+.zv-start-actions-section { padding-top: 0; }
+.zv-start-connect--spaced { margin-top: 32px; }
+.zv-quiz-section { padding-top: 0; }
+.zv-quiz-reset { margin-top: 16px; }
+.zv-terminal-suggestions-header { margin-bottom: 12px; }
 
 /* ============================================
    Media Page — Featured Cards

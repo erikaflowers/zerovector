@@ -121,7 +121,7 @@ function EnterprisePage() {
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">{enterprise.contact.title}</h2>
-            <p className="zv-body-text" style={{ marginBottom: 32 }}>{enterprise.contact.description}</p>
+            <p className="zv-body-text zv-enterprise-contact-desc">{enterprise.contact.description}</p>
             <a href={enterprise.contact.link} target="_blank" rel="noopener noreferrer" className="zv-cta">
               {enterprise.contact.cta}
             </a>

@@ -4,6 +4,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
+import NotifyForm from '../components/NotifyForm';
 import { ExternalLinkIcon, ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
@@ -115,7 +116,7 @@ function ReadingPage() {
               <h2 className="zv-section-title">{media.voices.title}</h2>
               <p className="zv-section-subtitle">{media.voices.subtitle}</p>
             </Animate>
-            <div className="zv-resource-list" style={{ marginTop: 32 }}>
+            <div className="zv-resource-list zv-resource-list--spaced">
               {media.voices.items.map((person, i) => (
                 <Animate key={i}>
                   <a href={person.url} target="_blank" rel="noopener noreferrer" className="zv-resource-card">
@@ -129,15 +130,25 @@ function ReadingPage() {
         </section>
       )}
 
-      {/* Next Steps */}
+      {/* Closing */}
       <section className="zv-section">
         <div className="zv-container">
           <Animate>
             <div className="zv-page-next-steps">
-              <h2 className="zv-section-title">Done Reading? Start Building.</h2>
-              <div className="zv-page-next-links">
-                <Link to="/start" className="zv-cta">Where To Start <ArrowIcon size={14} /></Link>
-                <Link to="/quiz" className="zv-cta zv-cta-outline">Take the Quiz <ArrowIcon size={14} /></Link>
+              <div className="zv-philosophy-closing">
+                <div className="zv-philosophy-closing-primary">
+                  <h2 className="zv-section-title">Done Reading? Start Building.</h2>
+                  <div className="zv-philosophy-closing-actions">
+                    <Link to="/start" className="zv-cta">Where To Start <ArrowIcon size={14} /></Link>
+                    <Link to="/quiz" className="zv-cta zv-cta-outline">Take the Quiz <ArrowIcon size={14} /></Link>
+                  </div>
+                </div>
+                <div className="zv-philosophy-closing-secondary">
+                  <div className="zv-philosophy-closing-block">
+                    <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
+                    <NotifyForm variant="light" tag="zerovector" />
+                  </div>
+                </div>
               </div>
             </div>
           </Animate>

@@ -161,7 +161,7 @@ function QuizPage() {
         subtitle={quiz.subtitle}
       />
 
-      <section className="zv-section" style={{ paddingTop: 0 }}>
+      <section className="zv-section zv-quiz-section">
         <div className="zv-container">
           {/* Shared score card from URL params */}
           {sharedScore && !result && (
@@ -261,7 +261,7 @@ function QuizPage() {
                       </a>
                     </div>
 
-                    <button className="zv-cta zv-cta-outline" onClick={reset} style={{ marginTop: 16 }}>
+                    <button className="zv-cta zv-cta-outline zv-quiz-reset" onClick={reset}>
                       Take It Again
                     </button>
                   </>
