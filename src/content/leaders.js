@@ -8,7 +8,7 @@ const leaders = {
 
   intro: [
     'Every organization has the same problem: the gap between what leadership envisions and what actually gets built. The longer the pipeline, the wider the gap. The more handoffs, the more drift. You have felt this. You have watched a clear vision degrade through layers of translation until the shipped product barely resembles what you asked for.',
-    'AI did not fix this. AI made each individual step faster — but the pipeline, the structure of handoffs and translation layers, survived intact. Your teams are producing more output at higher velocity. But output is not the same as outcomes. Speed without intention is just faster failure.',
+    'AI did not fix this. AI made each individual step faster, but the pipeline, the structure of handoffs and translation layers, survived intact. Your teams are producing more output at higher velocity. But output is not the same as outcomes. Speed without intention is just faster failure.',
     'Zero-Vector Design is the framework for collapsing that pipeline. Not by adding AI to the existing process, but by fundamentally restructuring how your organization goes from concept to customer. The person with the vision builds the artifact. The translation layers dissolve. The gap goes to zero.',
     'This is not a technology adoption. It is an organizational transformation. And it starts with leadership that understands the difference.',
   ],
@@ -29,7 +29,7 @@ const leaders = {
       {
         label: 'Team leverage',
         before: 'A team of ten ships one feature per sprint. Each specialist touches one facet. Coordination overhead consumes 30-50% of capacity.',
-        after: 'Each practitioner with AI agents has the leverage of a small team. Five people can do what fifty did. Not by working harder — by eliminating the work that was never necessary.',
+        after: 'Each practitioner with AI agents has the leverage of a small team. Five people can do what fifty did. Not by working harder. By eliminating the work that was never necessary.',
       },
       {
         label: 'Quality',
@@ -42,9 +42,9 @@ const leaders = {
   czvo: {
     title: 'The Chief Zero-Vector Officer',
     description: [
-      'The CZVO is a new kind of leadership role. Not a renamed CTO. Not a renamed CDO. Not a consultant who parachutes in with a framework and leaves. The CZVO owns the transformation of your concept-to-customer pipeline — the systematic identification and collapse of every handoff, translation layer, and friction point between vision and shipped artifact.',
-      'Day to day, the CZVO audits your workflows for unnecessary handoffs. They identify where signal degrades between intent and artifact. They pilot agent-first teams on real projects — not sandbox experiments, real production work with real stakes. They build the internal playbook so the transformation scales beyond any one person or team.',
-      'The CZVO measures what matters: time-to-ship reduction, handoff elimination, signal fidelity improvement, practitioner leverage ratios. Not vanity metrics. Not "AI adoption rates." The concrete, measurable indicators that tell you the pipeline is actually collapsing — that the distance between what you envision and what ships is getting closer to zero.',
+      'The CZVO is a new kind of leadership role. Not a renamed CTO. Not a renamed CDO. Not a consultant who parachutes in with a framework and leaves. The CZVO owns the transformation of your concept-to-customer pipeline. The systematic identification and collapse of every handoff, translation layer, and friction point between vision and shipped artifact.',
+      'Day to day, the CZVO audits your workflows for unnecessary handoffs. They identify where signal degrades between intent and artifact. They pilot agent-first teams on real projects. Not sandbox experiments, real production work with real stakes. They build the internal playbook so the transformation scales beyond any one person or team.',
+      'The CZVO measures what matters: time-to-ship reduction, handoff elimination, signal fidelity improvement, practitioner leverage ratios. Not vanity metrics. Not "AI adoption rates." The concrete, measurable indicators that tell you the pipeline is actually collapsing. that the distance between what you envision and what ships is getting closer to zero.',
       'Most organizations do not have this role yet. That is precisely why the ones who create it first will define the competitive landscape. The CZVO is not a nice-to-have executive. It is the strategic function that turns AI from a productivity tool into an organizational transformation.',
     ],
   },
@@ -54,15 +54,15 @@ const leaders = {
     items: [
       {
         title: 'If You Lead a Design Team',
-        description: 'Your designers are at a crossroads. They can continue drawing pictures of things and handing them to engineers — a model that AI is making obsolete faster than anyone predicted. Or they can become the people who build the artifact directly, with AI agents as crew, maintaining the design rigor and craft that has always been their real value. Zero-Vector gives you the framework to lead that transition.',
+        description: 'Your designers are at a crossroads. They can continue drawing pictures of things and handing them to engineers. A model that AI is making obsolete faster than anyone predicted. Or they can become the people who build the artifact directly, with AI agents as crew, maintaining the design rigor and craft that has always been their real value. Zero-Vector gives you the framework to lead that transition.',
       },
       {
         title: 'If You Lead an Engineering Organization',
-        description: 'Your engineers are already using AI to write code. The question is whether that code is architected, maintainable, and built on principles — or whether you are accumulating technical debt at AI speed. Zero-Vector is not anti-engineering. It is pro-craft. It gives your best people the framework to build with intention at higher velocity.',
+        description: 'Your engineers are already using AI to write code. The question is whether that code is architected, maintainable, and built on principles, or whether you are accumulating technical debt at AI speed. Zero-Vector is not anti-engineering. It is pro-craft. It gives your best people the framework to build with intention at higher velocity.',
       },
       {
         title: 'If You Lead a Product Organization',
-        description: 'Your concept-to-customer pipeline is your competitive advantage — or your competitive liability. Every handoff in that pipeline is a place where your product vision degrades. Zero-Vector collapses those handoffs. The result is products that ship faster, match vision more faithfully, and cost less to build.',
+        description: 'Your concept-to-customer pipeline is your competitive advantage, or your competitive liability. Every handoff in that pipeline is a place where your product vision degrades. Zero-Vector collapses those handoffs. The result is products that ship faster, match vision more faithfully, and cost less to build.',
       },
       {
         title: 'If You Are a C-Suite Executive',
@@ -77,7 +77,7 @@ const leaders = {
     options: [
       {
         name: 'Advisory',
-        description: 'Strategic guidance on adopting Zero-Vector practices. Regular sessions, async support, roadmap alignment. You get a thinking partner who has done this before — someone to pressure-test your transformation plan, identify where your pipeline is losing signal, and keep you honest about what is actually changing.',
+        description: 'Strategic guidance on adopting Zero-Vector practices. Regular sessions, async support, roadmap alignment. You get a thinking partner who has done this before. Someone to pressure-test your transformation plan, identify where your pipeline is losing signal, and keep you honest about what is actually changing.',
         outcome: 'Best for organizations that want to self-execute with expert guidance. You have the talent; you need the framework and the outside perspective.',
       },
       {
@@ -96,8 +96,8 @@ const leaders = {
   practitioner: {
     title: 'Who You Are Working With',
     bio: [
-      'Erika Flowers. 31 years in UX and Service Design. Principal Service Designer at NASA. Published science fiction author. The person who wrote the Zero-Vector manifesto is not theorizing — she is practicing. Every day. With AI agents. On real production systems.',
-      'She has led design transformation at organizations from startups to federal agencies. She has shipped production applications as a solo practitioner with AI agents. She has built the tools, written the curriculum, and proven the model works — not in a workshop, but in production.',
+      'Erika Flowers. 31 years in UX and Service Design. Principal Service Designer at NASA. Published science fiction author. The person who wrote the Zero-Vector manifesto is not theorizing. She is practicing. Every day. With AI agents. On real production systems.',
+      'She has led design transformation at organizations from startups to federal agencies. She has shipped production applications as a solo practitioner with AI agents. She has built the tools, written the curriculum, and proven the model works. Not in a workshop, but in production.',
       'When you engage with Zero-Vector, you are working directly with the person who created it. Not a team of junior consultants running a playbook. The person who holds the vision.',
     ],
   },

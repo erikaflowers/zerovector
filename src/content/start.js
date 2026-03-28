@@ -49,7 +49,7 @@ const start = {
       eyebrow: 'Learn',
       title: 'The Open Vector',
       description: 'The full Zero-Vector curriculum. Now live. Free. Always free. From "I have never opened a terminal" to "I ship my own vision."',
-      cta: "Start Learning — It's Free",
+      cta: "Start Learning. It's Free",
       url: 'https://open.zerovector.design/learn',
     },
   },

@@ -4,7 +4,7 @@
 const enterprise = {
   eyebrow: 'For Enterprise',
   title: 'Transform How You Build',
-  subtitle: 'Your teams are already using AI. The question is whether they are using it with intention, architecture, and craft — or just vibing.',
+  subtitle: 'Your teams are already using AI. The question is whether they are using it with intention, architecture, and craft, or just vibing.',
 
   intro: [
     'Every enterprise is in the same position right now. Your people are using AI tools. Some are getting remarkable results. Most are generating output that looks impressive until it hits production, compliance review, or the first edge case nobody thought about. The gap between AI-assisted and AI-intentional is where organizations either transform or accumulate technical debt at unprecedented speed.',
@@ -17,11 +17,11 @@ const enterprise = {
     items: [
       {
         title: 'The Vibe Coding Epidemic',
-        description: 'Your teams are generating code, designs, and content with AI — but without systems thinking. The output looks right. It passes a glance test. But it is not architected. It is not maintainable. It is not built on principles that survive the first refactor. You are accumulating a new kind of debt, and you cannot see it on a dashboard.',
+        description: 'Your teams are generating code, designs, and content with AI, but without systems thinking. The output looks right. It passes a glance test. But it is not architected. It is not maintainable. It is not built on principles that survive the first refactor. You are accumulating a new kind of debt, and you cannot see it on a dashboard.',
       },
       {
         title: 'The Handoff Tax',
-        description: 'Your concept-to-customer pipeline still runs through the same handoff chain it always has: research to design to engineering to QA to deploy. Every handoff loses signal. Every translation layer degrades intent. AI made each individual step faster, but the pipeline itself — the structure — has not changed. You are doing the wrong things faster.',
+        description: 'Your concept-to-customer pipeline still runs through the same handoff chain it always has: research to design to engineering to QA to deploy. Every handoff loses signal. Every translation layer degrades intent. AI made each individual step faster, but the pipeline itself. The structure. has not changed. You are doing the wrong things faster.',
       },
       {
         title: 'The Governance Gap',
@@ -40,7 +40,7 @@ const enterprise = {
       {
         number: '01',
         title: 'Pipeline Collapse',
-        description: 'We audit your concept-to-customer pipeline and identify every handoff where signal degrades. Then we systematically collapse them — not by eliminating roles, but by eliminating the translation layers between roles. The person with the vision builds the artifact. The result: 3-5x faster time-to-ship with higher fidelity to original intent.',
+        description: 'We audit your concept-to-customer pipeline and identify every handoff where signal degrades. Then we systematically collapse them. Not by eliminating roles, but by eliminating the translation layers between roles. The person with the vision builds the artifact. The result: 3-5x faster time-to-ship with higher fidelity to original intent.',
       },
       {
         number: '02',
@@ -50,7 +50,7 @@ const enterprise = {
       {
         number: '03',
         title: 'Governance That Enables',
-        description: 'Compliance, security, IP, and audit trails — rebuilt for agent-first workflows. Not the old review process with AI bolted on. A new governance framework designed from the ground up for a world where AI agents are producing at scale. Guardrails that accelerate, not gates that block.',
+        description: 'Compliance, security, IP, and audit trails. rebuilt for agent-first workflows. Not the old review process with AI bolted on. A new governance framework designed from the ground up for a world where AI agents are producing at scale. Guardrails that accelerate, not gates that block.',
       },
       {
         number: '04',
@@ -60,31 +60,31 @@ const enterprise = {
       {
         number: '05',
         title: 'Transformation Metrics',
-        description: 'Time-to-ship, handoff reduction, signal fidelity, practitioner leverage ratio, and the qualitative indicators that tell you the culture is actually changing. We define what success looks like before we start, and we measure it honestly — including the metrics that might be uncomfortable.',
+        description: 'Time-to-ship, handoff reduction, signal fidelity, practitioner leverage ratio, and the qualitative indicators that tell you the culture is actually changing. We define what success looks like before we start, and we measure it honestly, including the metrics that might be uncomfortable.',
       },
       {
         number: '06',
         title: 'The Open Vector Curriculum',
-        description: 'A complete, free, open training curriculum that takes your people from AI-curious to Zero-Vector practitioner. From orientation through advanced practice. Your team builds real skills on real projects — not workshop exercises that expire the moment the facilitator leaves.',
+        description: 'A complete, free, open training curriculum that takes your people from AI-curious to Zero-Vector practitioner. From orientation through advanced practice. Your team builds real skills on real projects. Not workshop exercises that expire the moment the facilitator leaves.',
       },
     ],
   },
 
   engagement: {
     title: 'How We Work',
-    intro: 'Every engagement starts with a conversation — not a pitch deck. We need to understand your organization, your pipeline, your people, and your constraints before we can tell you what is possible. Here is what that typically looks like.',
+    intro: 'Every engagement starts with a conversation. Not a pitch deck. We need to understand your organization, your pipeline, your people, and your constraints before we can tell you what is possible. Here is what that typically looks like.',
     models: [
       {
         name: 'Discovery Engagement',
         duration: '2-4 weeks',
         description: 'We audit your current concept-to-customer pipeline. Every handoff. Every translation layer. Every place where intent degrades between the person with the vision and the shipped artifact. You get a complete map of where Zero-Vector practices can collapse your pipeline, with prioritized recommendations and expected impact.',
-        outcome: 'You get clarity on what transformation looks like for your specific organization — not a generic playbook.',
+        outcome: 'You get clarity on what transformation looks like for your specific organization. Not a generic playbook.',
       },
       {
         name: 'Embedded Transformation',
         duration: '1-2 quarters',
         description: 'A Zero-Vector practitioner works alongside your teams on real projects. Not training from slides. Real production work, demonstrating the workflow in practice while building your internal capability. Your people learn by shipping with the new model, not by reading about it.',
-        outcome: 'Your team ships real work using Zero-Vector practices — and they know how to do it again after we leave.',
+        outcome: 'Your team ships real work using Zero-Vector practices, and they know how to do it again after we leave.',
       },
       {
         name: 'Fractional CZVO',
@@ -98,9 +98,9 @@ const enterprise = {
   honesty: {
     title: 'What We Will Tell You',
     items: [
-      'If your organization is not ready for this, we will say so. Transformation requires leadership buy-in, willingness to challenge existing process, and tolerance for the discomfort of change. If those conditions do not exist, the engagement will fail — and we would rather lose the work than waste your time.',
+      'If your organization is not ready for this, we will say so. Transformation requires leadership buy-in, willingness to challenge existing process, and tolerance for the discomfort of change. If those conditions do not exist, the engagement will fail, and we would rather lose the work than waste your time.',
       'If the problem you are describing is better solved by something other than Zero-Vector, we will tell you that too. Not everything is a pipeline collapse problem. Sometimes you need better hiring. Sometimes you need less process, not different process. We are practitioners, not salespeople.',
-      'We measure outcomes, not activity. If the transformation is not producing measurable results — faster time-to-ship, higher signal fidelity, reduced handoffs — we will surface that honestly and adjust. The worst outcome is a transformation initiative that everyone pretends is working.',
+      'We measure outcomes, not activity. If the transformation is not producing measurable results. faster time-to-ship, higher signal fidelity, reduced handoffs. we will surface that honestly and adjust. The worst outcome is a transformation initiative that everyone pretends is working.',
     ],
   },
 

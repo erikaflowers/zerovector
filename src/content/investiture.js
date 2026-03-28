@@ -81,7 +81,7 @@ const investiture = {
           {
             cmd: '/invest-backfill',
             name: 'Backfill Doctrine',
-            desc: 'Surveys an existing codebase — README, package manifest, git history, directory structure, config files, inline prompts — and generates VECTOR.md, CLAUDE.md, and ARCHITECTURE.md. Combines Investiture defaults with inferred content. Marks what it could not infer with operator prompts.',
+            desc: 'Surveys an existing codebase. README, package manifest, git history, directory structure, config files, inline prompts, and generates VECTOR.md, CLAUDE.md, and ARCHITECTURE.md. Combines Investiture defaults with inferred content. Marks what it could not infer with operator prompts.',
             args: '[--dry-run] [--only vector|claude|architecture]',
             reads: 'Your entire codebase (sampled)',
             writes: 'VECTOR.md, CLAUDE.md, ARCHITECTURE.md, /vector/ directory structure',
@@ -114,7 +114,7 @@ const investiture = {
           {
             cmd: '/invest-validate',
             name: 'Validate Assumptions',
-            desc: 'Reads every assumption in /vector/research/assumptions/, classifies each by risk (Impact \u00d7 Confidence), and generates a stage-appropriate validation sprint plan. Recommends specific methods — interviews, surveys, analytics, usability tests — matched to your project stage.',
+            desc: 'Reads every assumption in /vector/research/assumptions/, classifies each by risk (Impact \u00d7 Confidence), and generates a stage-appropriate validation sprint plan. Recommends specific methods. interviews, surveys, analytics, usability tests. matched to your project stage.',
             args: '[--assumption id] [--stage discovery|alpha|beta|launched] [--dry-run]',
             reads: 'VECTOR.md, /vector/research/assumptions/',
             writes: '/vector/research/assumptions/validation-plan-[date].md',
@@ -132,7 +132,7 @@ const investiture = {
           {
             cmd: '/invest-synthesize',
             name: 'Synthesize Research',
-            desc: 'Takes raw research input — interview notes, beta feedback, validation results — extracts structured insights, and proposes specific patches to VECTOR.md and /vector/ schema files. Shows a full diff before writing anything. You approve every change.',
+            desc: 'Takes raw research input. interview notes, beta feedback, validation results. extracts structured insights, and proposes specific patches to VECTOR.md and /vector/ schema files. Shows a full diff before writing anything. You approve every change.',
             args: '[--source file] [--dry-run]',
             reads: 'VECTOR.md, /vector/research/*, raw input',
             writes: 'VECTOR.md (patches), /vector/research/* (updates), /vector/audits/invest-synthesize.md',
@@ -147,7 +147,7 @@ const investiture = {
           {
             cmd: '/invest-brief',
             name: 'Design Brief',
-            desc: 'Generates a design brief for a specific feature or flow. Reads personas, JTBD, assumptions, VECTOR.md principles, and quality gates to give a designer actionable direction grounded in real evidence — not opinions.',
+            desc: 'Generates a design brief for a specific feature or flow. Reads personas, JTBD, assumptions, VECTOR.md principles, and quality gates to give a designer actionable direction grounded in real evidence. Not opinions.',
             args: '[feature description] [--dry-run]',
             reads: 'VECTOR.md, ARCHITECTURE.md, /vector/research/personas/, /vector/research/jtbd/, /vector/research/assumptions/, /vector/decisions/',
             writes: '/vector/briefs/[feature-slug]-[date].md',
@@ -266,7 +266,7 @@ const investiture = {
       {
         version: 'v1.4',
         title: 'Research, Design & Fleet Skills',
-        body: 'Eight new skills for assumption validation, user research, design briefs, decision records, multi-agent task decomposition, role-specific onboarding, and release notes. The doctrine now does more than enforce — it learns, acts, and ships.',
+        body: 'Eight new skills for assumption validation, user research, design briefs, decision records, multi-agent task decomposition, role-specific onboarding, and release notes. The doctrine now does more than enforce. it learns, acts, and ships.',
         shipped: true,
       },
       {
@@ -277,7 +277,7 @@ const investiture = {
       {
         version: 'v2.0',
         title: 'Seeded Init',
-        body: 'Tell Investiture what you are building and who it is for. Choose your stack, activate the right skills, and seed your research with first hypotheses — all from a single command.',
+        body: 'Tell Investiture what you are building and who it is for. Choose your stack, activate the right skills, and seed your research with first hypotheses. all from a single command.',
       },
     ],
   },
@@ -293,7 +293,7 @@ const investiture = {
         items: [
           'Eight new skills: validate, interview, synthesize, brief, adr, crew, handoff, changelog',
           'Research loop: prioritize assumptions by risk, generate interview guides, synthesize findings back into doctrine',
-          'Design briefs generated from personas, JTBD, and doctrine — not opinions',
+          'Design briefs generated from personas, JTBD, and doctrine. Not opinions',
           'Architecture Decision Records with automatic numbering and cross-referencing',
           'Multi-agent task decomposition with branch names, scope boundaries, and dependency graphs',
           'Role-specific onboarding docs for engineers, designers, agents, and clients',
