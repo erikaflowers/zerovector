@@ -4452,6 +4452,99 @@ a:hover {
   border-left: 2px solid rgba(255, 255, 255, 0.06);
 }
 
+.zv-philosophy-principle-detail {
+  margin-top: 16px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.04);
+}
+
+.zv-philosophy-principle-detail-text {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.zv-philosophy-principle-detail-text:last-child {
+  margin-bottom: 0;
+}
+
+.zv-philosophy-principle-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.zv-philosophy-principle-link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.zv-philosophy-principle-link:hover {
+  color: var(--orange);
+}
+
+/* --- Homepage Principle Summaries (slim list) --- */
+.zv-principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.zv-principle-summary {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.zv-principle-summary-numeral {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.zv-principle-summary-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.zv-principle-summary-body {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.zv-principles-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cyan);
+  text-decoration: none;
+  margin-top: 32px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.zv-principles-cta:hover {
+  color: var(--orange);
+  gap: 12px;
+}
+
 .zv-principles-heading {
   margin-top: 64px;
 }

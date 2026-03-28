@@ -79,6 +79,22 @@ function PhilosophyPage() {
                     <h3 className="zv-philosophy-principle-title">{p.title}</h3>
                     <p className="zv-philosophy-principle-body">{p.body}</p>
                     <p className="zv-philosophy-principle-why">{p.why}</p>
+                    {p.detail && (
+                      <div className="zv-philosophy-principle-detail">
+                        {p.detail.text.map((paragraph, j) => (
+                          <p key={j} className="zv-philosophy-principle-detail-text">{paragraph}</p>
+                        ))}
+                        {p.detail.links?.length > 0 && (
+                          <div className="zv-philosophy-principle-links">
+                            {p.detail.links.map((link, j) => (
+                              <a key={j} href={link.url} target="_blank" rel="noopener noreferrer" className="zv-philosophy-principle-link">
+                                {link.label} <ArrowIcon size={12} />
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               </Animate>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
@@ -27,113 +27,6 @@ function ChevronIcon({ size = 20, className = '' }) {
   );
 }
 
-function PrincipleCard({ principle, open, onToggle }) {
-  return (
-    <div className={`zv-principle-card ${open ? 'zv-principle-card--open' : ''}`}>
-      <div className="zv-principle-card-row">
-        <div className="zv-principle-card-numeral">{principle.numeral}</div>
-        <div className="zv-principle-card-content">
-          <div className="zv-principle-card-header">
-            <h3>
-              <button
-                className="zv-principle-card-toggle"
-                onClick={onToggle}
-                aria-expanded={open}
-              >
-                <span className="zv-principle-card-title">{principle.title}</span>
-                <ChevronIcon
-                  size={20}
-                  className={`zv-principle-card-chevron ${open ? 'zv-principle-card-chevron--open' : ''}`}
-                />
-              </button>
-            </h3>
-            <PrincipleShare title={principle.title} body={principle.body} />
-          </div>
-          <p className="zv-principle-card-body">{principle.body}</p>
-        </div>
-      </div>
-      {principle.detail && (
-        <div className={`zv-principle-card-detail ${open ? 'zv-principle-card-detail--open' : ''}`}>
-          <div className="zv-principle-card-detail-inner">
-            <div className="zv-principle-card-detail-content">
-              {principle.detail.text.map((paragraph, i) => (
-                <p key={i} className="zv-principle-card-detail-text">{paragraph}</p>
-              ))}
-              {principle.detail.links?.length > 0 && (
-                <div className="zv-principle-card-detail-links">
-                  {principle.detail.links.map((link, i) => (
-                    <a key={i} href={link.url} target="_blank" rel="noopener noreferrer">
-                      {link.label} <ArrowIcon size={12} />
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function PrincipleShare({ title, body }) {
-  const [open, setOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, [open]);
-
-  const fullText = `"${title}"\n\n${body}\n\n— Zero-Vector Design\nzerovector.design`;
-
-  const copyText = async () => {
-    try {
-      await navigator.clipboard.writeText(fullText);
-      setCopied(true);
-      setOpen(false);
-      setTimeout(() => setCopied(false), 2000);
-    } catch { /* clipboard unavailable */ }
-  };
-
-  const shareX = () => {
-    const text = encodeURIComponent(`"${title}"\n\n— Zero-Vector Design\nzerovector.design`);
-    window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
-    setOpen(false);
-  };
-
-  const shareLinkedIn = () => {
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://zerovector.design')}`, '_blank');
-    setOpen(false);
-  };
-
-  return (
-    <div className="zv-principle-share" ref={ref}>
-      <button
-        className={`zv-principle-share-trigger ${copied ? 'zv-principle-share-copied' : ''}`}
-        onClick={() => setOpen(!open)}
-        aria-label="Share this principle"
-      >
-        {copied ? 'Copied' : 'Share'}
-      </button>
-      {open && (
-        <div className="zv-principle-share-menu">
-          <button onClick={copyText}>Copy text</button>
-          <button onClick={shareX}>Post to X</button>
-          <button onClick={shareLinkedIn}>Share on LinkedIn</button>
-        </div>
-      )}
-    </div>
-  );
-}
-
 const { home, recommendedReading } = en;
 
 function ManifestoPage() {
@@ -153,25 +46,6 @@ function ManifestoPage() {
     }
   }, [booted, declarationVisible]);
   const [pipelineExpanded, setPipelineExpanded] = useState(false);
-  const [openPrinciples, setOpenPrinciples] = useState(new Set());
-  const allPrinciplesOpen = openPrinciples.size === home.principles.items.length;
-
-  const toggleAllPrinciples = () => {
-    if (allPrinciplesOpen) {
-      setOpenPrinciples(new Set());
-    } else {
-      setOpenPrinciples(new Set(home.principles.items.map((_, i) => i)));
-    }
-  };
-
-  const togglePrinciple = (index) => {
-    setOpenPrinciples(prev => {
-      const next = new Set(prev);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
-      return next;
-    });
-  };
 
   useSEO({
     title: 'Zero-Vector Design',
@@ -330,40 +204,33 @@ function ManifestoPage() {
           <Animate>
             <SectionHeader number={home.principles.number} title={home.principles.title} />
           </Animate>
-          <div className="zv-principles-layout">
-            <div className="zv-principles-left">
-              <Animate delay={1}>
-                <p className="zv-body-text zv-principles-intro">{home.principles.intro}</p>
-              </Animate>
-              <Animate>
-                <div className="zv-principle-zero-home">
-                  <div className="zv-principle-zero-home-numeral">PRINCIPLE ZERO</div>
-                  <div className="zv-principle-zero-home-text">{home.principles.principle_zero}</div>
+          <Animate delay={1}>
+            <p className="zv-body-text zv-principles-intro">{home.principles.intro}</p>
+          </Animate>
+          <Animate>
+            <div className="zv-principle-zero-home">
+              <div className="zv-principle-zero-home-numeral">PRINCIPLE ZERO</div>
+              <div className="zv-principle-zero-home-text">{home.principles.principle_zero}</div>
+            </div>
+          </Animate>
+          <div className="zv-principles-list">
+            {home.principles.items.map((p, i) => (
+              <Animate key={i}>
+                <div className="zv-principle-summary">
+                  <div className="zv-principle-summary-numeral">{p.numeral}</div>
+                  <div className="zv-principle-summary-content">
+                    <h3 className="zv-principle-summary-title">{p.title}</h3>
+                    <p className="zv-principle-summary-body">{p.body}</p>
+                  </div>
                 </div>
               </Animate>
-            </div>
-            <div className="zv-principles-right">
-              <div className="zv-principles-expand-row">
-                <button
-                  className="zv-principles-expand-toggle"
-                  onClick={toggleAllPrinciples}
-                >
-                  {allPrinciplesOpen ? 'Collapse all' : 'Expand all'}
-                </button>
-              </div>
-              <div className="zv-principles-grid">
-                {home.principles.items.map((p, i) => (
-                  <Animate key={i}>
-                    <PrincipleCard
-                      principle={p}
-                      open={openPrinciples.has(i)}
-                      onToggle={() => togglePrinciple(i)}
-                    />
-                  </Animate>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
+          <Animate>
+            <Link to="/philosophy" className="zv-principles-cta">
+              Explore the principles <ArrowIcon size={16} />
+            </Link>
+          </Animate>
         </div>
       </section>
 
