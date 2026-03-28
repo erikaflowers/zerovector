@@ -11,16 +11,6 @@ const origin = {
     'The gap between what I could see in my head and what actually got built. The handoff. The translation layer. The "that\'s not what I meant" moment in sprint review. Every designer knows it. I spent three decades trying to close it. Zero-Vector is what happened when I finally did.',
   ],
 
-  nasa: {
-    label: 'NASA',
-    role: 'Principal Service Designer',
-    team: 'AI Innovation Team Lead',
-    body: [
-      'I lead service design at NASA. When your stakeholders include astronauts, mission controllers, and engineers building hardware that cannot fail, "good enough" is not a concept that exists. Systems thinking is not a buzzword here. It is how you keep humans alive in space.',
-      'In aerospace, "zero vector" means a state of no relative motion, perfect stillness between two objects. No drift. No error. Complete alignment between intent and position. That is what I wanted for design: zero distance between what you envision and what gets built. No drift between intent and artifact.',
-    ],
-  },
-
   ai_journey: {
     title: 'The AI Journey',
     paragraphs: [
@@ -43,15 +33,6 @@ const origin = {
     { id: 'headshot', alt: 'Erika Flowers', src: '/images/origin-headshot.png' },
     { id: 'speaking', alt: 'Speaking at NN/g', src: '/images/origin-speaking.png' },
     { id: 'building', alt: 'Building with AI agents', src: '/images/origin-building.png' },
-  ],
-
-  credentials: [
-    { label: 'Years in Design', value: '31' },
-    { label: 'Current Role', value: 'Principal Service Designer, NASA' },
-    { label: 'Specialization', value: 'Service Design, Systems Thinking, AI Innovation' },
-    { label: 'Published Author', value: 'The Dauntless Gambit series (400,000+ words)' },
-    { label: 'Speaking', value: 'Nielsen Norman Group, NASA, federal agencies' },
-    { label: 'Built', value: 'Fictioneer, AI-powered story development platform' },
   ],
 
   author: {

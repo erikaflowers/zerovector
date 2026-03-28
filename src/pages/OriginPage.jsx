@@ -38,8 +38,8 @@ function OriginPage() {
         </div>
       </section>
 
-      {/* Photo Placeholders */}
-      <section className="zv-section" style={{ paddingTop: 0 }}>
+      {/* Photos */}
+      <section className="zv-section zv-origin-photos-section">
         <div className="zv-container">
           <Animate>
             <div className="zv-origin-photos">
@@ -101,7 +101,7 @@ function OriginPage() {
             <h2 className="zv-section-title">{origin.crew.title}</h2>
             <p className="zv-section-subtitle">{origin.crew.subtitle}</p>
           </Animate>
-          <div className="zv-crew-grid" style={{ marginTop: 48 }}>
+          <div className="zv-crew-grid">
             {origin.crew.members.map((member, i) => (
               <Animate key={i}>
                 <div className="zv-crew-card">
@@ -115,30 +115,28 @@ function OriginPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Closing */}
       <section className="zv-section">
         <div className="zv-container">
           <Animate>
-            <p className="zv-body-text" style={{ marginBottom: 24 }}>{origin.cta.text}</p>
-            <a
-              href={origin.cta.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="zv-cta zv-cta-outline"
-            >
-              {origin.cta.label} <ExternalLinkIcon size={16} />
-            </a>
-          </Animate>
-          <Animate delay={1}>
-            <div className="zv-page-next-steps" style={{ marginTop: 48 }}>
-              <p className="zv-body-text" style={{ marginBottom: 24 }}>Ready to start building?</p>
-              <div className="zv-page-next-links">
-                <Link to="/start" className="zv-cta">Where To Start <ArrowIcon size={14} /></Link>
-                <Link to="/for-builders" className="zv-cta zv-cta-outline">For Builders <ArrowIcon size={14} /></Link>
-              </div>
-              <div style={{ marginTop: 32 }}>
-                <p className="zv-closing-notify-text">Get notified when new Zero Vector content drops.</p>
-                <NotifyForm variant="light" tag="zerovector" />
+            <div className="zv-page-next-steps">
+              <div className="zv-philosophy-closing">
+                <div className="zv-philosophy-closing-primary">
+                  <h2 className="zv-section-title">What Comes Next</h2>
+                  <p className="zv-body-text">{origin.cta.text}</p>
+                  <div className="zv-philosophy-closing-actions">
+                    <a href={origin.cta.url} target="_blank" rel="noopener noreferrer" className="zv-cta">
+                      {origin.cta.label} <ExternalLinkIcon size={16} />
+                    </a>
+                    <Link to="/for-builders" className="zv-cta zv-cta-outline">Start Building <ArrowIcon size={14} /></Link>
+                  </div>
+                </div>
+                <div className="zv-philosophy-closing-secondary">
+                  <div className="zv-philosophy-closing-block">
+                    <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
+                    <NotifyForm variant="light" tag="zerovector" />
+                  </div>
+                </div>
               </div>
             </div>
           </Animate>

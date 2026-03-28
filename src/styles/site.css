@@ -1768,6 +1768,7 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  margin-top: 48px;
 }
 
 .zv-crew-card {
@@ -3384,35 +3385,6 @@ a:hover {
 }
 
 /* --- Credentials (About) --- */
-.zv-credentials {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  border-top: 1px solid var(--void-border);
-  padding-top: 48px;
-}
-
-.zv-credential {
-  padding-bottom: 24px;
-}
-
-.zv-credential-label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--cyan-dim);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.zv-credential-value {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--text-primary);
-  line-height: 1.5;
-}
-
 /* --- Resource Cards --- */
 .zv-resource-list {
   display: flex;
@@ -4238,53 +4210,9 @@ a:hover {
 }
 
 /* --- Origin Page — NASA Block --- */
-.zv-origin-name {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
-  font-weight: 700;
-  color: var(--cyan);
-  line-height: 1.3;
-}
-
-.zv-origin-nasa {
-  margin-bottom: 40px;
-}
-
-.zv-origin-nasa-header {
-  padding: 40px;
-  border: 1px solid var(--void-border);
-  background: var(--void-elevated);
-  border-left: 3px solid var(--cyan);
-}
-
-.zv-origin-nasa-label {
-  font-family: var(--font-mono);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: 0.15em;
-  margin-bottom: 8px;
-}
-
-.zv-origin-nasa-role {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 600;
-  color: var(--cyan);
-  margin-bottom: 4px;
-}
-
-.zv-origin-nasa-team {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--text-secondary);
-  letter-spacing: 0.05em;
-}
-
-@media (max-width: 768px) {
-  .zv-origin-nasa-header {
-    padding: 28px 24px;
-  }
+/* --- Origin: photos section tight to intro --- */
+.zv-origin-photos-section {
+  padding-top: 0;
 }
 
 /* --- Misconceptions (What ZV Is Not) --- */
@@ -5216,10 +5144,6 @@ a:hover {
     flex-direction: column;
   }
 
-  .zv-credentials {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
 
   .zv-decrypt-anchor {
     display: inline;
