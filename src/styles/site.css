@@ -3128,21 +3128,21 @@ a:hover {
   padding: 24px;
   border: 1px solid var(--void-border);
   background: var(--void-elevated);
-  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  border-radius: 4px;
+  transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
   text-decoration: none;
 }
 
 .zv-resource-card:hover {
-  border-color: var(--cyan-subtle);
-  box-shadow: 0 0 24px rgba(0, 255, 255, 0.05);
-  text-shadow: none;
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
 }
 
 .zv-resource-card-type {
   font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--cyan-dim);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--orange);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -4698,25 +4698,25 @@ a:hover {
   flex-direction: column;
   padding: 32px;
   border: 1px solid var(--void-border);
+  border-left: 3px solid var(--cyan);
   background: var(--void-elevated);
+  border-radius: 4px;
   text-decoration: none;
-  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out);
+  transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
 }
 
 .zv-media-featured-card:hover {
-  border-color: rgba(0, 255, 255, 0.2);
-  background: rgba(0, 255, 255, 0.02);
-  color: var(--text-primary);
-  text-shadow: none;
+  border-color: var(--cyan);
+  transform: translateY(-2px);
 }
 
 .zv-media-featured-type {
   font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 0.65rem;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--orange);
   margin-bottom: 12px;
 }
 
@@ -4740,12 +4740,17 @@ a:hover {
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--cyan);
   margin-top: 20px;
+  transition: color 0.2s;
+}
+
+.zv-media-featured-card:hover .zv-media-featured-cta {
+  color: var(--orange);
 }
 
 /* ============================================
