@@ -625,13 +625,13 @@ a:hover {
 }
 
 .zv-closing-paths .zv-path-card {
-  background: rgba(17, 17, 17, 0.08);
-  border-color: rgba(17, 17, 17, 0.12);
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 .zv-closing-paths .zv-path-card:hover {
   border-color: #111;
-  background: rgba(17, 17, 17, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .zv-closing-paths .zv-path-eyebrow {
@@ -658,17 +658,18 @@ a:hover {
   gap: 8px;
   padding: 24px 28px;
   margin-top: 32px;
-  border: 1.5px solid rgba(17, 17, 17, 0.2);
-  background: rgba(17, 17, 17, 0.06);
+  border: 1.5px solid #00ff88;
+  background: #0a1a10;
   border-radius: 4px;
   text-decoration: none;
   transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out);
 }
 
 .zv-open-vector-card:hover {
-  border-color: #111;
-  background: rgba(17, 17, 17, 0.1);
+  border-color: #33ffaa;
+  background: #0d2015;
   transform: translateY(-2px);
+  box-shadow: 0 2px 20px rgba(0, 255, 136, 0.15);
 }
 
 .zv-open-vector-card-badge {
@@ -677,8 +678,8 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #fff;
-  background: #111;
+  color: #0a0a0a;
+  background: #00ff88;
   padding: 3px 10px;
   border-radius: 2px;
   align-self: flex-start;
@@ -688,20 +689,20 @@ a:hover {
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
-  color: #111;
+  color: #fff;
 }
 
 .zv-open-vector-card-desc {
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: rgba(17, 17, 17, 0.65);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
 }
 
 .zv-open-vector-card-cta {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: #111;
+  color: #00ff88;
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
@@ -7694,9 +7695,12 @@ code.inv-skills-entry-meta-value {
 
 /* --- Announcement Card --- */
 .zv-start-announcement {
-  border: 1px solid var(--cyan);
-  padding: 40px;
+  border: 1px solid var(--void-border);
+  border-left: 3px solid var(--orange);
+  padding: 36px;
+  border-radius: 4px;
   position: relative;
+  background: var(--void-elevated);
 }
 
 .zv-start-announcement-placeholder {
@@ -7706,9 +7710,9 @@ code.inv-skills-entry-meta-value {
 
 .zv-start-announcement-label {
   font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--cyan);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--orange);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -7731,19 +7735,19 @@ code.inv-skills-entry-meta-value {
 }
 
 .zv-start-announcement-cta {
-  font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--cyan);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: color 0.3s var(--ease-out);
+  transition: color 0.2s;
 }
 
 .zv-start-announcement-cta:hover {
-  color: var(--text-primary);
+  color: var(--orange);
 }
 
 .zv-start-announcement-cta-disabled {
@@ -7814,21 +7818,22 @@ code.inv-skills-entry-meta-value {
   text-decoration: none;
   background: #ffffff;
   padding: 48px 40px;
-  transition: all 0.3s var(--ease-out);
+  border-radius: 4px;
+  transition: all 0.2s var(--ease-out);
   position: relative;
   width: 100%;
 }
 
 .zv-start-action-card:hover {
-  box-shadow: 0 8px 40px rgba(255, 0, 128, 0.15);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
 }
 
 .zv-start-action-eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--magenta);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--orange);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -7851,18 +7856,18 @@ code.inv-skills-entry-meta-value {
 }
 
 .zv-start-action-cta {
-  font-family: var(--font-display);
-  font-size: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--magenta);
+  color: var(--orange);
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: color 0.3s var(--ease-out);
+  transition: color 0.2s;
 }
 
 .zv-start-action-card:hover .zv-start-action-cta {
-  color: #111;
+  color: var(--orange-dim);
 }
 
 /* --- Start Page Responsive --- */

@@ -175,7 +175,7 @@ const home = {
       title: 'The Open Vector',
       description: 'The full Zero-Vector curriculum. Free. Always free. Six levels, 60+ lessons, approach guides, and AI-powered learning tools.',
       cta: 'Start Learning',
-      link: 'https://open.zerovector.design/learn',
+      link: 'https://open.zerovector.design',
     },
     substack: {
       text: 'Stay informed. New writing on design, AI, and building things that matter.',

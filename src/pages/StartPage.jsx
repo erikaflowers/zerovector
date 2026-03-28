@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
+import PageClosing from '../components/PageClosing';
 import Animate from '../components/Animate';
 import { ExternalLinkIcon, ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
@@ -77,27 +77,12 @@ function StartPage() {
         </div>
       </section>
 
-      {/* Connect */}
-      <section className="zv-section">
-        <div className="zv-container">
-          <Animate>
-            <h2 className="zv-section-title">{start.connect.title}</h2>
-          </Animate>
-          <div className="zv-start-connect zv-start-connect--spaced">
-            {start.connect.items.map((item, i) => (
-              <Animate key={i} delay={i + 1}>
-                <a href={item.url} target="_blank" rel="noopener noreferrer" className="zv-start-connect-card">
-                  <h3 className="zv-start-connect-card-title">{item.title}</h3>
-                  <p className="zv-start-connect-card-desc">{item.description}</p>
-                  <span className="zv-start-connect-card-cta">{item.cta} <ExternalLinkIcon size={14} /></span>
-                </a>
-              </Animate>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Footer />
+      <PageClosing
+        headline="Connect"
+        body="Follow the work, subscribe to the writing, and join the conversation."
+        primaryCta={{ label: "Follow on LinkedIn", href: "https://www.linkedin.com/in/helloeflowers/" }}
+        secondaryCta={{ label: "Subscribe on Substack", href: "https://eflowers.substack.com" }}
+      />
     </div>
   );
 }

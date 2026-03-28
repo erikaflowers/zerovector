@@ -7,8 +7,7 @@ const start = {
   subtitle: 'You read the manifesto. You felt it. Now here is how to start.',
 
   intro: [
-    'Zero-Vector Design is not something you watch from the sidelines. It is something you practice. Every person who picks up the principles and builds something real makes the movement stronger.',
-    'Whether you are a designer who has never opened a terminal, an engineer who wants to think more like a designer, or a leader who wants to transform how your organization ships, there is a path for you. Start here.',
+    'Zero-Vector is something you practice, not something you watch. Whether you are a designer who has never opened a terminal, an engineer who wants to think more like a designer, or a leader transforming how your organization ships, there is a path for you.',
   ],
 
   announcement: {
@@ -50,7 +49,7 @@ const start = {
       title: 'The Open Vector',
       description: 'The full Zero-Vector curriculum. Now live. Free. Always free. From "I have never opened a terminal" to "I ship my own vision."',
       cta: "Start Learning. It's Free",
-      url: 'https://open.zerovector.design/learn',
+      url: 'https://open.zerovector.design',
     },
   },
 };
