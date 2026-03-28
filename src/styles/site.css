@@ -4446,21 +4446,21 @@ a:hover {
 
 .zv-philosophy-principle-why {
   font-size: 0.9rem;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   line-height: 1.65;
   padding-left: 16px;
-  border-left: 2px solid rgba(255, 255, 255, 0.06);
+  border-left: 2px solid rgba(255, 255, 255, 0.08);
 }
 
 .zv-philosophy-principle-detail {
   margin-top: 16px;
   padding-left: 16px;
-  border-left: 2px solid rgba(255, 255, 255, 0.04);
+  border-left: 2px solid rgba(255, 255, 255, 0.06);
 }
 
 .zv-philosophy-principle-detail-text {
   font-size: 0.9rem;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: 12px;
 }
@@ -4549,29 +4549,68 @@ a:hover {
   margin-top: 64px;
 }
 
-.zv-section--arc {
-  padding-top: 100px;
+/* Arc + Lineage combined split */
+.zv-arc-lineage-split {
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 40px;
 }
 
-.zv-philosophy-closing-body {
+.zv-arc-lineage-left {
+  position: sticky;
+  top: 100px;
+}
+
+@media (max-width: 768px) {
+  .zv-arc-lineage-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .zv-arc-lineage-left {
+    position: static;
+  }
+}
+
+/* Philosophy closing — two column */
+.zv-philosophy-closing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.zv-philosophy-closing-primary .zv-body-text {
   margin-bottom: 24px;
 }
 
-.zv-philosophy-name-teaser {
-  margin-top: 40px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+.zv-philosophy-closing-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.zv-philosophy-name-teaser .zv-body-text {
-  font-style: italic;
-  color: var(--text-tertiary);
-  font-size: 0.95rem;
+.zv-philosophy-closing-secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 8px;
+}
+
+.zv-philosophy-closing-block-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
   margin-bottom: 12px;
 }
 
-.zv-philosophy-closing-notify {
-  margin-top: 32px;
+@media (max-width: 768px) {
+  .zv-philosophy-closing {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 /* ============================================
@@ -4592,7 +4631,8 @@ a:hover {
 .zv-approach-phase-number {
   font-family: var(--font-mono);
   font-size: 14px;
-  color: var(--cyan);
+  font-weight: 700;
+  color: var(--orange);
   letter-spacing: 0.1em;
 }
 
@@ -4616,13 +4656,15 @@ a:hover {
 }
 
 .zv-approach-phase-zv .zv-approach-column-label {
-  color: var(--cyan);
+  color: var(--orange);
+  font-weight: 700;
 }
 
 .zv-approach-phase-zv {
   padding: 32px;
-  background: rgba(0, 255, 255, 0.02);
-  border: 1px solid rgba(0, 255, 255, 0.08);
+  background: rgba(255, 107, 26, 0.02);
+  border: 1px solid rgba(255, 107, 26, 0.08);
+  border-radius: 4px;
 }
 
 /* ============================================

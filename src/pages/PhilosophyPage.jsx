@@ -103,62 +103,62 @@ function PhilosophyPage() {
         </div>
       </section>
 
-      {/* The Arc — replaces Double Diamond */}
-      <section className="zv-section zv-section--arc">
-        <div className="zv-container">
-          <Animate>
-            <h2 className="zv-section-title">{philosophy.arc.title}</h2>
-            <p className="zv-section-subtitle">{philosophy.arc.intro}</p>
-          </Animate>
-          {philosophy.arc.paragraphs.map((p, i) => (
-            <Animate key={i} delay={Math.min(i + 1, 2)}>
-              <p className="zv-body-text">{p}</p>
-            </Animate>
-          ))}
-        </div>
-      </section>
-
-      {/* The Lineage — Timeline */}
+      {/* The Arc + Lineage — combined */}
       <section className="zv-section zv-section--timeline">
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">{home.timeline.title}</h2>
             <p className="zv-section-subtitle">{home.timeline.subtitle}</p>
           </Animate>
-          <div className="zv-timeline" style={{ marginTop: 48 }}>
-            {home.timeline.entries.map((entry, i) => (
-              <Animate key={i}>
-                <div className="zv-timeline-entry">
-                  <div className="zv-timeline-year">{entry.year}</div>
-                  <div className="zv-timeline-milestone">{entry.milestone}</div>
-                  <div className="zv-timeline-desc">{entry.description}</div>
-                </div>
-              </Animate>
-            ))}
+          <div className="zv-arc-lineage-split">
+            <div className="zv-arc-lineage-left">
+              {philosophy.arc.paragraphs.map((p, i) => (
+                <Animate key={i} delay={Math.min(i + 1, 2)}>
+                  <p className="zv-body-text">{p}</p>
+                </Animate>
+              ))}
+            </div>
+            <div className="zv-arc-lineage-right">
+              <div className="zv-timeline">
+                {home.timeline.entries.map((entry, i) => (
+                  <Animate key={i}>
+                    <div className="zv-timeline-entry">
+                      <div className="zv-timeline-year">{entry.year}</div>
+                      <div className="zv-timeline-milestone">{entry.milestone}</div>
+                      <div className="zv-timeline-desc">{entry.description}</div>
+                    </div>
+                  </Animate>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Closing — Name Origin + Next Steps combined */}
+      {/* Closing */}
       <section className="zv-section">
         <div className="zv-container">
           <Animate>
-            <div className="zv-page-next-steps">
-              <h2 className="zv-section-title">See It In Practice</h2>
-              <p className="zv-body-text zv-philosophy-closing-body">The philosophy becomes real when you start building with it. See what Zero-Vector looks like in practice, or take the assessment to find out where you stand.</p>
-              <div className="zv-page-next-links">
-                <Link to="/for-builders" className="zv-cta">Start Building <ArrowIcon size={14} /></Link>
-                <Link to="/quiz" className="zv-cta zv-cta-outline">Take the Quiz <ArrowIcon size={14} /></Link>
+            <div className="zv-philosophy-closing">
+              <div className="zv-philosophy-closing-primary">
+                <h2 className="zv-section-title">See It In Practice</h2>
+                <p className="zv-body-text">The philosophy becomes real when you start building with it.</p>
+                <div className="zv-philosophy-closing-actions">
+                  <Link to="/for-builders" className="zv-cta">Start Building <ArrowIcon size={14} /></Link>
+                  <Link to="/quiz" className="zv-cta zv-cta-outline">Take the Quiz <ArrowIcon size={14} /></Link>
+                </div>
               </div>
-              <div className="zv-philosophy-name-teaser">
-                <p className="zv-body-text">{philosophy.name_origin.teaser}</p>
-                <Link to="/name" className="zv-name-teaser-cta">
-                  Why "Zero Vector"? <ArrowIcon size={16} />
-                </Link>
-              </div>
-              <div className="zv-philosophy-closing-notify">
-                <p className="zv-closing-notify-text">Get notified when new Zero Vector content drops.</p>
-                <NotifyForm variant="light" tag="zerovector" />
+              <div className="zv-philosophy-closing-secondary">
+                <div className="zv-philosophy-closing-block">
+                  <p className="zv-philosophy-closing-block-text">{philosophy.name_origin.teaser}</p>
+                  <Link to="/name" className="zv-name-teaser-cta">
+                    Why "Zero Vector"? <ArrowIcon size={16} />
+                  </Link>
+                </div>
+                <div className="zv-philosophy-closing-block">
+                  <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
+                  <NotifyForm variant="light" tag="zerovector" />
+                </div>
               </div>
             </div>
           </Animate>
