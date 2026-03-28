@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
+import PageClosing from '../components/PageClosing';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
 import { useUser } from '../contexts/UserContext';
@@ -285,7 +285,12 @@ function JoinPage() {
             </Animate>
           </div>
         </section>
-        <Footer />
+        <PageClosing
+          headline="Explore Zero-Vector"
+          body="Learn the philosophy, see the approach, or start building."
+          primaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
+          secondaryCta={{ label: "Start Building", to: "/for-builders" }}
+        />
       </div>
     );
   }
@@ -299,7 +304,7 @@ function JoinPage() {
       <PageHero eyebrow={join.eyebrow} title={join.title} subtitle={join.subtitle} />
 
       {/* Shackleton Quote */}
-      <section className="zv-section" style={{ paddingTop: 0 }}>
+      <section className="zv-section zv-join-quote-section">
         <div className="zv-container">
           <Animate>
             <blockquote className="zv-join-quote">
@@ -487,7 +492,12 @@ function JoinPage() {
         </div>
       </section>
 
-      <Footer />
+      <PageClosing
+        headline="Explore Zero-Vector"
+        body="Learn the philosophy, see the approach, or start building."
+        primaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
+        secondaryCta={{ label: "Start Building", to: "/for-builders" }}
+      />
     </div>
   );
 }
