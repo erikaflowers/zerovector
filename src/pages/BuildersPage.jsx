@@ -4,6 +4,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
+import NotifyForm from '../components/NotifyForm';
 import { ExternalLinkIcon, ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
@@ -38,7 +39,7 @@ function BuildersPage() {
             </Animate>
           ))}
           <Animate delay={3}>
-            <Link to="/start" className="zv-cta" style={{ marginTop: 16 }}>Start Building <ArrowIcon size={14} /></Link>
+            <Link to="/start" className="zv-cta zv-builders-start-cta">Start Building <ArrowIcon size={14} /></Link>
           </Animate>
         </div>
       </section>
@@ -75,7 +76,7 @@ function BuildersPage() {
             <h2 className="zv-section-title">{builders.reading_list.title}</h2>
             <p className="zv-section-subtitle">{builders.reading_list.subtitle}</p>
           </Animate>
-          <div className="zv-resource-list" style={{ marginTop: 32 }}>
+          <div className="zv-resource-list zv-resource-list--spaced">
             {builders.reading_list.books.map((book, i) => (
               <Animate key={i}>
                 <a href={book.url} target="_blank" rel="noopener noreferrer" className="zv-resource-card">
@@ -94,7 +95,7 @@ function BuildersPage() {
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">{builders.coaching.title}</h2>
-            <p className="zv-body-text" style={{ marginBottom: 32 }}>{builders.coaching.description}</p>
+            <p className="zv-body-text zv-builders-coaching-desc">{builders.coaching.description}</p>
             <a href={builders.coaching.link} className="zv-cta zv-cta-outline">{builders.coaching.cta}</a>
           </Animate>
         </div>
@@ -126,7 +127,7 @@ function BuildersPage() {
             <h2 className="zv-section-title">{builders.community.title}</h2>
             <p className="zv-section-subtitle">{builders.community.subtitle}</p>
           </Animate>
-          <div className="zv-builders-community" style={{ marginTop: 32 }}>
+          <div className="zv-builders-community zv-builders-community--spaced">
             {builders.community.channels.map((channel, i) => (
               <Animate key={i}>
                 <div className="zv-builders-community-card">
@@ -148,13 +149,27 @@ function BuildersPage() {
         </div>
       </section>
 
-      {/* Quiz CTA */}
+      {/* Closing */}
       <section className="zv-section">
         <div className="zv-container">
           <Animate>
-            <div className="zv-builders-quiz-cta">
-              <p className="zv-body-text">Not sure where you stand? Take the quiz.</p>
-              <Link to="/quiz" className="zv-cta zv-cta-outline">Am I Vibe Coding? <ArrowIcon size={14} /></Link>
+            <div className="zv-page-next-steps">
+              <div className="zv-philosophy-closing">
+                <div className="zv-philosophy-closing-primary">
+                  <h2 className="zv-section-title">Not Sure Where You Stand?</h2>
+                  <p className="zv-body-text">Take the quiz to find out if you are building with intention or just vibe coding.</p>
+                  <div className="zv-philosophy-closing-actions">
+                    <Link to="/quiz" className="zv-cta">Am I Vibe Coding? <ArrowIcon size={14} /></Link>
+                    <Link to="/philosophy" className="zv-cta zv-cta-outline">Read the Philosophy <ArrowIcon size={14} /></Link>
+                  </div>
+                </div>
+                <div className="zv-philosophy-closing-secondary">
+                  <div className="zv-philosophy-closing-block">
+                    <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
+                    <NotifyForm variant="light" tag="zerovector" />
+                  </div>
+                </div>
+              </div>
             </div>
           </Animate>
         </div>

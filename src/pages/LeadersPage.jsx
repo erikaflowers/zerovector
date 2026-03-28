@@ -4,6 +4,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
+import NotifyForm from '../components/NotifyForm';
 import { ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
@@ -133,24 +134,29 @@ function LeadersPage() {
         </div>
       </section>
 
-      {/* Contact */}
+      {/* Closing */}
       <section className="zv-section">
         <div className="zv-container">
           <Animate>
-            <h2 className="zv-section-title">{leaders.contact.title}</h2>
-            <p className="zv-body-text" style={{ marginBottom: 32 }}>{leaders.contact.description}</p>
-            <a href={leaders.contact.link} target="_blank" rel="noopener noreferrer" className="zv-cta">
-              {leaders.contact.cta}
-            </a>
-          </Animate>
-          <Animate delay={1}>
-            <div className="zv-leaders-explore">
-              <Link to="/for-enterprise" className="zv-cta zv-cta-outline" style={{ marginTop: 24 }}>
-                See Enterprise Transformation <ArrowIcon size={14} />
-              </Link>
-              <a href="https://open.zerovector.design/learn" className="zv-cta zv-cta-outline" style={{ marginTop: 12 }}>
-                Explore the Open Vector Curriculum <ArrowIcon size={14} />
-              </a>
+            <div className="zv-page-next-steps">
+              <div className="zv-philosophy-closing">
+                <div className="zv-philosophy-closing-primary">
+                  <h2 className="zv-section-title">{leaders.contact.title}</h2>
+                  <p className="zv-body-text">{leaders.contact.description}</p>
+                  <div className="zv-philosophy-closing-actions">
+                    <a href={leaders.contact.link} target="_blank" rel="noopener noreferrer" className="zv-cta">
+                      {leaders.contact.cta}
+                    </a>
+                    <Link to="/for-enterprise" className="zv-cta zv-cta-outline">Enterprise Transformation <ArrowIcon size={14} /></Link>
+                  </div>
+                </div>
+                <div className="zv-philosophy-closing-secondary">
+                  <div className="zv-philosophy-closing-block">
+                    <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
+                    <NotifyForm variant="light" tag="zerovector" />
+                  </div>
+                </div>
+              </div>
             </div>
           </Animate>
         </div>

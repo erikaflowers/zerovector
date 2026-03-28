@@ -4685,19 +4685,11 @@ a:hover {
   color: var(--cyan);
 }
 
-.zv-builders-quiz-cta {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 32px;
-  border: 1px solid var(--void-border);
-  background: var(--void-elevated);
-}
-
-.zv-builders-quiz-cta .zv-body-text {
-  margin-bottom: 0;
-  flex: 1;
-}
+/* Builders inline style replacements */
+.zv-builders-start-cta { margin-top: 16px; }
+.zv-resource-list--spaced { margin-top: 32px; }
+.zv-builders-coaching-desc { margin-bottom: 32px; }
+.zv-builders-community--spaced { margin-top: 32px; }
 
 /* ============================================
    Media Page — Featured Cards
@@ -5332,12 +5324,6 @@ a:hover {
 
   .zv-builders-community {
     grid-template-columns: 1fr;
-  }
-
-  .zv-builders-quiz-cta {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
   }
 
   /* Media: stack featured cards */
