@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import SectionHeader from '../components/SectionHeader';
 import DecryptText from '../components/DecryptText';
 import { ArrowIcon } from '../components/icons';
@@ -318,13 +317,20 @@ function ManifestoPage() {
           <Animate delay={1}>
             <div className="zv-closing-notify">
               <p className="zv-closing-notify-text">Get notified when new Zero Vector content drops.</p>
-              <NotifyForm variant="light" tag="zerovector" />
+              <NotifyForm variant="orange" tag="zerovector" />
             </div>
           </Animate>
+          <nav className="zv-page-closing-nav" aria-label="Site navigation">
+            <a href="https://open.zerovector.design">Open Vector</a>
+            <Link to="/investiture">Investiture</Link>
+            <Link to="/start">Get Started</Link>
+            <Link to="/quiz">Quiz</Link>
+            <a href="https://eflowers.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
+            <a href="https://www.linkedin.com/in/helloeflowers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://helloerikaflowers.com" target="_blank" rel="noopener noreferrer">helloerikaflowers.com</a>
+          </nav>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

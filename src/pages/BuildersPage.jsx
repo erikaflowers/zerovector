@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
 import PageClosing from '../components/PageClosing';
@@ -156,7 +155,6 @@ function BuildersPage() {
         secondaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
       />
 
-      <Footer />
     </div>
   );
 }

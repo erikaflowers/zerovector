@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import DecryptText from '../components/DecryptText';
 import Animate from '../components/Animate';
 import PageClosing from '../components/PageClosing';
@@ -130,7 +129,6 @@ function NamePage() {
         secondaryCta={{ label: "The Manifesto", to: "/" }}
       />
 
-      <Footer />
     </div>
   );
 }

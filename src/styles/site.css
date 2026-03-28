@@ -575,8 +575,9 @@ a:hover {
 
 /* --- 007 Closing: The Directive (Inverted) --- */
 .zv-section--closing {
-  background: #ffffff;
+  background: linear-gradient(135deg, #FF6B1A, #E05A10);
   padding-top: calc(var(--section-padding) + 40px);
+  margin-top: 80px;
 }
 
 .zv-section--closing .zv-container {
@@ -592,24 +593,29 @@ a:hover {
 }
 
 .zv-section--closing .zv-section-number {
-  color: #007a7a;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.zv-section--closing .zv-section-number::before {
+  background: rgba(17, 17, 17, 0.3);
+  box-shadow: none;
 }
 
 .zv-section--closing .zv-section-title {
-  color: #0a0a0a;
+  color: #111;
 }
 
 .zv-section--closing .zv-body-text {
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
-  color: #333;
+  color: rgba(17, 17, 17, 0.7);
 }
 
 .zv-section--closing .zv-closing-permission {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 600;
-  color: #007a7a;
+  color: #111;
   line-height: 1.35;
 }
 
@@ -619,29 +625,29 @@ a:hover {
 }
 
 .zv-closing-paths .zv-path-card {
-  background: #f5f5f5;
-  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(17, 17, 17, 0.08);
+  border-color: rgba(17, 17, 17, 0.12);
 }
 
 .zv-closing-paths .zv-path-card:hover {
-  border-color: #007a7a;
-  box-shadow: 0 0 24px rgba(0, 122, 122, 0.08);
+  border-color: #111;
+  background: rgba(17, 17, 17, 0.12);
 }
 
 .zv-closing-paths .zv-path-eyebrow {
-  color: #007a7a;
+  color: rgba(17, 17, 17, 0.5);
 }
 
 .zv-closing-paths .zv-path-title {
-  color: #0a0a0a;
+  color: #111;
 }
 
 .zv-closing-paths .zv-path-desc {
-  color: #444;
+  color: rgba(17, 17, 17, 0.65);
 }
 
 .zv-closing-paths .zv-path-cta {
-  color: #007a7a;
+  color: #111;
 }
 
 /* --- Featured Article Banner (homepage) --- */
@@ -652,27 +658,29 @@ a:hover {
   gap: 8px;
   padding: 24px 28px;
   margin-top: 32px;
-  border: 1px solid #00ff88;
-  background: #0a1a10;
+  border: 1.5px solid rgba(17, 17, 17, 0.2);
+  background: rgba(17, 17, 17, 0.06);
+  border-radius: 4px;
   text-decoration: none;
-  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out);
 }
 
 .zv-open-vector-card:hover {
-  border-color: #33ffaa;
-  background: #0d2015;
-  box-shadow: 0 2px 20px rgba(0, 255, 136, 0.15);
+  border-color: #111;
+  background: rgba(17, 17, 17, 0.1);
+  transform: translateY(-2px);
 }
 
 .zv-open-vector-card-badge {
   font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 0.6rem;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #0a0a0a;
-  background: #00ff88;
+  color: #fff;
+  background: #111;
   padding: 3px 10px;
+  border-radius: 2px;
   align-self: flex-start;
 }
 
@@ -680,20 +688,20 @@ a:hover {
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
-  color: #fff;
+  color: #111;
 }
 
 .zv-open-vector-card-desc {
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(17, 17, 17, 0.65);
   line-height: 1.5;
 }
 
 .zv-open-vector-card-cta {
   font-family: var(--font-mono);
-  font-size: 12px;
-  color: #00ff88;
+  font-size: 0.75rem;
+  color: #111;
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
@@ -847,10 +855,18 @@ a:hover {
 
 .zv-closing-notify {
   text-align: center;
-  margin-top: 16px;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.zv-section--closing .zv-closing-notify-text {
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.zv-section--closing .zv-closing-divider {
+  background: rgba(17, 17, 17, 0.12);
 }
 
 .zv-closing-notify-text {
