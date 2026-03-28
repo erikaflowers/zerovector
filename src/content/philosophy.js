@@ -7,8 +7,8 @@ const philosophy = {
   subtitle: 'A set of principles, an approach, and a community. Here is what Zero-Vector actually is, and why it exists.',
 
   what_it_is: [
-    'Zero-Vector Design is a discipline, a philosophy, and a practical approach to making things. It consists of seven principles that guide decision-making, an eight-phase approach that covers everything from the seed of an idea to shipping it, an open curriculum that anyone can follow, and a growing community of practitioners who build real things with AI agents as crew.',
-    'It is not abstract. It is not theoretical. It is a set of guidelines, resources, and tools that help you go from concept to customer without the translation layers that have defined product development for decades. The research. The synthesis. The design. The build. The ship. All of it, connected, with one person holding the vision across the entire arc.',
+    'Zero-Vector Design is a discipline for going from concept to customer without the translation layers that have defined product development for decades. Seven principles. An eight-phase pipeline. An open curriculum. A growing community of practitioners who build real things with AI agents as crew.',
+    'One person holds the vision across the entire arc: research, synthesis, design, build, ship. The tools are the multiplier. The intent is yours.',
     'Zero-Vector is opinionated about approach and agnostic about tools. It does not care whether you use Claude or Cursor or whatever ships next Tuesday. It cares that you work in the medium, that you understand the problem before you build the solution, and that craft survives the transformation.',
   ],
 
@@ -73,22 +73,14 @@ const philosophy = {
     title: 'The Arc',
     intro: 'Every framework you have ever learned is describing the same shape.',
     paragraphs: [
-      'The double diamond. Lean. Agile. Six sigma. Design thinking. Jobs to be done. They all describe the same fundamental arc: understand the problem, explore solutions, converge on an answer, build it, ship it, learn. The words change. The consultants who coined them get paid. The shape underneath is identical.',
-      'This is not a coincidence. It is the same pattern that runs through every act of creation humans have ever studied. Joseph Campbell called it the hero\'s journey. Aristotle described it in the Poetics. Shakespeare used five acts. Screenwriters use three. Dan Harmon drew it as a circle. The story circle, the monomyth, the dramatic arc, they are all describing the same thing: you start in the known world, you venture into the unknown, you are transformed, you return.',
-      'The arc of building a product is the same arc as writing a novel, composing a symphony, or making a film. There is a setup, a confrontation with complexity, a synthesis, and a resolution. Zero-Vector applies narrative design and storytelling principles to the product process because they are the same process. The way a thing gets built and the way people experience it both follow a narrative.',
-      'This is why Zero-Vector works within any framework. It does not replace your double diamond or your agile sprints or your lean cycles. It operates underneath them. It prescribes why you make decisions, the principles, not how you execute them. Use whatever process fits your mental model. Zero-Vector is the foundation beneath it.',
+      'The double diamond. Lean. Agile. Design thinking. Jobs to be done. They all describe the same fundamental arc: understand the problem, explore solutions, converge on an answer, build it, ship it, learn. The words change. The shape underneath is identical.',
+      'Zero-Vector does not replace your double diamond or your agile sprints or your lean cycles. It operates underneath them. It prescribes why you make decisions, not how you execute them. Use whatever process fits your mental model. Zero-Vector is the foundation beneath it.',
     ],
   },
 
   name_origin: {
     title: 'Why "Zero Vector"',
-    paragraphs: [
-      'The name started as a joke. In the early days, the whole point was that designers should stop using vector art tools, Figma, Illustrator, Sketch, as the medium for their work. No more vector art. Zero vector. It was a punchline.',
-      'Then it became something more. In physics and aerospace telemetry, a zero vector describes a state of no relative motion between two objects. Perfect alignment, no drift, no error. When a spacecraft achieves zero vector relative to its target, it means the gap between where it is and where it intends to be is exactly zero. Intent and position are identical.',
-      'That is the principle. Zero distance between what you envision and what gets built. No drift between the designer\'s intent and the artifact that ships. No error introduced by translation layers, handoffs, or intermediaries. The gap is zero.',
-      'In quantum mechanics, a zero vector represents the null state, the origin point from which all other states are measured. In navigation, it is the reference frame. In Zero-Vector Design, it is both: the starting point for a new discipline and the state we are always trying to achieve. Perfect fidelity. No signal loss. The vision, realized.',
-      'So yes, it started as "no more vector art tools." It ended up meaning something much bigger. Sometimes the best ideas sneak in through the back door disguised as jokes.',
-    ],
+    teaser: 'It started as a joke about vector art tools. It ended up describing a principle: zero distance between what you envision and what gets built. The name means something different in every discipline, and the same thing in all of them.',
   },
 };
 

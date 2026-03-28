@@ -47,7 +47,7 @@ function ZeroVectorAnimation({ compact = false, stages = [] }) {
         return;
       }
       setActiveStage(current);
-    }, 2400);
+    }, 3000);
 
     return () => {
       clearTimeout(initialTimer);
@@ -175,7 +175,7 @@ function ZeroVectorAnimation({ compact = false, stages = [] }) {
           return (
             <div
               key={stage.id}
-              className={`zv-name-stage ${activeStage >= realIndex ? 'zv-name-stage--active' : ''}`}
+              className={`zv-name-stage ${activeStage === realIndex ? 'zv-name-stage--active' : ''}`}
             >
               <div className="zv-name-stage-label">{stage.label}</div>
               <p className="zv-name-stage-text">{stage.text}</p>

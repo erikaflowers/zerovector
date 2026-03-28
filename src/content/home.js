@@ -11,7 +11,7 @@ const home = {
 
   explainer: {
     headline: 'What Is Zero Vector?',
-    body: 'Zero Vector Design is a movement, an approach, and a growing network of practitioners who believe the person with the vision should build the artifact directly, using AI agents as crew. No handoff between design and engineering. No translation layer. One person, full pipeline, real product.',
+    body: 'Zero Vector Design is a discipline and a growing network of practitioners who believe the person with the vision should build the artifact directly, using AI agents as crew. No handoff. No translation layer. One person, full pipeline, real product.',
     audience: 'For designers who build. For leaders who ship. For anyone tired of the handoff.',
     paths: [
       { label: 'Learn the philosophy', link: '/philosophy' },
@@ -60,15 +60,15 @@ const home = {
   pipeline: {
     number: '003',
     title: 'The Pipeline, Reimagined',
-    header: 'Every phase of concept-to-customer. Transformed.',
+    header: 'Every phase from concept to customer. Transformed.',
     intro: [
       'Zero-Vector Design is not about coding. It is an entire approach to going from concept to customer, closer to a business model than a methodology. You call it lean. You call it agile. You call it the double diamond. At the end of the day, it is all the same loosely defined process: shorten the distance between what people actually need to solve their problems and fix their pain, and what they want to enhance their lives and deliver outcomes. That is jobs-to-be-done theory at its core.',
       'Zero-Vector applies that thinking across every phase of the pipeline. Not just the build. The research. The synthesis. The validation. The shipping. Every handoff is a place where intent degrades. We eliminate the handoffs.',
     ],
     phases: [
       { id: 'research-market', name: 'Market Research', old: 'Weeks of desk research, PDF reports nobody reads, insights buried in slide decks.', new: 'AI agents continuously scanning, synthesizing, and surfacing market signals in real-time.' },
-      { id: 'research-customer', name: 'Customer Research', old: 'Six-week interview cycles, manual transcription, insight synthesis by committee.', new: 'RAG-indexed research corpus queried in natural language. Every insight at your fingertips.' },
-      { id: 'jtbd', name: 'Jobs to Be Done', old: 'Workshops, sticky notes, frameworks that take longer to explain than to apply.', new: 'Agent-assisted JTBD extraction from research data. Pattern recognition at scale.' },
+      { id: 'research-customer', name: 'Customer Research', old: 'Six-week interview cycles, manual transcription, insight synthesis by committee.', new: 'Your entire research corpus indexed and queried in natural language. Every insight at your fingertips.' },
+      { id: 'jtbd', name: 'Jobs to Be Done', old: 'Workshops, sticky notes, frameworks that take longer to explain than to apply.', new: 'AI agents extract jobs-to-be-done directly from research data. Pattern recognition at scale.' },
       { id: 'ideation', name: 'Ideation', old: 'Brainstorming sessions that favor the loudest voice. Diverge, converge, repeat.', new: 'Structured ideation with AI agents that challenge assumptions and expand the solution space.' },
       { id: 'prototyping', name: 'Prototyping', old: 'High-fidelity mockups in Figma. Clickable prototypes that look real but are not.', new: 'Build the real thing. Working code. Real data. Ship-ready from the start.' },
       { id: 'validation', name: 'Validation', old: 'Usability testing on prototypes. Testing the picture, not the product.', new: 'Test the actual product. Real interactions. Real performance. Real feedback.' },
@@ -80,7 +80,7 @@ const home = {
     number: '004',
     title: 'The Seven Principles',
     principle_zero: 'Take from all that which is around you and make of it something more.',
-    intro: 'These principles are intentionally opinionated and polarizing. They exist to help you make decisions in times of indecision or crisis, not to be generic or all-purpose. They are opinionated on approach, agnostic on tool. That is the difference. These are the principles Zero-Vector Design lives by.',
+    intro: 'These principles are intentionally opinionated. They exist to help you make decisions in times of indecision or crisis, not to be generic or all-purpose. Opinionated on approach, agnostic on tool.',
     items: [
       {
         numeral: 'I',
@@ -232,26 +232,6 @@ const home = {
       },
       {
         isNot: {
-          title: 'Solo heroism.',
-          body: 'One person replacing an entire team through sheer force of will is not the point. The point is not that you can do it alone. The point is that the leverage ratio changes for everyone.',
-        },
-        is: {
-          title: 'Leverage at every scale.',
-          body: 'Individual contributor? You ship your own vision. Small team? You collapse the handoffs between roles. Organization? You hire a CZVO and transform the pipeline. The principles apply whether you are one person with an idea or a newsroom with 400 product leaders.',
-        },
-      },
-      {
-        isNot: {
-          title: 'No process.',
-          body: 'The double diamond is not dead. Research still matters. Validation still matters. Talking to actual humans still matters. Anyone who tells you AI eliminates the need for user research is selling you something, and it is not quality.',
-        },
-        is: {
-          title: 'Process without friction.',
-          body: 'Every phase of the double diamond still exists. But the walls between phases become permeable. Synthesis happens during the interview, not two days later. The prototype is the product, not a picture of the product. The process is the same. The resistance is gone.',
-        },
-      },
-      {
-        isNot: {
           title: 'The death of craft.',
           body: 'If anything, it is the opposite. When you are no longer spending 80% of your energy on translation and handoff logistics, you can spend that energy on the 1% that actually matters. The details. The moment in the interface that makes someone feel seen.',
         },
@@ -260,36 +240,26 @@ const home = {
           body: 'You spent years developing taste, judgment, and the ability to see what others miss. Those skills were always the point. The tools just kept getting in the way. Now they do not.',
         },
       },
-      {
-        isNot: {
-          title: 'A job title.',
-          body: 'Zero-Vector is not a role on a LinkedIn profile. It is not a certification. It is not a badge you earn at a conference and pin to your lanyard.',
-        },
-        is: {
-          title: 'A way of working.',
-          body: 'It is a discipline. A decision to stop accepting friction as the cost of making things. A commitment to working in the medium, collapsing the translation layers, and shipping what you actually envisioned. The title is irrelevant. The work is the proof.',
-        },
-      },
     ],
   },
 
   closing: {
     number: '007',
     headline: 'Set Coordinates',
-    permission: 'You do not have to accept the old way. You have permission to build the next thing.',
+    permission: 'You do not have to accept the old way. You have permission to build what comes next.',
     body: 'The tools exist. The agents are ready. The only question is whether you are willing to stop drawing pictures of what you want and start building it.',
     paths: {
       builders: {
         eyebrow: 'For Practitioners',
         title: 'I want to build',
-        description: 'You are a designer, engineer, or maker who wants to adopt Zero-Vector Design in your own practice. Start here.',
+        description: 'You are a designer, engineer, or maker ready to adopt Zero-Vector Design in your own practice.',
         cta: 'Start building',
         link: '/for-builders',
       },
       leaders: {
         eyebrow: 'For Organizations',
         title: 'I want to transform',
-        description: 'You lead a team, a department, or a company. You want to bring Zero-Vector thinking to your organization. Start here.',
+        description: 'You lead a team, a department, or a company and want to bring Zero-Vector thinking to your organization.',
         cta: 'Start transforming',
         link: '/for-leaders',
       },

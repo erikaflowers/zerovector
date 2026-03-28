@@ -9,7 +9,6 @@ import { ArrowIcon } from '../components/icons';
 import BootSequence from '../components/BootSequence';
 import NotifyForm from '../components/NotifyForm';
 import Animate from '../components/Animate';
-import ZeroVectorAnimation from '../components/ZeroVectorAnimation';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
 
@@ -153,6 +152,7 @@ function ManifestoPage() {
       return () => clearTimeout(timer);
     }
   }, [booted, declarationVisible]);
+  const [pipelineExpanded, setPipelineExpanded] = useState(false);
   const [openPrinciples, setOpenPrinciples] = useState(new Set());
   const allPrinciplesOpen = openPrinciples.size === home.principles.items.length;
 
@@ -218,6 +218,9 @@ function ManifestoPage() {
             <p className={`zv-hero-subtitle ${heroPhase >= 2 ? 'zv-hero-decrypt-reveal' : 'zv-hero-decrypt-hidden'}`}>
               {home.hero.subtitle}
             </p>
+            <p className={`zv-hero-proof ${heroPhase >= 2 ? 'zv-hero-decrypt-reveal' : 'zv-hero-decrypt-hidden'}`}>
+              This entire site — design, code, content — was built by one person with AI agents.
+            </p>
           </div>
 
           {/* Two-Column Layout */}
@@ -230,7 +233,6 @@ function ManifestoPage() {
               </div>
               <h2 className="zv-explainer-headline">{home.explainer.headline}</h2>
               <p className="zv-explainer-body">{home.explainer.body}</p>
-              <p className="zv-explainer-audience">{home.explainer.audience}</p>
               <div className="zv-explainer-paths">
                 {home.explainer.paths.map((path, i) => (
                   <Link key={i} to={path.link} className="zv-explainer-path">
@@ -278,30 +280,11 @@ function ManifestoPage() {
             <SectionHeader number={home.pipeline.number} title={home.pipeline.title} />
             <p className="zv-pipeline-header">{home.pipeline.header}</p>
           </Animate>
-          <div className="zv-pipeline-intro-layout">
-            <div className="zv-pipeline-intro-left">
-              {home.pipeline.intro.map((paragraph, i) => (
-                <Animate key={i} delay={Math.min(i + 1, 2)}>
-                  <p className="zv-body-text">{paragraph}</p>
-                </Animate>
-              ))}
-            </div>
-            <div className="zv-pipeline-intro-right">
-              <Animate>
-                <div className="zv-pipeline-phases-list">
-                  <div className="zv-pipeline-phases-label">The Pipeline</div>
-                  {home.pipeline.phases.map((phase, i) => (
-                    <div key={i} className="zv-pipeline-phases-item">
-                      <span className="zv-pipeline-phases-num">{String(i + 1).padStart(2, '0')}</span>
-                      <span>{phase.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </Animate>
-            </div>
-          </div>
+          <Animate delay={1}>
+            <p className="zv-body-text">{home.pipeline.intro[1]}</p>
+          </Animate>
           <div className="zv-pipeline" style={{ marginTop: 24 }}>
-            {home.pipeline.phases.map((phase, i) => (
+            {home.pipeline.phases.slice(0, 3).map((phase, i) => (
               <Animate key={i}>
                 <div className="zv-pipeline-phase">
                   <div className="zv-pipeline-label">{phase.name}</div>
@@ -316,6 +299,27 @@ function ManifestoPage() {
                 </div>
               </Animate>
             ))}
+            {pipelineExpanded && home.pipeline.phases.slice(3).map((phase, i) => (
+              <Animate key={i + 3}>
+                <div className="zv-pipeline-phase">
+                  <div className="zv-pipeline-label">{phase.name}</div>
+                  <div className="zv-pipeline-card zv-pipeline-card-old">
+                    <div className="zv-pipeline-tag zv-pipeline-tag-old">Before</div>
+                    <div className="zv-pipeline-old">{phase.old}</div>
+                  </div>
+                  <div className="zv-pipeline-card zv-pipeline-card-new">
+                    <div className="zv-pipeline-tag zv-pipeline-tag-new">Zero-Vector</div>
+                    <div className="zv-pipeline-new">{phase.new}</div>
+                  </div>
+                </div>
+              </Animate>
+            ))}
+          </div>
+          <div className="zv-pipeline-expand-wrap">
+            <button className="zv-pipeline-expand" onClick={() => setPipelineExpanded(!pipelineExpanded)}>
+              {pipelineExpanded ? 'Show fewer' : `See all ${home.pipeline.phases.length} phases`}
+              <ChevronIcon size={16} className={`zv-pipeline-expand-chevron ${pipelineExpanded ? 'zv-pipeline-expand-chevron--open' : ''}`} />
+            </button>
           </div>
         </div>
       </section>
@@ -397,9 +401,9 @@ function ManifestoPage() {
             <SectionHeader number="006" title='Why "Zero Vector"?' />
           </Animate>
           <Animate delay={1}>
-            <ZeroVectorAnimation compact stages={en.name.stages} />
+            <p className="zv-body-text zv-name-teaser-text">{en.name.teaser}</p>
           </Animate>
-          <Animate delay={2}>
+          <Animate delay={1}>
             <Link to="/name" className="zv-name-teaser-cta">
               See the full story <ArrowIcon size={16} />
             </Link>
@@ -435,7 +439,8 @@ function ManifestoPage() {
               </Link>
             </div>
           </Animate>
-          <Animate delay={4}>
+          <hr className="zv-closing-divider" />
+          <Animate>
             <a href={home.closing.openVector.link} className="zv-open-vector-card">
               <span className="zv-open-vector-card-badge">{home.closing.openVector.badge}</span>
               <span className="zv-open-vector-card-title">{home.closing.openVector.title}</span>
@@ -443,31 +448,7 @@ function ManifestoPage() {
               <span className="zv-open-vector-card-cta">{home.closing.openVector.cta} <ArrowIcon size={16} /></span>
             </a>
           </Animate>
-          <Animate delay={4}>
-            <div className="zv-reading">
-              <h3 className="zv-reading-headline">{recommendedReading.headline}</h3>
-              <p className="zv-reading-subtitle">{recommendedReading.subtitle}</p>
-              <div className="zv-reading-list">
-                {recommendedReading.articles.map((article, i) => (
-                  <a
-                    key={i}
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="zv-reading-item"
-                  >
-                    <span className="zv-reading-item-title">{article.title}</span>
-                    <span className="zv-reading-item-subtitle">{article.subtitle}</span>
-                    <span className="zv-reading-item-meta">
-                      <span className="zv-reading-item-date">{article.date}</span>
-                      <span className="zv-reading-item-cta">Read on Substack &rarr;</span>
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </Animate>
-          <Animate delay={4}>
+          <Animate delay={1}>
             <div className="zv-closing-notify">
               <p className="zv-closing-notify-text">Get notified when new Zero Vector content drops.</p>
               <NotifyForm variant="light" tag="zerovector" />
