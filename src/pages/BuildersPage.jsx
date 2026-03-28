@@ -149,10 +149,10 @@ function BuildersPage() {
       </section>
 
       <PageClosing
-        headline="Not Sure Where You Stand?"
-        body="Take the quiz to find out if you are building with intention or just vibe coding."
-        primaryCta={{ label: "Am I Vibe Coding?", to: "/quiz" }}
-        secondaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
+        headline="Keep Going"
+        body="Read the principles behind the practice, or explore the approach in detail."
+        primaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
+        secondaryCta={{ label: "The Approach", to: "/approach" }}
       />
 
     </div>

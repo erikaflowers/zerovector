@@ -138,7 +138,7 @@ function PhilosophyPage() {
         headline="See It In Practice"
         body="The philosophy becomes real when you start building with it."
         primaryCta={{ label: "Start Building", to: "/for-builders" }}
-        secondaryCta={{ label: "Take the Quiz", to: "/quiz" }}
+        secondaryCta={{ label: "The Approach", to: "/approach" }}
       />
 
     </div>

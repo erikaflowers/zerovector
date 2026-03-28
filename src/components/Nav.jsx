@@ -9,8 +9,6 @@ const navGroups = [
       { to: '/philosophy', label: 'Philosophy' },
       { to: '/approach', label: 'Approach' },
       { to: '/origin', label: 'The Origin' },
-      { to: '/ask', label: 'Ask' },
-      { to: '/quiz', label: 'Quiz' },
     ],
   },
   {
@@ -26,6 +24,9 @@ const navGroups = [
     items: [
       { to: '/media', label: 'Media' },
       { to: '/investiture', label: 'Investiture' },
+      { href: 'https://herelabrador.ai', label: 'Labrador' },
+      { href: 'https://terminus.zerovector.design', label: 'Terminus' },
+      { href: 'https://arroyo.zerovector.design', label: 'Arroyo Labs' },
     ],
   },
 ];
@@ -77,14 +78,27 @@ function NavDropdown({ group, pathname, onNavigate }) {
       {open && (
         <div className="zv-nav-group-panel">
           {group.items.map(item => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className={`zv-nav-group-item ${pathname === item.to ? 'zv-nav-group-item--active' : ''}`}
-              onClick={() => { setOpen(false); if (onNavigate) onNavigate(); }}
-            >
-              {item.label}
-            </Link>
+            item.href ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="zv-nav-group-item"
+                onClick={() => { setOpen(false); if (onNavigate) onNavigate(); }}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={`zv-nav-group-item ${pathname === item.to ? 'zv-nav-group-item--active' : ''}`}
+                onClick={() => { setOpen(false); if (onNavigate) onNavigate(); }}
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </div>
       )}

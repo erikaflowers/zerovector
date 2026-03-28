@@ -132,7 +132,7 @@ function ReadingPage() {
       <PageClosing
         headline="Done Reading? Start Building."
         primaryCta={{ label: "Where To Start", to: "/start" }}
-        secondaryCta={{ label: "Take the Quiz", to: "/quiz" }}
+        secondaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
       />
 
     </div>

@@ -91,9 +91,6 @@ function ManifestoPage() {
             <p className={`zv-hero-subtitle ${heroPhase >= 2 ? 'zv-hero-decrypt-reveal' : 'zv-hero-decrypt-hidden'}`}>
               {home.hero.subtitle}
             </p>
-            <p className={`zv-hero-proof ${heroPhase >= 2 ? 'zv-hero-decrypt-reveal' : 'zv-hero-decrypt-hidden'}`}>
-              This entire site — design, code, content — was built by one person with AI agents.
-            </p>
           </div>
 
           {/* Two-Column Layout */}
@@ -324,7 +321,7 @@ function ManifestoPage() {
             <a href="https://open.zerovector.design">Open Vector</a>
             <Link to="/investiture">Investiture</Link>
             <Link to="/start">Get Started</Link>
-            <Link to="/quiz">Quiz</Link>
+            <a href="https://herelabrador.ai" target="_blank" rel="noopener noreferrer">Labrador</a>
             <a href="https://eflowers.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
             <a href="https://www.linkedin.com/in/helloeflowers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://helloerikaflowers.com" target="_blank" rel="noopener noreferrer">helloerikaflowers.com</a>

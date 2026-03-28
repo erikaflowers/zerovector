@@ -10,7 +10,7 @@ function Footer() {
             <a href="https://open.zerovector.design">Open Vector</a>
             <Link to="/investiture">Investiture</Link>
             <Link to="/start">Get Started</Link>
-            <Link to="/quiz">Quiz</Link>
+            <a href="https://herelabrador.ai" target="_blank" rel="noopener noreferrer">Labrador</a>
             <a href="https://eflowers.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
             <a href="https://www.linkedin.com/in/helloeflowers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://helloerikaflowers.com" target="_blank" rel="noopener noreferrer">helloerikaflowers.com</a>

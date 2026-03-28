@@ -14,8 +14,6 @@ import ZerohackPage from './pages/ZerohackPage';
 import ZerohackBackgroundPage from './pages/ZerohackBackgroundPage';
 import ZerohackApplyPage from './pages/ZerohackApplyPage';
 
-import AskPage from './pages/AskPage';
-import QuizPage from './pages/QuizPage';
 import StartPage from './pages/StartPage';
 import NamePage from './pages/NamePage';
 import EnterprisePage from './pages/EnterprisePage';
@@ -37,8 +35,8 @@ function App() {
         <Route path="/media" element={<ReadingPage />} />
         <Route path="/origin" element={<OriginPage />} />
         <Route path="/start" element={<StartPage />} />
-        <Route path="/ask" element={<AskPage />} />
-        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/ask" element={<Navigate to="/start" replace />} />
+        <Route path="/quiz" element={<Navigate to="/start" replace />} />
         <Route path="/name" element={<NamePage />} />
         {/* Redirects from old routes */}
         <Route path="/about" element={<Navigate to="/philosophy" replace />} />
