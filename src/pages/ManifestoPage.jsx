@@ -129,12 +129,12 @@ function ManifestoPage() {
                     {home.declaration.callout2}
                   </blockquote>
                   <a
-                    href="https://open.substack.com/pub/eflowers/p/zero-vector-design-you-will-move"
+                    href="https://eflowers.substack.com/p/zero-stage-to-orbit"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="zv-declaration-article"
                   >
-                    Read the full declaration &rarr;
+                    Launch from orbit, not the gravity well &rarr;
                   </a>
                 </div>
               )}

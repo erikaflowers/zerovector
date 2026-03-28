@@ -31,7 +31,7 @@ const home = {
       'We are done accepting it.',
     ],
     callout1: 'The friction was never the point.',
-    callout2: 'They are not assistants. They are crew.',
+    callout2: 'Collapse the translation to zero.',
   },
 
   timeline: {
