@@ -4,7 +4,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
-import NotifyForm from '../components/NotifyForm';
+import PageClosing from '../components/PageClosing';
 import { ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
@@ -135,35 +135,12 @@ function PhilosophyPage() {
         </div>
       </section>
 
-      {/* Closing */}
-      <section className="zv-section">
-        <div className="zv-container">
-          <Animate>
-            <div className="zv-philosophy-closing">
-              <div className="zv-philosophy-closing-primary">
-                <h2 className="zv-section-title">See It In Practice</h2>
-                <p className="zv-body-text">The philosophy becomes real when you start building with it.</p>
-                <div className="zv-philosophy-closing-actions">
-                  <Link to="/for-builders" className="zv-cta">Start Building <ArrowIcon size={14} /></Link>
-                  <Link to="/quiz" className="zv-cta zv-cta-outline">Take the Quiz <ArrowIcon size={14} /></Link>
-                </div>
-              </div>
-              <div className="zv-philosophy-closing-secondary">
-                <div className="zv-philosophy-closing-block">
-                  <p className="zv-philosophy-closing-block-text">{philosophy.name_origin.teaser}</p>
-                  <Link to="/name" className="zv-name-teaser-cta">
-                    Why "Zero Vector"? <ArrowIcon size={16} />
-                  </Link>
-                </div>
-                <div className="zv-philosophy-closing-block">
-                  <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
-                  <NotifyForm variant="light" tag="zerovector" />
-                </div>
-              </div>
-            </div>
-          </Animate>
-        </div>
-      </section>
+      <PageClosing
+        headline="See It In Practice"
+        body="The philosophy becomes real when you start building with it."
+        primaryCta={{ label: "Start Building", to: "/for-builders" }}
+        secondaryCta={{ label: "Take the Quiz", to: "/quiz" }}
+      />
 
       <Footer />
     </div>

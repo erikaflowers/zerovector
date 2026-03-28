@@ -4,6 +4,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import DecryptText from '../components/DecryptText';
 import Animate from '../components/Animate';
+import PageClosing from '../components/PageClosing';
 import { ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
@@ -122,25 +123,12 @@ function NamePage() {
         </div>
       </section>
 
-      {/* Navigation */}
-      <section className="zv-section">
-        <div className="zv-container">
-          <Animate>
-            <div className="zv-name-nav-cards">
-              <Link to="/philosophy" className="zv-name-nav-card">
-                <div className="zv-name-nav-card-eyebrow">Read</div>
-                <div className="zv-name-nav-card-title">The Philosophy</div>
-                <span className="zv-name-nav-card-cta">Seven principles <ArrowIcon size={14} /></span>
-              </Link>
-              <Link to="/" className="zv-name-nav-card">
-                <div className="zv-name-nav-card-eyebrow">Read</div>
-                <div className="zv-name-nav-card-title">The Manifesto</div>
-                <span className="zv-name-nav-card-cta">Back to the beginning <ArrowIcon size={14} /></span>
-              </Link>
-            </div>
-          </Animate>
-        </div>
-      </section>
+      <PageClosing
+        headline="Read the Principles"
+        body="Now that you know the name, see what it stands for."
+        primaryCta={{ label: "The Philosophy", to: "/philosophy" }}
+        secondaryCta={{ label: "The Manifesto", to: "/" }}
+      />
 
       <Footer />
     </div>

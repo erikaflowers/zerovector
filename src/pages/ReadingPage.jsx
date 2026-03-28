@@ -4,7 +4,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
-import NotifyForm from '../components/NotifyForm';
+import PageClosing from '../components/PageClosing';
 import { ExternalLinkIcon, ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
@@ -130,30 +130,11 @@ function ReadingPage() {
         </section>
       )}
 
-      {/* Closing */}
-      <section className="zv-section">
-        <div className="zv-container">
-          <Animate>
-            <div className="zv-page-next-steps">
-              <div className="zv-philosophy-closing">
-                <div className="zv-philosophy-closing-primary">
-                  <h2 className="zv-section-title">Done Reading? Start Building.</h2>
-                  <div className="zv-philosophy-closing-actions">
-                    <Link to="/start" className="zv-cta">Where To Start <ArrowIcon size={14} /></Link>
-                    <Link to="/quiz" className="zv-cta zv-cta-outline">Take the Quiz <ArrowIcon size={14} /></Link>
-                  </div>
-                </div>
-                <div className="zv-philosophy-closing-secondary">
-                  <div className="zv-philosophy-closing-block">
-                    <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
-                    <NotifyForm variant="light" tag="zerovector" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Animate>
-        </div>
-      </section>
+      <PageClosing
+        headline="Done Reading? Start Building."
+        primaryCta={{ label: "Where To Start", to: "/start" }}
+        secondaryCta={{ label: "Take the Quiz", to: "/quiz" }}
+      />
 
       <Footer />
     </div>

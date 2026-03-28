@@ -4,7 +4,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
-import NotifyForm from '../components/NotifyForm';
+import PageClosing from '../components/PageClosing';
 import { ExternalLinkIcon, ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
@@ -149,31 +149,12 @@ function BuildersPage() {
         </div>
       </section>
 
-      {/* Closing */}
-      <section className="zv-section">
-        <div className="zv-container">
-          <Animate>
-            <div className="zv-page-next-steps">
-              <div className="zv-philosophy-closing">
-                <div className="zv-philosophy-closing-primary">
-                  <h2 className="zv-section-title">Not Sure Where You Stand?</h2>
-                  <p className="zv-body-text">Take the quiz to find out if you are building with intention or just vibe coding.</p>
-                  <div className="zv-philosophy-closing-actions">
-                    <Link to="/quiz" className="zv-cta">Am I Vibe Coding? <ArrowIcon size={14} /></Link>
-                    <Link to="/philosophy" className="zv-cta zv-cta-outline">Read the Philosophy <ArrowIcon size={14} /></Link>
-                  </div>
-                </div>
-                <div className="zv-philosophy-closing-secondary">
-                  <div className="zv-philosophy-closing-block">
-                    <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
-                    <NotifyForm variant="light" tag="zerovector" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Animate>
-        </div>
-      </section>
+      <PageClosing
+        headline="Not Sure Where You Stand?"
+        body="Take the quiz to find out if you are building with intention or just vibe coding."
+        primaryCta={{ label: "Am I Vibe Coding?", to: "/quiz" }}
+        secondaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
+      />
 
       <Footer />
     </div>

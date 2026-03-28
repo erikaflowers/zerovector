@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
+import PageClosing from '../components/PageClosing';
 import Animate from '../components/Animate';
-import NotifyForm from '../components/NotifyForm';
-import { ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
 
@@ -116,59 +114,13 @@ function EnterprisePage() {
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="zv-section">
-        <div className="zv-container">
-          <Animate>
-            <h2 className="zv-section-title">{enterprise.contact.title}</h2>
-            <p className="zv-body-text zv-enterprise-contact-desc">{enterprise.contact.description}</p>
-            <a href={enterprise.contact.link} target="_blank" rel="noopener noreferrer" className="zv-cta">
-              {enterprise.contact.cta}
-            </a>
-          </Animate>
-          <Animate delay={1}>
-            <div className="zv-enterprise-notify">
-              <p className="zv-enterprise-notify-label">{enterprise.contact.email_label}</p>
-              <NotifyForm variant="dark" tag="enterprise" />
-            </div>
-          </Animate>
-        </div>
-      </section>
-
-      {/* Cross-links */}
-      <section className="zv-section">
-        <div className="zv-container">
-          <Animate>
-            <h2 className="zv-section-title">Explore Zero-Vector</h2>
-          </Animate>
-          <div className="zv-enterprise-crosslinks">
-            <Animate>
-              <Link to="/for-builders" className="zv-enterprise-crosslink">
-                <div className="zv-enterprise-crosslink-eyebrow">{enterprise.crosslinks.builders.eyebrow}</div>
-                <h3 className="zv-enterprise-crosslink-title">{enterprise.crosslinks.builders.title}</h3>
-                <p className="zv-enterprise-crosslink-desc">{enterprise.crosslinks.builders.description}</p>
-                <span className="zv-enterprise-crosslink-arrow">&rarr;</span>
-              </Link>
-            </Animate>
-            <Animate delay={1}>
-              <Link to="/for-leaders" className="zv-enterprise-crosslink">
-                <div className="zv-enterprise-crosslink-eyebrow">{enterprise.crosslinks.leaders.eyebrow}</div>
-                <h3 className="zv-enterprise-crosslink-title">{enterprise.crosslinks.leaders.title}</h3>
-                <p className="zv-enterprise-crosslink-desc">{enterprise.crosslinks.leaders.description}</p>
-                <span className="zv-enterprise-crosslink-arrow">&rarr;</span>
-              </Link>
-            </Animate>
-            <Animate delay={2}>
-              <a href="https://open.zerovector.design/learn" className="zv-enterprise-crosslink">
-                <div className="zv-enterprise-crosslink-eyebrow">{enterprise.crosslinks.learn.eyebrow}</div>
-                <h3 className="zv-enterprise-crosslink-title">{enterprise.crosslinks.learn.title}</h3>
-                <p className="zv-enterprise-crosslink-desc">{enterprise.crosslinks.learn.description}</p>
-                <span className="zv-enterprise-crosslink-arrow">&rarr;</span>
-              </a>
-            </Animate>
-          </div>
-        </div>
-      </section>
+      <PageClosing
+        headline={enterprise.contact.title}
+        body={enterprise.contact.description}
+        primaryCta={{ label: enterprise.contact.cta, href: enterprise.contact.link }}
+        secondaryCta={{ label: "For Leaders", to: "/for-leaders" }}
+        newsletterTag="enterprise"
+      />
 
       <Footer />
     </div>

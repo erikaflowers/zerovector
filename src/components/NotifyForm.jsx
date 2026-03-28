@@ -4,7 +4,7 @@ import { useState } from 'react';
  * NotifyForm — Email signup via Kestris subscribe proxy.
  * Supports multiple tags (zerovector, enterprise, founding-contributor, etc.)
  *
- * @param {string} variant - 'dark' (white text on dark/blue bg) or 'light' (dark text on light bg)
+ * @param {string} variant - 'dark' (white text on dark bg), 'light' (dark text on light bg), or 'orange' (dark text on orange bg)
  * @param {string} tag - Buttondown tag to apply (default: 'zerovector')
  */
 function NotifyForm({ variant = 'dark', tag = 'zerovector' }) {

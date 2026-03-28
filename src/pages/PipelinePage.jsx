@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageHero from '../components/PageHero';
+import PageClosing from '../components/PageClosing';
 import Animate from '../components/Animate';
-import NotifyForm from '../components/NotifyForm';
-import { ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
 
@@ -74,31 +72,12 @@ function PipelinePage() {
         </section>
       ))}
 
-      {/* Closing */}
-      <section className="zv-section">
-        <div className="zv-container">
-          <Animate>
-            <div className="zv-page-next-steps">
-              <div className="zv-philosophy-closing">
-                <div className="zv-philosophy-closing-primary">
-                  <h2 className="zv-section-title">Put It Into Practice</h2>
-                  <p className="zv-body-text">The approach gives you the framework. Now see the principles behind it, or jump straight into building.</p>
-                  <div className="zv-philosophy-closing-actions">
-                    <Link to="/philosophy" className="zv-cta">Read the Philosophy <ArrowIcon size={14} /></Link>
-                    <Link to="/for-builders" className="zv-cta zv-cta-outline">Start Building <ArrowIcon size={14} /></Link>
-                  </div>
-                </div>
-                <div className="zv-philosophy-closing-secondary">
-                  <div className="zv-philosophy-closing-block">
-                    <p className="zv-philosophy-closing-block-text">Get notified when new Zero Vector content drops.</p>
-                    <NotifyForm variant="light" tag="zerovector" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Animate>
-        </div>
-      </section>
+      <PageClosing
+        headline="Put It Into Practice"
+        body="The approach gives you the framework. Now see the principles behind it, or jump straight into building."
+        primaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
+        secondaryCta={{ label: "Start Building", to: "/for-builders" }}
+      />
 
       <Footer />
     </div>
