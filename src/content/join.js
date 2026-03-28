@@ -12,27 +12,22 @@ const join = {
     text: 'If the name Shackleton means nothing to you yet, consider picking up',
     linkText: 'Endurance: Shackleton\u2019s Incredible Voyage',
     linkUrl: 'https://www.amazon.com/Endurance-Shackletons-Incredible-Alfred-Lansing/dp/B000BZ9A7S',
-    suffix: 'by Alfred Lansing. It will help you understand the spirit of this application \u2014 and what we are looking for in crew.',
+    suffix: 'by Alfred Lansing. It will help you understand the spirit of this application.',
   },
 
   intro: [
-    'Zero Vector is building something new. Not a product. Not a company. A **discipline** \u2014 a way of working where design intent and code execution share the same moment. Open source. Open methodology. Built in public.',
-    'We are looking for crew, not employees. These are volunteer positions with a real mission, real standards, and real autonomy. You will work directly with the founder. You will shape something that does not exist yet. The pay is zero and the hours are yours to define.',
-    '**What we offer:** Authorship. Influence. A seat at the table of something genuinely new. And when this becomes what we believe it will become, the people who built it will not be forgotten.',
-    'If that is not enough, this is not for you. No hard feelings.',
+    'Zero Vector is building a discipline, not a company. Open source. Open methodology. Built in public. We are looking for crew, not employees.',
+    'These are volunteer positions with a real mission, real standards, and real autonomy. You work directly with the founder. The pay is zero and the hours are yours to define. What we offer: authorship, influence, and a seat at the table of something new.',
   ],
 
   compensation: {
     title: 'What we offer',
     subtitle: 'The honest version.',
     paragraphs: [
-      { label: 'Right now:', text: 'Nothing financial. Zero Vector Design LLC is real, newly formed, and pre-revenue. The founder works a full-time day job to keep the lights on. There is no venture funding, no angel round, no treasury. Anyone who joins right now is joining because they believe the work matters.' },
-      { label: 'When the work pays off:', text: 'Founding crew are founding crew. That means:' },
-      { text: 'When paid engagements come in (workshops, consulting, client work), crew members who contributed to the deliverable get paid from the engagement. Not a thank-you. A cut.' },
-      { text: 'When licensing revenue materializes (certifications, enterprise adoption, curriculum licensing), the people who built the thing being licensed share in it. We will formalize this with a written revenue-sharing agreement before any money changes hands.' },
-      { text: 'If an acquisition, partnership, or investment event happens, founding crew are at the table. Not as an afterthought. As named contributors with documented history and negotiated participation.' },
-      { label: 'What this is not:', text: 'This is not equity. There are no shares, no vesting schedules, no cap tables. Zero Vector is an open methodology and we intend to keep it that way. What we are offering is something different: a seat in the room, documented contribution history, and a commitment that when the harvest comes, the people who tilled the soil eat first.' },
-      { label: 'The honest version:', text: 'We cannot promise this will pay off. We believe it will. The methodology is gaining real traction, the partnership pipeline is active, and the founder\u2019s track record suggests this is not a hobby. But belief is not a paycheck. If you need certainty, wait. If you can tolerate ambiguity in exchange for being part of something from the very beginning, read on.' },
+      { label: 'Right now:', text: 'Nothing financial. Zero Vector Design LLC is real, newly formed, and pre-revenue. Anyone who joins is joining because the work matters.' },
+      { label: 'When the work pays off:', text: 'Founding crew share in paid engagements, licensing revenue, and any partnership or investment events. Not as an afterthought. As named contributors with documented history. We will formalize revenue-sharing in writing before any money changes hands.' },
+      { label: 'What this is not:', text: 'Not equity. No shares, no vesting, no cap tables. What we offer is a seat in the room, documented contribution, and a commitment that the people who tilled the soil eat first.' },
+      { label: 'The honest version:', text: 'We cannot promise this will pay off. We believe it will. But belief is not a paycheck. If you need certainty, wait. If you can tolerate ambiguity in exchange for being part of something from the beginning, read on.' },
     ],
   },
 

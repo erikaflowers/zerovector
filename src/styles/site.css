@@ -3414,10 +3414,10 @@ a:hover {
 .zv-join-quote {
   font-style: italic;
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.65;
-  padding-left: 20px;
-  border-left: 2px solid var(--void-border);
+  padding-left: 24px;
+  border-left: 3px solid var(--orange);
   max-width: 640px;
 }
 
@@ -3466,15 +3466,15 @@ a:hover {
 .zv-join-section-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--text-secondary);
-  opacity: 0.6;
+  color: var(--orange);
   margin-bottom: 20px;
 }
 
 .zv-join-required {
-  color: #c44;
+  color: var(--orange);
 }
 
 /* Role cards */
@@ -3500,13 +3500,14 @@ a:hover {
 }
 
 .zv-join-role-card:hover {
-  border-color: var(--cyan-dim);
+  border-color: var(--orange-dim);
   background: var(--void-elevated);
+  transform: translateY(-2px);
 }
 
 .zv-join-role-card--selected {
-  border-color: var(--cyan);
-  background: var(--cyan-subtle);
+  border-color: var(--orange);
+  background: var(--orange-glow);
 }
 
 .zv-join-role-card--selected::after {
@@ -3516,7 +3517,7 @@ a:hover {
   right: 14px;
   font-family: var(--font-mono);
   font-size: 14px;
-  color: var(--cyan);
+  color: var(--orange);
 }
 
 .zv-join-role-card h3 {
@@ -3546,8 +3547,8 @@ a:hover {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--cyan);
-  border: 1px solid var(--cyan);
+  color: var(--orange);
+  border: 1px solid var(--orange);
   border-radius: 3px;
   padding: 2px 6px;
   line-height: 1;
@@ -3615,7 +3616,7 @@ a:hover {
   content: '\2192';
   position: absolute;
   left: 0;
-  color: var(--cyan-dim);
+  color: var(--orange);
   font-family: var(--font-mono);
   font-size: 0.8rem;
 }
@@ -3629,9 +3630,9 @@ a:hover {
 .zv-join-form-title {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 /* Form fields */
@@ -3682,8 +3683,8 @@ a:hover {
 .zv-join-input:focus,
 .zv-join-textarea:focus,
 .zv-join-select:focus {
-  border-color: var(--cyan);
-  box-shadow: 0 0 0 2px var(--cyan-glow);
+  border-color: var(--orange);
+  box-shadow: 0 0 0 2px var(--orange-glow);
 }
 
 .zv-join-textarea {
@@ -3770,17 +3771,17 @@ a:hover {
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--void);
-  background: var(--cyan);
+  color: #fff;
+  background: var(--orange);
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 14px 32px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease-out);
 }
 
 .zv-join-submit-btn:hover {
-  background: var(--cyan-dim);
+  background: var(--orange-dim);
   transform: translateY(-1px);
 }
 
