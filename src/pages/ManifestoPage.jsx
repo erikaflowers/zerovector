@@ -157,7 +157,7 @@ function ManifestoPage() {
           <Animate delay={1}>
             <p className="zv-body-text">{home.pipeline.intro[1]}</p>
           </Animate>
-          <div className="zv-pipeline" style={{ marginTop: 24 }}>
+          <div className="zv-pipeline">
             {home.pipeline.phases.slice(0, 3).map((phase, i) => (
               <Animate key={i}>
                 <div className="zv-pipeline-phase">

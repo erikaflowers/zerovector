@@ -457,29 +457,6 @@ a:hover {
   background: linear-gradient(to right, var(--cyan), var(--cyan-dim) 30%, transparent 70%);
 }
 
-/* --- Principles Expand/Collapse --- */
-
-.zv-principles-expand-toggle {
-  flex-shrink: 0;
-  background: none;
-  border: 1px solid transparent;
-  color: var(--text-tertiary);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 8px 14px;
-  cursor: pointer;
-  transition: color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
-  white-space: nowrap;
-  margin-top: 4px;
-}
-
-.zv-principles-expand-toggle:hover {
-  color: var(--orange);
-  border-color: rgba(255, 107, 26, 0.25);
-}
-
 /* --- Principle Zero (Homepage) --- */
 .zv-principle-zero-home {
   margin-top: 24px;
@@ -535,266 +512,7 @@ a:hover {
   }
 }
 
-/* --- Principle Cards --- */
-.zv-principles-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.zv-principles-left {
-  position: sticky;
-  top: 100px;
-}
-
-.zv-principles-right {
-  min-width: 0;
-}
-
-.zv-principles-expand-row {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 12px;
-}
-
-.zv-principles-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.zv-principle-card {
-  position: relative;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 12px 0;
-  transition: background 0.3s var(--ease-out);
-}
-
-.zv-principle-card:last-child {
-  border-bottom: none;
-}
-
-.zv-animate.zv-visible .zv-principle-card {
-  box-shadow: none;
-}
-
-.zv-principle-card:hover {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.zv-principle-card-row {
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 8px;
-  align-items: start;
-}
-
-.zv-principle-card-content {
-  min-width: 0;
-}
-
-.zv-principle-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.zv-principle-card-numeral {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--orange);
-  line-height: 1;
-  opacity: 0.6;
-  padding-top: 3px;
-}
-
-.zv-principle-card-title {
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-  line-height: 1.2;
-}
-
-.zv-principle-card-body {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.zv-principles-intro {
-  margin-bottom: 20px;
-  font-size: 0.9rem;
-}
-
-/* --- Principle Disclosure Toggle --- */
-.zv-principle-card-toggle {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 0;
-  margin-bottom: 12px;
-  cursor: pointer;
-  text-align: left;
-}
-
-.zv-principle-card-toggle .zv-principle-card-title {
-  margin-bottom: 0;
-  flex: 1;
-}
-
-.zv-principle-card-chevron {
-  flex-shrink: 0;
-  color: var(--text-tertiary);
-  transition: transform 0.4s var(--ease-out), color 0.4s var(--ease-out);
-}
-
-.zv-principle-card-chevron--open {
-  transform: rotate(180deg);
-  color: var(--cyan);
-}
-
-.zv-principle-card-toggle:hover .zv-principle-card-chevron {
-  color: var(--cyan);
-}
-
-/* --- Principle Detail Disclosure --- */
-.zv-principle-card-detail {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.5s var(--ease-out);
-}
-
-.zv-principle-card-detail--open {
-  grid-template-rows: 1fr;
-}
-
-.zv-principle-card-detail-inner {
-  overflow: hidden;
-}
-
-.zv-principle-card-detail-content {
-  margin-top: 12px;
-  margin-left: 12px;
-  padding: 16px 20px;
-  background: #ffffff;
-  border-left: 3px solid var(--cyan);
-}
-
-.zv-principle-card-detail-text {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: #333;
-  line-height: 1.7;
-}
-
-.zv-principle-card-detail-text + .zv-principle-card-detail-text {
-  margin-top: 16px;
-}
-
-.zv-principle-card-detail-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.zv-principle-card-detail-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  color: #007a7a;
-  text-decoration: none;
-  padding: 8px 14px;
-  border: 1px solid rgba(0, 122, 122, 0.2);
-  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out), color 0.3s var(--ease-out);
-}
-
-.zv-principle-card-detail-links a:hover {
-  border-color: rgba(0, 122, 122, 0.5);
-  background: rgba(0, 122, 122, 0.06);
-  color: #005a5a;
-  text-shadow: none;
-}
-
-/* --- Principle Share Button --- */
-.zv-principle-share {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.zv-principle-share-trigger {
-  background: none;
-  border: 1px solid transparent;
-  color: var(--text-tertiary);
-  cursor: pointer;
-  padding: 6px 10px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
-  white-space: nowrap;
-}
-
-.zv-principle-share-trigger:hover {
-  color: var(--cyan);
-  border-color: rgba(0, 255, 255, 0.2);
-}
-
-.zv-principle-share-copied {
-  color: var(--cyan);
-  border-color: rgba(0, 255, 255, 0.2);
-}
-
-.zv-principle-share-menu {
-  position: absolute;
-  top: calc(100% + 4px);
-  right: 0;
-  background: #0a0a12;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  min-width: 180px;
-  z-index: 10;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-.zv-principle-share-menu button {
-  background: none;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  padding: 12px 16px;
-  text-align: left;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-
-.zv-principle-share-menu button:last-child {
-  border-bottom: none;
-}
-
-.zv-principle-share-menu button:hover {
-  background: rgba(0, 255, 255, 0.06);
-  color: var(--cyan);
-}
+/* --- (Principle Cards removed — content moved to Philosophy page) --- */
 
 /* --- 005 Contrasts: The Battleground (Peak) --- */
 .zv-section--contrasts {
@@ -2576,6 +2294,18 @@ a:hover {
   background: var(--cyan);
 }
 
+.zv-cta:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.zv-name-teaser-cta:focus-visible,
+.zv-principles-cta:focus-visible,
+.zv-philosophy-principle-link:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
 /* --- Timeline --- */
 .zv-timeline-layout {
   display: grid;
@@ -2675,6 +2405,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  margin-top: 24px;
 }
 
 .zv-pipeline-phase {
@@ -5230,48 +4961,6 @@ a:hover {
   /* Declaration: reduce extra left padding on mobile */
   .zv-section--declaration .zv-container {
     padding-left: calc(var(--container-padding) + 16px);
-  }
-
-  /* Principles: stack on mobile */
-  .zv-principles-layout {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .zv-principles-left {
-    position: static;
-  }
-
-  .zv-principle-card {
-    padding: 10px 0;
-  }
-
-  .zv-principle-card-row {
-    grid-template-columns: 28px 1fr;
-    gap: 8px;
-  }
-
-  .zv-principle-card-title {
-    font-size: 1rem;
-  }
-
-  .zv-principle-card-detail-content {
-    margin-left: 0;
-    margin-top: 20px;
-    padding: 20px 24px;
-  }
-
-  .zv-principle-card-detail-text {
-    font-size: 0.95rem;
-  }
-
-  .zv-principle-card-detail-links {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .zv-principle-card-detail-links a {
-    font-size: 11px;
   }
 
   /* Contrasts: stack vertically */
