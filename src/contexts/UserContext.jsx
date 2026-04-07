@@ -43,6 +43,18 @@ export function UserProvider({ children }) {
 
   const signIn = useCallback(() => {
     if (!supabase) return;
+    // Google blocks OAuth in embedded/in-app browsers (LinkedIn, Instagram, Slack, etc.)
+    const ua = navigator.userAgent || '';
+    const isEmbedded = /FBAN|FBAV|Instagram|LinkedInApp|Slack|Twitter|MicroMessenger|Line\//i.test(ua);
+    if (isEmbedded) {
+      // Prompt user to open in their real browser
+      const url = window.location.href;
+      window.prompt(
+        'Google sign-in doesn\u2019t work in this browser. Copy this URL and open it in Safari or Chrome:',
+        url
+      );
+      return;
+    }
     supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: window.location.href },
