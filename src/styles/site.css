@@ -716,6 +716,72 @@ a:hover {
   }
 }
 
+/* --- Arroyo Labs Card (Homepage Closing) --- */
+
+.zv-arroyo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 28px;
+  margin-top: 16px;
+  border: 1.5px solid #E07A54;
+  background: #1a0e0a;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out);
+}
+
+.zv-arroyo-card:hover {
+  border-color: #e8936e;
+  background: #201210;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 20px rgba(224, 122, 84, 0.15);
+}
+
+.zv-arroyo-card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1a0e0a;
+  background: #E07A54;
+  padding: 3px 10px;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.zv-arroyo-card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.zv-arroyo-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.zv-arroyo-card-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #E07A54;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .zv-arroyo-card {
+    padding: 20px 24px;
+  }
+}
+
 .zv-featured-article {
   display: flex;
   align-items: center;

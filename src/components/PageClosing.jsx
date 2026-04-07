@@ -66,6 +66,7 @@ function PageClosing({
           <a href="https://open.zerovector.design">Open Vector</a>
           <Link to="/investiture">Investiture</Link>
           <Link to="/start">Get Started</Link>
+          <a href="https://arroyo.zerovector.design" target="_blank" rel="noopener noreferrer">Arroyo Labs</a>
           <a href="https://herelabrador.ai" target="_blank" rel="noopener noreferrer">Labrador</a>
           <a href="https://eflowers.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
           <a href="https://www.linkedin.com/in/helloeflowers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>

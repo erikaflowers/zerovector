@@ -311,6 +311,14 @@ function ManifestoPage() {
               <span className="zv-open-vector-card-cta">{home.closing.openVector.cta} <ArrowIcon size={16} /></span>
             </a>
           </Animate>
+          <Animate>
+            <a href="https://arroyo.zerovector.design" target="_blank" rel="noopener noreferrer" className="zv-arroyo-card">
+              <span className="zv-arroyo-card-badge">Commercial</span>
+              <span className="zv-arroyo-card-title">Arroyo Labs</span>
+              <span className="zv-arroyo-card-desc">Want Zero Vector applied to your product? Arroyo Labs delivers strategy, design, and engineering in a single engagement.</span>
+              <span className="zv-arroyo-card-cta">Learn more <ArrowIcon size={16} /></span>
+            </a>
+          </Animate>
           <Animate delay={1}>
             <div className="zv-closing-notify">
               <p className="zv-closing-notify-text">Get notified when new Zero Vector content drops.</p>
@@ -321,6 +329,7 @@ function ManifestoPage() {
             <a href="https://open.zerovector.design">Open Vector</a>
             <Link to="/investiture">Investiture</Link>
             <Link to="/start">Get Started</Link>
+            <a href="https://arroyo.zerovector.design" target="_blank" rel="noopener noreferrer">Arroyo Labs</a>
             <a href="https://herelabrador.ai" target="_blank" rel="noopener noreferrer">Labrador</a>
             <a href="https://eflowers.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
             <a href="https://www.linkedin.com/in/helloeflowers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>

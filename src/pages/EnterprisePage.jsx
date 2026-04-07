@@ -116,7 +116,7 @@ function EnterprisePage() {
       <PageClosing
         headline={enterprise.contact.title}
         body={enterprise.contact.description}
-        primaryCta={{ label: enterprise.contact.cta, href: enterprise.contact.link }}
+        primaryCta={{ label: "Work with Arroyo Labs", href: "https://arroyo.zerovector.design" }}
         secondaryCta={{ label: "For Leaders", to: "/for-leaders" }}
         newsletterTag="enterprise"
       />

@@ -136,7 +136,7 @@ function LeadersPage() {
       <PageClosing
         headline={leaders.contact.title}
         body={leaders.contact.description}
-        primaryCta={{ label: leaders.contact.cta, href: leaders.contact.link }}
+        primaryCta={{ label: "Work with Arroyo Labs", href: "https://arroyo.zerovector.design" }}
         secondaryCta={{ label: "Enterprise Transformation", to: "/for-enterprise" }}
       />
 

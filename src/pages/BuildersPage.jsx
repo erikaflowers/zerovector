@@ -150,9 +150,9 @@ function BuildersPage() {
 
       <PageClosing
         headline="Keep Going"
-        body="Read the principles behind the practice, or explore the approach in detail."
+        body="Read the principles behind the practice, or let us build it with you."
         primaryCta={{ label: "Read the Philosophy", to: "/philosophy" }}
-        secondaryCta={{ label: "The Approach", to: "/approach" }}
+        secondaryCta={{ label: "Hire Arroyo Labs", href: "https://arroyo.zerovector.design" }}
       />
 
     </div>

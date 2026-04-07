@@ -79,9 +79,9 @@ function StartPage() {
 
       <PageClosing
         headline="Connect"
-        body="Follow the work, subscribe to the writing, and join the conversation."
+        body="Follow the work, subscribe to the writing, or let us apply Zero Vector to your product."
         primaryCta={{ label: "Follow on LinkedIn", href: "https://www.linkedin.com/in/helloeflowers/" }}
-        secondaryCta={{ label: "Subscribe on Substack", href: "https://eflowers.substack.com" }}
+        secondaryCta={{ label: "Arroyo Labs", href: "https://arroyo.zerovector.design" }}
       />
     </div>
   );
