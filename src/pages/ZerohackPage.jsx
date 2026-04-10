@@ -5,7 +5,7 @@ import { useInView } from '../hooks/useInView';
 import useSEO from '../hooks/useSEO';
 import useBodyTheme from '../hooks/useBodyTheme';
 import useFonts from '../hooks/useFonts';
-import '../styles/site.css';
+import '../styles/zh/index.css';
 import en from '../content/en';
 
 const ZH_FONT = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap';

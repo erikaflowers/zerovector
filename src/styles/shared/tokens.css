@@ -1,0 +1,63 @@
+/* Zero-Vector Design — Shared Design Tokens
+ *
+ * Cross-system custom properties consumed by zv-*, inv-*, and zh-*
+ * design systems. Includes responsive overrides for token values that
+ * change at mobile breakpoints. Imported first in every system index.
+ */
+
+:root {
+  /* Void */
+  --void: #181818;
+  --void-elevated: #0a0a0f;
+  --void-surface: #111118;
+  --void-border: rgba(255, 255, 255, 0.06);
+
+  /* Cyan — primary accent */
+  --cyan: #00ffff;
+  --cyan-dim: #00cccc;
+  --cyan-glow: rgba(0, 255, 255, 0.15);
+  --cyan-subtle: rgba(0, 255, 255, 0.06);
+
+  /* Magenta — struck-through "old way" */
+  --magenta: #ff0080;
+  --magenta-dim: #cc0066;
+  --magenta-glow: rgba(255, 0, 128, 0.15);
+
+  /* Neon orange — zinger accent */
+  --orange: #FF6B1A;
+  --orange-dim: #E05A10;
+  --orange-glow: rgba(255, 107, 26, 0.15);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-tertiary: #555566;
+  --text-muted: rgba(255, 255, 255, 0.4);
+
+  /* Typography */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --container-max: 1100px;
+  --container-padding: 24px;
+  --section-padding: 160px;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 96px;
+    --container-padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 72px;
+  }
+}

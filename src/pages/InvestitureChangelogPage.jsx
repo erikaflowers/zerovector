@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import useSEO from '../hooks/useSEO';
 import useBodyTheme from '../hooks/useBodyTheme';
 import useFonts from '../hooks/useFonts';
-import '../styles/site.css';
+import '../styles/inv/index.css';
 import en from '../content/en';
 
 const INV_FONT = 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap';

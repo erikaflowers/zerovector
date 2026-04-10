@@ -1,0 +1,30 @@
+/* Zero-Vector Design — Scroll-Reveal Utility
+ *
+ * The .zv-animate / .zv-visible / .zv-animate-delay-* class set used
+ * by src/components/Animate.jsx. Despite the zv- prefix, this utility
+ * is consumed by all three design systems (Manifesto, Investiture,
+ * Zero Hack) because Animate.jsx hardcodes these class names.
+ *
+ * Cross-prefix overrides for .inv-page .zv-animate and
+ * .zh-page .zv-animate live in their respective system bridges:
+ *   - src/styles/inv/scroll-reveal-bridge.css (created in Phase B)
+ *   - src/styles/zh/scroll-reveal-bridge.css (created in Phase B)
+ *
+ * For Phase A, those overrides remain inlined in the system index files.
+ */
+
+.zv-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.zv-animate.zv-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.zv-animate-delay-1 { transition-delay: 0.1s; }
+.zv-animate-delay-2 { transition-delay: 0.2s; }
+.zv-animate-delay-3 { transition-delay: 0.3s; }
+.zv-animate-delay-4 { transition-delay: 0.4s; }

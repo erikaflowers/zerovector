@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import ErrorBoundary from '../components/ErrorBoundary';
-import '../styles/site.css';
+import '../styles/zv/index.css';
 
 function SiteLayout() {
   const { pathname } = useLocation();
