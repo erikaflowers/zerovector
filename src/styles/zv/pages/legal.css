@@ -1,0 +1,51 @@
+/* Zero-Vector Design — Legal Pages
+ *
+ * Privacy and Terms pages — simple long-form reading
+ * styles scoped to `.zv-legal`. Single-column, narrow
+ * measure, conservative heading hierarchy.
+ */
+
+.zv-legal {
+  max-width: 720px;
+  padding-top: 80px;
+}
+.zv-legal h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.zv-legal-updated {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-bottom: 40px;
+}
+.zv-legal h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+.zv-legal h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.zv-legal p,
+.zv-legal li {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+.zv-legal ul {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+.zv-legal a {
+  color: var(--cyan);
+}
+.zv-legal a:hover {
+  text-decoration: underline;
+}

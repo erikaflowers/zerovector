@@ -1,0 +1,257 @@
+/* Zero-Vector Design — NotifyForm Component
+ *
+ * Email-capture form used across the site. Three variants:
+ *   - .zv-notify--dark   (dark/blue backgrounds)
+ *   - .zv-notify--light  (white/light backgrounds)
+ *   - .zv-notify--orange (the page-closing orange CTA band)
+ *
+ * All three variants live here; do not scatter them across
+ * their consumer sections — the orange variant used to be
+ * wedged inside the page-closing block and got reunited here
+ * during the Phase B.3 decomposition.
+ */
+
+/* ========================================
+   Base form
+   ======================================== */
+
+.zv-notify-form {
+  display: flex;
+  gap: 8px;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.zv-notify-input {
+  flex: 1;
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.zv-notify-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.zv-notify-btn {
+  padding: 10px 20px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.zv-notify-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Dark variant — for dark/blue backgrounds */
+.zv-notify--dark .zv-notify-input {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.zv-notify--dark .zv-notify-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.zv-notify--dark .zv-notify-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.zv-notify--dark .zv-notify-btn {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.zv-notify--dark .zv-notify-btn:hover {
+  background: #e0e0e0;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.15);
+}
+
+/* Light variant — for white/light backgrounds */
+.zv-notify--light .zv-notify-input {
+  background: #fff;
+  color: #0a0a0a;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.zv-notify--light .zv-notify-input::placeholder {
+  color: #999;
+}
+
+.zv-notify--light .zv-notify-input:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 2px rgba(0, 200, 200, 0.15);
+}
+
+.zv-notify--light .zv-notify-btn {
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.zv-notify--light .zv-notify-btn:hover {
+  background: #333;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Success state */
+.zv-notify--success {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zv-notify-check {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.zv-notify--dark .zv-notify-check {
+  color: #00cc88;
+}
+
+.zv-notify--light .zv-notify-check {
+  color: #00aa44;
+}
+
+.zv-notify-success-text {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.zv-notify--dark .zv-notify-success-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.zv-notify--light .zv-notify-success-text {
+  color: #444;
+}
+
+/* Error state */
+.zv-notify-error {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #ff4444;
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .zv-notify-form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .zv-notify-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ========================================
+   Orange variant — used on the page-closing
+   band and anywhere the background is orange.
+   Previously lived under page-closing; unified
+   here during Phase B.3.
+   ======================================== */
+
+.zv-notify--orange .zv-notify-form {
+  display: flex;
+  gap: 0;
+}
+
+.zv-notify--orange .zv-notify-input {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 12px 16px;
+  background: rgba(17, 17, 17, 0.08);
+  border: 1.5px solid rgba(17, 17, 17, 0.2);
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.zv-notify--orange .zv-notify-input::placeholder {
+  color: rgba(17, 17, 17, 0.4);
+}
+
+.zv-notify--orange .zv-notify-input:focus {
+  border-color: rgba(17, 17, 17, 0.5);
+}
+
+.zv-notify--orange .zv-notify-btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 12px 20px;
+  background: #111;
+  color: #fff;
+  border: 1.5px solid #111;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.zv-notify--orange .zv-notify-btn:hover {
+  background: #000;
+}
+
+.zv-notify--orange .zv-notify-error {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #111;
+  margin-top: 8px;
+}
+
+.zv-notify--orange.zv-notify--success {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #111;
+  padding: 12px 16px;
+  background: rgba(17, 17, 17, 0.08);
+  border-radius: 4px;
+}
+
+.zv-notify--orange .zv-notify-check {
+  color: #111;
+}
+
+/* Orange variant responsive */
+@media (max-width: 768px) {
+  .zv-notify--orange .zv-notify-form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .zv-notify--orange .zv-notify-input {
+    border-right: 1.5px solid rgba(17, 17, 17, 0.2);
+    border-radius: 4px;
+  }
+
+  .zv-notify--orange .zv-notify-btn {
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,42 @@
+/* Zero-Vector Design — Base Layout
+ *
+ * Manifesto site shell, container, section spacing, info page
+ * variant, legal pages, and page transition classes.
+ */
+
+/* --- Layout --- */
+.zv-site {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  transition: opacity 0.25s ease;
+}
+
+.zv-page-enter {
+  opacity: 0;
+}
+
+.zv-page-active {
+  opacity: 1;
+}
+
+.zv-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* --- Section Spacing --- */
+.zv-section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+/* --- Info Page Tighter Spacing --- */
+.zv-info-page .zv-section {
+  padding: 80px 0;
+}
+
+.zv-info-page .zv-page-hero + .zv-section {
+  padding-top: 48px;
+}

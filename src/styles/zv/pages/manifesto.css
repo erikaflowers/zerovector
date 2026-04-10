@@ -1,0 +1,374 @@
+/* Zero-Vector Design — Manifesto Homepage
+ *
+ * Homepage section compositions that are specific to `/`:
+ *   - Explainer text (used inside the hero left column)
+ *   - Principles list summary + Principle Zero card
+ *   - Contrasts ("IS NOT / IS") pair list
+ *   - Timeline section background treatment
+ *   - Name teaser CTA block
+ *
+ * The actual hero-combined grid lives in pages/hero-combined.css.
+ * The closing orange CTA band + Open Vector / Arroyo cards live
+ * in pages/manifesto-closing.css.
+ */
+
+/* ============================================
+   Section Visual Treatments
+   Non-repeating visual narrative — each section
+   is its own statement. Builds, peaks, resolves.
+   ============================================ */
+
+/* --- Explainer: What Is Zero Vector? --- */
+
+.zv-explainer-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+}
+
+.zv-explainer-body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.zv-explainer-paths {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.zv-explainer-path {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--void-border);
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.zv-explainer-path:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .zv-explainer {
+    padding: 32px 24px;
+  }
+  .zv-explainer-paths {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* --- 003 Timeline: The Dark Corridor --- */
+.zv-section--timeline {
+  background: #0d0d14;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* --- 004 Principles: The Commandments --- */
+.zv-section--principles {
+  position: relative;
+  padding: 120px 0;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+    #0e0e16;
+}
+
+.zv-section--principles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--cyan), var(--cyan-dim) 30%, transparent 70%);
+}
+
+/* --- Principle Zero (Homepage) --- */
+.zv-principle-zero-home {
+  margin-top: 24px;
+  padding: 36px 32px;
+  border: 2px solid var(--cyan);
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.04) 0%, rgba(0, 255, 255, 0.01) 50%, rgba(0, 255, 255, 0.06) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.zv-principle-zero-home::before {
+  content: '0';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: clamp(15rem, 30vw, 25rem);
+  font-weight: 800;
+  color: rgba(0, 255, 255, 0.03);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.zv-principle-zero-home-numeral {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 0.25em;
+  line-height: 1;
+  margin-bottom: 16px;
+  text-shadow: 0 0 20px var(--cyan-glow);
+  position: relative;
+}
+
+.zv-principle-zero-home-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  text-shadow: 0 0 40px rgba(0, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .zv-principle-zero-home {
+    padding: 24px 16px;
+  }
+}
+
+/* --- (Principle Cards removed — content moved to Philosophy page) --- */
+
+/* --- 005 Contrasts: The Battleground (Peak) --- */
+.zv-section--contrasts {
+  position: relative;
+  padding: 100px 0 120px;
+  background: #08080e;
+}
+
+.zv-section--contrasts::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--magenta),
+    transparent 40%,
+    transparent 60%,
+    var(--cyan)
+  );
+}
+
+.zv-section--contrasts .zv-contrast-pair {
+  border-color: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.zv-section--contrasts .zv-contrast-not {
+  padding: 20px 24px;
+}
+
+.zv-section--contrasts .zv-contrast-is {
+  background: #ffffff;
+  padding: 20px 24px;
+}
+
+.zv-section--contrasts .zv-contrast-is .zv-contrast-label {
+  color: #007a7a;
+}
+
+.zv-section--contrasts .zv-contrast-is .zv-contrast-title {
+  color: #0a0a0a;
+}
+
+.zv-section--contrasts .zv-contrast-is .zv-contrast-body {
+  color: #444;
+}
+
+/* --- 006 Name Teaser: tighter than full sections --- */
+.zv-name-teaser-section {
+  padding: 80px 0 60px;
+}
+
+.zv-name-teaser-text {
+  max-width: 560px;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.zv-name-teaser-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cyan);
+  text-decoration: none;
+  margin-top: 20px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.zv-name-teaser-cta:hover {
+  color: var(--orange);
+  gap: 12px;
+}
+
+/* --- IS NOT / IS Contrasts (base list) --- */
+.zv-contrasts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.zv-contrast-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--void-border);
+  background: var(--void-elevated);
+}
+
+.zv-contrast-side {
+  padding: 20px 24px;
+}
+
+.zv-contrast-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.zv-contrast-not .zv-contrast-label {
+  color: var(--magenta-dim);
+}
+
+.zv-contrast-is .zv-contrast-label {
+  color: var(--orange);
+}
+
+.zv-contrast-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.zv-contrast-not .zv-contrast-title {
+  color: var(--magenta);
+  position: relative;
+  display: inline-block;
+}
+
+.zv-contrast-not .zv-contrast-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 2px;
+  width: 0;
+  background: var(--magenta);
+  transition: width 0.6s var(--ease-out) 0.3s;
+}
+
+.zv-animate.zv-visible .zv-contrast-not .zv-contrast-title::after {
+  width: 100%;
+}
+
+.zv-contrast-is .zv-contrast-title {
+  color: var(--text-primary);
+}
+
+.zv-contrast-body {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.zv-contrast-not .zv-contrast-body {
+  color: var(--text-tertiary);
+}
+
+.zv-contrast-is .zv-contrast-body {
+  color: var(--text-secondary);
+}
+
+/* --- Homepage Principle Summaries (slim list) --- */
+.zv-principles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.zv-principle-summary {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.zv-principle-summary-numeral {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.zv-principle-summary-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.zv-principle-summary-body {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.zv-principles-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cyan);
+  text-decoration: none;
+  margin-top: 32px;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.zv-principles-cta:hover {
+  color: var(--orange);
+  gap: 12px;
+}
+
+.zv-principles-heading {
+  margin-top: 64px;
+}

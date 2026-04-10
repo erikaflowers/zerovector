@@ -1,0 +1,258 @@
+/* Zero-Vector Design — Navigation (Desktop Chrome)
+ *
+ * The top nav bar, brand mark, primary links, dropdown groups,
+ * and support/join link variants. The signin/avatar/dropdown
+ * auth chrome lives in nav-actions.css; the hamburger + mobile
+ * drawer lives in nav-mobile.css.
+ */
+
+.zv-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--void-border);
+}
+
+.zv-nav-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.zv-nav-brand {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+
+.zv-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.zv-nav-link {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+  padding: 4px 0;
+  position: relative;
+}
+
+.zv-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.zv-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.zv-nav-link:hover {
+  color: var(--text-primary);
+  text-shadow: none;
+}
+
+.zv-nav-link-active {
+  color: var(--cyan);
+}
+
+.zv-nav-link-active::after {
+  transform: scaleX(1);
+}
+
+/* --- Nav Dropdown Groups (Desktop) --- */
+.zv-nav-group {
+  position: relative;
+}
+
+.zv-nav-group-trigger {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s var(--ease-out);
+  position: relative;
+}
+
+.zv-nav-group-trigger::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.zv-nav-group-trigger:hover {
+  color: var(--text-primary);
+}
+
+.zv-nav-group-trigger:hover::after {
+  transform: scaleX(1);
+}
+
+.zv-nav-group-trigger--active {
+  color: var(--cyan);
+}
+
+.zv-nav-group-trigger--active::after {
+  transform: scaleX(1);
+}
+
+.zv-nav-group-chevron {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 4px solid currentColor;
+  opacity: 0.5;
+  transition: transform 0.2s var(--ease-out), opacity 0.2s;
+  margin-top: 1px;
+}
+
+.zv-nav-group--open .zv-nav-group-chevron {
+  transform: rotate(180deg);
+  opacity: 0.8;
+}
+
+.zv-nav-group-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a22;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 6px 0;
+  min-width: 170px;
+  z-index: 200;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  animation: zvDropIn 0.15s var(--ease-out);
+}
+
+@keyframes zvDropIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.zv-nav-group-item {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  padding: 8px 18px;
+  transition: color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.zv-nav-group-item:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  text-shadow: none;
+}
+
+.zv-nav-group-item--active {
+  color: var(--cyan);
+}
+
+/* --- Nav Support Link --- */
+.zv-nav-support {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+.zv-nav-support:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.zv-nav-support-heart {
+  color: #ff4466;
+  font-size: 0.9em;
+  margin-right: 2px;
+}
+.zv-nav-support-mobile {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.zv-nav-support-mobile .zv-nav-support-heart {
+  color: #ff4466;
+}
+
+/* --- Nav Join Us Link --- */
+.zv-nav-join {
+  color: var(--cyan) !important;
+  font-weight: 600;
+}
+.zv-nav-join:hover {
+  color: var(--text-primary) !important;
+  text-shadow: 0 0 12px var(--cyan-glow);
+}
+.zv-nav-join-mobile {
+  color: var(--cyan) !important;
+  font-weight: 600;
+}
+
+/* --- Nav Start Button --- */
+.zv-nav-start {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--void);
+  background: var(--cyan);
+  padding: 6px 16px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s var(--ease-out);
+  margin-left: 4px;
+}
+
+.zv-nav-start:hover {
+  background: var(--text-primary);
+  box-shadow: 0 0 20px var(--cyan-glow);
+  text-shadow: none;
+}
+
+.zv-nav-start-active {
+  background: var(--text-primary);
+}
+
+.zv-nav-start-mobile {
+  color: var(--void) !important;
+  background: var(--cyan);
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+}

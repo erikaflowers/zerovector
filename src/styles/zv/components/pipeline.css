@@ -1,0 +1,179 @@
+/* Zero-Vector Design — Pipeline Component
+ *
+ * The "old vs new" pipeline grid used in the homepage
+ * pipeline section and on subpages. Wrapped by
+ * `.zv-section--pipeline`, which inverts the palette
+ * (white background, dark text) against the surrounding
+ * dark sections.
+ */
+
+/* --- Pipeline: The Confrontation (Inverted) --- */
+.zv-section--pipeline {
+  position: relative;
+  border-top: 3px solid var(--cyan);
+  background: #ffffff;
+}
+
+.zv-section--pipeline > .zv-container {
+  position: relative;
+  z-index: 1;
+}
+
+.zv-section--pipeline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.zv-section--pipeline .zv-section-number {
+  color: #007a7a;
+}
+
+.zv-section--pipeline .zv-section-title {
+  color: #0a0a0a;
+}
+
+.zv-pipeline-header {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #555;
+  margin-top: -20px;
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+
+.zv-section--pipeline .zv-body-text {
+  color: #333;
+}
+
+.zv-section--pipeline .zv-pipeline-label {
+  color: #0a0a0a;
+}
+
+.zv-section--pipeline .zv-pipeline-tag-old {
+  color: var(--magenta);
+}
+
+.zv-section--pipeline .zv-pipeline-tag-new {
+  color: var(--orange);
+}
+
+.zv-section--pipeline .zv-pipeline-old {
+  color: var(--magenta);
+  opacity: 0.7;
+}
+
+.zv-section--pipeline .zv-pipeline-new {
+  color: #0a0a0a;
+}
+
+/* --- Pipeline Grid --- */
+.zv-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.zv-pipeline-phase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.zv-pipeline-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  grid-column: 1 / -1;
+}
+
+.zv-pipeline-old,
+.zv-pipeline-new {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.zv-pipeline-old {
+  color: var(--magenta);
+  text-decoration: line-through;
+  text-decoration-color: var(--magenta-dim);
+  opacity: 0.5;
+}
+
+.zv-pipeline-new {
+  color: var(--cyan);
+}
+
+.zv-pipeline-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.zv-pipeline-tag-old {
+  color: var(--magenta-dim);
+}
+
+.zv-pipeline-tag-new {
+  color: var(--cyan-dim);
+}
+
+/* Pipeline expand toggle */
+.zv-pipeline-expand-wrap {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.zv-pipeline-expand {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary, #888);
+  background: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.zv-pipeline-expand:hover {
+  color: var(--orange);
+  background: rgba(255, 107, 26, 0.06);
+}
+
+.zv-pipeline-expand-chevron {
+  transition: transform 0.25s ease;
+}
+
+.zv-pipeline-expand-chevron--open {
+  transform: rotate(180deg);
+}
+
+.zv-pipeline-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 14px 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.zv-pipeline-card-new {
+  border-color: rgba(0, 122, 122, 0.2);
+}

@@ -1,0 +1,53 @@
+/* Zero-Vector Design — Buttons & CTAs
+ *
+ * .zv-cta is the primary action button. Variants: outline.
+ * Shared focus-visible styling for cta-adjacent links that
+ * do not carry the .zv-cta class themselves.
+ */
+
+.zv-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--void);
+  background: var(--cyan);
+  padding: 14px 28px;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  text-decoration: none;
+}
+
+.zv-cta:hover {
+  color: var(--void);
+  background: var(--text-primary);
+  box-shadow: 0 0 30px var(--cyan-glow);
+  text-shadow: none;
+}
+
+.zv-cta-outline {
+  color: var(--cyan);
+  background: transparent;
+  border: 1px solid var(--cyan);
+}
+
+.zv-cta-outline:hover {
+  color: var(--void);
+  background: var(--cyan);
+}
+
+.zv-cta:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.zv-name-teaser-cta:focus-visible,
+.zv-principles-cta:focus-visible,
+.zv-philosophy-principle-link:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}

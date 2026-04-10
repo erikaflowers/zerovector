@@ -1,0 +1,117 @@
+/* Zero-Vector Design — /for-leaders Page
+ *
+ * Before/After change cards and "for you" outcome cards.
+ */
+
+/* --- Leaders Page — Before/After, For You --- */
+
+.zv-leaders-changes {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.zv-leaders-change-card {
+  border: 1px solid var(--void-border);
+  background: var(--void-elevated);
+  overflow: hidden;
+}
+
+.zv-leaders-change-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--void-border);
+}
+
+.zv-leaders-change-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.zv-leaders-change-before,
+.zv-leaders-change-after {
+  padding: 20px 28px;
+}
+
+.zv-leaders-change-before {
+  border-right: 1px solid var(--void-border);
+}
+
+.zv-leaders-change-before p,
+.zv-leaders-change-after p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.zv-leaders-change-after p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.zv-leaders-change-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.zv-leaders-change-before .zv-leaders-change-tag {
+  color: var(--magenta-dim);
+}
+
+.zv-leaders-change-after .zv-leaders-change-tag {
+  color: var(--orange);
+}
+
+.zv-leaders-foryou {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.zv-leaders-foryou-card {
+  padding: 28px;
+  border: 1px solid var(--void-border);
+  background: var(--void-elevated);
+  border-radius: 4px;
+  transition: border-color 0.2s, transform 0.2s var(--ease-out);
+}
+
+.zv-leaders-foryou-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.zv-leaders-foryou-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.zv-leaders-foryou-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .zv-leaders-change-comparison {
+    grid-template-columns: 1fr;
+  }
+  .zv-leaders-change-before {
+    border-right: none;
+    border-bottom: 1px solid var(--void-border);
+  }
+  .zv-leaders-foryou {
+    grid-template-columns: 1fr;
+  }
+}

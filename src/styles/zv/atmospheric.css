@@ -1,0 +1,135 @@
+/* Zero-Vector Design — Atmospheric Effects
+ *
+ * The console / CRT / HUD layer underneath components:
+ * scanlines, vignette, holographic title sweeps, status pulses,
+ * coordinate flicker, decrypt cursor effects, and the keyframes
+ * that drive them. Consumed by .zv-manifesto (the homepage)
+ * and by .zv-section-title across the dark sections.
+ */
+
+/* ============================================
+   Console Effects — Ship Display Aesthetic
+   Dauntless Gambit bridge console. You are
+   looking at this through a tactical display.
+   ============================================ */
+
+/* --- Scanline Overlay --- */
+/* Subtle horizontal interference across the entire viewport */
+.zv-manifesto::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.025) 2px,
+    rgba(0, 0, 0, 0.025) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* --- CRT Vignette --- */
+/* Dark falloff at the edges — viewing through a curved display */
+.zv-manifesto::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* --- HUD Corner Brackets (disabled — chrome stripped for compact layout) --- */
+
+/* --- Status Pulse Dots --- */
+/* Blinking system-alive indicator before each section number */
+.zv-section-number::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+  animation: status-pulse 2.5s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--cyan-glow);
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--cyan-glow); }
+  50% { opacity: 0.3; box-shadow: 0 0 2px var(--cyan-glow); }
+}
+
+/* --- Holographic Title Sweep --- */
+/* Slow ambient shimmer across dark-section titles — "system alive" indicator */
+@keyframes holo-sweep {
+  0%, 82%, 100% { background-position: -200% center; }
+  92% { background-position: 200% center; }
+}
+
+.zv-section--timeline .zv-section-title,
+.zv-section--principles .zv-section-title,
+.zv-section--contrasts .zv-section-title {
+  background: linear-gradient(
+    90deg,
+    var(--text-primary) 0%,
+    var(--text-primary) 40%,
+    var(--cyan) 50%,
+    var(--text-primary) 60%,
+    var(--text-primary) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holo-sweep 12s ease-in-out infinite;
+}
+
+/* Stagger so only one title shimmers at a time */
+.zv-section--timeline .zv-section-title { animation-delay: 2.4s; }
+.zv-section--principles .zv-section-title { animation-delay: 4.8s; }
+.zv-section--contrasts .zv-section-title { animation-delay: 7.2s; }
+
+/* --- Chromatic Aberration --- */
+/* RGB split on hero title hover — signal interference */
+.zv-hero-title:hover {
+  text-shadow:
+    -2px 0 rgba(255, 0, 128, 0.15),
+    2px 0 rgba(0, 255, 255, 0.15);
+}
+
+/* --- Coordinate Display Flicker --- */
+/* Occasional power fluctuation on the fixed coordinate readout */
+.zv-manifesto .zv-coordinates {
+  animation: coordinate-drift 6s ease-in-out infinite, coord-flicker 18s linear infinite;
+}
+
+@keyframes coord-flicker {
+  0%, 95%, 96%, 97%, 100% { filter: none; }
+  95.3% { filter: brightness(0.15); }
+  95.6% { filter: none; }
+  96.3% { filter: brightness(0.25); }
+  96.6% { filter: none; }
+}
+
+/* --- Scanline Sweep Keyframe (used by atmospheric overlays) --- */
+@keyframes scanline-sweep {
+  0% { transform: translateY(-100vh); opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* --- Coordinate Drift --- */
+@keyframes coordinate-drift {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.12; }
+  100% { opacity: 0.3; }
+}

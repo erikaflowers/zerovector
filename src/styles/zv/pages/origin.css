@@ -1,0 +1,97 @@
+/* Zero-Vector Design — /origin Page
+ *
+ * Origin story page: photos grid at the top, followed by
+ * the crew card grid ("who built this"). Crew cards used
+ * to live under a generic zv-crew- namespace but they only
+ * ever render on the Origin page, so they live here.
+ */
+
+/* --- Origin: photos section tight to intro --- */
+.zv-origin-photos-section {
+  padding-top: 0;
+}
+
+/* ============================================
+   Origin Page — Photos
+   ============================================ */
+
+.zv-origin-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.zv-origin-photo {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--void-border);
+}
+
+.zv-origin-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.zv-origin-photo-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   Crew Cards — The Origin Page
+   ============================================ */
+
+.zv-crew-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.zv-crew-card {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-left: 2px solid rgba(0, 255, 255, 0.15);
+  transition: border-left-color 0.3s var(--ease-out), background 0.3s var(--ease-out);
+}
+
+.zv-crew-card:hover {
+  border-left-color: rgba(0, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.zv-crew-card-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.zv-crew-card-role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.zv-crew-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

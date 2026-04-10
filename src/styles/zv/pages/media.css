@@ -1,0 +1,76 @@
+/* Zero-Vector Design — /media Page
+ *
+ * Featured article / podcast cards with cyan left border
+ * and orange type eyebrows.
+ */
+
+/* ============================================
+   Media Page — Featured Cards
+   ============================================ */
+
+.zv-media-featured {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.zv-media-featured-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border: 1px solid var(--void-border);
+  border-left: 3px solid var(--cyan);
+  background: var(--void-elevated);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+}
+
+.zv-media-featured-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.zv-media-featured-type {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+.zv-media-featured-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.zv-media-featured-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: auto;
+}
+
+.zv-media-featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-top: 20px;
+  transition: color 0.2s;
+}
+
+.zv-media-featured-card:hover .zv-media-featured-cta {
+  color: var(--orange);
+}

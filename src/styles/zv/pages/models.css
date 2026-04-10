@@ -1,0 +1,51 @@
+/* Zero-Vector Design — Engagement Models
+ *
+ * Three-card grid describing engagement options. Cyan
+ * left border, title, description, and an italic outcome
+ * footer separated by a top border.
+ */
+
+/* --- Engagement Models --- */
+.zv-models {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.zv-model-card {
+  padding: 28px;
+  border: 1px solid var(--void-border);
+  border-left: 3px solid var(--cyan);
+  background: var(--void-elevated);
+  border-radius: 4px;
+  transition: border-color 0.2s, transform 0.2s var(--ease-out);
+}
+
+.zv-model-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.zv-model-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.zv-model-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.zv-model-outcome {
+  font-size: 0.9rem;
+  color: var(--accent);
+  line-height: 1.6;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--void-border);
+  font-style: italic;
+}

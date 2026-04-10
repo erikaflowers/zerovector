@@ -1,0 +1,196 @@
+/* Zero-Vector Design — Homepage Hero (Combined)
+ *
+ * The above-the-fold hero grid on `/` — two columns with
+ * the explainer on the left and a boot terminal that resolves
+ * into the declaration preview on the right. Also contains
+ * the decrypt cursor pattern used by the hero title and the
+ * fixed coordinate readout.
+ */
+
+/* --- Declaration Article link (reused in hero-combined declaration) --- */
+.zv-declaration-article {
+  display: inline-block;
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cyan);
+  text-decoration: none;
+  padding: 12px 20px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.zv-declaration-article:hover {
+  background: rgba(0, 255, 255, 0.08);
+  border-color: var(--cyan);
+}
+
+/* --- Decrypt Layout Anchor --- */
+.zv-decrypt-anchor {
+  position: relative;
+  display: inline-block;
+}
+
+.zv-decrypt-measure {
+  visibility: hidden;
+}
+
+.zv-decrypt-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+}
+
+/* --- Decrypt Cursor --- */
+.zv-decrypt-cursor {
+  background: var(--cyan);
+  color: var(--void);
+}
+
+.zv-decrypt-cursor-off {
+  background: transparent;
+  color: transparent;
+}
+
+.zv-decrypt-cursor-fade {
+  animation: decrypt-cursor-dissolve 0.5s var(--ease-out) forwards;
+}
+
+@keyframes decrypt-cursor-dissolve {
+  0% {
+    background: var(--cyan);
+    color: var(--void);
+  }
+  100% {
+    background: transparent;
+    color: inherit;
+  }
+}
+
+/* --- Coordinates (fixed bottom-right readout) --- */
+.zv-coordinates {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan-dim);
+  letter-spacing: 0.1em;
+  animation: coordinate-drift 6s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* --- Combined Hero: Above the Fold --- */
+.zv-hero-combined {
+  padding-top: calc(56px + 40px);
+  padding-bottom: 48px;
+}
+
+.zv-hero-title-block {
+  margin-bottom: 40px;
+}
+
+.zv-hero-combined .zv-hero-subtitle {
+  margin-top: 16px;
+  max-width: 640px;
+}
+
+.zv-hero-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Left column: Explainer — left-aligned */
+.zv-hero-col-left .zv-explainer-headline {
+  text-align: left;
+}
+
+.zv-hero-col-left .zv-explainer-body {
+  text-align: left;
+}
+
+.zv-hero-col-left .zv-explainer-paths {
+  justify-content: flex-start;
+}
+
+/* Right column: Boot / Declaration */
+.zv-hero-col-right {
+  border-left: 1px solid var(--void-border);
+  padding-left: 32px;
+  min-height: 320px;
+}
+
+/* Compact declaration in hero right column */
+.zv-hero-declaration {
+  animation: glyph-resolve 0.8s var(--ease-out) forwards;
+}
+
+.zv-hero-declaration-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zv-hero-declaration-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.zv-hero-declaration-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.zv-hero-declaration-callout {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 24px 0;
+  padding: 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--cyan);
+  line-height: 1.4;
+}
+
+.zv-hero-declaration .zv-declaration-article {
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .zv-hero-combined {
+    padding-top: calc(56px + 24px);
+  }
+  .zv-hero-columns {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+  .zv-hero-col-right {
+    border-left: none;
+    padding-left: 0;
+    border-bottom: 1px solid var(--void-border);
+    padding-bottom: 24px;
+    border-top: none;
+    padding-top: 0;
+    min-height: unset;
+  }
+}

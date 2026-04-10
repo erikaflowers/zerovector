@@ -1,0 +1,332 @@
+/* Zero-Vector Design — Homepage Closing
+ *
+ * The closing statement on the manifesto homepage:
+ *   - Orange gradient "007 The Directive" section wrapper
+ *   - Two-path CTA cards (`.zv-paths`, `.zv-path-card`)
+ *   - Open Vector launch card (green accent)
+ *   - Arroyo Labs partner card (orange accent)
+ *   - Closing newsletter notify + divider
+ *
+ * Distinct from `components/page-closing.css`, which is
+ * the orange CTA band that every *subpage* renders at its
+ * bottom via the shared PageClosing component.
+ */
+
+/* --- 007 Closing: The Directive (Inverted) --- */
+.zv-section--closing {
+  background: linear-gradient(135deg, #FF6B1A, #E05A10);
+  padding-top: calc(var(--section-padding) + 40px);
+  margin-top: 80px;
+}
+
+.zv-section--closing .zv-container {
+  max-width: var(--container-max);
+  text-align: center;
+}
+
+.zv-section--closing .zv-body-text,
+.zv-section--closing .zv-section-header {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zv-section--closing .zv-section-number {
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.zv-section--closing .zv-section-number::before {
+  background: rgba(17, 17, 17, 0.3);
+  box-shadow: none;
+}
+
+/* Later override in the original source order — keeps the dark
+ * teal dot on the orange closing band. Historically duplicated
+ * in the source; unified here so the cascade stays stable. */
+.zv-section--closing .zv-section-number::before {
+  background: #007a7a;
+  box-shadow: 0 0 8px rgba(0, 122, 122, 0.3);
+}
+
+.zv-section--closing .zv-section-title {
+  color: #111;
+}
+
+.zv-section--closing .zv-body-text {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(17, 17, 17, 0.7);
+}
+
+.zv-section--closing .zv-closing-permission {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: #111;
+  line-height: 1.35;
+}
+
+.zv-closing-paths {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.zv-closing-paths .zv-path-card {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.zv-closing-paths .zv-path-card:hover {
+  border-color: #111;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.zv-closing-paths .zv-path-eyebrow {
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.zv-closing-paths .zv-path-title {
+  color: #111;
+}
+
+.zv-closing-paths .zv-path-desc {
+  color: rgba(17, 17, 17, 0.65);
+}
+
+.zv-closing-paths .zv-path-cta {
+  color: #111;
+}
+
+/* --- Featured Article Banner (homepage) --- */
+/* Open Vector launch card — homepage */
+.zv-open-vector-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 28px;
+  margin-top: 32px;
+  border: 1.5px solid #00ff88;
+  background: #0a1a10;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out);
+}
+
+.zv-open-vector-card:hover {
+  border-color: #33ffaa;
+  background: #0d2015;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 20px rgba(0, 255, 136, 0.15);
+}
+
+.zv-open-vector-card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  background: #00ff88;
+  padding: 3px 10px;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.zv-open-vector-card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.zv-open-vector-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.zv-open-vector-card-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #00ff88;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .zv-open-vector-card {
+    padding: 20px 24px;
+  }
+}
+
+/* --- Arroyo Labs Card (Homepage Closing) --- */
+
+.zv-arroyo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 28px;
+  margin-top: 16px;
+  border: 1.5px solid #E07A54;
+  background: #1a0e0a;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out);
+}
+
+.zv-arroyo-card:hover {
+  border-color: #e8936e;
+  background: #201210;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 20px rgba(224, 122, 84, 0.15);
+}
+
+.zv-arroyo-card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1a0e0a;
+  background: #E07A54;
+  padding: 3px 10px;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.zv-arroyo-card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.zv-arroyo-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.zv-arroyo-card-cta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #E07A54;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .zv-arroyo-card {
+    padding: 20px 24px;
+  }
+}
+
+/* --- Closing notify + divider --- */
+.zv-closing-notify {
+  text-align: center;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zv-section--closing .zv-closing-notify-text {
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.zv-section--closing .zv-closing-divider {
+  background: rgba(17, 17, 17, 0.12);
+}
+
+.zv-closing-notify-text {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.zv-closing-divider {
+  border: none;
+  width: 60px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+  margin: 48px auto;
+}
+
+/* --- Closing Permission (base) --- */
+.zv-closing-permission {
+  font-size: 1.25rem;
+  color: var(--cyan);
+  font-weight: 500;
+}
+
+/* --- Two Paths CTA --- */
+.zv-paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.zv-path-card {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border: 1px solid var(--void-border);
+  background: var(--void-elevated);
+  text-decoration: none;
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.zv-path-card:hover {
+  border-color: var(--cyan-subtle);
+  box-shadow: 0 0 32px rgba(0, 255, 255, 0.06);
+  text-shadow: none;
+}
+
+.zv-path-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cyan-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.zv-path-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.zv-path-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.zv-path-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cyan);
+  transition: gap 0.3s var(--ease-out);
+}
+
+.zv-path-card:hover .zv-path-cta {
+  gap: 12px;
+}

@@ -138,9 +138,28 @@ src/
 ├── lib/
 │   └── supabase.js         # createClient singleton, null-safe
 ├── pages/                  # 17 page components — one per route
-└── styles/
-    └── site.css            # ~7,900 lines, one file, three coexisting design systems
+└── styles/                 # ~8,300 lines across 71 files, scoped by design system
+    ├── shared/             # Cross-system primitives imported by every system entry
+    │   ├── tokens.css      # :root custom properties + responsive :root overrides
+    │   ├── reset.css       # *, html, body, a base
+    │   └── scroll-reveal.css  # .zv-animate / .zv-visible utility (cross-system because Animate.jsx hardcodes zv- classes)
+    ├── zv/                 # Manifesto design system (components/ + pages/ split)
+    │   ├── index.css       # ~60-line cascade-order @import index
+    │   ├── base.css, typography.css, atmospheric.css, responsive.css
+    │   ├── components/     # 13 shared components (nav, footer, notify-form, etc.)
+    │   └── pages/          # 15 page-specific partials
+    ├── inv/                # Investiture design system (flat)
+    │   ├── index.css       # ~45-line cascade-order @import index
+    │   └── (16 partials: base, atmospheric, nav, hero, terminal, skills, etc.)
+    └── zh/                 # Zero Hack design system (flat)
+        ├── index.css       # ~43-line cascade-order @import index
+        └── (17 partials: base, hero, structure, rubric, hosts, prizes, delight, etc.)
 ```
+
+Every partial is under 500 lines. Each system's `index.css` is a thin cascade-order
+`@import` index — never write rules directly in it, only add `@import` statements.
+Cascade order inside each system: shared → base → atmospheric/typography → components →
+pages → delight (inv and zh only) → responsive (always last).
 
 ---
 
@@ -179,10 +198,13 @@ The exceptions are limited and documented:
 
 ### Styling
 
-- **One file:** `src/styles/site.css`
-- **Tokens at top:** Colors, typography, spacing, easing in `:root`. Zero Hack has its own scoped token block on `.zh-page`.
+- **Scoped system entries:** `src/styles/{zv,inv,zh}/index.css`. Each is a thin cascade-order `@import` index. Add new rules to the matching partial, not to `index.css`.
+- **Shared primitives:** `src/styles/shared/{tokens,reset,scroll-reveal}.css`. Consumed by all three system indexes.
+- **Tokens in `shared/tokens.css`:** Colors, typography, spacing, easing custom properties in `:root`, plus responsive `:root` overrides for `--section-padding` / `--container-padding`. Zero Hack has its own additional scoped token block on `.zh-page` inside `zh/base.css`.
 - **Three parallel design systems:** `zv-*`, `inv-*`, `zh-*`. Each rebuilds nav, cards, CTAs from scratch — this is intentional isolation, not duplication to refactor away.
-- **Add new styles in the matching prefix section.** Do not invent new files.
+- **File size target:** every partial under 500 lines. When a partial grows past 400, plan a split.
+- **Add new styles in the matching prefix partial.** Find the existing file that owns the cluster. Only create a new partial when no existing one fits.
+- **Cascade order per system:** shared → base → atmospheric/typography → components → pages → delight (inv and zh only) → responsive (always last).
 
 ### Auth
 

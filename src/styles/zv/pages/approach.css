@@ -1,0 +1,84 @@
+/* Zero-Vector Design — /approach Page
+ *
+ * Two-column per-phase layout with an optional sticky
+ * "arc + lineage" split at the top.
+ */
+
+/* Arc + Lineage combined split */
+.zv-arc-lineage-split {
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+.zv-arc-lineage-left {
+  position: sticky;
+  top: 100px;
+}
+
+@media (max-width: 768px) {
+  .zv-arc-lineage-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .zv-arc-lineage-left {
+    position: static;
+  }
+}
+
+/* ============================================
+   Approach Page — Two Column Phases
+   ============================================ */
+
+.zv-approach-phase {
+  border-top: 1px solid var(--void-border);
+}
+
+.zv-approach-phase-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.zv-approach-phase-number {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0.1em;
+}
+
+.zv-approach-phase-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.zv-approach-column-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.zv-approach-phase-agnostic .zv-approach-column-label {
+  color: var(--text-tertiary);
+}
+
+.zv-approach-phase-zv .zv-approach-column-label {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.zv-approach-phase-zv {
+  padding: 32px;
+  background: rgba(255, 107, 26, 0.02);
+  border: 1px solid rgba(255, 107, 26, 0.08);
+  border-radius: 4px;
+}

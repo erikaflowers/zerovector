@@ -1,0 +1,157 @@
+/* Zero-Vector Design — /name Page
+ *
+ * "Why Zero Vector?" page — hero + split stages layout
+ * with a static diagram on the right. Standalone page
+ * with its own background treatment.
+ */
+
+/* ════════════════════════════════════════════════════════
+   NAME PAGE — /name — "Why Zero Vector?"
+   Full CSS for NamePage + ZeroVectorAnimation
+   ════════════════════════════════════════════════════════ */
+
+/* --- Page Shell --- */
+.zv-name-page {
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+/* --- Hero --- */
+.zv-name-hero {
+  text-align: center;
+  padding-top: calc(56px + 80px);
+  padding-bottom: 40px;
+}
+
+.zv-name-hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.zv-name-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+
+.zv-name-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* --- Content Section: Split Layout --- */
+.zv-name-content-section {
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.zv-name-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* --- Left: Stages --- */
+.zv-name-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.zv-name-stage-item {
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s;
+}
+
+.zv-name-stage-item:hover {
+  border-color: var(--orange);
+}
+
+.zv-name-stage-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.zv-name-stage-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* --- Right: Static Diagram --- */
+.zv-name-diagram {
+  position: sticky;
+  top: 100px;
+}
+
+.zv-name-diagram-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Conclusion --- */
+.zv-name-conclusion-line {
+  text-align: center;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.zv-name-conclusion-line:first-child {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+}
+
+/* --- Name Page Responsive --- */
+@media (max-width: 768px) {
+  .zv-name-hero {
+    padding-top: calc(56px + 48px);
+  }
+
+  .zv-name-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .zv-name-diagram {
+    position: static;
+    max-width: 320px;
+    margin: 0 auto;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .zv-name-hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+}
+
+/* (reduced motion for name page handled by global Animate component) */

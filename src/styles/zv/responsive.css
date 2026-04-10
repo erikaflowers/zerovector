@@ -1,0 +1,168 @@
+/* Zero-Vector Design — Responsive Overrides
+ *
+ * The kitchen-sink mobile breakpoints for the manifesto
+ * site. This file loads LAST so its @media rules override
+ * everything earlier in the cascade.
+ *
+ * Component-specific breakpoints that only touch one
+ * component (e.g. the notify-form width stack, the
+ * page-closing stack, the name page hero padding) stay
+ * co-located with their parent partial. Only the rules
+ * that cross multiple components live here.
+ *
+ * Several dead orphaned responsive rules were deleted
+ * during Phase B.3 — `.zv-suits`, `.zv-coming-soon-card`,
+ * `.zv-boot-terminal`, `.zv-timeline-layout`, `.zv-timeline-
+ * narrative`, `.zv-pipeline-intro-layout`, `.zv-section--
+ * declaration`, `.zv-terminal-body/section`, `.zv-closing-
+ * links`, `.zv-page-next-links`, `.zv-name-nav-cards`, and
+ * others whose base definitions had been removed in a
+ * prior cleanup pass. They are recoverable from git history.
+ */
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .zv-hero-title {
+    font-size: clamp(2.5rem, 14vw, 5rem);
+  }
+
+  .zv-pipeline-phase {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .zv-coordinates {
+    display: none;
+  }
+
+  .zv-footer-inner {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .zv-footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .zv-decrypt-anchor {
+    display: inline;
+  }
+
+  .zv-decrypt-overlay {
+    white-space: normal;
+  }
+
+  /* Nav: hide desktop links, show hamburger */
+  .zv-nav-links {
+    display: none;
+  }
+
+  .zv-nav-hamburger {
+    display: flex;
+  }
+
+  .zv-nav-mobile {
+    display: flex;
+  }
+
+  /* Two Paths: stack vertically */
+  .zv-paths {
+    grid-template-columns: 1fr;
+  }
+
+  .zv-path-card {
+    padding: 32px 24px;
+  }
+
+  /* Engagement models: stack */
+  .zv-models {
+    grid-template-columns: 1fr;
+  }
+
+  .zv-model-card {
+    padding: 24px;
+  }
+
+  /* Crew grid: stack on mobile */
+  .zv-crew-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .zv-crew-card {
+    padding: 20px;
+  }
+
+  /* Contrasts: stack vertically */
+  .zv-contrast-pair {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  .zv-contrast-side {
+    padding: 16px;
+  }
+
+  .zv-section--contrasts .zv-contrast-not {
+    padding: 16px;
+  }
+
+  .zv-section--contrasts .zv-contrast-is {
+    padding: 16px;
+  }
+
+  /* Philosophy: stack columns */
+  .zv-philosophy-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .zv-philosophy-what-is-not {
+    position: static;
+  }
+
+  .zv-philosophy-principle {
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+  }
+
+  /* Approach: stack phase columns */
+  .zv-approach-phase-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .zv-approach-phase-zv {
+    padding: 24px;
+  }
+
+  /* Builders: tighter step layout */
+  .zv-builders-step {
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+  }
+
+  .zv-builders-community {
+    grid-template-columns: 1fr;
+  }
+
+  /* Media: stack featured cards */
+  .zv-media-featured {
+    grid-template-columns: 1fr;
+  }
+
+  /* Origin: stack photos */
+  .zv-origin-photos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+}

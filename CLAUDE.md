@@ -32,7 +32,7 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 
 - **All site content lives in `src/content/` as exported JS objects.** Do not put copy in JSX. Pages import content and render it. This is the most important architectural decision in the project. The one current exception is the legal pages (Privacy, Terms) — they're hardcoded by design because legal copy rarely changes.
 
-- **The CSS file is ~7,900 lines and that is intentional.** It's one file scoped by domain prefix: `zv-` (manifesto + shared), `inv-` (Investiture), `zh-` (Zero Hack). Add new styles to the appropriate section using the appropriate prefix.
+- **The CSS lives in scoped systems under `src/styles/`.** Three design systems — `zv/` (manifesto), `inv/` (Investiture), `zh/` (Zero Hack) — each with its own modular partials and a thin `index.css` cascade-order `@import` index. Cross-system primitives (`:root` tokens, global reset, scroll-reveal utility) live in `src/styles/shared/`. Every partial is under 500 lines. Add new rules to the matching partial — if no partial fits, create one and add it to the system's `index.css` in the correct cascade position.
 
 - **Two routing patterns coexist.** Manifesto pages use `SiteLayout` (most routes). Standalone pages — `/investiture`, `/investiture/skills`, `/investiture/changelog`, `/zerohack`, `/zerohack/background` — bypass `SiteLayout` and use `useBodyTheme` + `useFonts` hooks to manage their own theming. Know which pattern your page follows.
 
@@ -55,8 +55,8 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 2. **Do not hardcode colors or spacing.** Use CSS custom properties from `:root` in `site.css`.
 3. **Do not add CSS frameworks.** No Tailwind, no CSS-in-JS. Plain CSS with variables. Deliberate constraint.
 4. **Do not put API keys in client-side code.** If you add a backend, secrets live in Netlify environment variables.
-5. **Do not create new CSS files.** Add styles to `src/styles/site.css` in the appropriate domain-prefix section.
-6. **Do not import from one design system into another.** Manifesto JSX uses only `zv-*` classes. Investiture pages use only `inv-*`. Zero Hack uses only `zh-*`.
+5. **Do not add rules to any system's `index.css`.** The three `index.css` files (`zv/`, `inv/`, `zh/`) are cascade-order `@import` indexes only. Find the matching partial for your rule. If no partial fits, create one and add it to the index in the correct cascade position.
+6. **Do not import from one design system into another.** Manifesto JSX uses only `zv-*` classes. Investiture pages use only `inv-*`. Zero Hack uses only `zh-*`. The cross-prefix `scroll-reveal-bridge.css` files in `inv/` and `zh/` are documented exceptions — do not replicate the pattern elsewhere.
 
 ---
 

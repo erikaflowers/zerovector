@@ -1,0 +1,155 @@
+/* Zero-Vector Design — Mobile Navigation
+ *
+ * Hamburger button, slide-down mobile drawer, accordion
+ * groups, mobile sublinks, and mobile auth action buttons.
+ * These are hidden on desktop and revealed at 768px via
+ * the responsive partial.
+ */
+
+/* Mobile auth action buttons (signin / signout) */
+.zv-nav-mobile-signin,
+.zv-nav-mobile-signout {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.zv-nav-mobile-signin {
+  color: var(--cyan) !important;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.zv-nav-mobile-signout {
+  color: var(--text-secondary) !important;
+  margin-top: 8px;
+}
+
+/* --- Mobile Hamburger --- */
+.zv-nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 101;
+}
+
+.zv-nav-hamburger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--text-secondary);
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+
+.zv-nav-hamburger-open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.zv-nav-hamburger-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.zv-nav-hamburger-open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* --- Mobile Nav Menu --- */
+.zv-nav-mobile {
+  display: none;
+  flex-direction: column;
+  padding: 16px var(--container-padding) 24px;
+  border-top: 1px solid var(--void-border);
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.zv-nav-mobile-link {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--void-border);
+  transition: color 0.3s var(--ease-out);
+}
+
+.zv-nav-mobile-link:hover {
+  color: var(--text-primary);
+  text-shadow: none;
+}
+
+.zv-nav-mobile-link.zv-nav-link-active {
+  color: var(--cyan);
+}
+
+/* --- Mobile Nav Accordion Groups --- */
+.zv-nav-mobile-group {
+  border-bottom: 1px solid var(--void-border);
+}
+
+.zv-nav-mobile-group-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 14px 0;
+  transition: color 0.2s ease;
+  letter-spacing: 0.03em;
+}
+
+.zv-nav-mobile-group-trigger:hover {
+  color: var(--text-primary);
+}
+
+.zv-nav-mobile-group-trigger--open {
+  color: var(--text-primary);
+}
+
+.zv-nav-mobile-group-chevron {
+  font-size: 1.1rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.zv-nav-mobile-group-trigger--open .zv-nav-mobile-group-chevron {
+  color: var(--cyan);
+}
+
+.zv-nav-mobile-group-items {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 8px 16px;
+}
+
+.zv-nav-mobile-sublink {
+  border-bottom: none !important;
+  padding: 10px 0 !important;
+  font-size: 0.95rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.zv-nav-mobile-sublink:hover {
+  color: var(--text-primary) !important;
+}
+
+.zv-nav-mobile-sublink.zv-nav-link-active {
+  color: var(--cyan) !important;
+}

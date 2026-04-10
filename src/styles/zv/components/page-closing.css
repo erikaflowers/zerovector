@@ -1,0 +1,147 @@
+/* Zero-Vector Design — Page Closing Band
+ *
+ * The shared orange CTA band rendered at the bottom of
+ * every manifesto subpage by <PageClosing>. Two columns
+ * on desktop (headline + actions on the left, newsletter
+ * on the right), stacked on mobile.
+ */
+
+/* ============================================
+   PageClosing — Orange CTA Band
+   ============================================ */
+
+.zv-page-closing {
+  background: linear-gradient(135deg, #FF6B1A, #E05A10);
+  padding: 80px 0 48px;
+  margin-top: 80px;
+}
+
+.zv-page-closing-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.zv-page-closing-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.zv-page-closing-body {
+  font-size: 1.05rem;
+  color: rgba(17, 17, 17, 0.7);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.zv-page-closing-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.zv-page-closing-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.2s var(--ease-out);
+}
+
+.zv-page-closing-cta--primary {
+  background: #111;
+  color: #fff;
+}
+
+.zv-page-closing-cta--primary:hover {
+  background: #000;
+  transform: translateY(-1px);
+}
+
+.zv-page-closing-cta--secondary {
+  background: transparent;
+  color: #111;
+  border: 1.5px solid rgba(17, 17, 17, 0.3);
+}
+
+.zv-page-closing-cta--secondary:hover {
+  border-color: #111;
+  transform: translateY(-1px);
+}
+
+.zv-page-closing-cta:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 3px;
+}
+
+/* Secondary column — newsletter */
+.zv-page-closing-secondary {
+  padding-top: 8px;
+}
+
+.zv-page-closing-notify-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(17, 17, 17, 0.6);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+/* Navigation row */
+.zv-page-closing-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+}
+
+.zv-page-closing-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(17, 17, 17, 0.45);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.zv-page-closing-nav a:hover {
+  color: #111;
+}
+
+/* Responsive (the orange notify variant breakpoints live in notify-form.css) */
+@media (max-width: 768px) {
+  .zv-page-closing {
+    padding: 60px 0 40px;
+  }
+
+  .zv-page-closing-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .zv-page-closing-actions {
+    flex-direction: column;
+  }
+
+  .zv-page-closing-cta {
+    justify-content: center;
+  }
+}

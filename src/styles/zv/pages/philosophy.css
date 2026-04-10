@@ -1,0 +1,184 @@
+/* Zero-Vector Design — /philosophy Page
+ *
+ * Two-column layout with a sticky "what it is not" sidebar
+ * on the right and a principle list (Principle Zero + the
+ * rest) on the left.
+ */
+
+/* ============================================
+   Philosophy Page — Two Column + Principles
+   ============================================ */
+
+.zv-philosophy-split {
+  display: grid;
+  grid-template-columns: 65fr 35fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.zv-philosophy-what-is-not {
+  position: sticky;
+  top: 100px;
+  padding: 28px;
+  border: 1px solid var(--void-border);
+  background: var(--void-elevated);
+  border-radius: 4px;
+}
+
+.zv-philosophy-sidebar-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--magenta);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.zv-philosophy-not-item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--void-border);
+}
+
+.zv-philosophy-not-item:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.zv-philosophy-not-claim {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--magenta);
+  margin-bottom: 6px;
+}
+
+.zv-philosophy-not-explanation {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+/* Principle Zero — Standout */
+.zv-principle-zero {
+  border: 2px solid var(--cyan);
+  padding: 48px;
+  text-align: center;
+  position: relative;
+  background: var(--cyan-subtle);
+}
+
+.zv-principle-zero-numeral {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin-bottom: 24px;
+  text-shadow: 0 0 30px var(--cyan-glow), 0 0 60px var(--cyan-subtle);
+}
+
+.zv-principle-zero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .zv-principle-zero {
+    padding: 32px 24px;
+  }
+}
+
+/* Philosophy Principles */
+.zv-philosophy-principles {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.zv-philosophy-principle {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.zv-philosophy-principle-numeral {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1.2;
+  padding-top: 6px;
+}
+
+.zv-philosophy-principle-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.zv-philosophy-principle-body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.zv-philosophy-principle-why {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.zv-philosophy-principle-detail {
+  margin-top: 16px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.06);
+}
+
+.zv-philosophy-principle-detail-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.zv-philosophy-principle-detail-text:last-child {
+  margin-bottom: 0;
+}
+
+.zv-philosophy-principle-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.zv-philosophy-principle-link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyan);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.zv-philosophy-principle-link:hover {
+  color: var(--orange);
+}

@@ -1,0 +1,53 @@
+/* Zero-Vector Design — Page Hero
+ *
+ * The numbered eyebrow + decrypted title pattern used by
+ * every manifesto subpage. Keyframe `glyph-resolve` is
+ * co-located here and reused by the homepage hero-combined
+ * declaration block via source order.
+ */
+
+/* --- Hero Entrance --- */
+@keyframes glyph-resolve {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(20px);
+  }
+  50% {
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.zv-hero-entrance {
+  animation: glyph-resolve 1.4s var(--ease-out) forwards;
+}
+
+/* Subtitle: hidden until decrypt sequence completes */
+.zv-hero-decrypt-hidden {
+  opacity: 0;
+}
+
+.zv-hero-decrypt-reveal {
+  animation: glyph-resolve 1.4s var(--ease-out) forwards;
+}
+
+/* --- Page Hero (subpages) --- */
+.zv-page-hero {
+  padding-top: calc(56px + var(--section-padding));
+}
+
+.zv-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: var(--text-primary);
+  margin-top: 12px;
+  max-width: 100%;
+}

@@ -1,0 +1,62 @@
+/* Zero-Vector Design — 404 Page
+ *
+ * "Signal Lost" terminal screen. Uses the cyan blinking
+ * cursor keyframe co-located here.
+ */
+
+/* ============================================
+   404 Page — Signal Lost
+   ============================================ */
+
+.zv-404 {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zv-404-terminal {
+  text-align: center;
+}
+
+.zv-404-line {
+  font-family: var(--font-mono);
+  line-height: 1.4;
+}
+
+.zv-404-code {
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 30px rgba(0, 200, 200, 0.3);
+}
+
+.zv-404-title {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+}
+
+.zv-404-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: 16px;
+}
+
+.zv-404-prompt {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin-top: 24px;
+}
+
+.zv-404-cursor {
+  color: var(--cyan);
+  animation: zv-blink 1s step-end infinite;
+}
+
+@keyframes zv-blink {
+  50% { opacity: 0; }
+}

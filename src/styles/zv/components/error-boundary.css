@@ -1,0 +1,42 @@
+/* Zero-Vector Design — Error Boundary
+ *
+ * The fallback card shown by src/components/ErrorBoundary.jsx
+ * when a manifesto route crashes.
+ */
+
+.zv-error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 24px;
+  text-align: center;
+}
+.zv-error-boundary-content {
+  max-width: 440px;
+}
+.zv-error-boundary-icon {
+  font-size: 3rem;
+  color: #ff4466;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+.zv-error-boundary-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.zv-error-boundary-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+.zv-error-boundary-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}

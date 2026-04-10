@@ -1,0 +1,38 @@
+/* Zero-Vector Design — Footer
+ *
+ * The minimal site footer — brand mark on the left, link
+ * group on the right. Shared across every manifesto route.
+ */
+
+.zv-footer {
+  border-top: 1px solid var(--void-border);
+  padding: 48px 0;
+}
+
+.zv-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zv-footer-brand {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  letter-spacing: 0.15em;
+}
+
+.zv-footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.zv-footer-links a {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+
+.zv-footer-links a:hover {
+  color: var(--cyan);
+}

@@ -1,0 +1,75 @@
+/* Zero-Vector Design — Timeline Component
+ *
+ * Vertical timeline with glowing dot markers used on the
+ * homepage and the Origin page. Standalone list, not a
+ * grid — the `.zv-timeline-layout` / `.zv-timeline-narrative`
+ * wrapper classes were deleted as dead rules during Phase B.3.
+ */
+
+.zv-timeline-milestone {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.zv-timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.zv-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--cyan-subtle), var(--void-border), var(--cyan));
+}
+
+.zv-timeline-entry {
+  position: relative;
+  padding-bottom: 48px;
+}
+
+.zv-timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  background: var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--cyan-glow);
+}
+
+.zv-timeline-entry:last-child {
+  padding-bottom: 0;
+}
+
+.zv-timeline-entry:last-child::before {
+  width: 13px;
+  height: 13px;
+  left: -38px;
+  top: 4px;
+  box-shadow: 0 0 16px var(--cyan-glow), 0 0 32px var(--cyan-subtle);
+}
+
+.zv-timeline-year {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.zv-timeline-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 560px;
+}
