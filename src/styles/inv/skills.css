@@ -1,0 +1,198 @@
+/* Investiture — Skills Page
+ * Compact skill-list used on the main page, plus the verbose
+ * inv-skills-* components used on /investiture/skills. */
+
+/* --- Skill list (main page, compact) --- */
+
+.inv-skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 32px 0 24px;
+}
+
+.inv-skill-group {
+  margin-bottom: 8px;
+}
+
+.inv-skill-group-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #5facc8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 0 6px;
+  border-bottom: 1px solid rgba(95, 172, 200, 0.15);
+  margin-bottom: 2px;
+}
+
+.inv-skill-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.06);
+  transition: background 0.2s var(--ease-out);
+}
+
+.inv-skill-row:hover {
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.inv-skill-cmd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #c9a84c;
+  white-space: nowrap;
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.inv-skill-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #8a9ab5;
+  line-height: 1.5;
+}
+
+.inv-skill-list-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.inv-skill-list-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #c9a84c;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s var(--ease-out);
+}
+
+.inv-skill-list-link:hover {
+  color: #e8d48b;
+}
+
+/* --- Skills page (verbose) --- */
+
+.inv-skills-group-header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(95, 172, 200, 0.2);
+}
+
+.inv-skills-group-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #5facc8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 8px;
+}
+
+.inv-skills-group-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #8a9ab5;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.inv-skills-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 56px;
+}
+
+.inv-skills-entry {
+  padding: 28px 32px;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-bottom: none;
+  background: rgba(201, 168, 76, 0.02);
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.inv-skills-entry:last-child {
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+.inv-skills-entry:hover {
+  border-color: rgba(201, 168, 76, 0.2);
+  background: rgba(201, 168, 76, 0.04);
+}
+
+.inv-skills-entry-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.inv-skills-entry-cmd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #c9a84c;
+}
+
+.inv-skills-entry-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #5facc8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(95, 172, 200, 0.25);
+  padding: 2px 8px;
+}
+
+.inv-skills-entry-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #8a9ab5;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.inv-skills-entry-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inv-skills-entry-meta-row {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.inv-skills-entry-meta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(201, 168, 76, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-width: 56px;
+  flex-shrink: 0;
+}
+
+.inv-skills-entry-meta-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: rgba(138, 154, 181, 0.7);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+code.inv-skills-entry-meta-value {
+  background: rgba(95, 172, 200, 0.08);
+  padding: 1px 6px;
+  border-radius: 2px;
+}

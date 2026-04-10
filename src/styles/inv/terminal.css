@@ -1,0 +1,83 @@
+/* Investiture — Terminal Component
+ * The inv-terminal chrome (bar, dots, title, body, lines, cursor) and
+ * the inv-blink keyframe. The inv-terminal-dots gem pulse lives in
+ * atmospheric.css; copy-state hover styling lives in delight.css. */
+
+/* --- Terminal --- */
+
+.inv-terminal {
+  background: #080e1a;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  overflow: hidden;
+}
+
+.inv-terminal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(201, 168, 76, 0.06);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  padding: 10px 20px;
+}
+
+.inv-terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.inv-terminal-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.inv-terminal-dots span:nth-child(1) { background: #c85a44; opacity: 0.7; }
+.inv-terminal-dots span:nth-child(2) { background: #c9a84c; opacity: 0.5; }
+.inv-terminal-dots span:nth-child(3) { background: #5facc8; opacity: 0.5; }
+
+.inv-terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(232, 224, 208, 0.3);
+}
+
+.inv-terminal-body {
+  padding: 24px;
+}
+
+.inv-terminal-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.inv-terminal-line:last-child {
+  margin-bottom: 0;
+}
+
+.inv-terminal-prompt {
+  color: #5facc8;
+  flex-shrink: 0;
+}
+
+.inv-terminal-cmd {
+  color: #e8d89c;
+  word-break: break-all;
+}
+
+.inv-terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: #c9a84c;
+  animation: inv-blink 1.2s step-end infinite;
+}
+
+@keyframes inv-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

@@ -1,0 +1,134 @@
+/* Investiture — File Tree, Reading Order, Roadmap Badge
+ * The tangible "What You Get" components: inv-filetree ascii tree,
+ * numbered inv-reading-step list, and the small inv-roadmap-version
+ * and inv-roadmap-shipped badges used nearby. */
+
+/* --- File Tree (What You Get) --- */
+
+.inv-filetree-wrapper {
+  background: #080e1a;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  overflow: hidden;
+  margin-bottom: 48px;
+  box-sizing: border-box;
+}
+
+.inv-filetree {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #e8d89c;
+  padding: 24px;
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* --- Reading Order (What You Get) --- */
+
+.inv-reading-order {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 8px;
+}
+
+.inv-reading-step {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  background: rgba(10, 22, 40, 0.8);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  padding: 28px 32px;
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.inv-reading-step:hover {
+  border-color: rgba(95, 172, 200, 0.25);
+  box-shadow: inset 4px 0 30px -12px rgba(95, 172, 200, 0.1);
+}
+
+.inv-reading-step + .inv-reading-step {
+  border-top: none;
+}
+
+.inv-reading-step-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: #5facc8;
+  opacity: 0.35;
+  flex-shrink: 0;
+  width: 64px;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(95, 172, 200, 0.1);
+  transition: opacity 0.3s var(--ease-out), text-shadow 0.3s var(--ease-out);
+}
+
+.inv-reading-step:hover .inv-reading-step-number {
+  opacity: 0.6;
+  text-shadow: 0 0 40px rgba(95, 172, 200, 0.25);
+}
+
+.inv-reading-step-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.inv-reading-step-file {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c9a84c;
+  margin: 0 0 6px;
+  letter-spacing: 0.02em;
+}
+
+.inv-reading-step-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #8a9ab5;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.inv-reading-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(201, 168, 76, 0.5);
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* --- Roadmap Version Badge --- */
+
+.inv-roadmap-version {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: #c9a84c;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 3px 10px;
+  margin-bottom: 14px;
+}
+
+/* --- Roadmap shipped badge --- */
+
+.inv-roadmap-shipped {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: #c85a44;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-left: 8px;
+}
+
+.inv-card--shipped {
+  border-color: rgba(201, 168, 76, 0.2);
+  opacity: 0.75;
+}

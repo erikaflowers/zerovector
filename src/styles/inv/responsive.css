@@ -1,0 +1,193 @@
+/* Investiture — Responsive
+ * Kitchen-sink breakpoint blocks that touch multiple components at
+ * once (hero, nav, terminal, filetree, reading steps, cards, chain,
+ * changelog, skills, etc.). Imported last so its @media rules win
+ * via source order. */
+
+/* --- Responsive: 768px --- */
+
+@media (max-width: 768px) {
+  .inv-section {
+    padding: 56px 0;
+  }
+
+  .inv-hero {
+    padding-top: calc(56px + 80px);
+    padding-bottom: 56px;
+  }
+
+  .inv-hero-prompt-input,
+  .inv-hero-prompt-char,
+  .inv-hero-prompt-cursor {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .inv-hero-prompt-input {
+    width: 14ch;
+  }
+
+  .inv-hero-epigraph {
+    font-size: 1rem;
+  }
+
+  .inv-two-col,
+  .inv-three-col {
+    grid-template-columns: 1fr;
+  }
+
+  .inv-layer {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .inv-layer-number {
+    width: auto;
+    font-size: 2rem;
+  }
+
+  .inv-rule {
+    margin-bottom: 40px;
+  }
+
+  .inv-nav-brand {
+    font-size: 12px;
+  }
+
+  .inv-nav-center .inv-nav-btn {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .inv-terminal-line {
+    font-size: 12px;
+  }
+
+  .inv-filetree {
+    font-size: 11px;
+    line-height: 1.7;
+    padding: 16px;
+  }
+
+  .inv-reading-step {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 20px;
+  }
+
+  .inv-reading-step-number {
+    width: auto;
+    font-size: 1.75rem;
+  }
+
+  .inv-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inv-btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
+/* --- Responsive: 480px --- */
+
+@media (max-width: 480px) {
+  .inv-hero-prompt-input,
+  .inv-hero-prompt-char,
+  .inv-hero-prompt-cursor {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+  }
+
+  .inv-hero-prompt-input {
+    width: 12ch;
+  }
+
+  .inv-hero-creed {
+    letter-spacing: 0.12em;
+  }
+
+  .inv-card {
+    padding: 24px 20px;
+  }
+
+  .inv-layer {
+    padding: 24px 20px;
+  }
+
+  .inv-terminal-body {
+    padding: 16px;
+  }
+
+  .inv-terminal-line {
+    font-size: 11px;
+    gap: 8px;
+  }
+
+  .inv-filetree {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .inv-reading-step {
+    padding: 20px 16px;
+  }
+}
+
+/* Responsive — chain + changelog + skill list + skills page */
+@media (max-width: 768px) {
+  .inv-chain-entry,
+  .inv-changelog-entry {
+    padding: 24px 20px;
+  }
+
+  .inv-chain-flow {
+    font-size: 11px;
+    padding: 16px;
+  }
+
+  .inv-skill-row {
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 0;
+  }
+
+  .inv-skill-cmd {
+    min-width: unset;
+  }
+
+  .inv-skills-entry {
+    padding: 24px 20px;
+  }
+
+  .inv-skills-entry-meta-row {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inv-chain-entry,
+  .inv-changelog-entry {
+    padding: 20px 16px;
+  }
+
+  .inv-chain-flow {
+    font-size: 10px;
+    word-spacing: -2px;
+  }
+
+  .inv-chain-entry-name {
+    font-size: 0.95rem;
+  }
+
+  .inv-skills-entry {
+    padding: 20px 16px;
+  }
+
+  .inv-skill-list-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

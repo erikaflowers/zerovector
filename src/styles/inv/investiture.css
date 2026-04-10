@@ -1,0 +1,183 @@
+/* Investiture — Main Page Specifics
+ * The hero structure (epigraph, ornament, creed) and the inverted
+ * "What You Get" blueprint section (white background, coral accents)
+ * with all of its nested overrides for labels, intro, rule, file tree,
+ * reading steps, terminal, quickstart, etc. The highstorm sweep
+ * animation itself lives in atmospheric.css. */
+
+/* --- Inverted Blueprint Section (What You Get) --- */
+/* White background, coral accent — the most tangible section stands apart */
+
+.inv-section--blueprint {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border-top: 2px solid rgba(200, 90, 68, 0.4);
+  border-bottom: 2px solid rgba(200, 90, 68, 0.4);
+}
+
+/* Inverted typography — dark text on light background */
+.inv-section--blueprint .inv-label {
+  color: #c85a44;
+}
+
+.inv-section--blueprint .inv-label::before {
+  background: #c85a44;
+  opacity: 1;
+}
+
+.inv-section--blueprint .inv-intro {
+  color: #3a3025;
+}
+
+.inv-section--blueprint .inv-rule {
+  background: linear-gradient(90deg, transparent 0%, rgba(200, 90, 68, 0.3) 20%, rgba(200, 90, 68, 0.3) 80%, transparent 100%);
+  box-shadow: 0 0 16px rgba(200, 90, 68, 0.06), 0 0 4px rgba(200, 90, 68, 0.04);
+}
+
+/* Inverted file tree */
+.inv-section--blueprint .inv-filetree-wrapper {
+  background: #1a1410;
+  border-color: rgba(200, 90, 68, 0.25);
+}
+
+.inv-section--blueprint .inv-terminal-bar {
+  background: rgba(200, 90, 68, 0.08);
+  border-bottom-color: rgba(200, 90, 68, 0.15);
+}
+
+.inv-section--blueprint .inv-terminal-title {
+  color: rgba(232, 224, 208, 0.4);
+}
+
+/* Inverted reading steps */
+.inv-section--blueprint .inv-reading-step {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(200, 90, 68, 0.15);
+}
+
+.inv-section--blueprint .inv-reading-step:hover {
+  border-color: rgba(200, 90, 68, 0.35);
+  box-shadow: inset 4px 0 30px -12px rgba(200, 90, 68, 0.1);
+}
+
+.inv-section--blueprint .inv-reading-step-number {
+  color: #c85a44;
+  opacity: 0.4;
+  text-shadow: none;
+}
+
+.inv-section--blueprint .inv-reading-step:hover .inv-reading-step-number {
+  opacity: 0.7;
+  text-shadow: none;
+}
+
+.inv-section--blueprint .inv-reading-step-file {
+  color: #1a1410;
+}
+
+.inv-section--blueprint .inv-reading-step-desc {
+  color: #5a4e42;
+}
+
+.inv-section--blueprint .inv-section-headline {
+  background: linear-gradient(135deg, #c85a44 0%, #d4735f 50%, #c85a44 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: none;
+}
+
+.inv-section--blueprint .inv-reading-caption {
+  color: rgba(200, 90, 68, 0.6);
+}
+
+.inv-section--blueprint .inv-quickstart-headline {
+  color: #c85a44;
+}
+
+.inv-section--blueprint .inv-quickstart-intro {
+  color: #3a3025;
+}
+
+.inv-section--blueprint .inv-after {
+  color: #5a4e42;
+}
+
+.inv-section--blueprint .inv-quickstart-alt-label {
+  color: #5a4e42;
+}
+
+.inv-section--blueprint .inv-quickstart-alt-cmd {
+  background: rgba(200, 90, 68, 0.06);
+  color: #c85a44;
+}
+
+.inv-section--blueprint .inv-quickstart-alt-cmd:hover {
+  background: rgba(200, 90, 68, 0.12);
+}
+
+.inv-section--blueprint .inv-quickstart-alt-hint {
+  color: rgba(200, 90, 68, 0.5);
+}
+
+.inv-section--blueprint .inv-quickstart-alt-cmd:hover .inv-quickstart-alt-hint {
+  color: rgba(200, 90, 68, 0.7);
+}
+
+.inv-section--blueprint .inv-quickstart-alt-cmd--copied .inv-quickstart-alt-hint {
+  color: #c85a44;
+}
+
+.inv-section--blueprint .inv-terminal {
+  border-color: rgba(200, 90, 68, 0.25);
+}
+
+/* --- Hero --- */
+
+.inv-hero {
+  position: relative;
+  padding-top: calc(56px + 50px);
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.inv-hero-epigraph {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-style: italic;
+  color: #8a9ab5;
+  line-height: 1.8;
+  margin: 0 auto 36px;
+  max-width: 480px;
+}
+
+.inv-hero-ornament {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 90, 68, 0.5), rgba(201, 168, 76, 0.4), rgba(200, 90, 68, 0.5), transparent);
+  margin: 0 auto 48px;
+  position: relative;
+}
+
+.inv-hero-ornament::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 7px;
+  height: 7px;
+  background: #c85a44;
+  opacity: 0.5;
+}
+
+.inv-hero-creed {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  color: rgba(200, 90, 68, 0.6);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0;
+}

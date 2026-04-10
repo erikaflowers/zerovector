@@ -1,0 +1,181 @@
+/* Investiture — Quickstart + Hero Prompt
+ * The quickstart terminal (inv-terminal--hero variant, alt commands,
+ * copy states) and the hero prompt input shown as the title.
+ * Also the inv-sr-only visually-hidden helper. */
+
+/* --- Quick Start --- */
+
+.inv-quickstart-headline {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #c9a84c;
+  margin: 0 0 12px;
+}
+
+.inv-quickstart-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: #c0b99a;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.inv-terminal--hero {
+  border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.inv-terminal--hero .inv-terminal-cmd {
+  color: #c9a84c;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.inv-quickstart-alt {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #6b7a94;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inv-quickstart-alt-label {
+  color: #8a9ab5;
+}
+
+.inv-quickstart-alt-cmd {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: #5facc8;
+  background: rgba(95, 172, 200, 0.08);
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: background 0.2s;
+  word-break: break-all;
+}
+
+.inv-quickstart-alt-cmd:hover {
+  background: rgba(95, 172, 200, 0.15);
+}
+
+.inv-quickstart-alt-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #6b7a94;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.inv-quickstart-alt-cmd:hover .inv-quickstart-alt-hint {
+  color: #8a9ab5;
+}
+
+.inv-quickstart-alt-cmd--copied .inv-quickstart-alt-hint {
+  color: #c9a84c;
+}
+
+/* "Say the words..." whisper */
+.inv-hero-prompt-whisper {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-style: italic;
+  color: rgba(201, 168, 76, 0.35);
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+
+/* Prompt — the title IS a terminal input */
+.inv-hero-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  margin-bottom: 32px;
+  cursor: text;
+  max-width: calc(100% - 48px);
+  box-sizing: border-box;
+  background: rgba(6, 12, 24, 0.6);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-radius: 12px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inv-hero-prompt:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 168, 76, 0.04);
+}
+
+.inv-hero-prompt--focused {
+  border-color: rgba(201, 168, 76, 0.4);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 30px rgba(201, 168, 76, 0.06);
+}
+
+.inv-hero-prompt-char {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  color: rgba(200, 90, 68, 0.5);
+  flex-shrink: 0;
+  user-select: none;
+  line-height: 1;
+}
+
+.inv-hero-prompt-input {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 500;
+  color: #c9a84c;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  min-width: 0;
+  width: 22ch;
+  max-width: 60vw;
+  caret-color: #c9a84c;
+  line-height: 1;
+}
+
+.inv-hero-prompt-input::placeholder {
+  color: rgba(201, 168, 76, 0.2);
+  font-style: italic;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+}
+
+.inv-hero-prompt-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 500;
+  color: #c9a84c;
+  animation: inv-prompt-blink 1s step-end infinite;
+  user-select: none;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+@keyframes inv-prompt-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Visually hidden but SEO/accessibility visible */
+.inv-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

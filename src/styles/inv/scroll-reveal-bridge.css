@@ -1,0 +1,11 @@
+/* Investiture — Scroll-Reveal Bridge
+ * Documented cross-prefix coupling: the <Animate> component hardcodes
+ * `.zv-animate`/`.zv-visible` class names, and Investiture pages consume
+ * it. This selector overrides the shared scroll-reveal base from
+ * ../shared/scroll-reveal.css so Investiture uses a shorter lift. */
+
+/* Scroll animations scoped to inv-page */
+.inv-page .zv-animate {
+  transform: translateY(16px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}

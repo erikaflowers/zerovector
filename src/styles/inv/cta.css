@@ -1,0 +1,156 @@
+/* Investiture — CTA
+ * Inverted top-of-page CTA card (with stormlight sweep keyframe),
+ * dark button variants, and the bottom-of-page CTA section with its
+ * coral radial glow and primary/outline button variants. */
+
+/* --- CTA Inverted (top of page) --- */
+.inv-cta-inverted {
+  background: #0d1f3c;
+  padding: 56px 48px;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  box-shadow:
+    0 0 80px rgba(201, 168, 76, 0.06),
+    0 0 160px rgba(201, 168, 76, 0.03),
+    inset 0 1px 0 rgba(201, 168, 76, 0.15);
+  overflow: hidden;
+}
+
+/* Stormlight sweep — gold light passes across the box */
+.inv-cta-inverted::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.07), transparent);
+  animation: inv-cta-sweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes inv-cta-sweep {
+  0%, 100% { left: -60%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.inv-cta-inverted-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #c9a84c 0%, #e8d89c 50%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 12px;
+  text-shadow: none;
+}
+
+.inv-cta-inverted-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #8a9ab5;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.inv-cta-inverted-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.inv-btn--dark {
+  background: #c85a44;
+  color: #faf0e6;
+  border: none;
+}
+
+.inv-btn--dark:hover {
+  background: #d4735f;
+  box-shadow: 0 0 30px rgba(200, 90, 68, 0.35);
+}
+
+.inv-btn--dark-outline {
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: #c9a84c;
+}
+
+.inv-btn--dark-outline:hover {
+  background: rgba(201, 168, 76, 0.08);
+  border-color: rgba(201, 168, 76, 0.6);
+  color: #e8d89c;
+}
+
+@media (max-width: 768px) {
+  .inv-cta-inverted {
+    padding: 32px 24px;
+  }
+
+  .inv-cta-inverted-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inv-cta-inverted-buttons .inv-btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
+/* --- CTA --- */
+
+.inv-cta-section {
+  text-align: center;
+  padding: 100px 0 140px;
+  position: relative;
+}
+
+.inv-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(200, 90, 68, 0.06) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inv-cta-buttons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.inv-btn--primary {
+  background: #c85a44;
+  color: #faf0e6;
+}
+
+.inv-btn--primary:hover {
+  background: #d4735f;
+  box-shadow: 0 0 30px rgba(200, 90, 68, 0.35);
+}
+
+.inv-btn--outline {
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: #c9a84c;
+}
+
+.inv-btn--outline:hover {
+  background: #c9a84c;
+  color: #0a1628;
+}

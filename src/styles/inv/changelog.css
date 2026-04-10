@@ -1,0 +1,66 @@
+/* Investiture — Changelog Page
+ * The /investiture/changelog timeline: section wrapper, entry cards,
+ * meta rows, bulleted lists. */
+
+/* --- Investiture Changelog Page --- */
+
+.inv-changelog-section {
+  padding-top: calc(56px + 80px);
+}
+
+.inv-changelog-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.inv-changelog-entry {
+  padding: 36px 32px;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  border-bottom: none;
+  background: rgba(201, 168, 76, 0.02);
+  transition: border-color 0.3s var(--ease-out);
+}
+
+.inv-changelog-entry:last-child {
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+.inv-changelog-entry:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+}
+
+.inv-changelog-entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.inv-changelog-entry-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #8a9ab5;
+}
+
+.inv-changelog-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.inv-changelog-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #8a9ab5;
+  line-height: 1.7;
+  padding: 4px 0 4px 16px;
+  position: relative;
+}
+
+.inv-changelog-list li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  color: rgba(95, 172, 200, 0.5);
+}

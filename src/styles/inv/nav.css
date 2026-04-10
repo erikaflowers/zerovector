@@ -1,0 +1,86 @@
+/* Investiture — Nav
+ * Fixed top nav bar, back link, separator, centered action buttons. */
+
+/* --- Nav --- */
+
+.inv-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 22, 40, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+}
+
+.inv-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inv-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inv-nav-back {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #8a9ab5;
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+}
+
+.inv-nav-back:hover {
+  color: #c9a84c;
+}
+
+.inv-nav-sep {
+  color: rgba(201, 168, 76, 0.3);
+  font-size: 14px;
+  user-select: none;
+}
+
+.inv-nav-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inv-nav-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0a1628;
+  background: #c9a84c;
+  text-decoration: none;
+  padding: 5px 14px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.inv-nav-btn:hover {
+  background: #d4b860;
+}
+
+.inv-nav-btn--outline {
+  background: transparent;
+  color: #8a9ab5;
+  border: 1px solid rgba(138, 154, 181, 0.25);
+}
+
+.inv-nav-btn--outline:hover {
+  color: #c9a84c;
+  border-color: rgba(201, 168, 76, 0.4);
+  background: transparent;
+}

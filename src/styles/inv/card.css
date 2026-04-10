@@ -1,0 +1,65 @@
+/* Investiture — Card Component
+ * The inv-card component, its gold and steel variants, the three-col
+ * grid wrapper. Hover light-leak effect lives in atmospheric.css. */
+
+/* --- Cards --- */
+
+.inv-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.inv-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(201, 168, 76, 0.03);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  padding: 36px 32px;
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+}
+
+.inv-card--gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(201, 168, 76, 0.7), rgba(201, 168, 76, 0.05));
+}
+
+.inv-card--steel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(95, 172, 200, 0.6), rgba(95, 172, 200, 0.05));
+}
+
+.inv-card:hover {
+  border-color: rgba(201, 168, 76, 0.25);
+  box-shadow: inset 4px 0 30px -12px rgba(201, 168, 76, 0.1);
+}
+
+.inv-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #c9a84c;
+  margin: 0 0 16px;
+}
+
+.inv-card--steel .inv-card-title {
+  color: #5facc8;
+}
+
+.inv-card-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #8a9ab5;
+  line-height: 1.8;
+  margin: 0;
+}

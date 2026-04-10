@@ -1,0 +1,280 @@
+/* Investiture — Atmospheric Effects
+ * Stormlight particles, vapor glow, hero shardblade slashes, card light
+ * leak, highstorm sweep on the blueprint section, terminal gem pulse,
+ * quote diamond breathe, plus the reduced-motion suppression for all
+ * of it. Pure visual effects — no layout or component structure. */
+
+/* --- Stormlight: Floating Spren Particles --- */
+
+.inv-stormlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.inv-spren {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.9), rgba(201, 168, 76, 0) 70%);
+  box-shadow: 0 0 8px 3px rgba(201, 168, 76, 0.2);
+  bottom: -20px;
+  opacity: 0;
+  animation: inv-rise linear infinite;
+  animation-duration: calc(10s + var(--spren) * 0.6s);
+  animation-delay: calc(var(--spren) * -0.8s);
+  left: calc(var(--spren) * 4.15% + 1%);
+}
+
+/* Vary sizes — some spren are larger, brighter */
+.inv-spren:nth-child(3n) {
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 0 12px 4px rgba(201, 168, 76, 0.25);
+}
+
+.inv-spren:nth-child(5n) {
+  width: 2px;
+  height: 2px;
+  box-shadow: 0 0 6px 2px rgba(201, 168, 76, 0.15);
+}
+
+/* Stormlight blue spren — every 4th */
+.inv-spren:nth-child(4n) {
+  background: radial-gradient(circle, rgba(95, 172, 200, 0.9), rgba(95, 172, 200, 0) 70%);
+  box-shadow: 0 0 8px 3px rgba(95, 172, 200, 0.2);
+}
+
+/* Ember coral spren — every 7th */
+.inv-spren:nth-child(7n) {
+  background: radial-gradient(circle, rgba(200, 90, 68, 0.85), rgba(200, 90, 68, 0) 70%);
+  box-shadow: 0 0 8px 3px rgba(200, 90, 68, 0.15);
+}
+
+/* Vary horizontal drift — some drift left, some right */
+.inv-spren:nth-child(odd) {
+  animation-name: inv-rise-left;
+}
+
+.inv-spren:nth-child(even) {
+  animation-name: inv-rise-right;
+}
+
+@keyframes inv-rise-left {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  5% { opacity: 0.7; }
+  50% { opacity: 0.4; }
+  95% { opacity: 0.1; }
+  100% { transform: translateY(-100vh) translateX(-40px); opacity: 0; }
+}
+
+@keyframes inv-rise-right {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  5% { opacity: 0.6; }
+  50% { opacity: 0.35; }
+  95% { opacity: 0.1; }
+  100% { transform: translateY(-100vh) translateX(40px); opacity: 0; }
+}
+
+/* --- Stormlight: Infused Breathing --- */
+/* Gold accents pulse like gems holding Stormlight */
+
+@keyframes inv-infuse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.inv-label::before {
+  animation: inv-infuse 4s ease-in-out infinite;
+}
+
+@keyframes inv-badge-breathe {
+  0%, 100% { border-color: rgba(201, 168, 76, 0.2); box-shadow: 0 0 0 rgba(201, 168, 76, 0); }
+  50% { border-color: rgba(201, 168, 76, 0.5); box-shadow: 0 0 20px rgba(201, 168, 76, 0.08); }
+}
+
+/* --- Stormlight: Hero Vapor Glow --- */
+/* Luminous mist gathering behind the title, like Stormlight being drawn in */
+
+.inv-hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.06) 0%, rgba(201, 168, 76, 0.02) 40%, transparent 70%);
+  pointer-events: none;
+  animation: inv-vapor 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes inv-vapor {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translate(-45%, -52%) scale(1.1);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(-55%, -48%) scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+/* --- Shardblade Slashes --- */
+/* Thin coral cuts through the hero void, like a Blade was summoned */
+
+.inv-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    /* Primary slash — steep diagonal, upper-right to lower-left */
+    linear-gradient(
+      -62deg,
+      transparent 42%,
+      rgba(200, 90, 68, 0.06) 42.3%,
+      rgba(200, 90, 68, 0.12) 42.5%,
+      rgba(200, 90, 68, 0.06) 42.7%,
+      transparent 43%
+    ),
+    /* Secondary slash — shallower angle, crossing the first */
+    linear-gradient(
+      -38deg,
+      transparent 56%,
+      rgba(200, 90, 68, 0.04) 56.2%,
+      rgba(200, 90, 68, 0.09) 56.4%,
+      rgba(200, 90, 68, 0.04) 56.6%,
+      transparent 56.8%
+    ),
+    /* Faint third slash — nearly vertical, far right */
+    linear-gradient(
+      -78deg,
+      transparent 68%,
+      rgba(200, 90, 68, 0.03) 68.1%,
+      rgba(200, 90, 68, 0.06) 68.25%,
+      rgba(200, 90, 68, 0.03) 68.4%,
+      transparent 68.5%
+    );
+  animation: inv-blade-fade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+@keyframes inv-blade-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Second vapor layer for depth */
+.inv-hero::after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(200, 90, 68, 0.04) 0%, rgba(138, 154, 181, 0.02) 40%, transparent 60%);
+  pointer-events: none;
+  animation: inv-vapor-2 12s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes inv-vapor-2 {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.15) translateY(-20px); opacity: 0.8; }
+}
+
+/* --- Stormlight: Card Light Leak on Hover --- */
+/* Cards emit wisps of light when touched, like Stormlight escaping cracks */
+
+.inv-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(201, 168, 76, 0.08), transparent 50%),
+    radial-gradient(ellipse at 90% 20%, rgba(201, 168, 76, 0.04), transparent 40%);
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.inv-card:hover::after {
+  opacity: 1;
+}
+
+/* --- Stormlight: Highstorm Sweep on Blueprint Section --- */
+/* A wave of light passes through when the section enters view */
+
+.inv-section--blueprint::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(200, 90, 68, 0.04), rgba(200, 90, 68, 0.07), rgba(200, 90, 68, 0.04), transparent);
+  pointer-events: none;
+  animation: inv-highstorm 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes inv-highstorm {
+  0% { left: -60%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* --- Stormlight: Terminal Gem Glow --- */
+/* The terminal dots pulse like infused spheres */
+
+.inv-terminal-dots span:first-child {
+  animation: inv-gem-pulse 3s ease-in-out infinite;
+}
+
+@keyframes inv-gem-pulse {
+  0%, 100% { opacity: 0.6; box-shadow: 0 0 4px rgba(201, 168, 76, 0.3); }
+  50% { opacity: 0.9; box-shadow: 0 0 10px rgba(201, 168, 76, 0.5); }
+}
+
+/* --- Stormlight: Quote Diamond Glow --- */
+
+.inv-rule--diamond::after {
+  animation: inv-gem-breathe 5s ease-in-out infinite;
+}
+
+@keyframes inv-gem-breathe {
+  0%, 100% { opacity: 0.3; box-shadow: 0 0 8px rgba(201, 168, 76, 0.2); }
+  50% { opacity: 0.7; box-shadow: 0 0 20px rgba(201, 168, 76, 0.4); }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .inv-spren,
+  .inv-hero-glow,
+  .inv-hero::after,
+  .inv-section--blueprint::after,
+  .inv-badge,
+  .inv-terminal-dots span,
+  .inv-rule--diamond::after,
+  .inv-cta-inverted::before {
+    animation: none;
+  }
+  .inv-label::before {
+    animation: none;
+  }
+}

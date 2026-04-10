@@ -1,0 +1,41 @@
+/* Investiture — Quote Section
+ * Centered pull-quote block with smart-quote glyphs, citation and
+ * contextual aftertext. The diamond glow breathe effect lives in
+ * atmospheric.css (inv-rule--diamond::after). */
+
+/* --- Quote --- */
+
+.inv-quote-section {
+  text-align: center;
+  padding: 120px 0;
+}
+
+.inv-quote {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-style: italic;
+  color: #e8e0d0;
+  line-height: 1.6;
+  margin: 0 auto 24px;
+}
+
+.inv-quote::before { content: '\201C'; }
+.inv-quote::after { content: '\201D'; }
+
+.inv-cite {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-style: normal;
+  color: #5facc8;
+  letter-spacing: 0.05em;
+}
+
+.inv-context {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(232, 224, 208, 0.35);
+  line-height: 1.7;
+  margin: 48px auto 0;
+  text-align: center;
+}

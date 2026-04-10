@@ -1,0 +1,67 @@
+/* Investiture — Typography
+ * Label, intro, after, section headline and body — text primitives
+ * reused across multiple sections. */
+
+/* --- Labels & Typography --- */
+
+.inv-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 25px;
+  font-weight: 600;
+  color: #c9a84c;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inv-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: #c85a44;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.inv-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;
+  color: #8a9ab5;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+.inv-after {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #8a9ab5;
+  margin-top: 24px;
+}
+
+/* --- Section Headlines & Body (What It Is, Connection) --- */
+
+.inv-section-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #c9a84c 0%, #e8d89c 50%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 28px;
+  filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.08));
+}
+
+.inv-section-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: #8a9ab5;
+  line-height: 1.8;
+  margin: 0;
+}
