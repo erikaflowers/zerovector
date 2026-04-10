@@ -26,11 +26,12 @@ function BootSequence({ onComplete }) {
       return;
     }
 
-    BOOT_LINES.forEach(({ text, delay }) => {
+    // Track every per-line timer so unmount during the boot sequence cleans them up.
+    const lineTimers = BOOT_LINES.map(({ text, delay }) =>
       setTimeout(() => {
         setLines(prev => [...prev, text]);
-      }, delay);
-    });
+      }, delay)
+    );
 
     // Start fade
     const fadeTimer = setTimeout(() => setFading(true), 3000);
@@ -43,6 +44,7 @@ function BootSequence({ onComplete }) {
     }, 3700);
 
     return () => {
+      lineTimers.forEach(clearTimeout);
       clearTimeout(fadeTimer);
       clearTimeout(doneTimer);
     };

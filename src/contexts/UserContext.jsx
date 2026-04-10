@@ -23,11 +23,18 @@ export function UserProvider({ children }) {
       return;
     }
 
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session ? mapUser(session.user) : null);
-      setLoading(false);
-    });
+    // Get initial session — fail gracefully if Supabase is unreachable so the
+    // site doesn't hang on a permanent loading state during an outage.
+    supabase.auth.getSession()
+      .then(({ data: { session } }) => {
+        setUser(session ? mapUser(session.user) : null);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('[UserContext] getSession failed:', err);
+        setUser(null);
+        setLoading(false);
+      });
 
     // Listen for auth changes (sign in, sign out, token refresh)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -36,7 +43,7 @@ export function UserProvider({ children }) {
     });
 
     // Clean up orphaned mock auth key from the old stub
-    localStorage.removeItem('ovl-user');
+    try { localStorage.removeItem('ovl-user'); } catch {}
 
     return () => subscription.unsubscribe();
   }, []);
@@ -55,15 +62,23 @@ export function UserProvider({ children }) {
       );
       return;
     }
-    supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: window.location.href },
-    });
+    try {
+      supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href },
+      });
+    } catch (err) {
+      console.error('[UserContext] signIn failed:', err);
+    }
   }, []);
 
   const signOut = useCallback(async () => {
     if (!supabase) return;
-    await supabase.auth.signOut();
+    try {
+      await supabase.auth.signOut();
+    } catch (err) {
+      console.error('[UserContext] signOut failed:', err);
+    }
     setUser(null);
   }, []);
 

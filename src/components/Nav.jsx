@@ -50,6 +50,13 @@ function NavDropdown({ group, pathname, onNavigate }) {
   // Close on route change
   useEffect(() => { setOpen(false); }, [pathname]);
 
+  // Clear hover-leave timeout on unmount so it doesn't fire on a dead component
+  useEffect(() => {
+    return () => {
+      if (timeout.current) clearTimeout(timeout.current);
+    };
+  }, []);
+
   function handleMouseEnter() {
     clearTimeout(timeout.current);
     setOpen(true);
@@ -207,14 +214,27 @@ function Nav() {
               {mobileExpanded === group.label && (
                 <div className="zv-nav-mobile-group-items">
                   {group.items.map(item => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className={`zv-nav-mobile-link zv-nav-mobile-sublink ${pathname === item.to ? 'zv-nav-link-active' : ''}`}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
+                    item.href ? (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="zv-nav-mobile-link zv-nav-mobile-sublink"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className={`zv-nav-mobile-link zv-nav-mobile-sublink ${pathname === item.to ? 'zv-nav-link-active' : ''}`}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    )
                   ))}
                 </div>
               )}
