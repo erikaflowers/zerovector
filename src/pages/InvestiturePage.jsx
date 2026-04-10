@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
+import useBodyTheme from '../hooks/useBodyTheme';
 import '../styles/site.css';
 import en from '../content/en';
 
@@ -31,21 +32,14 @@ function InvestiturePage() {
     ogImage: 'https://zerovector.design/og/investiture.png',
   });
 
+  useBodyTheme({ background: '#0a1628', color: '#e8e0d0' });
+
   useEffect(() => {
-    document.body.style.background = '#0a1628';
-    document.body.style.color = '#e8e0d0';
-    document.body.style.margin = '0';
-    document.body.style.minHeight = '100vh';
     console.log(
       '%c"The most important step a man can take is the next one." %c- Dalinar Kholin',
       'color: #c9a84c; font-size: 14px; font-style: italic;',
       'color: #8a9ab5; font-size: 12px;'
     );
-    return () => {
-      document.body.style.background = '';
-      document.body.style.color = '';
-      document.body.style.minHeight = '';
-    };
   }, []);
 
   return (

@@ -4,27 +4,12 @@ import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
 import SectionHeader from '../components/SectionHeader';
 import DecryptText from '../components/DecryptText';
-import { ArrowIcon } from '../components/icons';
+import { ArrowIcon, ChevronIcon } from '../components/icons';
 import BootSequence from '../components/BootSequence';
 import NotifyForm from '../components/NotifyForm';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
-
-function ChevronIcon({ size = 20, className = '' }) {
-  return (
-    <svg
-      className={className}
-      width={size}
-      height={size}
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M6 8L10 12L14 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 const { home } = en;
 
@@ -312,11 +297,11 @@ function ManifestoPage() {
             </a>
           </Animate>
           <Animate>
-            <a href="https://arroyo.zerovector.design" target="_blank" rel="noopener noreferrer" className="zv-arroyo-card">
-              <span className="zv-arroyo-card-badge">Commercial</span>
-              <span className="zv-arroyo-card-title">Arroyo Labs</span>
-              <span className="zv-arroyo-card-desc">Want Zero Vector applied to your product? Arroyo Labs delivers strategy, design, and engineering in a single engagement.</span>
-              <span className="zv-arroyo-card-cta">Learn more <ArrowIcon size={16} /></span>
+            <a href={home.closing.arroyo.link} target="_blank" rel="noopener noreferrer" className="zv-arroyo-card">
+              <span className="zv-arroyo-card-badge">{home.closing.arroyo.badge}</span>
+              <span className="zv-arroyo-card-title">{home.closing.arroyo.title}</span>
+              <span className="zv-arroyo-card-desc">{home.closing.arroyo.description}</span>
+              <span className="zv-arroyo-card-cta">{home.closing.arroyo.cta} <ArrowIcon size={16} /></span>
             </a>
           </Animate>
           <Animate delay={1}>

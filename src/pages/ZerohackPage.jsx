@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Animate from '../components/Animate';
 import { useInView } from '../hooks/useInView';
 import useSEO from '../hooks/useSEO';
+import useBodyTheme from '../hooks/useBodyTheme';
 import '../styles/site.css';
 import en from '../content/en';
 
@@ -62,17 +63,7 @@ function ZerohackPage() {
     );
   }, []);
 
-  useEffect(() => {
-    document.body.style.background = '#1A0808';
-    document.body.style.color = '#FFF5EB';
-    document.body.style.margin = '0';
-    document.body.style.minHeight = '100vh';
-    return () => {
-      document.body.style.background = '';
-      document.body.style.color = '';
-      document.body.style.minHeight = '';
-    };
-  }, []);
+  useBodyTheme({ background: '#1A0808', color: '#FFF5EB' });
 
   const progressRef = useRef(null);
   const heroBgRef = useRef(null);

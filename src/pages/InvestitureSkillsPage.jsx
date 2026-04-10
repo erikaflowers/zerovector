@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
+import useBodyTheme from '../hooks/useBodyTheme';
 import '../styles/site.css';
 import en from '../content/en';
 
@@ -18,17 +19,7 @@ function InvestitureSkillsPage() {
     path: '/investiture/skills',
   });
 
-  useEffect(() => {
-    document.body.style.background = '#0a1628';
-    document.body.style.color = '#e8e0d0';
-    document.body.style.margin = '0';
-    document.body.style.minHeight = '100vh';
-    return () => {
-      document.body.style.background = '';
-      document.body.style.color = '';
-      document.body.style.minHeight = '';
-    };
-  }, []);
+  useBodyTheme({ background: '#0a1628', color: '#e8e0d0' });
 
   return (
     <div className="inv-page">

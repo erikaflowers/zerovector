@@ -177,6 +177,13 @@ const home = {
       cta: 'Start Learning',
       link: 'https://open.zerovector.design',
     },
+    arroyo: {
+      badge: 'Commercial',
+      title: 'Arroyo Labs',
+      description: 'Want Zero Vector applied to your product? Arroyo Labs delivers strategy, design, and engineering in a single engagement.',
+      cta: 'Learn more',
+      link: 'https://arroyo.zerovector.design',
+    },
     substack: {
       text: 'Stay informed. New writing on design, AI, and building things that matter.',
       cta: 'Subscribe on Substack',
