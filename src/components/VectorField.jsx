@@ -128,8 +128,18 @@ function VectorField() {
     }
 
     resize();
-    animationId = requestAnimationFrame(render);
 
+    // Reduced motion: render a single static frame and skip the animation loop
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      render(0);
+      window.addEventListener('resize', resize);
+      return () => {
+        window.removeEventListener('resize', resize);
+      };
+    }
+
+    animationId = requestAnimationFrame(render);
     window.addEventListener('resize', resize);
 
     return () => {

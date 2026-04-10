@@ -18,6 +18,15 @@ function DecryptText({ text, delay = 0, speed = 100, blinks = 3, blinkSpeed = 12
   useEffect(() => {
     if (!ready) return;
 
+    // Reduced motion: skip the scramble entirely, show final text immediately
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setDisplay(text);
+      setPhase('done');
+      if (onCompleteRef.current) onCompleteRef.current();
+      return;
+    }
+
     posRef.current = 0;
     setCursorIndex(-1);
     setFading(false);

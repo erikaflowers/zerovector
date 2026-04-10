@@ -2,8 +2,11 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import useSEO from '../hooks/useSEO';
 import useBodyTheme from '../hooks/useBodyTheme';
+import useFonts from '../hooks/useFonts';
 import '../styles/site.css';
 import en from '../content/en';
+
+const ZH_FONT = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap';
 
 const { zerohack: zh, zerohackBackground: bg } = en;
 
@@ -35,6 +38,7 @@ function ZerohackBackgroundPage() {
   });
 
   useBodyTheme({ background: '#1A0808', color: '#FFF5EB' });
+  useFonts([ZH_FONT]);
 
   return (
     <div className="zh-page">
