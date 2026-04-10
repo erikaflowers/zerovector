@@ -1,148 +1,125 @@
 # Zero-Vector Design
 
-**[zerovector.design](https://zerovector.design)**
+A design philosophy and open methodology for the age of AI. No intermediary. No translation layer. No friction. From intent to artifact, directly.
 
-A new discipline for going from concept to customer with zero intermediaries. Not a tool. Not a framework. A fundamental shift in what it means to make things in a world where AI agents are crew.
+This repo is the source for **[zerovector.design](https://zerovector.design)** — the manifesto site, the Investiture premium deep dive, and the Zero Hack hackathon landing pages.
 
 ---
 
 ## What Is Zero-Vector Design?
 
-For thirty years, design has been an act of translation. We draw pictures of things and hand them to other people who build fifty percent of the vision. We call this a process. We call this collaboration. We call this the way it has always been done.
+Zero-Vector is a discipline for going from concept to customer without the translation layers that have defined product development for decades. The person with the vision builds the artifact directly, using AI agents as crew. No handoff. No specs to interpret. One person, full pipeline, real product.
 
-It does not have to be this way.
+It is opinionated about approach and agnostic about tools. It does not care whether you use Claude or Cursor or whatever ships next Tuesday. It cares that you work in the medium, that you understand the problem before you build the solution, and that craft survives the transformation.
 
-Zero-Vector Design is a discipline, a philosophy, and a practical approach to making things. It consists of seven principles that guide decision-making, an eight-phase approach that covers everything from the seed of an idea to shipping it, an open curriculum that anyone can follow, and a growing community of practitioners who build real things with AI agents as crew.
+Read the full manifesto at [zerovector.design](https://zerovector.design).
+
+---
 
 ## The Seven Principles
 
-| # | Principle | Core Idea |
-|---|-----------|-----------|
-| I | **Work in the Medium** | Build in the real material, not a representation of it. A chef does not draw a picture of a meal. |
-| II | **Boundaryless by Nature** | No lanes. No disciplines. No artificial walls between thinking and making. |
-| III | **The Medium is the Message** | The tool shapes the thinking. Change the medium, change the mind. |
-| IV | **The Purpose of a System is What It Does** | Do not look at what a process claims to produce. Look at what it actually produces. |
-| V | **Design and Build are the Same Act** | Not measure twice, cut once. Measure and cut simultaneously. The design is the build. |
-| VI | **Dissolve the Hyperspecialization** | Specialization is for insects. Your role is not designer or developer. Your role is auteur. |
-| VII | **Venture Past the Possible** | The only way to discover the limits of the possible is to venture past them into the impossible. |
+1. **Work in the Medium** — Build in the real material, not a representation of it.
+2. **Boundaryless by Nature** — No lanes. No disciplines. No artificial walls between thinking and making.
+3. **The Medium is the Message** — The tool shapes the thinking. Change the medium, change the mind.
+4. **The Purpose of a System is What It Does** — Look at what it actually produces, not what it claims to.
+5. **Design and Build are the Same Act** — There is no handoff because there is no separation.
+6. **Dissolve the Hyperspecialization** — Specialization is for insects. Your role is auteur.
+7. **Venture Past the Possible** — The only way to discover the limits is to venture past them into the impossible.
 
-## This Is an Open Source Movement
+Full treatment at [zerovector.design/philosophy](https://zerovector.design/philosophy).
 
-Zero-Vector Design is not a product. It is not a company. It is a movement — and movements are built in the open.
+---
 
-This repository contains the entire Zero-Vector website: the philosophy, the approach, the curriculum, the resources. All of it. We are treating this the way we treat any open source project: the ideas belong to everyone, and the best way to make them better is to invite the world to contribute.
+## What's in This Repo
 
-The knowledge to become a Zero-Vector practitioner is free. It will always be free. No paywall. No premium tier. No "sign up for the good stuff." If someone puts this behind a paywall, we build something better and release it open.
+Five things:
 
-## Contributing
+1. **The manifesto site** — Home, Philosophy, Approach, For Builders, For Leaders, For Enterprise, Media, Origin, Start, Name.
+2. **[Investiture](https://zerovector.design/investiture)** — A premium deep dive on the AI-native project scaffold and its skill chain. Includes a full skills reference and a changelog.
+3. **[Zero Hack](https://zerovector.design/zerohack)** — Landing page for the first Zero Vector hackathon (May 9–10, 2026), plus the background article ("The Janky Demo That Won").
+4. **Privacy and Terms** — Standard legal pages.
+5. **A 404 page** with personality.
 
-We welcome contributions of all kinds. You do not need to be a developer to contribute — in fact, the whole point of Zero-Vector is that the boundaries between disciplines are artificial.
+Application forms and AI chat features that previously lived here have been retired. The Open Vector learning platform, Arroyo Labs, Labrador, and Terminus now live on their own subdomains and are linked from the manifesto.
 
-### Ideas and Discussion
-
-- **Open an issue** to propose new content, suggest edits, or start a discussion
-- **Share your experience** practicing Zero-Vector — what worked, what did not, what you would add
-- **Challenge the principles** — they are opinionated on purpose, but they should hold up to scrutiny
-
-### Content Contributions
-
-- **Edit existing pages** — fix typos, clarify language, improve explanations
-- **Suggest new resources** — books, articles, talks, tools that align with the philosophy
-- **Write case studies** — show how you applied Zero-Vector to a real project
-- **Translate content** — help make Zero-Vector accessible in more languages
-
-### Code Contributions
-
-- **Fix bugs** — layout issues, broken links, accessibility improvements
-- **Improve performance** — faster load times, better mobile experience
-- **Add features** — propose and build new interactive elements
-
-### How to Contribute
-
-1. Fork this repository
-2. Create a feature branch (`git checkout -b content/your-change`)
-3. Make your changes
-4. Submit a pull request with a clear description of what you changed and why
-
-All content lives in `src/content/en.js` — the single source of truth for every word on the site. Page structure lives in `src/pages/`. Styles in `src/styles/site.css`.
+---
 
 ## Tech Stack
 
-- **React 19** + **Vite 7** — Single page application
-- **Custom CSS** — No framework. Design tokens, BEM-ish naming (`zv-*` prefix)
-- **Netlify** — Hosting and serverless functions
-- **Claude** — AI chat and quiz features via Netlify Functions
+- **React 19** + **Vite 7** SPA
+- **React Router 7** for client-side routing
+- **Plain CSS** with custom properties — one file (`src/styles/site.css`), domain-scoped class prefixes (`zv-` / `inv-` / `zh-`)
+- **Supabase** Google OAuth — used only for the optional sign-in avatar in the nav; nothing is gated
+- **Netlify** hosting with auto-deploy on push to `main`
+
+No TypeScript, no test framework, no linter, no CSS framework, no state management library, no serverless functions. Deliberate constraints.
+
+---
 
 ## Local Development
 
 ```bash
-# Clone the repo
 git clone https://github.com/erikaflowers/zerovector.git
 cd zerovector
-
-# Install dependencies
+cp .env.example .env   # add your Supabase keys (optional, for sign-in)
 npm install
-
-# Copy environment variables
-cp .env.example .env
-# Fill in your ANTHROPIC_API_KEY, VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY
-
-# Start the dev server (site only, no AI features)
 npm run dev
-
-# Start with Netlify Functions (for Ask, Quiz, and Learn Chat)
-netlify dev
 ```
 
-The site runs on `localhost:5173` (Vite) or `localhost:3006` (Netlify dev proxy).
+Vite serves on `http://localhost:5174`. The site builds and runs without env vars — Supabase is null-safe and the sign-in button just won't work.
+
+---
 
 ## Project Structure
 
 ```
-zerovector/
-├── src/
-│   ├── content/
-│   │   ├── en.js               # Main site content
-│   │   └── learn/              # Open Vector curriculum
-│   │       ├── 00-orientation/ # Level 00 lessons
-│   │       ├── 01-foundation/  # Level 01 lessons
-│   │       ├── 02-the-medium/  # Level 02 lessons
-│   │       ├── 03-the-pipeline/# Level 03 lessons
-│   │       ├── 04-orchestration/ # Level 04 lessons
-│   │       ├── 05-auteur/      # Level 05 lessons
-│   │       ├── approach/       # Step-by-step guides
-│   │       ├── resources.js    # Curated external resources
-│   │       ├── changelog.js    # Platform changelog
-│   │       └── _template.js    # Lesson template for contributors
-│   ├── components/             # Shared + learn components
-│   ├── contexts/               # UserContext (auth), ProgressContext
-│   ├── layouts/                # SiteLayout, LearnLayout
-│   ├── lib/                    # Supabase client
-│   ├── pages/                  # Page components
-│   ├── hooks/                  # Custom React hooks (useSEO)
-│   ├── styles/
-│   │   └── site.css            # All styles
-│   └── App.jsx                 # Routes
-├── netlify/
-│   └── functions/              # Serverless: chat, quiz, learn-chat
-├── public/                     # Static assets
-├── .env.example                # Required environment variables
-└── index.html
+src/
+├── App.jsx              # Routes
+├── main.jsx             # React entry
+├── components/          # 11 presentational components
+├── content/             # Content-as-data: 13 modules + en.js barrel
+├── contexts/
+│   └── UserContext.jsx  # Supabase auth wrapper
+├── hooks/               # useBodyTheme, useFonts, useInView, useMousePosition, useSEO
+├── layouts/
+│   └── SiteLayout.jsx
+├── lib/
+│   └── supabase.js
+├── pages/               # 17 page components
+└── styles/
+    └── site.css         # ~7,900 lines, one file
 ```
+
+---
+
+## Contributing
+
+Issues and pull requests welcome.
+
+- **Content fixes** are the easiest contribution: edit a file in `src/content/`, send a PR.
+- **Code contributions:** read `CLAUDE.md`, then `ARCHITECTURE.md`, then file an issue describing the change before writing code.
+
+---
 
 ## Related Projects
 
-- **[Investiture](https://github.com/erikaflowers/investiture)** — The Zero-Vector starter scaffold. Architecture that teaches your AI to write clean code.
-- **[The Open Vector](https://zerovector.design/open)** — Free curriculum from "I have never opened a terminal" to "I ship my own vision."
+- **[Open Vector](https://open.zerovector.design)** — Free learning platform: 6 levels, 60+ lessons.
+- **[Arroyo Labs](https://arroyo.zerovector.design)** — Commercial Zero Vector engagements.
+- **[Labrador](https://herelabrador.ai)** — Persistent memory layer for any LLM.
+- **Terminus** — WaveTerm fork with crew-aware features.
+- **[Investiture](https://github.com/erikaflowers/investiture)** — The AI-native project scaffold.
+
+---
 
 ## Connect
 
-- **Substack:** [eflowers.substack.com](https://eflowers.substack.com) — Writing on design, AI, and building things
-- **LinkedIn:** [Erika Flowers](https://www.linkedin.com/in/helloeflowers/)
-- **Website:** [helloerikaflowers.com](https://helloerikaflowers.com)
+- Substack: [erikaflowers.substack.com](https://eflowers.substack.com)
+- LinkedIn: [helloeflowers](https://www.linkedin.com/in/helloeflowers/)
+- Personal: [helloerikaflowers.com](https://helloerikaflowers.com)
+- Support: [ko-fi.com/erikaflowers](https://ko-fi.com/erikaflowers)
+
+---
 
 ## License
 
-The content of this project is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/). The code is licensed under [MIT](https://opensource.org/licenses/MIT).
-
-Use it. Teach it. Build on it. Make everyone around you better. That is the job.
+MIT for the code. The Zero Vector philosophy and Seven Principles are CC BY-SA 4.0 — share, remix, attribute.
