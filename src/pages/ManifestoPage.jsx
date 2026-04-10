@@ -26,7 +26,7 @@ function ChevronIcon({ size = 20, className = '' }) {
   );
 }
 
-const { home, recommendedReading } = en;
+const { home } = en;
 
 function ManifestoPage() {
   const [booted, setBooted] = useState(() => {

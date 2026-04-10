@@ -6,7 +6,6 @@ const zerohack = {
     brand: 'Zero Hack',
     back: 'Zero Vector',
     backUrl: '/',
-    cta: 'Apply Now',
   },
 
   hero: {
@@ -15,8 +14,6 @@ const zerohack = {
     subline: 'Build for a person. Not a demo.',
     date: 'May 9\u201310, 2026',
     format: 'Two days. Four sessions. Virtual.',
-    cta: 'Apply Now',
-    ctaUrl: '/zerohack/apply',
   },
 
   whatIs: {
@@ -147,16 +144,6 @@ const zerohack = {
         'Completion credential',
       ],
     },
-  },
-
-  register: {
-    label: '\u201CI\u2019m in. How do I join?\u201D',
-    headline: 'Your seat.',
-    price: '$50',
-    priceNote: 'Every dollar goes to prizes and the event. Zero Vector takes nothing.',
-    applicationNote: 'The application itself is a design exercise. Describe a real person, a real problem, and your 2026 vision for solving it.',
-    cta: 'Apply Now',
-    ctaUrl: '/zerohack/apply',
   },
 
   footer: {

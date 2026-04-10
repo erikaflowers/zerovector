@@ -12,12 +12,10 @@ import InvestitureChangelogPage from './pages/InvestitureChangelogPage';
 import InvestitureSkillsPage from './pages/InvestitureSkillsPage';
 import ZerohackPage from './pages/ZerohackPage';
 import ZerohackBackgroundPage from './pages/ZerohackBackgroundPage';
-import ZerohackApplyPage from './pages/ZerohackApplyPage';
 
 import StartPage from './pages/StartPage';
 import NamePage from './pages/NamePage';
 import EnterprisePage from './pages/EnterprisePage';
-import JoinPage from './pages/JoinPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -40,7 +38,7 @@ function App() {
         <Route path="/name" element={<NamePage />} />
         {/* Redirects from old routes */}
         <Route path="/about" element={<Navigate to="/philosophy" replace />} />
-        <Route path="/join" element={<JoinPage />} />
+        <Route path="/join" element={<Navigate to="/start" replace />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/pipeline" element={<Navigate to="/approach" replace />} />
@@ -51,7 +49,7 @@ function App() {
       <Route path="/investiture/changelog" element={<InvestitureChangelogPage />} />
       <Route path="/investiture/skills" element={<InvestitureSkillsPage />} />
       <Route path="/investiture" element={<InvestiturePage />} />
-      <Route path="/zerohack/apply" element={<ZerohackApplyPage />} />
+      <Route path="/zerohack/apply" element={<Navigate to="/zerohack" replace />} />
       <Route path="/zerohack/background" element={<ZerohackBackgroundPage />} />
       <Route path="/zerohack" element={<ZerohackPage />} />
     </Routes>

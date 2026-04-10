@@ -75,10 +75,8 @@ function ZerohackPage() {
   }, []);
 
   const progressRef = useRef(null);
-  const heroRef = useRef(null);
   const heroBgRef = useRef(null);
   const heroContentRef = useRef(null);
-  const navRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -124,7 +122,7 @@ function ZerohackPage() {
       </div>
 
       {/* Nav */}
-      <nav ref={navRef} className={`zh-nav${scrolled ? ' zh-nav--solid' : ''}`}>
+      <nav className={`zh-nav${scrolled ? ' zh-nav--solid' : ''}`}>
         <div className="zh-nav-inner">
           <div className="zh-nav-left">
             <Link to={zh.nav.backUrl} className="zh-nav-back">
@@ -135,15 +133,12 @@ function ZerohackPage() {
             <span className="zh-nav-sep" />
             <Link to="/zerohack/background" className="zh-nav-link">Background</Link>
           </div>
-          <Link to="/zerohack/apply" className="zh-nav-cta">
-            {zh.nav.cta} &rarr;
-          </Link>
         </div>
       </nav>
 
       <main>
       {/* Hero */}
-      <section ref={heroRef} className="zh-hero">
+      <section className="zh-hero">
         <div ref={heroBgRef} className="zh-hero-bg" aria-hidden="true" />
         <div className="zh-hero-gradient" aria-hidden="true" />
         <div className="zh-hero-grain" aria-hidden="true" />
@@ -163,9 +158,6 @@ function ZerohackPage() {
             <span className="zh-hero-headline-line" data-text={zh.hero.headlineBottom}>{zh.hero.headlineBottom}</span>
           </h1>
           <p className="zh-hero-subline">{zh.hero.subline}</p>
-          <Link to="/zerohack/apply" className="zh-btn zh-btn--primary zh-btn--lg">
-            {zh.hero.cta} &rarr;
-          </Link>
         </div>
       </section>
 
@@ -321,31 +313,6 @@ function ZerohackPage() {
                 ))}
               </ul>
             </div>
-          </Animate>
-        </div>
-      </section>
-
-      {/* Registration */}
-      <section id="register" className="zh-section zh-register">
-        <div className="zh-register-bg" aria-hidden="true" />
-        <div className="zh-register-mesh" aria-hidden="true" />
-        <div className="zh-register-grain" aria-hidden="true" />
-        <div className="zh-container zh-register-inner">
-          <Animate>
-            <div className="zh-label">{zh.register.label}</div>
-            <h2 className="zh-register-headline">{zh.register.headline}</h2>
-          </Animate>
-          <Animate>
-            <div className="zh-register-price"><CountUp target="50" prefix="$" duration={1400} /></div>
-            <p className="zh-register-note">{zh.register.priceNote}</p>
-          </Animate>
-          <Animate>
-            <p className="zh-register-app-note">{zh.register.applicationNote}</p>
-          </Animate>
-          <Animate>
-            <Link to="/zerohack/apply" className="zh-btn zh-btn--primary zh-btn--lg">
-              {zh.register.cta} &rarr;
-            </Link>
           </Animate>
         </div>
       </section>

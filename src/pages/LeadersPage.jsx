@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom';
 import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
 import PageClosing from '../components/PageClosing';
-import { ArrowIcon } from '../components/icons';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
 

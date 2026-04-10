@@ -43,9 +43,6 @@ function ZerohackBackgroundPage() {
             <span className="zh-nav-sep" />
             <span className="zh-nav-brand">Background</span>
           </div>
-          <Link to="/zerohack/apply" className="zh-nav-cta">
-            {zh.nav.cta} &rarr;
-          </Link>
         </div>
       </nav>
 
@@ -273,13 +270,6 @@ function ZerohackBackgroundPage() {
           </p>
 
           <p className="zh-bg-emphasis">Bring a person. Bring a problem. We will bring the tools.</p>
-
-          <div className="zh-bg-cta-block">
-            <p>Ready?</p>
-            <Link to="/zerohack/apply" className="zh-btn zh-btn--primary zh-btn--lg">
-              Apply Now &rarr;
-            </Link>
-          </div>
         </div>
       </article>
       </main>
