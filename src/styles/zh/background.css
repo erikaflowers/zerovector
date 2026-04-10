@@ -1,0 +1,91 @@
+/* Zero Hack — Background Article
+ * Long-form article layout for /zerohack/background: container, headings,
+ * body, emphasis, horizontal rule, and its single targeted mobile block. */
+
+/* --- Background Article Page --- */
+.zh-bg-article {
+  padding: 140px 0 120px;
+  min-height: calc(100vh - 200px);
+}
+
+.zh-bg-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.zh-bg-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  color: var(--zh-cream);
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, var(--zh-cream) 20%, var(--zh-peach) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.zh-bg-subtitle {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--zh-peach);
+  margin-bottom: 48px;
+}
+
+.zh-bg-h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--zh-cream);
+  margin-top: 64px;
+  margin-bottom: 20px;
+}
+
+.zh-bg-rule {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--zh-hotpink), var(--zh-teal), transparent);
+  margin: 64px 0;
+  opacity: 0.4;
+}
+
+.zh-bg-emphasis {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--zh-coral);
+  line-height: 1.5;
+  margin: 32px 0;
+}
+
+.zh-bg-body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--zh-text-muted);
+  margin-bottom: 20px;
+}
+
+.zh-bg-body em {
+  color: var(--zh-cream-dim);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .zh-bg-article {
+    padding: 100px 0 80px;
+  }
+  .zh-bg-container {
+    padding: 0 20px;
+  }
+}

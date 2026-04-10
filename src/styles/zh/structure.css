@@ -1,0 +1,116 @@
+/* Zero Hack — Structure / Timeline
+ * Timeline rows for the sessions section. The .zh-session base (grid
+ * layout) was originally defined inside the delight layer but lives here
+ * now; its hover/filter delight rules stay in delight.css. */
+
+/* --- Timeline / Structure --- */
+
+.zh-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 48px;
+}
+
+.zh-session:last-child {
+  border-bottom: none;
+}
+
+.zh-session-marker {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+  position: relative;
+}
+
+/* Vertical line connecting markers — draws itself on scroll-in */
+.zh-session:not(:last-child) .zh-session-marker::after {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  width: 2px;
+  height: calc(100% + 32px);
+  background: linear-gradient(180deg, var(--zh-hotpink), var(--zh-teal), transparent);
+  opacity: 0.3;
+  box-shadow: 0 0 6px rgba(255, 45, 138, 0.1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zh-session-content {
+  flex: 1;
+}
+
+.zh-session-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.zh-session-day {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--zh-teal);
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(0, 229, 200, 0.25);
+}
+
+.zh-session-time {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--zh-text-muted);
+  opacity: 0.75;
+}
+
+.zh-session-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--zh-cream);
+  margin-bottom: 8px;
+  line-height: 1.25;
+  background: linear-gradient(135deg, var(--zh-cream) 30%, var(--zh-peach) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.zh-session-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--zh-text-muted);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.zh-session {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0 28px;
+  padding: 40px 12px;
+  border-bottom: 1px solid rgba(255, 45, 138, 0.08);
+  position: relative;
+  transition: background 0.3s ease;
+  border-radius: 6px;
+  margin: 0 -12px;
+}
+
+.zh-session-num {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 32px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--zh-coral), var(--zh-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  transition: filter 0.3s ease;
+}

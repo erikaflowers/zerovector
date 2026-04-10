@@ -1,0 +1,75 @@
+/* Zero Hack — Rubric / Judging
+ * Rubric card grid, weight numerals, questions and descriptions.
+ * The .zh-rubric-card base definition lives in delight.css where the
+ * hover-driven border-width transitions depend on it. */
+
+/* --- Rubric / Judging --- */
+
+.zh-rubric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 56px 0 48px;
+}
+
+.zh-rubric-card:hover {
+  border-color: rgba(232, 104, 58, 0.2);
+  border-left-color: var(--zh-sangria);
+  background: rgba(232, 104, 58, 0.06);
+  box-shadow: 0 4px 24px rgba(212, 66, 12, 0.08);
+}
+
+.zh-rubric-card:nth-child(2) { border-left-color: var(--zh-teal); }
+.zh-rubric-card:nth-child(3) { border-left-color: var(--zh-hotpink); }
+.zh-rubric-card:nth-child(4) { border-left-color: var(--zh-teal); }
+
+.zh-rubric-card:nth-child(2) { background: rgba(0, 229, 200, 0.025); border-color: rgba(0, 229, 200, 0.06); }
+.zh-rubric-card:nth-child(3) { background: rgba(255, 45, 138, 0.025); border-color: rgba(255, 45, 138, 0.06); }
+.zh-rubric-card:nth-child(4) { background: rgba(0, 229, 200, 0.025); border-color: rgba(0, 229, 200, 0.06); }
+
+.zh-rubric-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--zh-cream);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.zh-rubric-question {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--zh-hotpink);
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(255, 45, 138, 0.15);
+}
+
+.zh-rubric-card:nth-child(2) .zh-rubric-question,
+.zh-rubric-card:nth-child(4) .zh-rubric-question {
+  color: var(--zh-teal);
+  text-shadow: 0 0 12px rgba(0, 229, 200, 0.15);
+}
+
+.zh-rubric-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--zh-text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.zh-rubric-note {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--zh-text-muted);
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 45, 138, 0.08);
+}

@@ -1,0 +1,31 @@
+/* Zero Hack — What Is
+ * Editorial split section: sticky headline left, body right. */
+
+/* --- What Is — Editorial Split --- */
+
+.zh-what-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 64px;
+  align-items: start;
+}
+
+.zh-what-left .zh-section-headline {
+  position: sticky;
+  top: 100px;
+}
+
+.zh-what-body {
+  max-width: 100%;
+}
+
+.zh-what-body .zh-body-text:last-child {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--zh-coral);
+  margin-top: 16px;
+  line-height: 1.35;
+  text-shadow: 0 0 40px rgba(240, 112, 64, 0.1);
+}

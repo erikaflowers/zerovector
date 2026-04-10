@@ -1,0 +1,32 @@
+/* Zero Hack — Footer
+ * Base footer layout and link styles. The tagline flicker is in delight.css. */
+
+/* --- Footer --- */
+
+.zh-footer {
+  border-top: 1px solid rgba(232, 104, 58, 0.08);
+  padding: 24px 32px;
+  background: linear-gradient(180deg, var(--zh-bg-dark) 0%, #120606 100%);
+}
+
+.zh-footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zh-footer-link {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--zh-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.zh-footer-link:hover {
+  color: var(--zh-cream);
+}

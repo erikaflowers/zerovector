@@ -1,0 +1,275 @@
+/* Zero Hack — Hero
+ * Full-bleed hero section: background GIF, gradient drift, grain, neon
+ * Testarossa stripes, headline with shadow/gradient layers, subline,
+ * hero-scoped button animation. All hero-specific keyframes are
+ * co-located below their consumer rules. */
+
+/* --- Hero --- */
+
+.zh-hero {
+  position: relative;
+  min-height: 60svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+/* --- Hero Background GIF --- */
+.zh-hero-bg {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  background: url('/images/beach-scene.gif') center center / cover no-repeat;
+  opacity: 1;
+  will-change: transform;
+  animation: zh-hero-bg-enter 2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes zh-hero-bg-enter {
+  from { opacity: 0; transform: scale(1.1); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.zh-hero-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 10% 40%, rgba(224, 74, 16, 0.55) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 15%, rgba(90, 26, 92, 0.6) 0%, transparent 45%),
+    radial-gradient(ellipse at 45% 75%, rgba(240, 112, 64, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 60%, rgba(194, 64, 104, 0.25) 0%, transparent 45%),
+    radial-gradient(ellipse at 5% 85%, rgba(224, 160, 16, 0.18) 0%, transparent 40%),
+    linear-gradient(150deg, rgba(26, 8, 8, 0.75) 0%, rgba(56, 16, 58, 0.65) 35%, rgba(45, 10, 46, 0.7) 60%, rgba(26, 8, 8, 0.75) 100%);
+  background-size: 200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%, 100% 100%;
+  animation: zh-gradient-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes zh-gradient-drift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%, 80% 50%, 0% 100%, 0% 0%;
+  }
+  50% {
+    background-position: 15% 25%, 80% 10%, 35% 80%, 70% 40%, 15% 85%, 0% 0%;
+  }
+  100% {
+    background-position: 10% 15%, 90% 20%, 55% 90%, 75% 55%, 8% 92%, 0% 0%;
+  }
+}
+
+.zh-hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Hero Stripes — Testarossa side-stripe --- */
+
+.zh-hero-stripes {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.zh-stripe {
+  position: absolute;
+  transform-origin: center;
+}
+
+.zh-stripe--pink {
+  width: 200%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent 0%, var(--zh-hotpink) 20%, var(--zh-hotpink) 60%, transparent 100%);
+  box-shadow: 0 0 20px var(--zh-hotpink), 0 0 50px rgba(255, 45, 138, 0.4), 0 0 100px rgba(255, 45, 138, 0.15);
+  top: 42%;
+  left: -50%;
+  transform: rotate(-8deg);
+  opacity: 0;
+  animation: zh-stripe-slash 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1s both,
+             zh-neon-flicker-pink 4s step-end 1.6s infinite;
+}
+
+.zh-stripe--teal {
+  width: 200%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, var(--zh-teal) 25%, var(--zh-teal) 55%, transparent 100%);
+  box-shadow: 0 0 16px var(--zh-teal), 0 0 40px rgba(0, 229, 200, 0.35), 0 0 80px rgba(0, 229, 200, 0.12);
+  top: 46%;
+  left: -50%;
+  transform: rotate(-8deg);
+  opacity: 0;
+  animation: zh-stripe-slash 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.12s both,
+             zh-neon-flicker-teal 5s step-end 1.7s infinite;
+}
+
+.zh-stripe--pink-thin {
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--zh-hotpink) 30%, var(--zh-hotpink) 50%, transparent 100%);
+  box-shadow: 0 0 10px rgba(255, 45, 138, 0.6), 0 0 30px rgba(255, 45, 138, 0.2);
+  top: 49.5%;
+  left: -50%;
+  transform: rotate(-8deg);
+  opacity: 0;
+  animation: zh-stripe-slash 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.22s both,
+             zh-neon-flicker-thin 3.5s step-end 1.8s infinite;
+}
+
+@keyframes zh-stripe-slash {
+  from {
+    opacity: 0;
+    transform: rotate(-8deg) translateX(-30%);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-8deg) translateX(0);
+  }
+}
+
+@keyframes zh-neon-flicker-pink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 20px var(--zh-hotpink), 0 0 50px rgba(255, 45, 138, 0.4), 0 0 100px rgba(255, 45, 138, 0.15); }
+  4% { opacity: 0.2; box-shadow: 0 0 4px rgba(255, 45, 138, 0.2); }
+  5% { opacity: 1; box-shadow: 0 0 20px var(--zh-hotpink), 0 0 50px rgba(255, 45, 138, 0.4), 0 0 100px rgba(255, 45, 138, 0.15); }
+  7% { opacity: 0.6; box-shadow: 0 0 10px rgba(255, 45, 138, 0.3); }
+  8% { opacity: 1; }
+  52% { opacity: 1; }
+  53% { opacity: 0.15; box-shadow: 0 0 2px rgba(255, 45, 138, 0.15); }
+  54% { opacity: 0.8; }
+  54.5% { opacity: 0.3; box-shadow: 0 0 6px rgba(255, 45, 138, 0.2); }
+  55% { opacity: 1; box-shadow: 0 0 20px var(--zh-hotpink), 0 0 50px rgba(255, 45, 138, 0.4), 0 0 100px rgba(255, 45, 138, 0.15); }
+}
+
+@keyframes zh-neon-flicker-teal {
+  0%, 100% { opacity: 1; box-shadow: 0 0 16px var(--zh-teal), 0 0 40px rgba(0, 229, 200, 0.35), 0 0 80px rgba(0, 229, 200, 0.12); }
+  18% { opacity: 0.3; box-shadow: 0 0 4px rgba(0, 229, 200, 0.15); }
+  19% { opacity: 1; box-shadow: 0 0 16px var(--zh-teal), 0 0 40px rgba(0, 229, 200, 0.35), 0 0 80px rgba(0, 229, 200, 0.12); }
+  19.5% { opacity: 0.5; }
+  20% { opacity: 1; }
+  71% { opacity: 1; }
+  72% { opacity: 0.1; box-shadow: 0 0 2px rgba(0, 229, 200, 0.1); }
+  73% { opacity: 0.7; box-shadow: 0 0 8px rgba(0, 229, 200, 0.2); }
+  73.5% { opacity: 0.2; }
+  74% { opacity: 1; box-shadow: 0 0 16px var(--zh-teal), 0 0 40px rgba(0, 229, 200, 0.35), 0 0 80px rgba(0, 229, 200, 0.12); }
+}
+
+@keyframes zh-neon-flicker-thin {
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(255, 45, 138, 0.6), 0 0 30px rgba(255, 45, 138, 0.2); }
+  32% { opacity: 0.15; box-shadow: 0 0 2px rgba(255, 45, 138, 0.1); }
+  33% { opacity: 0.9; }
+  33.5% { opacity: 0.3; }
+  34% { opacity: 1; box-shadow: 0 0 10px rgba(255, 45, 138, 0.6), 0 0 30px rgba(255, 45, 138, 0.2); }
+  85% { opacity: 1; }
+  86% { opacity: 0.2; box-shadow: 0 0 3px rgba(255, 45, 138, 0.15); }
+  87% { opacity: 1; box-shadow: 0 0 10px rgba(255, 45, 138, 0.6), 0 0 30px rgba(255, 45, 138, 0.2); }
+}
+
+.zh-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.zh-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  animation: zh-fade-up 1s var(--ease-out) 0.15s both;
+}
+
+.zh-hero-date {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--zh-gold-light);
+  letter-spacing: 0.06em;
+}
+
+.zh-hero-dot {
+  color: var(--zh-teal);
+  font-size: 14px;
+  text-shadow: 0 0 8px rgba(0, 229, 200, 0.5);
+}
+
+.zh-hero-format-inline {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--zh-cream-dim);
+  letter-spacing: 0.02em;
+}
+
+.zh-hero-headline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(4rem, 12vw, 9.5rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  margin-bottom: 32px;
+  animation: zh-hero-title-in 1s var(--ease-out) 0.3s both;
+  display: flex;
+  flex-direction: column;
+}
+
+.zh-hero-headline-line {
+  display: block;
+  position: relative;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Shadow layer — behind, offset */
+.zh-hero-headline-line::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  color: rgba(0, 0, 0, 0.5);
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Gradient text layer — on top */
+.zh-hero-headline-line::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, var(--zh-cream) 0%, var(--zh-peach) 35%, var(--zh-coral) 65%, var(--zh-gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.zh-hero-subline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--zh-cream-dim);
+  margin-bottom: 48px;
+  max-width: 520px;
+  animation: zh-fade-up 1s var(--ease-out) 0.55s both;
+}
+
+@keyframes zh-fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zh-hero-title-in {
+  from { opacity: 0; transform: translateY(48px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.zh-hero .zh-btn {
+  animation: zh-fade-up 1s var(--ease-out) 0.75s both;
+}

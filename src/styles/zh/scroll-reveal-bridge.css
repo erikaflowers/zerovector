@@ -1,0 +1,34 @@
+/* Zero Hack — Scroll-Reveal Bridge
+ * Documented cross-prefix coupling: the <Animate> component hardcodes
+ * `.zv-animate`/`.zv-visible` class names, and Zero Hack pages consume it.
+ * These selectors override the shared scroll-reveal base from
+ * ../shared/scroll-reveal.css and their reduced-motion counterparts. */
+
+/* Override site-wide animate for this page */
+.zh-page .zv-animate {
+  transform: translateY(32px);
+  transition: opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out);
+}
+.zh-page .zv-animate.zv-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Line draws when parent Animate wrapper becomes visible */
+.zv-visible .zh-session:not(:last-child) .zh-session-marker::after {
+  transform: translateX(-50%) scaleY(1);
+}
+
+/* Reduced-motion mirror — scroll-reveal + timeline draw instantly */
+@media (prefers-reduced-motion: reduce) {
+  .zh-page .zv-animate {
+    transform: none;
+    transition: none;
+    opacity: 1;
+  }
+  /* Timeline draws instantly */
+  .zh-session:not(:last-child) .zh-session-marker::after {
+    transform: translateX(-50%) scaleY(1) !important;
+    transition: none !important;
+  }
+}

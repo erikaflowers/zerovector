@@ -1,0 +1,146 @@
+/* Zero Hack — Prizes
+ * Prize card grid, hero first-place card, Mac mini explainer, full prize
+ * list. The .zh-prize-card base definition and the first-place shimmer
+ * live in delight.css because they drive the hover transforms. */
+
+/* --- Prizes --- */
+
+.zh-prizes-subline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--zh-gold-light);
+  margin-bottom: 56px;
+  text-shadow: 0 0 32px rgba(240, 200, 80, 0.1);
+}
+
+.zh-prizes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+/* 1st place — hero card, full width above the grid */
+.zh-prize-card--hero {
+  margin-bottom: 20px;
+  padding: 48px 32px;
+}
+
+.zh-prize-card--hero .zh-prize-place {
+  font-size: 64px;
+}
+
+
+.zh-prize-card:hover {
+  border-color: rgba(224, 160, 16, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(212, 150, 12, 0.08);
+}
+
+.zh-prize-card--first:hover {
+  box-shadow: 0 8px 40px rgba(224, 160, 16, 0.15);
+  border-color: rgba(240, 200, 80, 0.4);
+}
+
+.zh-prize-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--zh-cream-dim);
+  letter-spacing: 0.04em;
+}
+
+.zh-prize-card--hero .zh-prize-name {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.zh-prize-includes {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--zh-teal);
+  margin-top: 8px;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 10px rgba(0, 229, 200, 0.15);
+}
+
+.zh-prize-card--hero .zh-prize-includes {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* Why Mac mini explainer */
+.zh-why-mini {
+  margin-bottom: 40px;
+  padding: 32px;
+  border-left: 3px solid var(--zh-teal);
+  background: rgba(0, 229, 200, 0.025);
+  border-radius: 0 6px 6px 0;
+}
+
+.zh-why-mini-headline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--zh-teal);
+  margin-bottom: 12px;
+  text-shadow: 0 0 16px rgba(0, 229, 200, 0.12);
+}
+
+.zh-why-mini-body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--zh-text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.zh-prizes-all {
+  padding: 24px 0 0;
+  border: none;
+  border-top: 1px solid rgba(90, 26, 92, 0.1);
+  border-radius: 0;
+  background: none;
+  opacity: 0.75;
+}
+
+.zh-prizes-all-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--zh-text-muted);
+  margin-bottom: 12px;
+}
+
+.zh-prizes-all-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.zh-prizes-all-list li {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--zh-cream-dim);
+  padding-left: 16px;
+  position: relative;
+}
+
+.zh-prizes-all-list li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--zh-hotpink);
+  text-shadow: 0 0 6px rgba(255, 45, 138, 0.35);
+}

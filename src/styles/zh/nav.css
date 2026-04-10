@@ -1,0 +1,104 @@
+/* Zero Hack — Nav
+ * Fixed top nav, brand, links, CTA, back arrow (base styles only —
+ * hover delight lives in delight.css). */
+
+/* --- Nav --- */
+
+.zh-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(26, 8, 8, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 229, 200, 0.04);
+  box-shadow: none;
+  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.zh-nav--solid {
+  background: rgba(26, 8, 8, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: rgba(0, 229, 200, 0.12);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3), 0 1px 12px rgba(0, 229, 200, 0.03);
+}
+
+.zh-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 32px;
+}
+
+.zh-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.zh-nav-back:hover {
+  color: var(--zh-cream);
+}
+
+.zh-nav-sep {
+  width: 1px;
+  height: 14px;
+  background: var(--zh-teal);
+  box-shadow: 0 0 6px rgba(0, 229, 200, 0.4);
+  opacity: 0.7;
+}
+
+.zh-nav-cta {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--zh-cream);
+  background: linear-gradient(135deg, var(--zh-sangria), var(--zh-coral));
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 12px rgba(224, 74, 16, 0.2);
+}
+.zh-nav-cta:hover {
+  background: linear-gradient(135deg, var(--zh-coral), var(--zh-peach));
+  box-shadow: 0 4px 20px rgba(224, 74, 16, 0.3);
+  transform: translateY(-1px);
+}
+.zh-nav-cta:active {
+  transform: translateY(1px);
+}
+
+/* --- Nav Link (Background etc.) --- */
+.zh-nav-link {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--zh-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.zh-nav-link:hover {
+  color: var(--zh-cream);
+}
+
+.zh-nav-brand-link {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--zh-cream);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+.zh-nav-brand-link:hover {
+  color: var(--zh-hotpink);
+  text-shadow: 0 0 8px var(--zh-hotpink), 0 0 20px rgba(255, 45, 138, 0.3);
+}

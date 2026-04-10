@@ -1,0 +1,141 @@
+/* Zero Hack — Base
+ * Scoped tokens, page root, grain overlay, container, section primitives.
+ * The .zh-page { --zh-* } block is scoped to this system only — it layers
+ * on top of the shared tokens from ../shared/tokens.css. */
+
+/* ========================================
+   Zero Hack — /zerohack Landing Page
+   "Sangria Sunrise" palette
+   Prefix: .zh-
+   ======================================== */
+
+/* --- Page Root & Tokens --- */
+
+.zh-page {
+  --zh-burnt: #C03A08;
+  --zh-sangria: #E04A10;
+  --zh-coral: #F07040;
+  --zh-peach: #F8986A;
+  --zh-plum: #5A1A5C;
+  --zh-plum-deep: #38103A;
+  --zh-plum-mid: #4A1848;
+  --zh-rose: #C24068;
+  --zh-gold: #E0A010;
+  --zh-gold-light: #F0C850;
+  --zh-cream: #FFF5EB;
+  --zh-cream-dim: rgba(255, 245, 235, 0.75);
+  --zh-text-dark: #1A0A0B;
+  --zh-text-muted: #D4B4A0;
+  --zh-bg-dark: #1A0808;
+  --zh-bg-warm: #281412;
+  --zh-bg-plum: #1E0C1E;
+  --zh-hotpink: #FF2D8A;
+  --zh-teal: #00E5C8;
+  --zh-border: rgba(232, 104, 58, 0.10);
+
+  min-height: 100vh;
+  background: var(--zh-bg-dark);
+  color: var(--zh-cream);
+  font-family: 'Outfit', -apple-system, system-ui, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+/* Subtle grain on the whole page */
+.zh-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.zh-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Layout --- */
+
+.zh-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.zh-section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.zh-section--dark {
+  background: var(--zh-bg-dark);
+  border-top: 1px solid rgba(232, 104, 58, 0.08);
+}
+
+/* "What Is" section — subtle warm ember glow at bottom-right */
+.zh-section--dark:first-of-type {
+  background:
+    radial-gradient(ellipse at 85% 80%, rgba(192, 58, 8, 0.06) 0%, transparent 50%),
+    var(--zh-bg-dark);
+}
+
+.zh-section--gradient {
+  background: linear-gradient(170deg, var(--zh-bg-plum) 0%, var(--zh-bg-warm) 100%);
+  border-top: 1px solid rgba(90, 26, 92, 0.15);
+  overflow: hidden;
+}
+
+.zh-section--gradient > .zh-container {
+  position: relative;
+  z-index: 3;
+  background: rgba(14, 6, 6, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 56px 48px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 45, 138, 0.06);
+}
+
+.zh-section--warm {
+  background: linear-gradient(180deg, var(--zh-bg-warm) 0%, var(--zh-bg-plum) 50%, var(--zh-bg-dark) 100%);
+  border-top: 1px solid rgba(224, 160, 16, 0.1);
+}
+
+/* City scene background for Structure section */
+.zh-section-bg-city {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/images/city-scene.gif') center center / cover no-repeat;
+  opacity: 1;
+}
+
+/* Mesh overlay for gradient sections */
+.zh-section-mesh {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 80% 15%, rgba(90, 26, 92, 0.45) 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 75%, rgba(192, 58, 8, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(194, 64, 104, 0.15) 0%, transparent 40%),
+    linear-gradient(170deg, rgba(30, 12, 30, 0.7) 0%, rgba(40, 20, 18, 0.65) 100%);
+  pointer-events: none;
+}
+
+.zh-section-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.zh-section--tight {
+  padding: 100px 0;
+}

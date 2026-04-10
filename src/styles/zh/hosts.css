@@ -1,0 +1,236 @@
+/* Zero Hack — Hosts
+ * Velvet Rope / Nightclub host cards section: background, overlay, grain,
+ * card grid, featured card variant, photo circles, flash effect on hover,
+ * velvet-rope decorative lines, and targeted mobile breakpoints. */
+
+/* --- Hosts — Velvet Rope / Nightclub --- */
+
+.zh-hosts {
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0;
+  background: #0A0408;
+}
+
+.zh-hosts-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/images/street-scene.gif') center center / cover no-repeat;
+  opacity: 1;
+}
+
+/* Dark overlay with plum/pink tint */
+.zh-hosts-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(255, 45, 138, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 70%, rgba(90, 26, 92, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 60%, rgba(0, 229, 200, 0.06) 0%, transparent 45%),
+    linear-gradient(180deg, rgba(10, 4, 8, 0.85) 0%, rgba(10, 4, 8, 0.7) 50%, rgba(10, 4, 8, 0.85) 100%);
+  pointer-events: none;
+}
+
+.zh-hosts-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.zh-hosts-inner {
+  position: relative;
+  z-index: 3;
+  background: rgba(14, 6, 6, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 56px 48px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 45, 138, 0.06);
+}
+
+.zh-hosts-headline {
+  background: linear-gradient(135deg, var(--zh-cream) 10%, var(--zh-hotpink) 50%, var(--zh-cream) 90%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Card grid */
+.zh-hosts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 56px;
+}
+
+/* Individual host card */
+.zh-host-card {
+  text-align: center;
+  padding: 32px 20px 28px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 45, 138, 0.08);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s var(--ease-out);
+}
+
+.zh-host-card:hover {
+  border-color: rgba(255, 45, 138, 0.2);
+  box-shadow: 0 8px 40px rgba(255, 45, 138, 0.08), 0 0 60px rgba(255, 45, 138, 0.04);
+  transform: translateY(-4px);
+}
+
+/* Featured card (first host) */
+.zh-host-card--featured {
+  border-color: rgba(255, 45, 138, 0.15);
+  background: linear-gradient(160deg, rgba(255, 45, 138, 0.04) 0%, rgba(90, 26, 92, 0.06) 100%);
+}
+
+.zh-host-card--featured:hover {
+  border-color: rgba(255, 45, 138, 0.3);
+  box-shadow: 0 8px 48px rgba(255, 45, 138, 0.12), 0 0 80px rgba(255, 45, 138, 0.06);
+}
+
+/* Photo circle */
+.zh-host-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 45, 138, 0.2);
+  box-shadow: 0 0 20px rgba(255, 45, 138, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.zh-host-card--featured .zh-host-photo {
+  width: 96px;
+  height: 96px;
+  border-color: rgba(255, 45, 138, 0.35);
+  box-shadow: 0 0 24px rgba(255, 45, 138, 0.15), 0 0 48px rgba(255, 45, 138, 0.06);
+}
+
+.zh-host-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zh-host-photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--zh-hotpink);
+  background: rgba(255, 45, 138, 0.06);
+}
+
+.zh-host-card--featured .zh-host-photo-placeholder {
+  font-size: 34px;
+}
+
+/* Paparazzi flash effect on hover */
+.zh-host-flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.zh-host-card:hover .zh-host-flash {
+  animation: zh-flash-pop 0.4s ease-out;
+}
+
+@keyframes zh-flash-pop {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Host info */
+.zh-host-name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--zh-cream);
+  margin-bottom: 4px;
+}
+
+.zh-host-card--featured .zh-host-name {
+  font-size: 20px;
+}
+
+.zh-host-role {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--zh-hotpink);
+  text-shadow: 0 0 8px rgba(255, 45, 138, 0.2);
+  margin-bottom: 12px;
+}
+
+.zh-host-bio {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--zh-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Velvet rope — decorative line above and below the section */
+.zh-hosts::before,
+.zh-hosts::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  z-index: 4;
+  background: linear-gradient(90deg, transparent, var(--zh-hotpink), rgba(255, 45, 138, 0.4), var(--zh-hotpink), transparent);
+  box-shadow: 0 0 12px rgba(255, 45, 138, 0.25);
+}
+
+.zh-hosts::before { top: 0; }
+.zh-hosts::after { bottom: 0; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .zh-hosts {
+    padding: 100px 0;
+  }
+  .zh-hosts-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .zh-host-card {
+    padding: 24px 16px 20px;
+  }
+  .zh-host-card--featured .zh-host-photo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .zh-hosts-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}

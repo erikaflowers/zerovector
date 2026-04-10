@@ -1,0 +1,190 @@
+/* Zero Hack — Responsive
+ * Multi-component kitchen-sink mobile breakpoints. Loads last so every
+ * @media rule here overrides the desktop defaults regardless of which
+ * partial defined them. Targeted single-component breakpoints remain
+ * co-located with their parent partial (see hosts.css, background.css). */
+
+@media (max-width: 768px) {
+  .zh-apply-page {
+    padding: 100px 0 80px;
+  }
+}
+
+/* --- Responsive: Tablet/Mobile --- */
+
+@media (max-width: 768px) {
+  .zh-nav-inner {
+    padding: 10px 16px;
+  }
+
+  /* Hide "Background" link on mobile, keep brand + CTA */
+  .zh-nav-link {
+    display: none;
+  }
+
+  /* Ensure nav CTA meets 44px touch target */
+  .zh-nav-cta {
+    padding: 10px 16px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .zh-nav-back {
+    font-size: 0;
+  }
+  .zh-nav-back::before {
+    content: '←';
+    font-size: 16px;
+  }
+
+  /* Hide extra separators */
+  .zh-nav-left .zh-nav-sep:nth-child(n+4) {
+    display: none;
+  }
+
+  .zh-container {
+    padding: 0 20px;
+  }
+
+  .zh-section {
+    padding: 80px 0;
+  }
+
+  .zh-hero {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .zh-hero-content {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    max-width: 100%;
+  }
+
+  .zh-hero-bg { background-position: center center; }
+
+  .zh-stripe--pink { height: 4px; }
+  .zh-stripe--teal { height: 3px; }
+  .zh-stripe--pink-thin { height: 1px; }
+
+  .zh-hero-headline {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  /* Scale down shadow offset on mobile */
+  .zh-hero-headline-line::before {
+    top: 4px;
+    left: 4px;
+  }
+
+  .zh-hero-subline {
+    font-size: 1.15rem;
+  }
+
+  .zh-what-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .zh-what-left .zh-section-headline {
+    position: static;
+  }
+
+  .zh-section--tight {
+    padding: 72px 0;
+  }
+
+  .zh-session {
+    grid-template-columns: 48px 1fr;
+    gap: 0 16px;
+    padding: 24px 0;
+  }
+
+  .zh-rubric-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .zh-prize-card--hero {
+    padding: 36px 24px;
+  }
+
+  .zh-prize-card--hero .zh-prize-place {
+    font-size: 48px;
+  }
+
+  .zh-prizes-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .zh-prize-card {
+    padding: 24px;
+  }
+
+  .zh-section--gradient > .zh-container {
+    padding: 36px 24px;
+  }
+
+  .zh-hosts-inner {
+    padding: 36px 24px;
+  }
+
+  .zh-register {
+    padding: 100px 0;
+  }
+
+  .zh-register-price {
+    font-size: 56px;
+  }
+
+  .zh-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .zh-prizes-all-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Background article mobile */
+  .zh-bg-h3 {
+    margin-top: 40px;
+    font-size: clamp(20px, 5vw, 24px);
+  }
+
+  .zh-bg-emphasis {
+    font-size: 18px;
+  }
+
+  .zh-bg-rule {
+    margin: 40px 0;
+  }
+
+  /* Apply page commitment box */
+  .zh-apply-commitment {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .zh-hero-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .zh-hero-dot {
+    display: none;
+  }
+
+  .zh-session-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

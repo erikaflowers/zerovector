@@ -1,0 +1,320 @@
+/* Zero Hack — Delight Layer
+ * Micro-interactions, hover surprises, personality. This file loads after
+ * components and sections so its hover/interaction overrides win via
+ * source order at equal specificity. Includes the zh-primary definitions
+ * for .zh-session hover, .zh-session-num drop-shadow, .zh-rubric-card,
+ * .zh-prize-card, .zh-btn--primary, .zh-nav-brand, and .zh-nav-back, plus
+ * all their keyframes. The reduced-motion block at the bottom mirrors
+ * every delight animation it needs to suppress. The scroll-reveal and
+ * timeline reduced-motion overrides live in scroll-reveal-bridge.css. */
+
+/* ===================================================================
+   DELIGHT LAYER — Micro-interactions, hover surprises, personality
+   =================================================================== */
+
+/* --- CTA Arrow Nudge --- */
+.zh-btn--primary {
+  background: linear-gradient(135deg, var(--zh-sangria), var(--zh-coral), var(--zh-peach));
+  color: var(--zh-cream);
+  box-shadow:
+    0 2px 16px rgba(224, 74, 16, 0.3),
+    0 0 40px rgba(224, 74, 16, 0.08);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+.zh-btn--primary:hover {
+  background: linear-gradient(135deg, var(--zh-coral), var(--zh-peach), var(--zh-gold-light));
+  box-shadow:
+    0 4px 24px rgba(224, 74, 16, 0.4),
+    0 0 60px rgba(224, 74, 16, 0.12);
+  transform: translateY(-2px);
+  letter-spacing: 0.1em;
+}
+.zh-btn--primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 8px rgba(224, 74, 16, 0.25);
+  transition-duration: 0.06s;
+}
+
+/* --- Nav Brand Neon Flicker on Hover --- */
+.zh-nav-brand {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--zh-cream);
+  letter-spacing: -0.01em;
+  transition: text-shadow 0.15s ease, color 0.15s ease;
+}
+.zh-nav-brand:hover {
+  color: var(--zh-hotpink);
+  text-shadow: 0 0 8px var(--zh-hotpink), 0 0 20px rgba(255, 45, 138, 0.3);
+  animation: zh-brand-flicker 0.3s step-end;
+}
+
+@keyframes zh-brand-flicker {
+  0% { opacity: 1; }
+  15% { opacity: 0.4; }
+  20% { opacity: 1; }
+  35% { opacity: 0.7; }
+  40% { opacity: 1; }
+}
+
+/* --- Hero Headline Shimmer Sweep --- */
+.zh-hero-headline-line::after {
+  background-size: 200% 100%;
+  animation: zh-headline-shimmer 6s ease-in-out 2s infinite;
+}
+
+@keyframes zh-headline-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* --- Label Dot Pulse on Appear --- */
+/* Label prompt — no entrance animation needed, it's text now */
+
+@keyframes zh-dot-pulse {
+  0% { transform: scale(0); box-shadow: 0 0 0 var(--zh-hotpink); }
+  30% { transform: scale(1.8); box-shadow: 0 0 16px var(--zh-hotpink), 0 0 32px rgba(255, 45, 138, 0.5); }
+  100% { transform: scale(1); box-shadow: 0 0 8px var(--zh-hotpink), 0 0 16px rgba(255, 45, 138, 0.3); }
+}
+
+/* --- Session Row Hover Warmth --- */
+.zh-session:hover {
+  background: rgba(240, 112, 64, 0.04);
+}
+
+.zh-session:hover .zh-session-num {
+  filter: drop-shadow(0 0 8px rgba(240, 112, 64, 0.4));
+  transition: filter 0.3s ease;
+}
+
+/* --- Rubric Card Neon Border Glow on Hover --- */
+.zh-rubric-card {
+  padding: 32px;
+  padding-left: 30px;
+  background: rgba(232, 104, 58, 0.03);
+  border: 1px solid rgba(232, 104, 58, 0.08);
+  border-left: 3px solid var(--zh-coral);
+  border-radius: 6px;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+}
+
+.zh-rubric-card:hover {
+  border-left-width: 4px;
+}
+
+.zh-rubric-card:nth-child(1):hover {
+  box-shadow: -4px 0 20px rgba(240, 112, 64, 0.12), 0 4px 24px rgba(212, 66, 12, 0.08);
+}
+.zh-rubric-card:nth-child(2):hover {
+  box-shadow: -4px 0 20px rgba(0, 229, 200, 0.1), 0 4px 24px rgba(0, 229, 200, 0.06);
+}
+.zh-rubric-card:nth-child(3):hover {
+  box-shadow: -4px 0 20px rgba(255, 45, 138, 0.1), 0 4px 24px rgba(255, 45, 138, 0.06);
+}
+.zh-rubric-card:nth-child(4):hover {
+  box-shadow: -4px 0 20px rgba(0, 229, 200, 0.1), 0 4px 24px rgba(0, 229, 200, 0.06);
+}
+
+/* --- Rubric Weight Nudge --- */
+.zh-rubric-card:hover .zh-rubric-weight {
+  transform: translateX(4px);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.zh-rubric-weight {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 48px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--zh-coral), var(--zh-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  transition: transform 0.3s var(--ease-out);
+}
+
+/* --- Prize Card Shimmer (1st place) --- */
+.zh-prize-card--first {
+  border-color: rgba(240, 200, 80, 0.3);
+  background: linear-gradient(160deg, rgba(224, 160, 16, 0.08) 0%, rgba(232, 104, 58, 0.04) 100%);
+  box-shadow: 0 0 32px rgba(224, 160, 16, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.zh-prize-card--first::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(240, 200, 80, 0.06), transparent);
+  animation: zh-prize-shimmer 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes zh-prize-shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 140%; }
+}
+
+.zh-prize-card--first:hover {
+  box-shadow: 0 8px 40px rgba(224, 160, 16, 0.15), 0 0 60px rgba(224, 160, 16, 0.05);
+}
+
+/* --- Prize Card Lift Scale --- */
+.zh-prize-card {
+  padding: 32px 24px;
+  text-align: center;
+  background: rgba(224, 160, 16, 0.03);
+  border: 1px solid rgba(224, 160, 16, 0.1);
+  border-radius: 6px;
+  transition: border-color 0.3s ease, transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+.zh-prize-card:hover .zh-prize-place {
+  filter: drop-shadow(0 0 12px rgba(224, 160, 16, 0.3));
+  transition: filter 0.3s ease;
+}
+.zh-prize-place {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 52px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--zh-gold), var(--zh-gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  line-height: 1;
+  transition: filter 0.3s ease;
+}
+
+/* --- Section Neon Dividers — sweep in on scroll --- */
+.zh-section--dark + .zh-section--gradient,
+.zh-section--gradient + .zh-section--dark,
+.zh-section--dark + .zh-section--warm {
+  border-top: none;
+  position: relative;
+}
+
+.zh-section--dark + .zh-section--gradient::before,
+.zh-section--gradient + .zh-section--dark::before,
+.zh-section--dark + .zh-section--warm::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: 10;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zh-section--dark + .zh-section--gradient::before {
+  background: linear-gradient(90deg, transparent, var(--zh-hotpink), var(--zh-teal), transparent);
+  box-shadow: 0 0 8px rgba(255, 45, 138, 0.2), 0 0 8px rgba(0, 229, 200, 0.15);
+}
+
+.zh-section--gradient + .zh-section--dark::before {
+  background: linear-gradient(90deg, transparent, var(--zh-teal), var(--zh-hotpink), transparent);
+  box-shadow: 0 0 8px rgba(0, 229, 200, 0.2), 0 0 8px rgba(255, 45, 138, 0.15);
+  transform-origin: right;
+}
+
+.zh-section--dark + .zh-section--warm::before {
+  background: linear-gradient(90deg, transparent, var(--zh-gold), var(--zh-hotpink), transparent);
+  box-shadow: 0 0 8px rgba(224, 160, 16, 0.2), 0 0 8px rgba(255, 45, 138, 0.15);
+}
+
+/* Sweep in when section's first Animate child becomes visible */
+.zh-section--dark + .zh-section--gradient:has(.zv-visible)::before,
+.zh-section--gradient + .zh-section--dark:has(.zv-visible)::before,
+.zh-section--dark + .zh-section--warm:has(.zv-visible)::before {
+  transform: scaleX(1);
+}
+
+/* --- Footer Tagline Flicker on Hover --- */
+.zh-footer-tagline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--zh-teal);
+  opacity: 0.4;
+  text-shadow: 0 0 10px rgba(0, 229, 200, 0.15);
+  transition: opacity 0.2s ease, color 0.2s ease;
+  cursor: default;
+}
+.zh-footer-tagline:hover {
+  opacity: 1;
+  color: var(--zh-teal);
+  text-shadow: 0 0 10px rgba(0, 229, 200, 0.4), 0 0 24px rgba(0, 229, 200, 0.15);
+  animation: zh-tagline-flicker 0.4s step-end;
+}
+
+@keyframes zh-tagline-flicker {
+  0% { opacity: 1; }
+  10% { opacity: 0.3; }
+  15% { opacity: 0.9; }
+  30% { opacity: 0.5; }
+  35% { opacity: 1; }
+}
+
+/* --- Nav Back Arrow Nudge --- */
+.zh-nav-back {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--zh-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease, letter-spacing 0.2s ease;
+  display: inline-block;
+}
+.zh-nav-back:hover {
+  transform: translateX(-3px);
+}
+
+/* --- Reduced Motion --- */
+
+@media (prefers-reduced-motion: reduce) {
+  .zh-hero-gradient { animation: none; }
+  .zh-register-mesh { animation: none; }
+  .zh-ember { animation: none; display: none; }
+  .zh-hero-meta,
+  .zh-hero-headline,
+  .zh-hero-subline,
+  .zh-hero .zh-btn {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .zh-stripe { animation: none !important; opacity: 1 !important; }
+  .zh-hero-headline { animation: none !important; opacity: 1 !important; }
+  .zh-hero-headline-line::after { animation: none !important; background-size: 100% 100% !important; }
+  .zh-hero-bg { animation: none !important; opacity: 1 !important; }
+  .zh-register-price { animation: none !important; }
+  .zh-prize-card--first::after { animation: none !important; display: none; }
+  .zh-label::after { animation: none !important; opacity: 1 !important; }
+  .zh-host-card:hover .zh-host-flash { animation: none !important; }
+  .zh-nav-brand:hover,
+  .zh-footer-tagline:hover { animation: none !important; }
+  .zh-btn--primary:hover,
+  .zh-btn--primary:active,
+  .zh-prize-card:hover,
+  .zh-rubric-card:hover .zh-rubric-weight {
+    transform: none;
+  }
+  /* Section dividers show instantly */
+  .zh-section--dark + .zh-section--gradient::before,
+  .zh-section--gradient + .zh-section--dark::before,
+  .zh-section--dark + .zh-section--warm::before {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+}

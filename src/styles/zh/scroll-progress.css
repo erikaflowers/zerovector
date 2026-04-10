@@ -1,0 +1,14 @@
+/* Zero Hack — Scroll Progress
+ * Fixed neon progress bar anchored to the top of the viewport. */
+
+/* --- Scroll Progress (neon) --- */
+.zh-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  z-index: 100;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--zh-hotpink), var(--zh-coral), var(--zh-teal));
+  box-shadow: 0 0 8px rgba(255, 45, 138, 0.3), 0 0 8px rgba(0, 229, 200, 0.2);
+}

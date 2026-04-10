@@ -1,0 +1,39 @@
+/* Zero Hack — Buttons
+ * Button base + size variants. Primary variant gradients and hover states
+ * live in delight.css so the delight layer can tune them in isolation. */
+
+/* --- Buttons --- */
+
+.zh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.zh-btn:focus-visible {
+  outline: 2px solid var(--zh-teal);
+  outline-offset: 3px;
+}
+
+.zh-nav-cta:focus-visible,
+.zh-nav-link:focus-visible,
+.zh-nav-back:focus-visible,
+.zh-nav-brand-link:focus-visible {
+  outline: 2px solid var(--zh-teal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.zh-btn--lg {
+  padding: 18px 48px;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
