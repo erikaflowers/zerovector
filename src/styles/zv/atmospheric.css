@@ -13,39 +13,8 @@
    looking at this through a tactical display.
    ============================================ */
 
-/* --- Scanline Overlay --- DISABLED during visual-redo (stark white hero) ---
-.zv-manifesto::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.025) 2px,
-    rgba(0, 0, 0, 0.025) 4px
-  );
-  pointer-events: none;
-  z-index: 1000;
-}
-*/
-
-/* --- CRT Vignette --- DISABLED during visual-redo (stark white hero) ---
-.zv-manifesto::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 50%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
-  pointer-events: none;
-  z-index: 999;
-}
-*/
-
-/* --- HUD Corner Brackets (disabled — chrome stripped for compact layout) --- */
+/* CRT scanline overlay and vignette removed during visual-redo —
+ * the homepage is now pure white + video, no ship-console atmosphere. */
 
 /* --- Status Pulse Dots --- */
 /* Blinking system-alive indicator before each section number */

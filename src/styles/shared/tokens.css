@@ -12,6 +12,11 @@
   --void-surface: #111118;
   --void-border: rgba(255, 255, 255, 0.06);
 
+  /* Core Primaries  */
+  --neon-orange: rgb(255, 170, 0);
+  --neon-green: rgb(0, 255, 128);
+  --neon-pink: rgba(255, 0, 251, 0.861);
+
   /* Cyan — primary accent */
   --cyan: #00ffff;
   --cyan-dim: #00cccc;
@@ -35,9 +40,11 @@
   --text-muted: rgba(255, 255, 255, 0.4);
 
   /* Typography */
-  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Proxima Nova', -apple-system, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  /* --font-mono aliased to body for now — visual-redo direction.
+   * Was: 'JetBrains Mono', 'Fira Code', monospace */
+  --font-mono: var(--font-body);
 
   /* Spacing */
   --container-max: 1100px;

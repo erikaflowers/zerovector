@@ -135,7 +135,7 @@ function Nav() {
             href="https://open.zerovector.design"
             className="zv-nav-link"
           >
-            Open Vector
+            Open Vector.
           </a>
           <a
             href="https://ko-fi.com/erikaflowers"
@@ -143,7 +143,7 @@ function Nav() {
             rel="noopener noreferrer"
             className="zv-nav-link zv-nav-support"
           >
-            <span className="zv-nav-support-heart">&hearts;</span> Support
+            <span className="zv-nav-support-heart">&hearts;</span> Support.
           </a>
         </div>
 

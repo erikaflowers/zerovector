@@ -124,7 +124,6 @@
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
   color: #0a0a0a;
   background: #00ff88;
   padding: 3px 10px;
@@ -190,7 +189,6 @@
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
   color: #1a0e0a;
   background: #E07A54;
   padding: 3px 10px;
@@ -296,7 +294,6 @@
   font-weight: 500;
   color: var(--cyan-dim);
   letter-spacing: 0.15em;
-  text-transform: uppercase;
   margin-bottom: 12px;
 }
 

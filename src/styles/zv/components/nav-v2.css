@@ -10,14 +10,16 @@
  * these become the primary nav styles and the old ones get deleted.
  */
 
-/* Nav shell — overlay the hero, no chrome */
+/* Nav shell — overlays the hero. Has its own white transparency
+ * background via --hero-nav-bg (defined on .zv-manifesto in
+ * hero-v2.css). Falls back to transparent on non-manifesto pages. */
 .zv-nav {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  background: transparent;
+  background: var(--hero-nav-bg, transparent);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-bottom: none;
@@ -26,7 +28,7 @@
 .zv-nav-inner {
   max-width: none;
   margin: 0;
-  padding: clamp(24px, 4vh, 40px) clamp(32px, 6vw, 96px);
+  padding: clamp(4px, 4vh, 10px) clamp(32px, 6vw, 96px);
   height: auto;
   display: flex;
   align-items: center;
@@ -51,7 +53,7 @@
  * chevron hidden (the period says "this is a thing"). */
 .zv-nav-group-trigger,
 .zv-nav-group-trigger--active {
-  font-family: 'Proxima Nova', var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
   color: #000;
@@ -78,7 +80,7 @@
 
 /* Standalone nav links (Open Vector, Support) — match the group triggers */
 .zv-nav-link {
-  font-family: 'Proxima Nova', var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
   color: #000;
@@ -121,7 +123,7 @@
 }
 
 .zv-nav-group-item {
-  font-family: 'Proxima Nova', var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-weight: 500;
   color: #000;
 }
@@ -140,17 +142,18 @@
 /* Start button — black rectangle, white Proxima Bold */
 .zv-nav-start,
 .zv-nav-start-active {
-  font-family: 'Proxima Nova', var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
   color: #fff;
   background: #000;
-  padding: 10px 20px;
+  padding: 4px 26px;
   letter-spacing: 0;
   text-decoration: none;
   text-transform: none;
   margin: 0;
   border: none;
+  border-radius: 40px;
   box-shadow: none;
   transition: opacity 0.2s var(--ease-out);
 }
@@ -165,7 +168,7 @@
 
 /* Sign In — plain text, Proxima Bold, black */
 .zv-nav-signin {
-  font-family: 'Proxima Nova', var(--font-display), sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
   color: #000;

@@ -11,6 +11,27 @@
  * acceleration on the wrapper, object-fit: cover on the video.
  */
 
+/* ============================================
+ * FIDDLE VARIABLES — three independent white layers.
+ * Scoped to .zv-manifesto so the nav (sibling in DOM)
+ * can read --hero-nav-bg via inheritance.
+ * ============================================ */
+.zv-manifesto {
+  --hero-accent: rgba(255, 255, 255, 0.9);
+  --hero-video-overlay: rgba(255, 255, 255, 0.01);
+  --hero-nav-bg: var(--hero-accent);
+  --hero-title-bg: #000;
+  --hero-title-fg: #fff;
+
+  /* Homepage color overrides — neon primaries replace the old teal/pink/orange.
+   * These cascade into every descendant, so var(--cyan), var(--magenta),
+   * var(--orange) all resolve to the neon values inside .zv-manifesto only.
+   * Other pages keep the original accent palette. */
+  --cyan: var(--neon-green);
+  --magenta: var(--neon-pink);
+  --orange: var(--neon-orange);
+}
+
 .zv-hero-v2 {
   position: relative;
   z-index: 2;
@@ -40,12 +61,12 @@
   transition: filter 1.8s ease;
 }
 
-/* Structurally-ready tint layer — currently transparent, available
- * for a gradient or darkening pass if the video's contrast against
- * the black title needs help. */
+/* White transparency covering the ENTIRE video — no padding, no inset.
+ * Adjust --hero-video-overlay on .zv-manifesto to tune alpha. */
 .zv-hero-v2-video-overlay {
   position: absolute;
   inset: 0;
+  background: var(--hero-video-overlay);
   pointer-events: none;
   transform: translateZ(0);
   transition: background 1.8s ease;
@@ -56,16 +77,63 @@
   z-index: 10;
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(16px, 3vw, 48px);
   width: 100%;
-  padding: 0 clamp(32px, 6vw, 96px) clamp(48px, 8vh, 96px);
+  padding: 0 0 clamp(24px, 4vh, 64px);
 }
 
+/* Title — solid black bar with white text, flush to the left edge
+ * of the browser. 100px left padding creates the asymmetric black
+ * space between the browser edge and the first letter. */
 .zv-hero-v2-title {
+  display: inline-block;
   margin: 0;
-  font-family: 'Proxima Nova', var(--font-display), sans-serif;
+  padding: 0.15em 0.35em 0.15em 100px;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(2.5rem, 6vw, 5rem);
   line-height: 0.95;
   letter-spacing: -0.025em;
-  color: #000;
+  color: var(--hero-title-fg);
+  background: var(--hero-title-bg);
+}
+
+/* Tagline — solid black bar with white text, flush to the right
+ * edge of the browser. 100px right padding mirrors the title's
+ * left padding to create the opposing asymmetric black space. */
+.zv-hero-v2-tagline {
+  display: inline-block;
+  margin: 0;
+  padding: 0.8em 100px 0.8em 1em;
+  max-width: 40%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.875rem, 1.15vw, 1.125rem);
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--neon-green);
+  background: var(--hero-title-bg);
+}
+
+/* Mobile — stack tagline beneath the title, release the 30% cap,
+ * and shrink the asymmetric 100px padding down to something sane. */
+@media (max-width: 768px) {
+  .zv-hero-v2-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 14px;
+    padding-bottom: clamp(20px, 3vh, 40px);
+  }
+
+  .zv-hero-v2-title {
+    padding-left: 32px;
+  }
+
+  .zv-hero-v2-tagline {
+    align-self: flex-end;
+    max-width: 100%;
+    padding-right: 32px;
+  }
 }

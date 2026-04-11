@@ -37,7 +37,6 @@
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  text-transform: uppercase;
   color: var(--orange);
   margin-bottom: 12px;
 }
@@ -65,7 +64,6 @@
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--cyan);
   margin-top: 20px;
   transition: color 0.2s;

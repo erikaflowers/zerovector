@@ -29,7 +29,6 @@
   font-weight: 600;
   color: var(--cyan);
   letter-spacing: 0.2em;
-  text-transform: uppercase;
   margin-bottom: 20px;
 }
 
@@ -89,7 +88,6 @@
   font-weight: 700;
   color: var(--orange);
   letter-spacing: 0.2em;
-  text-transform: uppercase;
   margin-bottom: 8px;
 }
 

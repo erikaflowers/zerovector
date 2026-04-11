@@ -24,14 +24,10 @@
   margin-top: 32px;
 }
 
+/* Eyebrow section numbers (001, 002, ...) retired during visual-redo.
+ * Rule kept for reference; display:none hides every usage site-wide. */
 .zv-section-number {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--cyan);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+  display: none;
 }
 
 .zv-section-title {

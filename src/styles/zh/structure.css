@@ -57,7 +57,6 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   color: var(--zh-teal);
-  text-transform: uppercase;
   text-shadow: 0 0 8px rgba(0, 229, 200, 0.25);
 }
 

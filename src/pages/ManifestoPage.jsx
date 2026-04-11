@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
 import SectionHeader from '../components/SectionHeader';
-import DecryptText from '../components/DecryptText';
 import { ArrowIcon, ChevronIcon } from '../components/icons';
 import BootSequence from '../components/BootSequence';
 import NotifyForm from '../components/NotifyForm';
@@ -20,8 +18,6 @@ function ManifestoPage() {
   const [declarationVisible, setDeclarationVisible] = useState(() => {
     try { return !!sessionStorage.getItem('zv-booted'); } catch { return false; }
   });
-  const [heroPhase, setHeroPhase] = useState(0); // 0=start, 1=eyebrow done, 2=title done
-
   // When boot completes, delay declaration to match fade timing
   useEffect(() => {
     if (booted && !declarationVisible) {
@@ -40,7 +36,6 @@ function ManifestoPage() {
 
   return (
     <div className="zv-manifesto">
-      <VectorField />
       <Nav />
 
       {/* Drifting Coordinates */}
@@ -65,41 +60,15 @@ function ManifestoPage() {
         </div>
         <div className="zv-hero-v2-inner">
           <h1 className="zv-hero-v2-title">Zero Vector</h1>
+          <p className="zv-hero-v2-tagline">
+            No intermediary. No translation layer. No friction. From intent to artifact, directly.
+          </p>
         </div>
       </section>
 
       {/* Combined Hero — Above the Fold */}
       <section className="zv-section zv-hero-combined">
         <div className="zv-container">
-          {/* Title Block */}
-          <div className="zv-hero-title-block">
-            <div className="zv-section-number">
-              <DecryptText
-                text={home.hero.pre}
-                ready
-                delay={200}
-                blinks={2}
-                blinkSpeed={130}
-                speed={115}
-                onComplete={() => setHeroPhase(1)}
-              />
-            </div>
-            <h1 className="zv-hero-title">
-              <DecryptText
-                text={home.hero.title}
-                ready={heroPhase >= 1}
-                delay={100}
-                blinks={3}
-                blinkSpeed={160}
-                speed={200}
-                onComplete={() => setHeroPhase(2)}
-              />
-            </h1>
-            <p className={`zv-hero-subtitle ${heroPhase >= 2 ? 'zv-hero-decrypt-reveal' : 'zv-hero-decrypt-hidden'}`}>
-              {home.hero.subtitle}
-            </p>
-          </div>
-
           {/* Two-Column Layout */}
           <div className="zv-hero-columns">
             {/* LEFT: Explainer */}

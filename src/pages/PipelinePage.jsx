@@ -1,4 +1,3 @@
-import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
 import PageHero from '../components/PageHero';
 import PageClosing from '../components/PageClosing';
@@ -18,7 +17,6 @@ function PipelinePage() {
 
   return (
     <div className="zv-page zv-info-page">
-      <VectorField />
       <Nav />
 
       {/* Hero */}

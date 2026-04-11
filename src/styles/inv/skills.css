@@ -19,7 +19,6 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: #5facc8;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 10px 0 6px;
   border-bottom: 1px solid rgba(95, 172, 200, 0.15);
@@ -91,7 +90,6 @@
   font-size: 14px;
   font-weight: 600;
   color: #5facc8;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
   margin: 0 0 8px;
 }
@@ -147,7 +145,6 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: #5facc8;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   border: 1px solid rgba(95, 172, 200, 0.25);
   padding: 2px 8px;
@@ -177,7 +174,6 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: rgba(201, 168, 76, 0.5);
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   min-width: 56px;
   flex-shrink: 0;

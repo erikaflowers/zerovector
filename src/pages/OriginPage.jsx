@@ -1,4 +1,3 @@
-import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
 import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
@@ -18,7 +17,6 @@ function OriginPage() {
 
   return (
     <div className="zv-page zv-info-page">
-      <VectorField />
       <Nav />
 
       {/* Hero */}

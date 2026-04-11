@@ -1,4 +1,3 @@
-import VectorField from '../components/VectorField';
 import Nav from '../components/Nav';
 import DecryptText from '../components/DecryptText';
 import Animate from '../components/Animate';
@@ -69,7 +68,6 @@ function NamePage() {
 
   return (
     <div className="zv-name-page">
-      <VectorField />
       <Nav />
 
       {/* Hero */}

@@ -130,16 +130,9 @@
   animation: glyph-resolve 0.8s var(--ease-out) forwards;
 }
 
+/* Numbered declaration eyebrow label retired during visual-redo. */
 .zv-hero-declaration-label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--cyan);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: none;
 }
 
 .zv-hero-declaration-label::before {
