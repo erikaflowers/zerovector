@@ -1,25 +1,24 @@
 /* Zero-Vector Design — Nav Visual Refresh (Orbital Brutalism)
  *
  * Overrides the existing zv-nav chrome for the visual-redo branch:
- * transparent background, pure-black Proxima Nova bold, left-aligned
- * to the hero title edge, dropdown groups on the left with period
- * terminators, Start + Sign In on the right.
+ * transparent nav wrapper, every nav item in its own white box with
+ * a tight padding, hover state flips to solid black + neon-pink text.
+ * Dropdown panels left-aligned to their trigger and follow the same
+ * color pattern.
  *
  * Imported AFTER components/nav-desktop.css in zv/index.css so these
  * rules win via source order. Temporary — when the refresh is done
  * these become the primary nav styles and the old ones get deleted.
  */
 
-/* Nav shell — overlays the hero. Has its own white transparency
- * background via --hero-nav-bg (defined on .zv-manifesto in
- * hero-v2.css). Falls back to transparent on non-manifesto pages. */
+/* Nav shell — overlays the hero, transparent wrapper. */
 .zv-nav {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  background: var(--hero-nav-bg, transparent);
+  background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-bottom: none;
@@ -35,102 +34,119 @@
   justify-content: space-between;
 }
 
-/* Groups — flush-left cluster */
+/* Groups — flush-left cluster. Tighter gap now that each item has
+ * its own visible box boundary via the white background. */
 .zv-nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(24px, 3vw, 48px);
+  gap: clamp(10px, 1.2vw, 18px);
 }
 
-/* Actions — flush-right cluster */
+/* Actions — flush-right cluster. */
 .zv-nav-actions {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2vw, 32px);
+  gap: clamp(10px, 1.2vw, 18px);
 }
 
-/* Dropdown group triggers — Proxima Bold, pure black, no hover underline,
- * chevron hidden (the period says "this is a thing"). */
+/* Shared box treatment — every nav item gets its own white rectangle
+ * with tight padding. Hover flips to solid black + neon-pink text.
+ *
+ * Forced display: inline-flex + explicit line-height so <button>
+ * (dropdown triggers) and <a> (standalone links) render identically.
+ * Without this, button defaults to line-height: normal and inline
+ * anchors compute their layout box differently, yielding different
+ * heights with the same padding. */
 .zv-nav-group-trigger,
-.zv-nav-group-trigger--active {
+.zv-nav-group-trigger--active,
+.zv-nav-link,
+.zv-nav-signin {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
-  color: #000;
+  line-height: 1.2;
   letter-spacing: -0.01em;
-  padding: 0;
-  gap: 0;
-  transition: opacity 0.2s var(--ease-out);
+  padding: 0.4em 0.85em;
+  color: #000;
+  background: #fff;
+  border: none;
+  text-decoration: none;
   text-shadow: none;
+  cursor: pointer;
+  transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
 }
 
-.zv-nav-group-trigger::after {
+.zv-nav-group-trigger::after,
+.zv-nav-link::after {
   display: none;
 }
 
-.zv-nav-group-trigger:hover {
-  color: #000;
-  opacity: 0.5;
+.zv-nav-group-trigger:hover,
+.zv-nav-link:hover,
+.zv-nav-signin:hover {
+  background: #000;
+  color: var(--neon-pink);
+  opacity: 1;
   text-shadow: none;
+}
+
+.zv-nav-group-trigger--active,
+.zv-nav-link-active {
+  color: #000;
+  background: #fff;
 }
 
 .zv-nav-group-chevron {
   display: none;
 }
 
-/* Standalone nav links (Open Vector, Support) — match the group triggers */
-.zv-nav-link {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
-  color: #000;
-  letter-spacing: -0.01em;
-  padding: 0;
-  text-shadow: none;
-  transition: opacity 0.2s var(--ease-out);
-}
-
-.zv-nav-link::after {
-  display: none;
-}
-
-.zv-nav-link:hover {
-  color: #000;
-  opacity: 0.5;
-  text-shadow: none;
-}
-
-.zv-nav-link-active {
-  color: #000;
-}
-
-/* Support link — override the existing !important white rule */
+/* Support link — the base !important rule sets a muted white color,
+ * override it. Heart inherits parent color now so it follows the
+ * hover flip instead of staying red. */
 .zv-nav-support {
   color: #000 !important;
 }
 
 .zv-nav-support:hover {
-  color: #000 !important;
-  opacity: 0.5;
+  background: #000;
+  color: var(--neon-pink) !important;
+  opacity: 1;
 }
 
-/* Dropdown panel — white card with hard black border, no radius */
+.zv-nav-support-heart {
+  color: inherit;
+}
+
+/* Dropdown panel — left-aligned to the trigger (not centered),
+ * white card, hard black border, 4px offset shadow. Items inside
+ * follow the same hover flip. */
 .zv-nav-group-panel {
+  left: 0;
+  transform: none;
+  top: calc(100% + 4px);
   background: #fff;
   border: 1px solid #000;
   border-radius: 0;
   box-shadow: 4px 4px 0 #000;
+  min-width: 0;
+  padding: 0;
 }
 
 .zv-nav-group-item {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.95rem;
   color: #000;
+  background: #fff;
+  padding: 0.5em 1em;
+  transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
 }
 
 .zv-nav-group-item:hover {
   background: #000;
-  color: #fff;
+  color: var(--neon-pink);
   text-shadow: none;
 }
 
@@ -139,15 +155,19 @@
   font-weight: 700;
 }
 
-/* Start button — black rectangle, white Proxima Bold */
+/* Start — white pill by default, black + neon-pink on hover.
+ * Keeps the 40px border-radius Samantha added for the pill shape. */
 .zv-nav-start,
 .zv-nav-start-active {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
-  color: #fff;
-  background: #000;
-  padding: 4px 26px;
+  line-height: 1.2;
+  color: #000;
+  background: #fff;
+  padding: 0.4em 1.4em;
   letter-spacing: 0;
   text-decoration: none;
   text-transform: none;
@@ -155,32 +175,13 @@
   border: none;
   border-radius: 40px;
   box-shadow: none;
-  transition: opacity 0.2s var(--ease-out);
+  transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
 }
 
 .zv-nav-start:hover {
   background: #000;
-  color: #fff;
-  opacity: 0.85;
+  color: var(--neon-pink);
+  opacity: 1;
   box-shadow: none;
   text-shadow: none;
-}
-
-/* Sign In — plain text, Proxima Bold, black */
-.zv-nav-signin {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
-  color: #000;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: opacity 0.2s var(--ease-out);
-  text-shadow: none;
-  letter-spacing: -0.01em;
-}
-
-.zv-nav-signin:hover {
-  opacity: 0.5;
 }

@@ -60,9 +60,25 @@ function ManifestoPage() {
         </div>
         <div className="zv-hero-v2-inner">
           <h1 className="zv-hero-v2-title">Zero Vector</h1>
-          <p className="zv-hero-v2-tagline">
-            No intermediary. No translation layer. No friction. From intent to artifact, directly.
-          </p>
+          <div className="zv-hero-v2-right">
+            <p className="zv-hero-v2-tagline">
+              No intermediary. No translation layer. No friction. From intent to artifact, directly.
+            </p>
+            <nav className="zv-hero-v2-links" aria-label="Featured">
+              <a href="https://open.zerovector.design" target="_blank" rel="noopener noreferrer">
+                Open Vector.
+              </a>
+              <a href="https://arroyo.zerovector.design" target="_blank" rel="noopener noreferrer">
+                Arroyo Labs.
+              </a>
+              <Link to="/investiture">
+                Investiture.
+              </Link>
+              <a href="https://eflowers.substack.com/p/zero-stage-to-orbit" target="_blank" rel="noopener noreferrer">
+                Zero Stage to Orbit.
+              </a>
+            </nav>
+          </div>
         </div>
       </section>
 

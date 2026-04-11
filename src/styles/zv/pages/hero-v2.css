@@ -99,6 +99,17 @@
   background: var(--hero-title-bg);
 }
 
+/* Right-side column — tagline on top, redacted-document link bars
+ * below. The wrapper is a flex item in .zv-hero-v2-inner; inside,
+ * items stack vertically and right-align so every bar lands flush
+ * to the browser edge regardless of content width. */
+.zv-hero-v2-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(16px, 2vh, 24px);
+}
+
 /* Tagline — solid black bar with white text, flush to the right
  * edge of the browser. 100px right padding mirrors the title's
  * left padding to create the opposing asymmetric black space. */
@@ -114,6 +125,35 @@
   letter-spacing: -0.005em;
   color: var(--neon-green);
   background: var(--hero-title-bg);
+}
+
+/* Redacted-document link bars — stack of single-line neon-orange
+ * rectangles each flush to the browser right edge, each shrink-
+ * wrapping to its text + 100px right padding. Short vertical gap
+ * between bars so the stack reads as a unit. */
+.zv-hero-v2-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.zv-hero-v2-links a {
+  display: block;
+  padding: 0.55em 100px 0.55em 0.85em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: #000;
+  background: var(--neon-orange);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.zv-hero-v2-links a:hover {
+  opacity: 0.85;
 }
 
 /* Mobile — stack tagline beneath the title, release the 30% cap,
@@ -132,8 +172,17 @@
   }
 
   .zv-hero-v2-tagline {
+    max-width: 100%;
+    padding-right: 32px;
+  }
+
+  .zv-hero-v2-right {
     align-self: flex-end;
     max-width: 100%;
+    gap: 10px;
+  }
+
+  .zv-hero-v2-links a {
     padding-right: 32px;
   }
 }
