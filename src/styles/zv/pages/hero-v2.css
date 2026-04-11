@@ -1,0 +1,71 @@
+/* Zero-Vector — Manifesto Hero v2 (Visual Refresh WIP)
+ *
+ * New hero under development on the visual-redo branch. Renders above
+ * the existing .zv-hero-combined while the makeover is in progress.
+ * Will eventually replace the old hero entirely — until then, both
+ * coexist on the homepage and this file lives alongside hero-combined.css.
+ *
+ * Full-bleed video background. Pattern ported verbatim from the
+ * Arroyo Labs hero: absolute-positioned wrapper with the video +
+ * overlay behind the content, content on top at z-index 10, GPU
+ * acceleration on the wrapper, object-fit: cover on the video.
+ */
+
+.zv-hero-v2 {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* fluid 1080p — height derives from browser width */
+  background: #ffffff; /* fallback if the video fails to load */
+  overflow: hidden;
+}
+
+/* Video background wrapper — sits behind the content at z-index 0 */
+.zv-hero-v2-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  contain: layout paint;
+  will-change: transform;
+}
+
+.zv-hero-v2-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  filter: brightness(1) saturate(1);
+  transition: filter 1.8s ease;
+}
+
+/* Structurally-ready tint layer — currently transparent, available
+ * for a gradient or darkening pass if the video's contrast against
+ * the black title needs help. */
+.zv-hero-v2-video-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform: translateZ(0);
+  transition: background 1.8s ease;
+}
+
+.zv-hero-v2-inner {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  padding: 0 clamp(32px, 6vw, 96px) clamp(48px, 8vh, 96px);
+}
+
+.zv-hero-v2-title {
+  margin: 0;
+  font-family: 'Proxima Nova', var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: #000;
+}

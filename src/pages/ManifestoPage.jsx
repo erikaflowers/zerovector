@@ -46,6 +46,28 @@ function ManifestoPage() {
       {/* Drifting Coordinates */}
       <div className="zv-coordinates">{home.hero.coordinates}</div>
 
+      {/* Hero v2 — visual refresh WIP, lives above the old hero during makeover */}
+      <section className="zv-hero-v2">
+        <div className="zv-hero-v2-video-wrap" aria-hidden="true">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            disablePictureInPicture
+            disableRemotePlayback
+            className="zv-hero-v2-video"
+          >
+            <source src="/video/zb-bg-hero.mov" type="video/mp4" />
+          </video>
+          <div className="zv-hero-v2-video-overlay" />
+        </div>
+        <div className="zv-hero-v2-inner">
+          <h1 className="zv-hero-v2-title">Zero Vector</h1>
+        </div>
+      </section>
+
       {/* Combined Hero — Above the Fold */}
       <section className="zv-section zv-hero-combined">
         <div className="zv-container">

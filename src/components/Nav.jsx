@@ -79,7 +79,7 @@ function NavDropdown({ group, pathname, onNavigate }) {
         aria-expanded={open}
         aria-haspopup="true"
       >
-        {group.label}
+        {group.label}.
         <span className="zv-nav-group-chevron" aria-hidden="true" />
       </button>
       {open && (
@@ -126,9 +126,7 @@ function Nav() {
   return (
     <nav className="zv-nav">
       <div className="zv-nav-inner">
-        <Link to="/" className="zv-nav-brand">ZERO VECTOR</Link>
-
-        {/* Desktop links */}
+        {/* Left — dropdown groups + standalone links */}
         <div className="zv-nav-links">
           {navGroups.map(group => (
             <NavDropdown key={group.label} group={group} pathname={pathname} />
@@ -147,6 +145,10 @@ function Nav() {
           >
             <span className="zv-nav-support-heart">&hearts;</span> Support
           </a>
+        </div>
+
+        {/* Right — Start + Sign In + mobile hamburger */}
+        <div className="zv-nav-actions">
           <Link
             to="/start"
             className={`zv-nav-start ${pathname === '/start' ? 'zv-nav-start-active' : ''}`}
@@ -184,18 +186,16 @@ function Nav() {
               <button className="zv-nav-signin" onClick={signIn}>Sign In</button>
             )
           )}
+          <button
+            className={`zv-nav-hamburger ${menuOpen ? 'zv-nav-hamburger-open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className={`zv-nav-hamburger ${menuOpen ? 'zv-nav-hamburger-open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
       </div>
 
       {/* Mobile menu */}

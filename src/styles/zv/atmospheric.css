@@ -13,8 +13,7 @@
    looking at this through a tactical display.
    ============================================ */
 
-/* --- Scanline Overlay --- */
-/* Subtle horizontal interference across the entire viewport */
+/* --- Scanline Overlay --- DISABLED during visual-redo (stark white hero) ---
 .zv-manifesto::after {
   content: '';
   position: fixed;
@@ -29,9 +28,9 @@
   pointer-events: none;
   z-index: 1000;
 }
+*/
 
-/* --- CRT Vignette --- */
-/* Dark falloff at the edges — viewing through a curved display */
+/* --- CRT Vignette --- DISABLED during visual-redo (stark white hero) ---
 .zv-manifesto::before {
   content: '';
   position: fixed;
@@ -44,6 +43,7 @@
   pointer-events: none;
   z-index: 999;
 }
+*/
 
 /* --- HUD Corner Brackets (disabled — chrome stripped for compact layout) --- */
 
