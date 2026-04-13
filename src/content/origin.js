@@ -7,7 +7,7 @@ const origin = {
   subtitle: 'Thirty-one years in the making. Here is how we got here.',
 
   intro: [
-    'Hi. I\'m Erika Flowers. I have been designing things for people for thirty-one years: service design, UX, systems thinking, organizational transformation. I have done it at startups, at agencies, at federal agencies, and at NASA. And for most of those thirty-one years, I have been fighting the same gap.',
+    'Hi. I\'m Erika Flowers. I have been designing things for people for my entire life: service design, UX, systems thinking, organizational transformation. I have done it at startups, at agencies, at federal agencies, and at NASA. And for most of those years, I have been fighting the same gap.',
     'The gap between what I could see in my head and what actually got built. The handoff. The translation layer. The "that\'s not what I meant" moment in sprint review. Every designer knows it. I spent three decades trying to close it. Zero-Vector is what happened when I finally did.',
   ],
 
@@ -28,6 +28,12 @@ const origin = {
       'My ethos has always been the same: take from all that which is around you and make of it something more. Systems thinking from Deming. Narrative design from Campbell and McKee. Lean principles from Ries. Blue ocean strategy from Kim and Mauborgne. Quality philosophy from Taguchi. Zero-Vector is the synthesis, everything I have learned in thirty-one years applied to the most significant shift in how things get made since the personal computer.',
     ],
   },
+
+  credentials: [
+    { title: 'NASA', desc: 'First Digital Service Expert recruited. GS-14 IT Specialist. Member of the CIO and CAIO. Author of NASA AI Readiness Strategy whitepaper.' },
+    { title: 'Silicon Valley Veteran', desc: '7 years leading design at Intuit for the QuickBooks ecosystem. Sr. Principal Strategist at hypergrowth scale-up Mural. Speaker, author, and consultant to the Fortune 500.' },
+    { title: 'Writer, Inventor, Punk', desc: 'Published author, inventor of the Practical Service Blueprint, science-fiction writer, accomplished punk-rock drummer.' },
+  ],
 
   photos: [
     { id: 'headshot', alt: 'Erika Flowers', src: '/images/origin-headshot.png' },

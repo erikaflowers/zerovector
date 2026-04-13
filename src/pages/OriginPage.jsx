@@ -49,9 +49,12 @@ function OriginPage() {
           </div>
           <Animate delay={2}>
             <div className="zv-origin-credentials">
-              <div className="zv-origin-credential">NASA</div>
-              <div className="zv-origin-credential">Silicon Valley Veteran</div>
-              <div className="zv-origin-credential">Writer, Inventor, and Punk</div>
+              {origin.credentials.map((c, i) => (
+                <div key={i} className="zv-origin-credential">
+                  <div className="zv-origin-credential-title">{c.title}</div>
+                  <p className="zv-origin-credential-desc">{c.desc}</p>
+                </div>
+              ))}
             </div>
           </Animate>
         </div>

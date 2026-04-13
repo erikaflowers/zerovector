@@ -25,9 +25,6 @@ function ManifestoPage() {
     <div className="zv-manifesto">
       <Nav />
 
-      {/* Drifting Coordinates */}
-      <div className="zv-coordinates">{home.hero.coordinates}</div>
-
       {/* Hero v2 — visual refresh WIP, lives above the old hero during makeover */}
       <section className="zv-hero-v2">
         <div className="zv-hero-v2-video-wrap" aria-hidden="true">
@@ -82,7 +79,9 @@ function ManifestoPage() {
                 <span>The Starting Point</span>
               </div>
               <h2 className="zv-explainer-headline">{home.explainer.headline}</h2>
-              <p className="zv-explainer-body">{home.explainer.body}</p>
+              {home.explainer.body.map((p, i) => (
+                <p key={i} className="zv-explainer-body">{p}</p>
+              ))}
               <div className="zv-explainer-paths">
                 {home.explainer.paths.map((path, i) => (
                   <Link key={i} to={path.link} className={`zv-explainer-path zv-explainer-path--${PATH_COLORS[i]}`}>
@@ -115,6 +114,34 @@ function ManifestoPage() {
                   <div className="zv-page-hero-essay-subtitle">The design-to-development pipeline is not broken; it is a multi-stage rocket, and we never questioned the gravity.</div>
                 </div>
               </a>
+            </div>
+          </div>
+
+          {/* Missions — Zero Vector is not just an ethos */}
+          <div className="zv-missions">
+            <div className="zv-missions-intro">
+              <h3 className="zv-missions-headline">{home.missions.headline}</h3>
+              <p className="zv-missions-body">{home.missions.body}</p>
+            </div>
+            <div className="zv-missions-grid">
+              {home.missions.items.map((m, i) => {
+                const inner = (
+                  <>
+                    <div className="zv-mission-card-graphic">
+                      <img src={m.image} alt={m.name} loading="lazy" />
+                    </div>
+                    <div className="zv-mission-card-content">
+                      <div className="zv-mission-card-name">{m.name}</div>
+                      <p className="zv-mission-card-desc">{m.desc}</p>
+                    </div>
+                  </>
+                );
+                return m.to ? (
+                  <Link key={i} to={m.to} className="zv-mission-card">{inner}</Link>
+                ) : (
+                  <a key={i} href={m.href} target="_blank" rel="noopener noreferrer" className="zv-mission-card">{inner}</a>
+                );
+              })}
             </div>
           </div>
         </div>

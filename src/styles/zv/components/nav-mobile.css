@@ -5,15 +5,15 @@
  * by the hamburger in .zv-nav-actions. Hidden on desktop.
  */
 
-/* --- Hamburger --- */
+/* --- Hamburger — white box matching the nav item treatment --- */
 .zv-nav-hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
-  background: none;
+  background: #fff;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   z-index: 101;
 }
 
@@ -41,6 +41,9 @@
 .zv-nav-mobile {
   display: none;
 }
+
+/* When activated by responsive.css, becomes a scrollable overlay
+ * that fills the viewport below the sticky nav bar. */
 
 /* --- Mobile-only overrides (activated via responsive.css) --- */
 

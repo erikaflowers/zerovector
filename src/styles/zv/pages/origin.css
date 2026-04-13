@@ -18,7 +18,7 @@
 
 .zv-origin-headshot-wrap {
   flex: 0 0 auto;
-  max-width: 160px;
+  max-width: 280px;
 }
 
 .zv-origin-headshot {
@@ -38,11 +38,22 @@
 }
 
 .zv-origin-credential {
+  flex: 1;
+}
+
+.zv-origin-credential-title {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
-  flex: 1;
+  margin-bottom: 6px;
+}
+
+.zv-origin-credential-desc {
+  font-size: 0.85rem;
+  color: #999;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* --- Origin: photos section (legacy, kept for any remaining use) --- */

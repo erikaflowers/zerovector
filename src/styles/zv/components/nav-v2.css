@@ -11,17 +11,37 @@
  * these become the primary nav styles and the old ones get deleted.
  */
 
-/* Nav shell — overlays the hero, transparent wrapper. */
+/* Nav shell — overlays the hero on desktop (absolute), sticks to
+ * the top on mobile (sticky). The mobile override lives in
+ * responsive.css so the cascade order is clean. */
 .zv-nav {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 100;
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-bottom: none;
+}
+
+/* Body scroll lock — applied via JS when mobile menu is open.
+ * overflow: hidden prevents background scroll. The fixed position
+ * prevents iOS Safari from ignoring overflow on <body>. */
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* When the menu is open, pin the nav to the viewport so the body's
+ * position: fixed + negative top offset doesn't push it off-screen. */
+body.nav-open .zv-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .zv-nav-inner {
@@ -59,8 +79,7 @@
  * heights with the same padding. */
 .zv-nav-group-trigger,
 .zv-nav-group-trigger--active,
-.zv-nav-link,
-.zv-nav-signin {
+.zv-nav-link {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-display);
@@ -78,16 +97,41 @@
   transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
 }
 
+/* Sign In — neon-pink box, white text, same sizing as nav items. */
+.zv-nav-signin {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  padding: 0.4em 0.85em;
+  color: #fff;
+  background: var(--neon-pink);
+  border: none;
+  text-decoration: none;
+  text-shadow: none;
+  cursor: pointer;
+  transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
+}
+
 .zv-nav-group-trigger::after,
 .zv-nav-link::after {
   display: none;
 }
 
 .zv-nav-group-trigger:hover,
-.zv-nav-link:hover,
-.zv-nav-signin:hover {
+.zv-nav-link:hover {
   background: #000;
   color: var(--neon-pink);
+  opacity: 1;
+  text-shadow: none;
+}
+
+.zv-nav-signin:hover {
+  background: #000;
+  color: var(--neon-green);
   opacity: 1;
   text-shadow: none;
 }
@@ -169,7 +213,7 @@
   font-weight: 700;
 }
 
-/* Start — white pill by default, black + neon-pink on hover.
+/* Start — neon-pink pill, black + neon-green on hover.
  * Keeps the 40px border-radius Samantha added for the pill shape. */
 .zv-nav-start,
 .zv-nav-start-active {
@@ -179,8 +223,8 @@
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.2;
-  color: #000;
-  background: #fff;
+  color: #fff;
+  background: var(--neon-pink);
   padding: 0.4em 1.4em;
   letter-spacing: 0;
   text-decoration: none;
@@ -194,7 +238,7 @@
 
 .zv-nav-start:hover {
   background: #000;
-  color: var(--neon-pink);
+  color: var(--neon-green);
   opacity: 1;
   box-shadow: none;
   text-shadow: none;

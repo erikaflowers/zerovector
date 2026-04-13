@@ -248,6 +248,7 @@
   }
 
   .zv-philosophy-principle {
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }

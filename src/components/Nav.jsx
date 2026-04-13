@@ -102,6 +102,22 @@ function Nav() {
 
   const handleToggle = useCallback((label) => setOpenGroup(label), []);
 
+  // Body scroll lock — prevents background content from scrolling
+  // while the mobile menu is open. Uses position: fixed + saved
+  // scrollY to work around iOS Safari ignoring overflow: hidden.
+  useEffect(() => {
+    if (menuOpen) {
+      const scrollY = window.scrollY;
+      document.body.classList.add('nav-open');
+      document.body.style.top = `-${scrollY}px`;
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.classList.remove('nav-open');
+      document.body.style.top = '';
+      if (scrollY) window.scrollTo(0, parseInt(scrollY, 10) * -1);
+    }
+  }, [menuOpen]);
+
   useEffect(() => {
     setMenuOpen(false);
     setMobileExpanded(null);

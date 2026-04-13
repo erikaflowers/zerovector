@@ -6,10 +6,10 @@
  */
 
 :root {
-  /* Void */
-  --void: #181818;
-  --void-elevated: #0a0a0f;
-  --void-surface: #111118;
+  /* Void — white-first for Orbital Brutalism direction */
+  --void: #ffffff;
+  --void-elevated: #ffffff;
+  --void-surface: #fafafa;
   --void-border: rgba(255, 255, 255, 0.06);
 
   /* Core Primaries  */

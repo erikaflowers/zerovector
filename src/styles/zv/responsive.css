@@ -12,7 +12,16 @@
    ============================================ */
 @media (max-width: 768px) {
 
-  /* --- Nav --- */
+  /* --- Nav — sticky on mobile so it stays accessible while
+   * scrolling. Transparent bar, only the hamburger has a
+   * visible background. --- */
+  .zv-nav {
+    position: sticky;
+    top: 0;
+    background: transparent;
+    border-bottom: none;
+  }
+
   .zv-nav-links {
     display: none;
   }
@@ -25,8 +34,12 @@
     display: flex;
     flex-direction: column;
     background: #fff;
-    padding: 16px var(--container-padding) 24px;
+    padding: 8px var(--container-padding) 24px;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
+    max-height: calc(100vh - 56px);
+    max-height: calc(100dvh - 56px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .zv-nav-actions .zv-nav-start,
@@ -94,8 +107,8 @@
   }
 
   .zv-philosophy-principle {
-    grid-template-columns: 40px 1fr;
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 
   /* --- Approach: stack phase columns --- */

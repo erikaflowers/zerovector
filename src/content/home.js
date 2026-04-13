@@ -11,12 +11,46 @@ const home = {
 
   explainer: {
     headline: 'What Is Zero Vector?',
-    body: 'Zero Vector Design is a discipline and a growing network of practitioners who believe the person with the vision should build the artifact directly, using AI agents as crew. No handoff. No translation layer. One person, full pipeline, real product.',
+    body: [
+      'Zero Vector Design is a methodology, an open-source ecosystem, and a growing movement redefining how products get built in the age of AI.',
+      'The core principle: the distance between human intent and working product should be zero. No handoff. No translation layer. No research that dies in a slide deck. No design that gets lost between Figma and code. The people who understand the customer should be able to build the product, and the tools, frameworks, and doctrine to make that real should be free and open to everyone.',
+    ],
     audience: 'For designers who build. For leaders who ship. For anyone tired of the handoff.',
     paths: [
       { label: 'Learn the philosophy', link: '/philosophy' },
       { label: 'Start building', link: '/for-builders' },
       { label: 'Transform your org', link: '/for-leaders' },
+    ],
+  },
+
+  missions: {
+    headline: 'Zero Vector is not just a philosophy. It is an active frontier.',
+    body: 'Part production studio, part invention lab, part thought leadership, Zero Vector builds the tools, frameworks, and proof points that turn the manifesto into practice.',
+    items: [
+      {
+        name: 'Open Vector',
+        desc: 'The free learning platform. 60+ lessons teaching design-led engineering from first principles — no prerequisites, no gatekeeping.',
+        image: '/og/open-vector.png',
+        href: 'https://open.zerovector.design',
+      },
+      {
+        name: 'Investiture',
+        desc: 'The deep framework. A Stormlight Archive-inspired system for understanding design mastery as a progression of invested power.',
+        to: '/investiture',
+        image: '/og/investiture.png',
+      },
+      {
+        name: 'Labrador',
+        desc: 'Open-source persistent memory and knowledge retrieval for any LLM. The infrastructure layer that makes AI agents actually remember.',
+        href: 'https://herelabrador.ai',
+        image: '/og/learn.png',
+      },
+      {
+        name: 'Arroyo Labs',
+        desc: 'The production arm. One designer, an AI crew, and the full pipeline — from discovery to shipped product in weeks, not quarters.',
+        href: 'https://arroyo.zerovector.design',
+        image: '/images/arroyo-og.png',
+      },
     ],
   },
 
