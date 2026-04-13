@@ -35,14 +35,9 @@ body.nav-open {
   width: 100%;
 }
 
-/* When the menu is open, pin the nav to the viewport so the body's
- * position: fixed + negative top offset doesn't push it off-screen. */
-body.nav-open .zv-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
+/* When the menu is open on mobile, the nav is already position: fixed
+ * (set in responsive.css), so it stays at the viewport top even while
+ * the body scroll lock shifts the page. No additional override needed. */
 
 .zv-nav-inner {
   max-width: none;

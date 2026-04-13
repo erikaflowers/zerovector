@@ -12,12 +12,15 @@
    ============================================ */
 @media (max-width: 768px) {
 
-  /* --- Nav — sticky on mobile so it stays accessible while
-   * scrolling. Transparent bar, only the hamburger has a
-   * visible background. --- */
+  /* --- Nav — fixed on mobile so it overlays the hero (video
+   * touches the top of the viewport) and stays visible while
+   * scrolling. Same pattern as desktop's position: absolute
+   * but pinned on scroll. --- */
   .zv-nav {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     background: transparent;
     border-bottom: none;
   }
