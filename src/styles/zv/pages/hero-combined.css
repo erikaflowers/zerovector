@@ -107,9 +107,12 @@
   max-width: 640px;
 }
 
-/* Single-column flow — explainer text, buttons, then essay card below */
+/* Two-column layout — left expands, right shrinks to essay card width */
 .zv-hero-columns {
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: start;
 }
 
 /* Left column: Explainer — left-aligned */
@@ -183,20 +186,17 @@
 
 @media (max-width: 768px) {
   .zv-hero-combined {
-    padding-top: calc(56px + 24px);
+    padding-top: calc(48px + 16px);
+    min-height: auto;
   }
+
   .zv-hero-columns {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
+
   .zv-hero-col-right {
-    border-left: none;
     padding-left: 0;
-    border-bottom: 1px solid var(--void-border);
-    padding-bottom: 24px;
-    border-top: none;
-    padding-top: 0;
-    min-height: unset;
+    align-items: flex-start;
   }
 }

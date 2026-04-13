@@ -1,61 +1,18 @@
 /* Zero-Vector Design — Responsive Overrides
  *
- * The kitchen-sink mobile breakpoints for the manifesto
- * site. This file loads LAST so its @media rules override
- * everything earlier in the cascade.
+ * Mobile polish for the Orbital Brutalism direction. Loads LAST
+ * so @media rules override everything earlier in the cascade.
  *
- * Component-specific breakpoints that only touch one
- * component (e.g. the notify-form width stack, the
- * page-closing stack, the name page hero padding) stay
- * co-located with their parent partial. Only the rules
- * that cross multiple components live here.
- *
- * Several dead orphaned responsive rules were deleted
- * during Phase B.3 — `.zv-suits`, `.zv-coming-soon-card`,
- * `.zv-boot-terminal`, `.zv-timeline-layout`, `.zv-timeline-
- * narrative`, `.zv-pipeline-intro-layout`, `.zv-section--
- * declaration`, `.zv-terminal-body/section`, `.zv-closing-
- * links`, `.zv-page-next-links`, `.zv-name-nav-cards`, and
- * others whose base definitions had been removed in a
- * prior cleanup pass. They are recoverable from git history.
+ * Philosophy: single column, touch-first, 44px min touch targets,
+ * content-driven breakpoints, no hover-dependent interactions.
  */
 
-/* --- Responsive --- */
+/* ============================================
+   768px — Phone / small tablet
+   ============================================ */
 @media (max-width: 768px) {
-  .zv-hero-title {
-    font-size: clamp(2.5rem, 14vw, 5rem);
-  }
 
-  .zv-pipeline-phase {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .zv-coordinates {
-    display: none;
-  }
-
-  .zv-footer-inner {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-  }
-
-  .zv-footer-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .zv-decrypt-anchor {
-    display: inline;
-  }
-
-  .zv-decrypt-overlay {
-    white-space: normal;
-  }
-
-  /* Nav: hide desktop links, show hamburger, simplify actions */
+  /* --- Nav --- */
   .zv-nav-links {
     display: none;
   }
@@ -72,69 +29,64 @@
     border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  /* Hide Start + Sign In from top bar — they're in the mobile menu */
   .zv-nav-actions .zv-nav-start,
   .zv-nav-actions .zv-nav-signin,
   .zv-nav-actions .zv-nav-user {
     display: none;
   }
 
-  /* Hero: hide the orange bar links on mobile (they're in the menu now) */
+  /* --- Hero (homepage) --- */
   .zv-hero-v2-links {
     display: none;
   }
 
-  /* Two Paths: stack vertically */
+  .zv-coordinates {
+    display: none;
+  }
+
+  /* --- Section titles — tighter on mobile --- */
+  .zv-section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  /* --- Hero-combined (homepage black section) --- */
+  .zv-explainer-paths {
+    grid-template-columns: 1fr;
+  }
+
+  .zv-explainer-path {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+
+  /* --- Closing paths --- */
   .zv-paths {
     grid-template-columns: 1fr;
   }
 
   .zv-path-card {
-    padding: 32px 24px;
-  }
-
-  /* Engagement models: stack */
-  .zv-models {
-    grid-template-columns: 1fr;
-  }
-
-  .zv-model-card {
     padding: 24px;
   }
 
-  /* Crew grid: stack on mobile */
-  .zv-crew-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .zv-crew-card {
-    padding: 20px;
-  }
-
-  /* Contrasts: stack vertically */
+  /* --- Contrasts: stack vertically --- */
   .zv-contrast-pair {
     grid-template-columns: 1fr;
     gap: 0;
-    padding: 0;
   }
 
   .zv-contrast-side {
     padding: 16px;
   }
 
-  .zv-section--contrasts .zv-contrast-not {
-    padding: 16px;
+  .zv-contrast-label {
+    font-size: 1rem;
   }
 
-  .zv-section--contrasts .zv-contrast-is {
-    padding: 16px;
-  }
-
-  /* Philosophy: stack columns */
+  /* --- Philosophy --- */
   .zv-philosophy-split {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .zv-philosophy-what-is-not {
@@ -142,43 +94,149 @@
   }
 
   .zv-philosophy-principle {
-    grid-template-columns: 48px 1fr;
-    gap: 16px;
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
   }
 
-  /* Approach: stack phase columns */
+  /* --- Approach: stack phase columns --- */
   .zv-approach-phase-columns {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 20px;
   }
 
-  .zv-approach-phase-zv {
-    padding: 24px;
-  }
-
-  /* Builders: tighter step layout */
-  .zv-builders-step {
-    grid-template-columns: 48px 1fr;
-    gap: 16px;
+  /* --- Builders --- */
+  .zv-builders-steps {
+    grid-template-columns: 1fr;
   }
 
   .zv-builders-community {
     grid-template-columns: 1fr;
   }
 
-  /* Media: stack featured cards */
+  /* --- Enterprise --- */
+  .zv-enterprise-challenge,
+  .zv-enterprise-preview,
+  .zv-enterprise-engagement {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Engagement models --- */
+  .zv-models {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Media --- */
   .zv-media-featured {
     grid-template-columns: 1fr;
   }
 
-  /* Origin: stack photos */
+  /* --- Origin --- */
   .zv-origin-photos {
     grid-template-columns: 1fr;
   }
+
+  /* --- Footer --- */
+  .zv-footer-inner {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .zv-footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /* --- Closing cards --- */
+  .zv-closing-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- CTA buttons — bigger touch targets --- */
+  .zv-cta {
+    padding: 16px 28px;
+    font-size: 1rem;
+    min-height: 48px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .zv-cta-outline {
+    min-height: 48px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* --- Principle Zero --- */
+  .zv-principle-zero-home {
+    padding: 20px 16px;
+  }
+
+  .zv-principle-zero {
+    padding: 32px var(--container-padding);
+  }
+
+  /* --- Page closing band --- */
+  .zv-page-closing-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .zv-page-closing-cta {
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  /* --- Closing permission statement — scale down --- */
+  .zv-closing-permission {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
 }
 
+/* ============================================
+   480px — Small phones
+   ============================================ */
 @media (max-width: 480px) {
   body {
     font-size: 16px;
+  }
+
+  .zv-hero-v2-title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+
+  .zv-page-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .zv-section-title {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  /* Tighter section padding */
+  .zv-section {
+    padding: clamp(32px, 6vh, 48px) 0;
+  }
+
+  .zv-info-page .zv-section {
+    padding: clamp(28px, 5vh, 40px) 0;
+  }
+}
+
+/* ============================================
+   Touch device adaptations
+   ============================================ */
+
+/* Disable hover-dependent interactions on touch-only devices */
+@media (hover: none) {
+  .zv-pipeline-card:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 #000;
+  }
+
+  .zv-hero-v2-links a:hover {
+    font-size: inherit;
+    padding: inherit;
   }
 }

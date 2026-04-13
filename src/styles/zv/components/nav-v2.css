@@ -27,7 +27,7 @@
 .zv-nav-inner {
   max-width: none;
   margin: 0;
-  padding: clamp(4px, 4vh, 10px) clamp(32px, 6vw, 96px);
+  padding: clamp(4px, 4vh, 10px) clamp(10px, 2vw, 96px);
   height: auto;
   display: flex;
   align-items: center;

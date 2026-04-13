@@ -116,29 +116,34 @@
 /* The hidden redacted message — shorter than the h1 so it reads
  * as a strikethrough bar rather than a total occlusion. Vertically
  * centered via top: 50% + translateY(-50%). */
-.zv-hero-v2-title::after {
-  content: 'The gap is zero.';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  padding: 0.08em 0.35em 0.08em 100px;
-  white-space: nowrap;
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: 0.6em;
-  line-height: 1;
-  letter-spacing: inherit;
-  color: #000;
-  background: #fff;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
+/* Only show the redaction hover on devices that support hover
+ * (mouse/trackpad). On touch devices, :hover sticks after tap
+ * and creates a confusing state. */
+@media (hover: hover) {
+  .zv-hero-v2-title::after {
+    content: 'The gap is zero.';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    padding: 0.08em 0.35em 0.08em 100px;
+    white-space: nowrap;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 0.6em;
+    line-height: 1;
+    letter-spacing: inherit;
+    color: #000;
+    background: #fff;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-.zv-hero-v2-title:hover::after {
-  clip-path: inset(0 0 0 0);
+  .zv-hero-v2-title:hover::after {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 /* Right-side column — tagline on top, redacted-document link bars
@@ -220,21 +225,31 @@
   }
 
   .zv-hero-v2-title {
-    padding-left: 32px;
+    padding-left: var(--container-padding);
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  /* Hide the redaction ::after padding mismatch on mobile */
+  .zv-hero-v2-title::after {
+    padding-left: var(--container-padding);
   }
 
   .zv-hero-v2-tagline {
     max-width: 100%;
-    padding-right: 32px;
+    padding-right: var(--container-padding);
+    padding-left: var(--container-padding);
+    text-align: left;
+    font-size: 0.9rem;
   }
 
   .zv-hero-v2-right {
-    align-self: flex-end;
+    align-self: stretch;
     max-width: 100%;
     gap: 10px;
   }
 
   .zv-hero-v2-links a {
-    padding-right: 32px;
+    padding-right: var(--container-padding);
+    font-size: 0.9rem;
   }
 }

@@ -75,42 +75,47 @@ function ManifestoPage() {
       {/* Combined Hero — Above the Fold */}
       <section className="zv-section zv-hero-combined">
         <div className="zv-container">
-          <div className="zv-hero-declaration-label">
-            <span>The Starting Point</span>
-          </div>
-          <h2 className="zv-explainer-headline">{home.explainer.headline}</h2>
-          <p className="zv-explainer-body">{home.explainer.body}</p>
-          <div className="zv-explainer-paths">
-            {home.explainer.paths.map((path, i) => (
-              <Link key={i} to={path.link} className={`zv-explainer-path zv-explainer-path--${PATH_COLORS[i]}`}>
-                {path.label} <ArrowIcon size={14} />
-              </Link>
-            ))}
-          </div>
-
-          {/* Featured Essay Card — below the buttons */}
-          <div className="zv-hero-essay-row">
-            <span className="zv-page-hero-essay-label" style={{color: '#fff'}}>
-              Featured Essay
-            </span>
-            <a
-              href="https://eflowers.substack.com/p/zero-stage-to-orbit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="zv-page-hero-essay"
-            >
-              <img
-                src="https://substack-post-media.s3.amazonaws.com/public/images/04e8e131-9dcf-44ec-953a-b96e5ad85e1c_1600x678.jpeg"
-                alt="Zero Stage to Orbit"
-                className="zv-page-hero-essay-img"
-                loading="lazy"
-              />
-              <div className="zv-page-hero-essay-meta">
-                <div className="zv-page-hero-essay-date">February 21, 2026</div>
-                <div className="zv-page-hero-essay-title">Zero Stage to Orbit</div>
-                <div className="zv-page-hero-essay-subtitle">The design-to-development pipeline is not broken; it is a multi-stage rocket, and we never questioned the gravity.</div>
+          <div className="zv-hero-columns">
+            {/* LEFT: Explainer + buttons */}
+            <div className="zv-hero-col-left">
+              <div className="zv-hero-declaration-label">
+                <span>The Starting Point</span>
               </div>
-            </a>
+              <h2 className="zv-explainer-headline">{home.explainer.headline}</h2>
+              <p className="zv-explainer-body">{home.explainer.body}</p>
+              <div className="zv-explainer-paths">
+                {home.explainer.paths.map((path, i) => (
+                  <Link key={i} to={path.link} className={`zv-explainer-path zv-explainer-path--${PATH_COLORS[i]}`}>
+                    {path.label} <ArrowIcon size={14} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT: Featured Essay Card */}
+            <div className="zv-hero-col-right">
+              <span className="zv-page-hero-essay-label" style={{color: '#fff'}}>
+                Featured Essay
+              </span>
+              <a
+                href="https://eflowers.substack.com/p/zero-stage-to-orbit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="zv-page-hero-essay"
+              >
+                <img
+                  src="https://substack-post-media.s3.amazonaws.com/public/images/04e8e131-9dcf-44ec-953a-b96e5ad85e1c_1600x678.jpeg"
+                  alt="Zero Stage to Orbit"
+                  className="zv-page-hero-essay-img"
+                  loading="lazy"
+                />
+                <div className="zv-page-hero-essay-meta">
+                  <div className="zv-page-hero-essay-date">February 21, 2026</div>
+                  <div className="zv-page-hero-essay-title">Zero Stage to Orbit</div>
+                  <div className="zv-page-hero-essay-subtitle">The design-to-development pipeline is not broken; it is a multi-stage rocket, and we never questioned the gravity.</div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
