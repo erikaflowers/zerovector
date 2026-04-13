@@ -83,10 +83,19 @@
   pointer-events: none;
 }
 
-/* --- Combined Hero: Above the Fold --- */
+/* --- Combined Hero: Above the Fold — explicit dark treatment.
+ * The homepage (.zv-manifesto) is not .zv-info-page, so the
+ * automatic black first-section rule doesn't apply here. --- */
 .zv-hero-combined {
   padding-top: calc(56px + 40px);
   padding-bottom: 48px;
+  min-height: 50vh;
+  background: #000;
+  color: #fff;
+  --text-primary: #fff;
+  --text-secondary: #ccc;
+  --text-tertiary: #999;
+  --void-border: rgba(255, 255, 255, 0.1);
 }
 
 .zv-hero-title-block {
@@ -98,11 +107,9 @@
   max-width: 640px;
 }
 
+/* Single-column flow — explainer text, buttons, then essay card below */
 .zv-hero-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
+  display: block;
 }
 
 /* Left column: Explainer — left-aligned */
@@ -118,10 +125,17 @@
   justify-content: flex-start;
 }
 
-/* Right column: Boot / Declaration */
-.zv-hero-col-right {
-  padding-left: 32px;
-  min-height: 320px;
+/* Featured essay row — sits below the 3 buttons, right-aligned */
+.zv-hero-essay-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.zv-hero-essay-row .zv-page-hero-essay {
+  max-width: 340px;
 }
 
 /* Compact declaration in hero right column */

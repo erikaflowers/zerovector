@@ -43,6 +43,13 @@ const ESSAYS = {
     url: 'https://eflowers.substack.com/p/the-last-typesetter',
     image: 'https://substack-post-media.s3.amazonaws.com/public/images/9eccacd7-8b4d-477a-8200-eae4791332b0_1600x678.png',
   },
+  '/for-hire': {
+    title: 'Second Rodeos',
+    subtitle: 'Every tool you master will be replaced. The navigation that chose the tool will not.',
+    date: 'April 5, 2026',
+    url: 'https://eflowers.substack.com/p/second-rodeos',
+    image: 'https://substack-post-media.s3.amazonaws.com/public/images/2b18654d-4268-44cb-9f80-54ff45c8a7df_1600x678.png',
+  },
   '/media': {
     title: 'The Napoleon Express',
     subtitle: 'People in every era confuse the delivery mechanism with the purpose; the real purpose is getting meaning to the person who needs it.',

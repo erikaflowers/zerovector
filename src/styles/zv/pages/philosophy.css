@@ -27,7 +27,7 @@
 .zv-philosophy-what-is-not {
   position: sticky;
   top: 80px;
-  padding: 28px;
+  padding: 24px;
   border: 1px solid #000;
   background: #f5f5f5;
   box-shadow: 4px 4px 0 #000;
@@ -38,13 +38,13 @@
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--neon-pink);
-  margin-bottom: 24px;
+  margin: 0 0 16px;
   letter-spacing: 0.04em;
 }
 
 .zv-philosophy-not-item {
-  padding-bottom: 16px;
-  margin-bottom: 16px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -56,16 +56,16 @@
 
 .zv-philosophy-not-claim {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #000;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .zv-philosophy-not-explanation {
   font-size: 0.8rem;
   color: #555;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 /* ============================================
@@ -75,7 +75,7 @@
 
 .zv-principle-zero {
   border: none;
-  padding: 64px 0;
+  padding: 48px clamp(32px, 6vw, 96px);
   text-align: left;
   position: relative;
   background: var(--neon-orange);

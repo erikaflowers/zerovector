@@ -55,7 +55,7 @@
     white-space: normal;
   }
 
-  /* Nav: hide desktop links, show hamburger */
+  /* Nav: hide desktop links, show hamburger, simplify actions */
   .zv-nav-links {
     display: none;
   }
@@ -66,6 +66,22 @@
 
   .zv-nav-mobile {
     display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 16px var(--container-padding) 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* Hide Start + Sign In from top bar — they're in the mobile menu */
+  .zv-nav-actions .zv-nav-start,
+  .zv-nav-actions .zv-nav-signin,
+  .zv-nav-actions .zv-nav-user {
+    display: none;
+  }
+
+  /* Hero: hide the orange bar links on mobile (they're in the menu now) */
+  .zv-hero-v2-links {
+    display: none;
   }
 
   /* Two Paths: stack vertically */

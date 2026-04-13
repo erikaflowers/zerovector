@@ -1,72 +1,17 @@
 /* Zero-Vector Design — /start Page
  *
- * The "Start Here" page: announcement card at the top,
- * two side-by-side action cards, and the responsive
- * stack below 768px.
+ * Orbital Brutalism: action cards with hard offset shadows,
+ * announcement card as brutalist card, neon accents,
+ * hardcoded text colors, tight spacing.
  */
-
-/* ========================================
-   Start Page
-   ======================================== */
 
 .zv-start-actions-section { padding-top: 0; }
 
-/* --- Announcement Card --- */
-.zv-start-announcement {
-  border: 1px solid var(--void-border);
-
-  padding: 36px;
-  border-radius: 0;
-  position: relative;
-  background: var(--void-elevated);
-}
-
-.zv-start-announcement-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--orange);
-  letter-spacing: 0.15em;
-  margin-bottom: 16px;
-}
-
-.zv-start-announcement-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 12px;
-}
-
-.zv-start-announcement-desc {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 700px;
-  margin-bottom: 24px;
-}
-
-.zv-start-announcement-cta {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--cyan);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.2s;
-}
-
-.zv-start-announcement-cta:hover {
-  color: var(--orange);
-}
-
-/* --- Big Action CTAs (side by side) --- */
+/* --- Big Action CTAs (side by side grid) --- */
 .zv-start-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 20px;
   align-items: stretch;
 }
 
@@ -78,57 +23,110 @@
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  background: #ffffff;
-  padding: 48px 40px;
+  background: #fafafa;
+  padding: 32px 28px;
+  border: 1px solid #000;
   border-radius: 0;
-  transition: all 0.2s var(--ease-out);
+  box-shadow: 4px 4px 0 #000;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
   position: relative;
   width: 100%;
 }
 
 .zv-start-action-card:hover {
-  box-shadow: 4px 4px 0 #000;
-  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 #000;
+  transform: translate(-2px, -2px);
 }
 
 .zv-start-action-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
   font-weight: 700;
-  color: var(--orange);
-  letter-spacing: 0.15em;
-  margin-bottom: 16px;
+  color: var(--neon-orange);
+  letter-spacing: 0;
+  margin-bottom: 10px;
 }
 
 .zv-start-action-title {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #111;
-  margin-bottom: 12px;
+  color: #000;
+  margin-bottom: 8px;
 }
 
 .zv-start-action-desc {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.55;
+  margin-bottom: 14px;
   flex: 1;
 }
 
 .zv-start-action-cta {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--orange);
+  font-weight: 700;
+  color: var(--neon-pink);
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: color 0.2s;
+  letter-spacing: 0;
 }
 
 .zv-start-action-card:hover .zv-start-action-cta {
-  color: var(--orange);
+  color: var(--neon-pink);
+}
+
+/* --- Announcement Card — brutalist card --- */
+.zv-start-announcement {
+  border: 1px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  padding: 28px;
+  border-radius: 0;
+  position: relative;
+  background: #fff;
+}
+
+.zv-start-announcement-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--neon-orange);
+  letter-spacing: 0;
+  margin-bottom: 10px;
+}
+
+.zv-start-announcement-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.zv-start-announcement-desc {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.55;
+  max-width: 700px;
+  margin-bottom: 14px;
+}
+
+.zv-start-announcement-cta {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--neon-pink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.zv-start-announcement-cta:hover {
+  opacity: 0.7;
 }
 
 /* --- Start Page Responsive --- */
@@ -138,10 +136,6 @@
   }
 
   .zv-start-action-card {
-    padding: 32px 24px;
-  }
-
-  .zv-start-announcement {
     padding: 24px;
   }
 }

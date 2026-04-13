@@ -24,9 +24,12 @@ function StartPage() {
       {/* Hero */}
       <PageHero eyebrow={start.eyebrow} title={start.title} subtitle={start.subtitle} />
 
-      {/* Intro */}
+      {/* Intro — Black First Section */}
       <section className="zv-section">
         <div className="zv-container">
+          <Animate>
+            <h2 className="zv-section-title">Choose Your Path</h2>
+          </Animate>
           {start.intro.map((p, i) => (
             <Animate key={i} delay={Math.min(i + 1, 2)}>
               <p className="zv-body-text">{p}</p>

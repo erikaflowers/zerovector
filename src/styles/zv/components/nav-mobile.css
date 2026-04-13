@@ -1,34 +1,11 @@
-/* Zero-Vector Design — Mobile Navigation
+/* Zero-Vector Design — Mobile Navigation (Orbital Brutalism)
  *
- * Hamburger button, slide-down mobile drawer, accordion
- * groups, mobile sublinks, and mobile auth action buttons.
- * These are hidden on desktop and revealed at 768px via
- * the responsive partial.
+ * Simplified flat link list — no accordions, no groups. All
+ * nav items + featured links in one clean column. Triggered
+ * by the hamburger in .zv-nav-actions. Hidden on desktop.
  */
 
-/* Mobile auth action buttons (signin / signout) */
-.zv-nav-mobile-signin,
-.zv-nav-mobile-signout {
-  background: none;
-  border: none;
-  font-family: var(--font-body);
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-}
-
-.zv-nav-mobile-signin {
-  color: var(--cyan) !important;
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-.zv-nav-mobile-signout {
-  color: var(--text-secondary) !important;
-  margin-top: 8px;
-}
-
-/* --- Mobile Hamburger --- */
+/* --- Hamburger --- */
 .zv-nav-hamburger {
   display: none;
   flex-direction: column;
@@ -42,14 +19,14 @@
 
 .zv-nav-hamburger span {
   display: block;
-  width: 20px;
-  height: 1.5px;
-  background: var(--text-secondary);
-  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+  width: 22px;
+  height: 2px;
+  background: #000;
+  transition: transform 0.25s var(--ease-out), opacity 0.25s var(--ease-out);
 }
 
 .zv-nav-hamburger-open span:nth-child(1) {
-  transform: translateY(6.5px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .zv-nav-hamburger-open span:nth-child(2) {
@@ -57,99 +34,83 @@
 }
 
 .zv-nav-hamburger-open span:nth-child(3) {
-  transform: translateY(-6.5px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* --- Mobile Nav Menu --- */
+/* --- Mobile Menu Panel --- */
 .zv-nav-mobile {
   display: none;
-  flex-direction: column;
-  padding: 16px var(--container-padding) 24px;
-  border-top: 1px solid var(--void-border);
-  background: #fff;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
+/* --- Mobile-only overrides (activated via responsive.css) --- */
+
+/* Flat link style — every item in the mobile menu */
 .zv-nav-mobile-link {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+  color: #000;
   text-decoration: none;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--void-border);
-  transition: color 0.3s var(--ease-out);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: block;
+  transition: color 0.15s ease;
 }
 
 .zv-nav-mobile-link:hover {
-  color: var(--text-primary);
-  text-shadow: none;
+  color: var(--neon-pink);
 }
 
 .zv-nav-mobile-link.zv-nav-link-active {
-  color: var(--cyan);
+  color: var(--neon-green);
 }
 
-/* --- Mobile Nav Accordion Groups --- */
-.zv-nav-mobile-group {
-  border-bottom: 1px solid var(--void-border);
+/* Featured link section label */
+.zv-nav-mobile-divider {
+  font-family: 'Courier', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--neon-orange);
+  padding: 16px 0 6px;
+  border-bottom: none;
 }
 
-.zv-nav-mobile-group-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+/* Mobile auth buttons */
+.zv-nav-mobile-signin,
+.zv-nav-mobile-signout {
   background: none;
   border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #000;
   cursor: pointer;
-  padding: 14px 0;
-  transition: color 0.2s ease;
-  letter-spacing: 0.03em;
+  width: 100%;
+  text-align: left;
+  padding: 10px 0;
 }
 
-.zv-nav-mobile-group-trigger:hover {
-  color: var(--text-primary);
+.zv-nav-mobile-signin:hover,
+.zv-nav-mobile-signout:hover {
+  color: var(--neon-pink);
 }
 
-.zv-nav-mobile-group-trigger--open {
-  color: var(--text-primary);
-}
-
-.zv-nav-mobile-group-chevron {
-  font-size: 1.1rem;
-  color: var(--text-tertiary);
-  font-weight: 400;
-  line-height: 1;
-  transition: color 0.2s ease;
-}
-
-.zv-nav-mobile-group-trigger--open .zv-nav-mobile-group-chevron {
-  color: var(--cyan);
-}
-
-.zv-nav-mobile-group-items {
-  display: flex;
-  flex-direction: column;
-  padding: 0 0 8px 16px;
-}
-
-.zv-nav-mobile-sublink {
-  border-bottom: none !important;
+/* Start link in mobile menu */
+.zv-nav-start-mobile {
+  color: #000 !important;
+  background: none !important;
+  border-radius: 0 !important;
   padding: 10px 0 !important;
-  font-size: 0.95rem !important;
-  color: rgba(255, 255, 255, 0.6) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.zv-nav-mobile-sublink:hover {
-  color: var(--text-primary) !important;
-}
-
-.zv-nav-mobile-sublink.zv-nav-link-active {
-  color: var(--cyan) !important;
+/* Legacy accordion classes (kept but unused — mobile menu is now flat) */
+.zv-nav-mobile-group,
+.zv-nav-mobile-group-trigger,
+.zv-nav-mobile-group-chevron,
+.zv-nav-mobile-group-items,
+.zv-nav-mobile-sublink,
+.zv-nav-support-mobile {
+  display: none;
 }

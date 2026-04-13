@@ -41,7 +41,7 @@
   display: flex;
   align-items: baseline;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .zv-approach-phase-number {
@@ -55,29 +55,41 @@
 .zv-approach-phase-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 32px;
 }
 
 .zv-approach-column-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 12px;
 }
 
 .zv-approach-phase-agnostic .zv-approach-column-label {
-  color: var(--text-tertiary);
+  color: var(--neon-pink);
 }
 
 .zv-approach-phase-zv .zv-approach-column-label {
-  color: var(--orange);
-  font-weight: 700;
+  color: var(--neon-green);
 }
 
 .zv-approach-phase-zv {
-  padding: 32px;
-  background: rgba(255, 170, 0, 0.02);
-  border: 1px solid rgba(255, 170, 0, 0.08);
+  padding: 24px;
+  background: #000;
+  border: none;
   border-radius: 0;
+}
+
+/* Force all text inside the ZV card to white — child elements
+ * have their own hardcoded color rules that override inheritance. */
+.zv-approach-phase-zv,
+.zv-approach-phase-zv p,
+.zv-approach-phase-zv div,
+.zv-approach-phase-zv span {
+  color: #fff;
+}
+
+.zv-approach-phase-zv .zv-approach-column-label {
+  color: var(--neon-orange);
 }

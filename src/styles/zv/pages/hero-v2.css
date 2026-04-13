@@ -22,6 +22,15 @@
   --hero-nav-bg: var(--hero-accent);
   --hero-title-bg: #000;
   --hero-title-fg: #fff;
+
+  /* Text tokens for the homepage — same fix as .zv-info-page in
+   * base.css. Without this, body text inherits --text-secondary:
+   * #ffffff from .zv-site (intended for the neon hero) and renders
+   * invisible on white sections below the hero. */
+  --text-primary: #000;
+  --text-secondary: #333;
+  --text-tertiary: #666;
+  --text-muted: rgba(0, 0, 0, 0.4);
 }
 
 /* Note: --cyan / --magenta / --orange neon overrides moved to
@@ -36,6 +45,7 @@
   aspect-ratio: 16 / 9; /* fluid 1080p — height derives from browser width */
   background: #ffffff; /* fallback if the video fails to load */
   overflow: hidden;
+  min-height: 60vh;
 }
 
 /* Video background wrapper — sits behind the content at z-index 0 */
@@ -153,7 +163,7 @@
   font-family: var(--font-display);
   text-align: right;
   font-weight: 700;
-  font-size: clamp(0.875rem, 1.15vw, 1.125rem);
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
   line-height: 1.4;
   letter-spacing: -0.005em;
   color: var(--neon-green);

@@ -1,19 +1,54 @@
 /* Zero-Vector Design — /origin Page
  *
- * Origin story page: photos grid at the top, followed by
- * the crew card grid ("who built this"). Crew cards used
- * to live under a generic zv-crew- namespace but they only
- * ever render on the Origin page, so they live here.
+ * Origin story page: intro with headshot in the black first section,
+ * credentials row, then body sections.
  */
 
-/* --- Origin: photos section tight to intro --- */
+/* --- Origin: intro section (black first section) --- */
+.zv-origin-intro-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.zv-origin-intro-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.zv-origin-headshot-wrap {
+  flex: 0 0 auto;
+  max-width: 160px;
+}
+
+.zv-origin-headshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* --- 3-column credentials --- */
+.zv-origin-credentials {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.zv-origin-credential {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  flex: 1;
+}
+
+/* --- Origin: photos section (legacy, kept for any remaining use) --- */
 .zv-origin-photos-section {
   padding-top: 0;
 }
-
-/* ============================================
-   Origin Page — Photos
-   ============================================ */
 
 .zv-origin-photos {
   display: grid;
@@ -47,49 +82,29 @@
   color: var(--text-muted);
 }
 
-/* ============================================
-   Crew Cards — The Origin Page
-   ============================================ */
-
-.zv-crew-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 48px;
+/* --- Origin page: reduce section spacing --- */
+.zv-info-page .zv-origin-intro-section ~ .zv-section {
+  padding: clamp(28px, 4vh, 48px) 0;
 }
 
-.zv-crew-card {
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .zv-origin-intro-row {
+    flex-direction: column;
+    gap: 24px;
+  }
 
-  transition: border-left-color 0.3s var(--ease-out), background 0.3s var(--ease-out);
-}
+  .zv-origin-headshot-wrap {
+    flex: none;
+    width: 200px;
+  }
 
-.zv-crew-card:hover {
-  border-left-color: rgba(0, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.025);
-}
+  .zv-origin-credentials {
+    flex-direction: column;
+    gap: 16px;
+  }
 
-.zv-crew-card-name {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.zv-crew-card-role {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--cyan);
-  letter-spacing: 0.12em;
-  margin-bottom: 12px;
-}
-
-.zv-crew-card-desc {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  .zv-origin-photos {
+    grid-template-columns: 1fr;
+  }
 }

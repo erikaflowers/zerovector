@@ -17,6 +17,7 @@ const navGroups = [
       { to: '/for-builders', label: 'For Builders' },
       { to: '/for-leaders', label: 'For Leaders' },
       { to: '/for-enterprise', label: 'For Enterprise' },
+      { to: '/for-hire', label: 'For Hire' },
     ],
   },
   {
@@ -194,86 +195,23 @@ function Nav() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — flat link list, no accordion */}
       {menuOpen && (
         <div className="zv-nav-mobile">
-          {navGroups.map(group => (
-            <div key={group.label} className="zv-nav-mobile-group">
-              <button
-                className={`zv-nav-mobile-group-trigger ${mobileExpanded === group.label ? 'zv-nav-mobile-group-trigger--open' : ''}`}
-                onClick={() => setMobileExpanded(mobileExpanded === group.label ? null : group.label)}
-                aria-expanded={mobileExpanded === group.label}
-              >
-                <span>{group.label}</span>
-                <span className="zv-nav-mobile-group-chevron">{mobileExpanded === group.label ? '\u2212' : '+'}</span>
-              </button>
-              {mobileExpanded === group.label && (
-                <div className="zv-nav-mobile-group-items">
-                  {group.items.map(item => (
-                    item.href ? (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="zv-nav-mobile-link zv-nav-mobile-sublink"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        className={`zv-nav-mobile-link zv-nav-mobile-sublink ${pathname === item.to ? 'zv-nav-link-active' : ''}`}
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    )
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-          <a
-            href="https://open.zerovector.design"
-            className="zv-nav-mobile-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            Open Vector
-          </a>
-          <a
-            href="https://ko-fi.com/erikaflowers"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="zv-nav-mobile-link zv-nav-support-mobile"
-            onClick={() => setMenuOpen(false)}
-          >
-            <span className="zv-nav-support-heart">&hearts;</span> Support
-          </a>
-          <Link
-            to="/start"
-            className={`zv-nav-mobile-link zv-nav-start-mobile ${pathname === '/start' ? 'zv-nav-link-active' : ''}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            Start
-          </Link>
+          <Link to="/" className={`zv-nav-mobile-link ${pathname === '/' ? 'zv-nav-link-active' : ''}`} onClick={() => setMenuOpen(false)}>Home</Link>
+          {navGroups.flatMap(g => g.items).map(item =>
+            item.href ? (
+              <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" className="zv-nav-mobile-link" onClick={() => setMenuOpen(false)}>{item.label}</a>
+            ) : (
+              <Link key={item.to} to={item.to} className={`zv-nav-mobile-link ${pathname === item.to ? 'zv-nav-link-active' : ''}`} onClick={() => setMenuOpen(false)}>{item.label}</Link>
+            )
+          )}
+          <Link to="/start" className={`zv-nav-mobile-link ${pathname === '/start' ? 'zv-nav-link-active' : ''}`} onClick={() => setMenuOpen(false)}>Start</Link>
           {!loading && !isLoggedIn && (
-            <button
-              className="zv-nav-mobile-link zv-nav-mobile-signin"
-              onClick={() => { signIn(); setMenuOpen(false); }}
-            >
-              Sign In with Google
-            </button>
+            <button className="zv-nav-mobile-signin" onClick={() => { signIn(); setMenuOpen(false); }}>Sign In</button>
           )}
           {!loading && isLoggedIn && (
-            <button
-              className="zv-nav-mobile-link zv-nav-mobile-signout"
-              onClick={() => { signOut(); setMenuOpen(false); }}
-            >
-              Sign Out ({user.name.split(' ')[0]})
-            </button>
+            <button className="zv-nav-mobile-signout" onClick={() => { signOut(); setMenuOpen(false); }}>Sign Out ({user.name.split(' ')[0]})</button>
           )}
         </div>
       )}

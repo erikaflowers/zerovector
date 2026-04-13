@@ -181,11 +181,13 @@
   color: #444;
 }
 
-/* --- Mobile — stack to column, card beneath --- */
+/* --- Mobile — stack to column, card beneath, padding aligns
+ * with .zv-container below the hero so edges match --- */
 @media (max-width: 768px) {
   .zv-page-hero .zv-container {
     flex-direction: column;
     align-items: flex-start;
+    padding: 0 var(--container-padding);
   }
 
   .zv-page-hero-essay-wrapper {

@@ -36,35 +36,8 @@
   50% { opacity: 0.3; box-shadow: none; }
 }
 
-/* --- Holographic Title Sweep --- */
-/* Slow ambient shimmer across dark-section titles — "system alive" indicator */
-@keyframes holo-sweep {
-  0%, 82%, 100% { background-position: -200% center; }
-  92% { background-position: 200% center; }
-}
-
-.zv-section--timeline .zv-section-title,
-.zv-section--principles .zv-section-title,
-.zv-section--contrasts .zv-section-title {
-  background: linear-gradient(
-    90deg,
-    var(--text-primary) 0%,
-    var(--text-primary) 40%,
-    var(--cyan) 50%,
-    var(--text-primary) 60%,
-    var(--text-primary) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: holo-sweep 12s ease-in-out infinite;
-}
-
-/* Stagger so only one title shimmers at a time */
-.zv-section--timeline .zv-section-title { animation-delay: 2.4s; }
-.zv-section--principles .zv-section-title { animation-delay: 4.8s; }
-.zv-section--contrasts .zv-section-title { animation-delay: 7.2s; }
+/* Holo-sweep shimmer removed during visual-redo — Orbital Brutalism
+ * uses flat color, not animated gradients on titles. */
 
 /* --- Chromatic Aberration --- */
 /* RGB split on hero title hover — signal interference */

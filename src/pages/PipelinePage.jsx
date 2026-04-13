@@ -22,9 +22,12 @@ function PipelinePage() {
       {/* Hero */}
       <PageHero eyebrow={approach.eyebrow} title={approach.title} subtitle={approach.subtitle} />
 
-      {/* Intro */}
+      {/* Intro — Black First Section */}
       <section className="zv-section">
         <div className="zv-container">
+          <Animate>
+            <h2 className="zv-section-title">The Full Pipeline</h2>
+          </Animate>
           {approach.intro.map((p, i) => (
             <Animate key={i} delay={Math.min(i + 1, 2)}>
               <p className="zv-body-text">{p}</p>

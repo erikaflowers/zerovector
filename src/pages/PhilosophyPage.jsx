@@ -38,16 +38,12 @@ function PhilosophyPage() {
               ))}
             </div>
             <div className="zv-philosophy-what-is-not">
-              <Animate>
-                <h3 className="zv-philosophy-sidebar-title">What It Is Not</h3>
-              </Animate>
+              <h3 className="zv-philosophy-sidebar-title">What It Is Not</h3>
               {philosophy.what_it_is_not.map((item, i) => (
-                <Animate key={i} delay={Math.min(i + 1, 4)}>
-                  <div className="zv-philosophy-not-item">
-                    <div className="zv-philosophy-not-claim">{item.claim}</div>
-                    <div className="zv-philosophy-not-explanation">{item.explanation}</div>
-                  </div>
-                </Animate>
+                <div key={i} className="zv-philosophy-not-item">
+                  <div className="zv-philosophy-not-claim">{item.claim}</div>
+                  <div className="zv-philosophy-not-explanation">{item.explanation}</div>
+                </div>
               ))}
             </div>
           </div>

@@ -67,9 +67,9 @@ body {
   padding: 0 var(--container-padding);
 }
 
-/* --- Section Spacing --- */
+/* --- Section Spacing — cinched from the old gen-1 airy feel --- */
 .zv-section {
-  padding: var(--section-padding) 0;
+  padding: clamp(48px, 8vh, 80px) 0;
   position: relative;
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 .zv-info-page .zv-section {
-  padding: 80px 0;
+  padding: clamp(40px, 6vh, 64px) 0;
   background: #fff;
 }
 

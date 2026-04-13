@@ -1,9 +1,4 @@
-/* Zero-Vector Design — Buttons & CTAs
- *
- * .zv-cta is the primary action button. Variants: outline.
- * Shared focus-visible styling for cta-adjacent links that
- * do not carry the .zv-cta class themselves.
- */
+/* Zero-Vector Design — Buttons & CTAs */
 
 .zv-cta {
   display: inline-flex;
@@ -11,43 +6,48 @@
   gap: 8px;
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--void);
-  background: var(--cyan);
+  font-weight: 700;
+  color: #000;
+  background: #fff;
   padding: 14px 28px;
-  border: none;
+  border: 2px solid #000;
   border-radius: 0;
   cursor: pointer;
-  transition: all 0.3s var(--ease-out);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   text-decoration: none;
 }
 
 .zv-cta:hover {
-  color: var(--void);
-  background: var(--text-primary);
-  box-shadow: none;
-  text-shadow: none;
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* On black sections, flip to white border so buttons stay visible */
+.zv-info-page .zv-page-hero + .zv-section .zv-cta {
+  color: #fff;
+  background: transparent;
+  border-color: #fff;
+}
+
+.zv-info-page .zv-page-hero + .zv-section .zv-cta:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
 }
 
 .zv-cta-outline {
-  color: var(--cyan);
+  color: var(--neon-pink);
   background: transparent;
-  border: 1px solid var(--cyan);
+  border: 2px solid var(--neon-pink);
 }
 
 .zv-cta-outline:hover {
-  color: var(--void);
-  background: var(--cyan);
+  color: #fff;
+  background: var(--neon-pink);
 }
 
 .zv-cta:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--neon-orange);
   outline-offset: 3px;
-}
-
-.zv-name-teaser-cta:focus-visible,
-.zv-principles-cta:focus-visible,
-.zv-philosophy-principle-link:focus-visible {
-  outline: 2px solid var(--orange);
-  outline-offset: 2px;
 }

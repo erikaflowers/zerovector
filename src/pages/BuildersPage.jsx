@@ -28,6 +28,9 @@ function BuildersPage() {
       <section className="zv-section">
         <div className="zv-container">
           <Animate>
+            <h2 className="zv-section-title">The Builder's Mindset</h2>
+          </Animate>
+          <Animate>
             <blockquote className="zv-callout zv-builders-catchphrase">{builders.catchphrase}</blockquote>
           </Animate>
           {builders.intro.map((p, i) => (

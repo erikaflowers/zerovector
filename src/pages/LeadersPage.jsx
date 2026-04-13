@@ -25,6 +25,9 @@ function LeadersPage() {
       {/* Intro */}
       <section className="zv-section">
         <div className="zv-container">
+          <Animate>
+            <h2 className="zv-section-title">The Leadership Problem</h2>
+          </Animate>
           {leaders.intro.map((p, i) => (
             <Animate key={i} delay={Math.min(i + 1, 4)}>
               <p className="zv-body-text">{p}</p>

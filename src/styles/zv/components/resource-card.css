@@ -1,52 +1,65 @@
 /* Zero-Vector Design — Resource Card
  *
- * Generic link-card used in reading lists on the Builders
- * and Philosophy pages. Orange eyebrow, title, description.
+ * Generic link-card grid used in reading lists and resource
+ * sections. Default: 2-column grid. The --spaced modifier
+ * switches to 3-column for larger collections (reading lists).
  */
 
 .zv-resource-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* 3-column variant for reading lists with 6+ items */
+.zv-resource-list--spaced {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 20px;
 }
 
 .zv-resource-card {
   display: block;
-  padding: 24px;
-  border: 1px solid var(--void-border);
-  background: var(--void-elevated);
+  padding: 18px 20px;
+  border: none;
+  background: #fafafa;
   border-radius: 0;
-  transition: border-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  transition: transform 0.2s var(--ease-out);
   text-decoration: none;
 }
 
 .zv-resource-card:hover {
-  border-color: rgba(255, 255, 255, 0.12);
   transform: translateY(-2px);
 }
 
 .zv-resource-card-type {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
   font-weight: 700;
-  color: var(--orange);
-  letter-spacing: 0.15em;
-  margin-bottom: 8px;
+  color: var(--neon-orange);
+  letter-spacing: 0;
+  margin-bottom: 4px;
 }
 
 .zv-resource-card-title {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #000;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .zv-resource-card-desc {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .zv-resource-list,
+  .zv-resource-list--spaced {
+    grid-template-columns: 1fr;
+  }
 }

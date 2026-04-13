@@ -100,25 +100,6 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Ko-fi floating support button — override to bottom-right -->
-    <style>
-      .floatingchat-container-wrap,
-      .floatingchat-container-wrap-mobi { left: auto !important; right: 10px !important; }
-      .floating-chat-kofi-popup-iframe,
-      .floating-chat-kofi-popup-iframe-mobi { left: auto !important; right: 10px !important; }
-      @media (max-width: 768px) {
-        .floatingchat-container-wrap,
-        .floatingchat-container-wrap-mobi { display: none !important; }
-      }
-    </style>
-    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-    <script>
-      kofiWidgetOverlay.draw('erikaflowers', {
-        'type': 'floating-chat',
-        'floating-chat.donateButton.text': 'Support ZV',
-        'floating-chat.donateButton.background-color': '#0055ff',
-        'floating-chat.donateButton.text-color': '#fff'
-      });
-    </script>
+    <!-- Ko-fi floating support button removed during visual-redo -->
   </body>
 </html>

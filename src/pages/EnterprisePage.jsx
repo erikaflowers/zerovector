@@ -24,6 +24,9 @@ function EnterprisePage() {
       {/* Intro */}
       <section className="zv-section">
         <div className="zv-container">
+          <Animate>
+            <h2 className="zv-section-title">The Enterprise Reality</h2>
+          </Animate>
           {enterprise.intro.map((p, i) => (
             <Animate key={i} delay={i}>
               <p className="zv-body-text">{p}</p>

@@ -16,6 +16,7 @@ import ZerohackBackgroundPage from './pages/ZerohackBackgroundPage';
 import StartPage from './pages/StartPage';
 import NamePage from './pages/NamePage';
 import EnterprisePage from './pages/EnterprisePage';
+import ForHirePage from './pages/ForHirePage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/for-builders" element={<BuildersPage />} />
         <Route path="/for-leaders" element={<LeadersPage />} />
         <Route path="/for-enterprise" element={<EnterprisePage />} />
+        <Route path="/for-hire" element={<ForHirePage />} />
         <Route path="/media" element={<ReadingPage />} />
         <Route path="/origin" element={<OriginPage />} />
         <Route path="/start" element={<StartPage />} />
