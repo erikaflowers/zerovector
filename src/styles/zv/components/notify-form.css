@@ -79,7 +79,7 @@
 
 .zv-notify--dark .zv-notify-btn:hover {
   background: #e0e0e0;
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.15);
+  box-shadow: none;
 }
 
 /* Light variant — for white/light backgrounds */
@@ -105,7 +105,7 @@
 
 .zv-notify--light .zv-notify-btn:hover {
   background: #333;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 /* Success state */
@@ -182,7 +182,7 @@
   background: rgba(17, 17, 17, 0.08);
   border: 1.5px solid rgba(17, 17, 17, 0.2);
   border-right: none;
-  border-radius: 4px 0 0 4px;
+  border-radius: 0;
   color: #111;
   outline: none;
   transition: border-color 0.2s;
@@ -205,7 +205,7 @@
   background: #111;
   color: #fff;
   border: 1.5px solid #111;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0;
   cursor: pointer;
   transition: background 0.2s;
   white-space: nowrap;
@@ -247,10 +247,10 @@
 
   .zv-notify--orange .zv-notify-input {
     border-right: 1.5px solid rgba(17, 17, 17, 0.2);
-    border-radius: 4px;
+    border-radius: 0;
   }
 
   .zv-notify--orange .zv-notify-btn {
-    border-radius: 4px;
+    border-radius: 0;
   }
 }

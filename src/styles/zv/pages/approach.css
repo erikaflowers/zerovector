@@ -77,7 +77,7 @@
 
 .zv-approach-phase-zv {
   padding: 32px;
-  background: rgba(255, 107, 26, 0.02);
-  border: 1px solid rgba(255, 107, 26, 0.08);
-  border-radius: 4px;
+  background: rgba(255, 170, 0, 0.02);
+  border: 1px solid rgba(255, 170, 0, 0.08);
+  border-radius: 0;
 }

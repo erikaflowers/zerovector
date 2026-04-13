@@ -72,7 +72,7 @@
 
 /* --- 003 Timeline: The Dark Corridor --- */
 .zv-section--timeline {
-  background: #0d0d14;
+  background: transparent;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -81,9 +81,7 @@
 .zv-section--principles {
   position: relative;
   padding: 120px 0;
-  background:
-    radial-gradient(ellipse at 0% 0%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
-    #0e0e16;
+  background: transparent;
 }
 
 .zv-section--principles::before {
@@ -93,7 +91,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(to right, var(--cyan), var(--cyan-dim) 30%, transparent 70%);
+  background: transparent;
 }
 
 /* --- Principle Zero (Homepage) --- */
@@ -101,7 +99,7 @@
   margin-top: 24px;
   padding: 36px 32px;
   border: 2px solid var(--cyan);
-  background: linear-gradient(135deg, rgba(0, 255, 255, 0.04) 0%, rgba(0, 255, 255, 0.01) 50%, rgba(0, 255, 255, 0.06) 100%);
+  background: transparent;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -157,7 +155,7 @@
 .zv-section--contrasts {
   position: relative;
   padding: 100px 0 120px;
-  background: #08080e;
+  background: transparent;
 }
 
 .zv-section--contrasts::before {
@@ -167,13 +165,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(
-    to right,
-    var(--magenta),
-    transparent 40%,
-    transparent 60%,
-    var(--cyan)
-  );
+  background: transparent;
 }
 
 .zv-section--contrasts .zv-contrast-pair {

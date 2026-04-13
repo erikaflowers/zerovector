@@ -1,9 +1,12 @@
-import { useInView } from '../hooks/useInView';
+/* Passthrough wrapper — scroll-reveal animation retired during the
+ * visual-redo. The div stays so page layouts don't break (many
+ * consumers rely on the wrapper for flex/grid children), but no
+ * IntersectionObserver fires, no opacity:0 default, no staggered
+ * entrance. Content renders immediately and visibly. */
 
-function Animate({ children, className = '', delay = 0 }) {
-  const [ref, isVisible] = useInView();
+function Animate({ children, className = '' }) {
   return (
-    <div ref={ref} className={`zv-animate ${isVisible ? 'zv-visible' : ''} ${delay ? `zv-animate-delay-${delay}` : ''} ${className}`}>
+    <div className={className}>
       {children}
     </div>
   );

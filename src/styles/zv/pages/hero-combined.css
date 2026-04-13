@@ -120,7 +120,6 @@
 
 /* Right column: Boot / Declaration */
 .zv-hero-col-right {
-  border-left: 1px solid var(--void-border);
   padding-left: 32px;
   min-height: 320px;
 }
@@ -141,7 +140,7 @@
   width: 6px;
   height: 6px;
   background: var(--cyan);
-  border-radius: 50%;
+  border-radius: 0;
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
@@ -160,7 +159,7 @@
   margin: 24px 0;
   padding: 0;
   padding-left: 16px;
-  border-left: 3px solid var(--cyan);
+
   line-height: 1.4;
 }
 

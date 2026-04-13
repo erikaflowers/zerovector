@@ -102,6 +102,19 @@
   display: none;
 }
 
+/* Invisible hover bridge — extends the .zv-nav-group hit area below
+ * the trigger to cover the 4px gap before the dropdown panel.
+ * Without this, the cursor leaving the trigger fires onMouseLeave
+ * before it reaches the panel, snapping the dropdown closed. */
+.zv-nav-group--open::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
 /* Support link — the base !important rule sets a muted white color,
  * override it. Heart inherits parent color now so it follows the
  * hover flip instead of staying red. */
@@ -132,6 +145,7 @@
   box-shadow: 4px 4px 0 #000;
   min-width: 0;
   padding: 0;
+  animation: none;
 }
 
 .zv-nav-group-item {

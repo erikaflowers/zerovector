@@ -14,7 +14,7 @@
 
 /* --- 007 Closing: The Directive (Inverted) --- */
 .zv-section--closing {
-  background: linear-gradient(135deg, #FF6B1A, #E05A10);
+  background: var(--neon-orange);
   padding-top: calc(var(--section-padding) + 40px);
   margin-top: 80px;
 }
@@ -45,7 +45,7 @@
  * in the source; unified here so the cascade stays stable. */
 .zv-section--closing .zv-section-number::before {
   background: #007a7a;
-  box-shadow: 0 0 8px rgba(0, 122, 122, 0.3);
+  box-shadow: none;
 }
 
 .zv-section--closing .zv-section-title {
@@ -78,7 +78,7 @@
 
 .zv-closing-paths .zv-path-card:hover {
   border-color: #111;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 #000;
 }
 
 .zv-closing-paths .zv-path-eyebrow {
@@ -106,17 +106,17 @@
   padding: 24px 28px;
   margin-top: 32px;
   border: 1.5px solid #00ff88;
-  background: #0a1a10;
-  border-radius: 4px;
+  background: #fff;
+  border-radius: 0;
   text-decoration: none;
   transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out);
 }
 
 .zv-open-vector-card:hover {
   border-color: #33ffaa;
-  background: #0d2015;
+  background: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 2px 20px rgba(0, 255, 136, 0.15);
+  box-shadow: none;
 }
 
 .zv-open-vector-card-badge {
@@ -127,7 +127,7 @@
   color: #0a0a0a;
   background: #00ff88;
   padding: 3px 10px;
-  border-radius: 2px;
+  border-radius: 0;
   align-self: flex-start;
 }
 
@@ -171,17 +171,17 @@
   padding: 24px 28px;
   margin-top: 16px;
   border: 1.5px solid #E07A54;
-  background: #1a0e0a;
-  border-radius: 4px;
+  background: #fff;
+  border-radius: 0;
   text-decoration: none;
   transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out);
 }
 
 .zv-arroyo-card:hover {
   border-color: #e8936e;
-  background: #201210;
+  background: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 2px 20px rgba(224, 122, 84, 0.15);
+  box-shadow: none;
 }
 
 .zv-arroyo-card-badge {
@@ -192,7 +192,7 @@
   color: #1a0e0a;
   background: #E07A54;
   padding: 3px 10px;
-  border-radius: 2px;
+  border-radius: 0;
   align-self: flex-start;
 }
 
@@ -284,7 +284,7 @@
 
 .zv-path-card:hover {
   border-color: var(--cyan-subtle);
-  box-shadow: 0 0 32px rgba(0, 255, 255, 0.06);
+  box-shadow: none;
   text-shadow: none;
 }
 

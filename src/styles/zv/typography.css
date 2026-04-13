@@ -43,10 +43,10 @@
 .zv-section-subtitle {
   font-family: var(--font-body);
   font-size: 1.1rem;
-  color: var(--text-tertiary);
+  color: var(--neon-orange);
+  font-weight: 700;
   line-height: 1.7;
   max-width: 640px;
-  font-style: italic;
 }
 
 .zv-body-text {
@@ -71,6 +71,6 @@
   line-height: 1.3;
   margin: 48px 0;
   padding-left: 24px;
-  border-left: 3px solid var(--cyan);
+
   max-width: 720px;
 }

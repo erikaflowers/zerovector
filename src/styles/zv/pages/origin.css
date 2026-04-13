@@ -40,7 +40,7 @@
   left: 0;
   right: 0;
   padding: 8px 12px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  background: none;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -62,7 +62,7 @@
   padding: 24px;
   background: rgba(255, 255, 255, 0.015);
   border: 1px solid rgba(255, 255, 255, 0.04);
-  border-left: 2px solid rgba(0, 255, 255, 0.15);
+
   transition: border-left-color 0.3s var(--ease-out), background 0.3s var(--ease-out);
 }
 

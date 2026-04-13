@@ -23,18 +23,9 @@ function SiteLayout() {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  useEffect(() => {
-    document.body.style.background = '#181818';
-    document.body.style.color = '#ffffff';
-    document.body.style.margin = '0';
-    document.body.style.minHeight = '100vh';
-
-    return () => {
-      document.body.style.background = '';
-      document.body.style.color = '';
-      document.body.style.minHeight = '';
-    };
-  }, []);
+  // Body styles moved to zv/base.css on the html/body rule.
+  // Investiture and Zero Hack standalone pages still use the
+  // useBodyTheme hook for their own dark themes.
 
   return (
     <div className={`zv-site ${transitioning ? 'zv-page-enter' : 'zv-page-active'}`}>

@@ -25,7 +25,7 @@
 .zv-cta:hover {
   color: var(--void);
   background: var(--text-primary);
-  box-shadow: 0 0 30px var(--cyan-glow);
+  box-shadow: none;
   text-shadow: none;
 }
 

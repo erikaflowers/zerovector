@@ -18,7 +18,7 @@ function InvestitureSkillsPage() {
 
   useSEO({
     title: 'Skills | Investiture',
-    description: 'Full reference for all eleven Investiture skills — foundation, research, design, fleet, and release.',
+    description: 'Full reference for all eight Investiture skills — doctrine chain and audit chain.',
     path: '/investiture/skills',
   });
 

@@ -24,16 +24,16 @@
   width: 6px;
   height: 6px;
   background: var(--cyan);
-  border-radius: 50%;
+  border-radius: 0;
   margin-right: 10px;
   vertical-align: middle;
   animation: status-pulse 2.5s ease-in-out infinite;
-  box-shadow: 0 0 8px var(--cyan-glow);
+  box-shadow: none;
 }
 
 @keyframes status-pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--cyan-glow); }
-  50% { opacity: 0.3; box-shadow: 0 0 2px var(--cyan-glow); }
+  0%, 100% { opacity: 1; box-shadow: none; }
+  50% { opacity: 0.3; box-shadow: none; }
 }
 
 /* --- Holographic Title Sweep --- */

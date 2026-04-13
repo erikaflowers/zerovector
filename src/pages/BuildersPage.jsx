@@ -51,7 +51,6 @@ function BuildersPage() {
             {builders.getting_started.steps.map((step, i) => (
               <Animate key={i}>
                 <div className="zv-builders-step">
-                  <div className="zv-builders-step-number">{step.number}</div>
                   <div className="zv-builders-step-content">
                     <h3 className="zv-builders-step-title">{step.title}</h3>
                     <p className="zv-builders-step-desc">{step.description}</p>

@@ -39,7 +39,6 @@ function PipelinePage() {
           <div className="zv-container">
             <Animate>
               <div className="zv-approach-phase-header">
-                <span className="zv-approach-phase-number">{phase.number}</span>
                 <h2 className="zv-section-title">{phase.name}</h2>
               </div>
             </Animate>

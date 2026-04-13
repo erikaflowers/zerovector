@@ -1,5 +1,4 @@
 import Nav from '../components/Nav';
-import DecryptText from '../components/DecryptText';
 import Animate from '../components/Animate';
 import PageClosing from '../components/PageClosing';
 import useSEO from '../hooks/useSEO';
@@ -74,9 +73,7 @@ function NamePage() {
       <section className="zv-section zv-name-hero">
         <div className="zv-container">
           <div className="zv-name-hero-eyebrow">{name.eyebrow}</div>
-          <h1 className="zv-name-hero-title">
-            <DecryptText text={name.title} speed={80} />
-          </h1>
+          <h1 className="zv-name-hero-title">{name.title}</h1>
           <p className="zv-name-hero-subtitle">{name.subtitle}</p>
         </div>
       </section>

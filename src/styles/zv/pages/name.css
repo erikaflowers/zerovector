@@ -12,7 +12,7 @@
 
 /* --- Page Shell --- */
 .zv-name-page {
-  background: #0a0a0a;
+  background: #fff;
   min-height: 100vh;
 }
 
@@ -74,7 +74,7 @@
 
 .zv-name-stage-item {
   padding-left: 20px;
-  border-left: 2px solid rgba(255, 255, 255, 0.06);
+
   transition: border-color 0.3s;
 }
 

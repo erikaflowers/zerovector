@@ -90,7 +90,6 @@ function ManifestoPage() {
             {/* LEFT: Explainer */}
             <div className="zv-hero-col-left">
               <div className="zv-hero-declaration-label">
-                <span>001</span>
                 <span>The Starting Point</span>
               </div>
               <h2 className="zv-explainer-headline">{home.explainer.headline}</h2>
@@ -112,7 +111,6 @@ function ManifestoPage() {
               {declarationVisible && (
                 <div className="zv-hero-declaration">
                   <div className="zv-hero-declaration-label">
-                    <span>{home.declaration.number}</span>
                     <span>{home.declaration.title}</span>
                   </div>
                   <p className="zv-hero-declaration-text">{home.declaration.paragraphs[0]}</p>
@@ -139,7 +137,7 @@ function ManifestoPage() {
       <section className="zv-section zv-section--pipeline">
         <div className="zv-container">
           <Animate>
-            <SectionHeader number={home.pipeline.number} title={home.pipeline.title} />
+            <SectionHeader title={home.pipeline.title} />
             <p className="zv-pipeline-header">{home.pipeline.header}</p>
           </Animate>
           <Animate delay={1}>
@@ -190,7 +188,7 @@ function ManifestoPage() {
       <section className="zv-section zv-section--principles">
         <div className="zv-container">
           <Animate>
-            <SectionHeader number={home.principles.number} title={home.principles.title} />
+            <SectionHeader title={home.principles.title} />
           </Animate>
           <Animate delay={1}>
             <p className="zv-body-text zv-principles-intro">{home.principles.intro}</p>
@@ -226,7 +224,7 @@ function ManifestoPage() {
       <section className="zv-section zv-section--contrasts">
         <div className="zv-container">
           <Animate>
-            <SectionHeader number={home.contrasts.number} title={home.contrasts.title} />
+            <SectionHeader title={home.contrasts.title} />
           </Animate>
           <div className="zv-contrasts">
             {home.contrasts.pairs.map((pair, i) => (
@@ -253,7 +251,7 @@ function ManifestoPage() {
       <section className="zv-section zv-name-teaser-section">
         <div className="zv-container">
           <Animate>
-            <SectionHeader number="006" title='Why "Zero Vector"?' />
+            <SectionHeader title='Why "Zero Vector"?' />
           </Animate>
           <Animate delay={1}>
             <p className="zv-body-text zv-name-teaser-text">{en.name.teaser}</p>
@@ -270,7 +268,7 @@ function ManifestoPage() {
       <section className="zv-section zv-section--closing zv-closing">
         <div className="zv-container">
           <Animate>
-            <SectionHeader number={home.closing.number} title={home.closing.headline} />
+            <SectionHeader title={home.closing.headline} />
           </Animate>
           <Animate delay={1}>
             <p className="zv-body-text zv-closing-permission">{home.closing.permission}</p>

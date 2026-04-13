@@ -11,7 +11,7 @@
    ============================================ */
 
 .zv-page-closing {
-  background: linear-gradient(135deg, #FF6B1A, #E05A10);
+  background: var(--neon-orange);
   padding: 80px 0 48px;
   margin-top: 80px;
 }
@@ -57,7 +57,7 @@
   letter-spacing: 0.05em;
   text-decoration: none;
   padding: 12px 24px;
-  border-radius: 4px;
+  border-radius: 0;
   transition: background 0.2s, transform 0.2s var(--ease-out);
 }
 

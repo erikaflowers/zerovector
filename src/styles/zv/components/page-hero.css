@@ -1,12 +1,206 @@
-/* Zero-Vector Design — Page Hero
+/* Zero-Vector Design — Page Hero (subpages)
  *
- * The numbered eyebrow + decrypted title pattern used by
- * every manifesto subpage. Keyframe `glyph-resolve` is
- * co-located here and reused by the homepage hero-combined
- * declaration block via source order.
+ * Full-bleed two-column layout: big black headline + subtitle flush
+ * to the left edge, featured essay card flush to the right edge.
+ * Both bottom-aligned in a tall white panel (70vh) with generous
+ * whitespace above. The hero breaks out of .zv-container so the
+ * content spans the full viewport — the gap between title and card
+ * is fluid, growing with the viewport.
  */
 
-/* --- Hero Entrance --- */
+/* --- Hero Section — tall white panel with video background,
+ * content bottom-aligned. The video randomly loads one of 5
+ * clips per page visit. The overlay is heavier than the homepage
+ * hero so the title stays readable over any footage. */
+.zv-page-hero {
+  --subpage-video-overlay: rgba(255, 255, 255, 0.75);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background: #fff;
+  min-height: 70vh;
+  padding: 0 0 clamp(48px, 8vh, 96px);
+  overflow: hidden;
+}
+
+/* Video background — same Arroyo pattern as the homepage hero.
+ * Sits behind content at z-index 0. */
+.zv-page-hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  contain: layout paint;
+  will-change: transform;
+}
+
+.zv-page-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* White overlay — more pronounced than the homepage so titles
+ * read clearly. Adjust --subpage-video-overlay to tune. */
+.zv-page-hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--subpage-video-overlay);
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+/* Full-bleed inner layout — breaks out of the constrained container
+ * so the title and card can touch the viewport edges. z-index 10
+ * keeps it above the video + overlay. */
+.zv-page-hero .zv-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(32px, 4vw, 64px);
+  padding: 0 clamp(32px, 6vw, 96px);
+}
+
+/* --- Left column — title + subtitle --- */
+.zv-page-hero-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- Title — big black Proxima Bold --- */
+.zv-page-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  color: #000;
+  max-width: 100%;
+}
+
+/* --- Subtitle — scoped override so it reads on white --- */
+.zv-page-hero .zv-hero-subtitle {
+  color: #000;
+  margin-top: 24px;
+  max-width: 640px;
+}
+
+/* --- Right column — featured essay card --- */
+.zv-page-hero-essay-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* "Related Essay" label with Substack icon */
+.zv-page-hero-essay-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: #000;
+}
+
+.zv-page-hero-essay-label svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* The card itself — brutalist treatment matching nav dropdowns */
+.zv-page-hero-essay {
+  display: block;
+  width: clamp(240px, 22vw, 320px);
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  text-decoration: none;
+  color: #000;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.zv-page-hero-essay:hover {
+  box-shadow: 8px 8px 0 #000;
+  transform: translate(-3px, -3px);
+}
+
+/* Keep title readable on hover — force black */
+.zv-page-hero-essay:hover .zv-page-hero-essay-title,
+.zv-page-hero-essay:hover .zv-page-hero-essay-subtitle,
+.zv-page-hero-essay:hover .zv-page-hero-essay-date {
+  color: #000;
+}
+
+.zv-page-hero-essay-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #000;
+}
+
+.zv-page-hero-essay-meta {
+  padding: 16px;
+}
+
+.zv-page-hero-essay-date {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.zv-page-hero-essay-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+.zv-page-hero-essay-subtitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #444;
+}
+
+/* --- Mobile — stack to column, card beneath --- */
+@media (max-width: 768px) {
+  .zv-page-hero .zv-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .zv-page-hero-essay-wrapper {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .zv-page-hero-essay {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+/* --- Legacy keyframes — still referenced by homepage
+ * hero-combined declaration block via source order --- */
 @keyframes glyph-resolve {
   0% {
     opacity: 0;
@@ -25,29 +219,4 @@
 
 .zv-hero-entrance {
   animation: glyph-resolve 1.4s var(--ease-out) forwards;
-}
-
-/* Subtitle: hidden until decrypt sequence completes */
-.zv-hero-decrypt-hidden {
-  opacity: 0;
-}
-
-.zv-hero-decrypt-reveal {
-  animation: glyph-resolve 1.4s var(--ease-out) forwards;
-}
-
-/* --- Page Hero (subpages) --- */
-.zv-page-hero {
-  padding-top: calc(56px + var(--section-padding));
-}
-
-.zv-page-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.0;
-  color: var(--text-primary);
-  margin-top: 12px;
-  max-width: 100%;
 }

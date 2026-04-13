@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--void-border);
@@ -155,13 +155,13 @@
   top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  background: #1a1a22;
+  background: #fff;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 6px 0;
   min-width: 170px;
   z-index: 200;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 0 #000;
   animation: zvDropIn 0.15s var(--ease-out);
 }
 
@@ -241,7 +241,7 @@
 
 .zv-nav-start:hover {
   background: var(--text-primary);
-  box-shadow: 0 0 20px var(--cyan-glow);
+  box-shadow: none;
   text-shadow: none;
 }
 

@@ -61,7 +61,6 @@ function EnterprisePage() {
             {enterprise.capabilities.items.map((item, i) => (
               <Animate key={i}>
                 <div className="zv-enterprise-preview-card">
-                  <div className="zv-enterprise-preview-number">{item.number}</div>
                   <div className="zv-enterprise-preview-content">
                     <h3 className="zv-enterprise-preview-title">{item.title}</h3>
                     <p className="zv-enterprise-preview-desc">{item.description}</p>

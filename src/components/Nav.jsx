@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 
@@ -31,58 +31,36 @@ const navGroups = [
   },
 ];
 
-function NavDropdown({ group, pathname, onNavigate }) {
-  const [open, setOpen] = useState(false);
+function NavDropdown({ group, pathname, isOpen, onToggle }) {
   const ref = useRef(null);
-  const timeout = useRef(null);
 
   const isActive = group.items.some(item => pathname === item.to);
 
-  // Close on outside click
   useEffect(() => {
     function handleClick(e) {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target)) onToggle(null);
     }
-    if (open) document.addEventListener('mousedown', handleClick);
+    if (isOpen) document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
-  }, [open]);
-
-  // Close on route change
-  useEffect(() => { setOpen(false); }, [pathname]);
-
-  // Clear hover-leave timeout on unmount so it doesn't fire on a dead component
-  useEffect(() => {
-    return () => {
-      if (timeout.current) clearTimeout(timeout.current);
-    };
-  }, []);
-
-  function handleMouseEnter() {
-    clearTimeout(timeout.current);
-    setOpen(true);
-  }
-
-  function handleMouseLeave() {
-    timeout.current = setTimeout(() => setOpen(false), 150);
-  }
+  }, [isOpen, onToggle]);
 
   return (
     <div
-      className={`zv-nav-group ${open ? 'zv-nav-group--open' : ''}`}
+      className={`zv-nav-group ${isOpen ? 'zv-nav-group--open' : ''}`}
       ref={ref}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => onToggle(group.label)}
+      onMouseLeave={() => onToggle(null)}
     >
       <button
         className={`zv-nav-group-trigger ${isActive ? 'zv-nav-group-trigger--active' : ''}`}
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
+        onClick={() => onToggle(isOpen ? null : group.label)}
+        aria-expanded={isOpen}
         aria-haspopup="true"
       >
         {group.label}.
         <span className="zv-nav-group-chevron" aria-hidden="true" />
       </button>
-      {open && (
+      {isOpen && (
         <div className="zv-nav-group-panel">
           {group.items.map(item => (
             item.href ? (
@@ -92,7 +70,7 @@ function NavDropdown({ group, pathname, onNavigate }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="zv-nav-group-item"
-                onClick={() => { setOpen(false); if (onNavigate) onNavigate(); }}
+                onClick={() => onToggle(null)}
               >
                 {item.label}
               </a>
@@ -101,7 +79,7 @@ function NavDropdown({ group, pathname, onNavigate }) {
                 key={item.to}
                 to={item.to}
                 className={`zv-nav-group-item ${pathname === item.to ? 'zv-nav-group-item--active' : ''}`}
-                onClick={() => { setOpen(false); if (onNavigate) onNavigate(); }}
+                onClick={() => onToggle(null)}
               >
                 {item.label}
               </Link>
@@ -119,17 +97,35 @@ function Nav() {
   const { user, isLoggedIn, loading, signIn, signOut } = useUser();
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null);
+  const [openGroup, setOpenGroup] = useState(null);
 
-  // Close mobile menu on route change
-  useEffect(() => { setMenuOpen(false); setMobileExpanded(null); }, [pathname]);
+  const handleToggle = useCallback((label) => setOpenGroup(label), []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+    setMobileExpanded(null);
+    setOpenGroup(null);
+  }, [pathname]);
 
   return (
     <nav className="zv-nav">
       <div className="zv-nav-inner">
-        {/* Left — dropdown groups + standalone links */}
+        {/* Left — Home + dropdown groups + standalone links */}
         <div className="zv-nav-links">
+          <Link
+            to="/"
+            className={`zv-nav-link ${pathname === '/' ? 'zv-nav-link-active' : ''}`}
+          >
+            Home.
+          </Link>
           {navGroups.map(group => (
-            <NavDropdown key={group.label} group={group} pathname={pathname} />
+            <NavDropdown
+              key={group.label}
+              group={group}
+              pathname={pathname}
+              isOpen={openGroup === group.label}
+              onToggle={handleToggle}
+            />
           ))}
           <a
             href="https://open.zerovector.design"

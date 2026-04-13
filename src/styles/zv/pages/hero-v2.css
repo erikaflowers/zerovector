@@ -22,15 +22,11 @@
   --hero-nav-bg: var(--hero-accent);
   --hero-title-bg: #000;
   --hero-title-fg: #fff;
-
-  /* Homepage color overrides — neon primaries replace the old teal/pink/orange.
-   * These cascade into every descendant, so var(--cyan), var(--magenta),
-   * var(--orange) all resolve to the neon values inside .zv-manifesto only.
-   * Other pages keep the original accent palette. */
-  --cyan: var(--neon-green);
-  --magenta: var(--neon-pink);
-  --orange: var(--neon-orange);
 }
+
+/* Note: --cyan / --magenta / --orange neon overrides moved to
+ * zv/base.css (.zv-site scope) so every manifesto page inherits
+ * them, not just the homepage. */
 
 .zv-hero-v2 {
   position: relative;
@@ -86,17 +82,53 @@
 /* Title — solid black bar with white text, flush to the left edge
  * of the browser. 100px left padding creates the asymmetric black
  * space between the browser edge and the first letter. */
+/* Title — solid black bar with white text. On hover, a white bar
+ * with black text wipes across from left to right, "unredacting"
+ * a hidden message. The ::after holds the hidden text and uses
+ * clip-path to reveal it — no JS needed. The hidden text is wider
+ * than "Zero Vector" so the bar extends past the title on reveal,
+ * like the redaction was hiding something bigger. */
 .zv-hero-v2-title {
+  position: relative;
   display: inline-block;
   margin: 0;
   padding: 0.15em 0.35em 0.15em 100px;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3.5rem, 7vw, 6rem);
   line-height: 0.95;
   letter-spacing: -0.025em;
   color: var(--hero-title-fg);
   background: var(--hero-title-bg);
+  cursor: default;
+}
+
+/* The hidden redacted message — shorter than the h1 so it reads
+ * as a strikethrough bar rather than a total occlusion. Vertically
+ * centered via top: 50% + translateY(-50%). */
+.zv-hero-v2-title::after {
+  content: 'The gap is zero.';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  padding: 0.08em 0.35em 0.08em 100px;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 0.6em;
+  line-height: 1;
+  letter-spacing: inherit;
+  color: #000;
+  background: #fff;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zv-hero-v2-title:hover::after {
+  clip-path: inset(0 0 0 0);
 }
 
 /* Right-side column — tagline on top, redacted-document link bars
@@ -117,8 +149,9 @@
   display: inline-block;
   margin: 0;
   padding: 0.8em 100px 0.8em 1em;
-  max-width: 40%;
+  max-width: 47ch;
   font-family: var(--font-display);
+  text-align: right;
   font-weight: 700;
   font-size: clamp(0.875rem, 1.15vw, 1.125rem);
   line-height: 1.4;
@@ -138,22 +171,31 @@
   gap: 6px;
 }
 
+/* Each link bar grows vertically on hover, pushing siblings apart.
+ * Moving the mouse through the stack creates a wave: one bar inflates
+ * while the previous deflates, and the ease-in-out makes both
+ * directions feel smooth. The flex column reflows naturally. */
+/* Link bars grow on hover via font-size increase only — em-based
+ * padding scales proportionally so the padding-to-text ratio stays
+ * constant. The right padding gets a small bump so bars jut out
+ * further to the left (they're right-pinned via flex-end). */
 .zv-hero-v2-links a {
   display: block;
   padding: 0.55em 100px 0.55em 0.85em;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(0.875rem, 1vw, 1rem);
+  font-size: 1rem;
   line-height: 1.2;
   letter-spacing: -0.005em;
   color: #000;
   background: var(--neon-orange);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: font-size 0.25s ease-in-out, padding 0.25s ease-in-out;
 }
 
 .zv-hero-v2-links a:hover {
-  opacity: 0.85;
+  font-size: 1.35rem;
+  padding-right: 130px;
 }
 
 /* Mobile — stack tagline beneath the title, release the 30% cap,

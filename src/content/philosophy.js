@@ -20,7 +20,7 @@ const philosophy = {
   ],
 
   principle_zero: {
-    numeral: 'PRINCIPLE ZERO',
+    numeral: 'Principle Zero',
     title: 'Take from all that which is around you and make of it something more.',
   },
 

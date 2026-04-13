@@ -15,9 +15,9 @@
 .zv-model-card {
   padding: 28px;
   border: 1px solid var(--void-border);
-  border-left: 3px solid var(--cyan);
+
   background: var(--void-elevated);
-  border-radius: 4px;
+  border-radius: 0;
   transition: border-color 0.2s, transform 0.2s var(--ease-out);
 }
 
