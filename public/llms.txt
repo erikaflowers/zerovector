@@ -2,7 +2,7 @@
 > A design philosophy for the age of AI.
 
 ## About
-Zero-Vector Design is a methodology and open movement created by Erika Flowers. It provides principles, processes, and tools for building digital products with AI, where the creator's intent flows directly into the artifact with no intermediary, no translation layer, and no friction.
+Zero-Vector Design is a methodology, an open-source ecosystem, and a growing movement redefining how products get built in the age of AI. It provides principles, processes, and tools for building digital products with AI, where the creator's intent flows directly into the artifact with no intermediary, no translation layer, and no friction.
 
 ## The Seven Principles
 1. Intent is the product — What you mean to build is what gets built.
@@ -19,13 +19,22 @@ Principle Zero: Take from all that which is around you and make of it something 
 - Homepage / Manifesto: https://zerovector.design/
 - Philosophy: https://zerovector.design/philosophy
 - The Approach: https://zerovector.design/approach
-- For Builders: https://zerovector.design/builders
-- For Leaders: https://zerovector.design/leaders
+- For Builders: https://zerovector.design/for-builders
+- For Leaders: https://zerovector.design/for-leaders
+- For Enterprise: https://zerovector.design/for-enterprise
+- For Hire (Arroyo Labs): https://zerovector.design/for-hire
 - Media: https://zerovector.design/media
 - The Origin: https://zerovector.design/origin
-- The Open Vector: https://zerovector.design/open
-- Investiture (starter framework): https://zerovector.design/investiture
+- The Name: https://zerovector.design/name
+- Investiture (deep framework): https://zerovector.design/investiture
 - Get Started: https://zerovector.design/start
+- Zero Hack (hackathon): https://zerovector.design/zerohack
+
+## Missions
+- Open Vector: https://open.zerovector.design — Free learning platform for design-led engineering
+- Investiture: https://zerovector.design/investiture — Stormlight Archive-inspired design mastery framework
+- Labrador: https://herelabrador.ai — Open-source persistent memory and knowledge retrieval for LLMs
+- Arroyo Labs: https://arroyo.zerovector.design — Production arm, one designer + AI crew
 
 ## Creator
 Erika Flowers — 31 years in UX and service design, published sci-fi author, creator of Zero-Vector Design.

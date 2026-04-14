@@ -50,7 +50,7 @@ function ZerohackPage() {
     title: 'Zero Hack — Build for a Person, Not a Demo',
     description: 'Build for a person, not a demo. The first Zero Vector hackathon — two days, four sessions, real products for real users. May 9–10, 2026. Virtual.',
     path: '/zerohack',
-    ogImage: 'https://zerovector.design/og/zerohack.png',
+    ogImage: 'https://zerovector.design/og-card.png',
   });
 
   useEffect(() => {

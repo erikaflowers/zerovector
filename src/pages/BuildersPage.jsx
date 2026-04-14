@@ -13,7 +13,7 @@ function BuildersPage() {
   useSEO({
     title: 'For Builders',
     description: 'Fall in love with the problem, not the solution. A guide for designers, developers, and creators building with AI using Zero-Vector principles.',
-    path: '/builders',
+    path: '/for-builders',
     ogImage: 'https://zerovector.design/og/builders.png',
   });
 
