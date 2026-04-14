@@ -6,7 +6,10 @@
     "dev": "vite",
     "dev:standalone": "vite --port 3006",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "zvapps": "npm start --prefix zvapps/control-panel",
+    "zvapps:install": "npm install --prefix zvapps/control-panel",
+    "zvapps:build": "npm run build --prefix zvapps/control-panel"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",

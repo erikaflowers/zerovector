@@ -1,4 +1,3 @@
----
 # VECTOR.md — Project Doctrine
 # This file is the single source of truth for project intent, audience, and knowledge.
 # Read this before CLAUDE.md. Read CLAUDE.md before writing code.

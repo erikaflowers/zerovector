@@ -17,9 +17,19 @@ Your job: survey what exists, infer what you can, include Investiture defaults, 
 Before doing anything else, check that the full Investiture skill chain exists in this project:
 
 ```
-.claude/skills/invest-backfill/SKILL.md    ← you are here
-.claude/skills/invest-doctrine/SKILL.md    ← needed for validation after backfill
-.claude/skills/invest-architecture/SKILL.md ← needed for enforcement after backfill
+.claude/skills/invest-backfill/SKILL.md      ← you are here
+.claude/skills/invest-doctrine/SKILL.md      ← needed for validation after backfill
+.claude/skills/invest-architecture/SKILL.md  ← needed for enforcement after backfill
+```
+
+The audit chain extends Investiture with codebase quality assessment and remediation:
+
+```
+.claude/skills/invest-preflight/SKILL.md             ← quick codebase reconnaissance
+.claude/skills/invest-manifest/SKILL.md              ← complete codebase inventory
+.claude/skills/invest-repo-audit/SKILL.md            ← quality, stability, and architecture audit
+.claude/skills/invest-remediate/SKILL.md             ← phased remediation plan from audit findings
+.claude/skills/invest-verify-remediation/SKILL.md   ← verify fixes, update audit status
 ```
 
 If `invest-doctrine` or `invest-architecture` are missing, warn the operator immediately:
@@ -422,7 +432,11 @@ The `/vector/` directory is the research artifact system — interviews, JTBD, p
 │   └── assumptions/.gitkeep
 ├── schemas/.gitkeep
 ├── decisions/.gitkeep
-└── audits/.gitkeep
+├── audits/.gitkeep
+├── missions/.gitkeep
+├── handoffs/.gitkeep
+├── changelog/.gitkeep
+└── briefs/.gitkeep
 ```
 
 **`/vector/README.md` contents:**
@@ -435,14 +449,18 @@ It is referenced by VECTOR.md and used by the Investiture skill chain.
 
 ## Structure
 
-- **research/interviews/** — User interview transcripts and summaries
+- **research/interviews/** — User interview transcripts, summaries, and discussion guides (`invest-interview`)
 - **research/jtbd/** — Jobs to Be Done analysis
 - **research/personas/** — User personas derived from research
 - **research/competitive/** — Competitive analysis artifacts
-- **research/assumptions/** — Documented assumptions with validation status
+- **research/assumptions/** — Documented assumptions with validation status and plans (`invest-validate`)
 - **schemas/** — Zero-Vector schema definitions (zv-*.json)
-- **decisions/** — Architecture Decision Records (ADRs)
-- **audits/** — Investiture skill chain audit reports
+- **decisions/** — Architecture Decision Records (`invest-adr`)
+- **audits/** — Investiture skill chain audit reports (`invest-doctrine`, `invest-architecture`, `invest-synthesize`)
+- **missions/** — Crew task manifests for multi-agent sprints (`invest-crew`)
+- **handoffs/** — Role-specific onboarding snapshots (`invest-handoff`)
+- **changelog/** — Versioned release notes (`invest-changelog`)
+- **briefs/** — Design briefs from research and doctrine (`invest-brief`)
 
 ## Usage
 
