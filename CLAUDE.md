@@ -19,10 +19,11 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 |-------|-----------|
 | Frontend | React 19 + Vite 7 |
 | Routing | React Router DOM 7 |
-| Styling | Custom CSS, single file, CSS custom properties, domain-scoped prefixes |
+| Styling | Modular CSS partials under `src/styles/`, CSS custom properties, domain-scoped prefixes |
+| Fonts | Proxima Nova (self-hosted via `shared/fonts.css`), Space Grotesk, Inter, JetBrains Mono |
 | State | React Context (UserContext) |
 | Backend | None — purely a static SPA. No serverless functions. |
-| Auth | Supabase (Google OAuth) — used only by the Nav sign-in button; nothing is gated. |
+| Auth | Supabase (Google OAuth) — decorative only; nothing is gated. |
 | Newsletter | Kestris subscribe proxy → Buttondown (tagged) |
 | Deployment | Netlify (auto-deploy on push) |
 
@@ -32,7 +33,9 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 
 - **All site content lives in `src/content/` as exported JS objects.** Do not put copy in JSX. Pages import content and render it. This is the most important architectural decision in the project. The one current exception is the legal pages (Privacy, Terms) — they're hardcoded by design because legal copy rarely changes.
 
-- **The CSS lives in scoped systems under `src/styles/`.** Three design systems — `zv/` (manifesto), `inv/` (Investiture), `zh/` (Zero Hack) — each with its own modular partials and a thin `index.css` cascade-order `@import` index. Cross-system primitives (`:root` tokens, global reset, scroll-reveal utility) live in `src/styles/shared/`. Every partial is under 500 lines. Add new rules to the matching partial — if no partial fits, create one and add it to the system's `index.css` in the correct cascade position.
+- **The CSS lives in scoped systems under `src/styles/`.** Three design systems — `zv/` (manifesto), `inv/` (Investiture), `zh/` (Zero Hack) — each with its own modular partials and a thin `index.css` cascade-order `@import` index. Cross-system primitives (`:root` tokens, global reset, scroll-reveal utility, font-face declarations) live in `src/styles/shared/`. Every partial is under 500 lines. Add new rules to the matching partial — if no partial fits, create one and add it to the system's `index.css` in the correct cascade position.
+
+- **The design language is Orbital Brutalism.** Inspired by MoMA and the Stendig Calendar — pure black and white, no softness, no gradients, no rounded corners (except the Start pill). Neon accents (pink, green, orange) for punctuation. Proxima Nova bold for display, sharp 4px offset shadows, hard borders. The old dark-console gen-1 aesthetic is gone.
 
 - **Two routing patterns coexist.** Manifesto pages use `SiteLayout` (most routes). Standalone pages — `/investiture`, `/investiture/skills`, `/investiture/changelog`, `/zerohack`, `/zerohack/background` — bypass `SiteLayout` and use `useBodyTheme` + `useFonts` hooks to manage their own theming. Know which pattern your page follows.
 
@@ -40,23 +43,28 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 
 - **Sister sites live on subdomains:**
   - `open.zerovector.design` — Open Vector learning platform (separate repo)
-  - `arroyo.zerovector.design` — Arroyo Labs commercial (separate repo)
-  - `herelabrador.ai` — Labrador
-  - `terminus.zerovector.design` — Terminus
+  - `arroyo.zerovector.design` — Arroyo Labs production arm (separate repo)
+  - `herelabrador.ai` — Labrador persistent memory layer
+  - `terminus.zerovector.design` — Terminus terminal
   - This repo links out to them. It does not contain them.
 
 - **Dev server:** `npm run dev` (Vite, port 5174). There are no Netlify functions to proxy, so plain Vite is sufficient.
+
+- **Homepage hero uses a random video background.** Five `.mov` files in `public/video/bg-*.mov` are randomly selected on each page load. The video is full-bleed with a tunable white overlay (`--hero-video-overlay` on `.zv-manifesto`).
+
+- **Per-page Substack essay cards.** `PageHero` maps each route to a relevant Substack article via a lookup object keyed by pathname. To add a new essay, edit the `ESSAYS` object in `src/components/PageHero.jsx`.
 
 ---
 
 ## What Not to Do
 
 1. **Do not put text in JSX.** Content goes in `src/content/`. Components render, they don't contain copy.
-2. **Do not hardcode colors or spacing.** Use CSS custom properties from `:root` in `site.css`.
+2. **Do not hardcode colors or spacing.** Use CSS custom properties from `:root` in `shared/tokens.css` or the system-scoped overrides in `base.css`.
 3. **Do not add CSS frameworks.** No Tailwind, no CSS-in-JS. Plain CSS with variables. Deliberate constraint.
 4. **Do not put API keys in client-side code.** If you add a backend, secrets live in Netlify environment variables.
 5. **Do not add rules to any system's `index.css`.** The three `index.css` files (`zv/`, `inv/`, `zh/`) are cascade-order `@import` indexes only. Find the matching partial for your rule. If no partial fits, create one and add it to the index in the correct cascade position.
 6. **Do not import from one design system into another.** Manifesto JSX uses only `zv-*` classes. Investiture pages use only `inv-*`. Zero Hack uses only `zh-*`. The cross-prefix `scroll-reveal-bridge.css` files in `inv/` and `zh/` are documented exceptions — do not replicate the pattern elsewhere.
+7. **Do not add rounded corners, gradients, or soft shadows.** Orbital Brutalism: sharp edges, flat colors, hard offset shadows only.
 
 ---
 
