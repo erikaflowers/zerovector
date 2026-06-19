@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "product": "Fictioneer",
+    "method": "Jobs to Be Done Canvas",
+    "created": "2026-02-20",
+    "author": "Erika Flowers",
+    "status": "confirmed",
+    "notes": "Generated from JTBD Canvas exercise. Reviewed and confirmed by product owner."
+  },
+  "job_statement": [
+    "When I am deep in a draft and need to reference something I established hundreds of pages ago, I need a way to query my own canon instantly, so I can keep writing without breaking flow or contradicting myself."
+  ],
+  "functional_outcomes": [
+    "Find all scenes where two specific characters interact",
+    "Retrieve what was established about a location, weapon, or faction across all books",
+    "Identify every mention of a plot thread to check for dangling setups",
+    "Get a structured timeline of events without re-reading entire manuscripts",
+    "Search by concept, not just keyword — 'scenes where trust is broken' not just 'trust'",
+    "See all aliases and references to a single entity resolved to one identity"
+  ],
+  "emotional_outcomes": [
+    "Feel confident that the draft is internally consistent",
+    "Reduce the anxiety of 'did I already contradict this?'",
+    "Experience flow state without interruption for manual lookups",
+    "Trust that the tool knows the canon as well as the author does",
+    "Feel like the tool respects the craft, not just the output"
+  ],
+  "social_outcomes": [
+    "Ship a book that readers trust for consistency and depth",
+    "Avoid embarrassing continuity errors caught by beta readers or reviewers",
+    "Demonstrate professional-grade worldbuilding to agents, editors, and publishers",
+    "Build a body of work that rewards close reading"
+  ],
+  "pain_points": [
+    "Ctrl+F across 400K words is not a strategy",
+    "Scrivener's notes and keywords do not scale past one book",
+    "Personal wikis go stale the moment the draft changes",
+    "Re-reading your own manuscripts to check a fact kills momentum",
+    "Existing AI writing tools want to write FOR you, not help you write BETTER",
+    "No tool understands that 'Samantha' in Chapter 3 and 'Agent Mori' in Chapter 40 are the same person"
+  ],
+  "current_alternatives": [
+    {
+      "name": "Scrivener notes",
+      "failure": "Manual, does not scale, no search across books"
+    },
+    {
+      "name": "Personal wiki (Notion, Obsidian)",
+      "failure": "Goes stale, separate from manuscript, manual sync"
+    },
+    {
+      "name": "Re-reading manuscripts",
+      "failure": "Time-destroying, kills flow state"
+    },
+    {
+      "name": "Spreadsheet tracking",
+      "failure": "Tedious, no semantic understanding"
+    },
+    {
+      "name": "Generic AI chatbots",
+      "failure": "No knowledge of YOUR canon, hallucinate details"
+    },
+    {
+      "name": "Memory alone",
+      "failure": "Breaks past ~100K words for most authors"
+    }
+  ],
+  "success_metrics": [
+    "Zero continuity errors caught by beta readers",
+    "Time from 'I need to check something' to answer: under 10 seconds",
+    "Author can draft a full chapter without leaving the writing environment",
+    "Canon references are clickable, navigable, always current",
+    "New scenes automatically update the knowledge base"
+  ]
+}
