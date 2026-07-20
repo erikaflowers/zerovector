@@ -14,6 +14,7 @@
 
 /* Shared foundation */
 @import '../shared/tokens.css';
+@import '../shared/invert.css';
 @import '../shared/reset.css';
 @import '../shared/fonts.css';
 @import '../shared/scroll-reveal.css';
