@@ -23,13 +23,14 @@
   margin-bottom: 24px;
 }
 
-/* What It Is Not — sticky sidebar, brutalist card */
+/* What It Is Not — sticky sidebar, brutalist card. Stays light
+ * inside the inverted section via .zv-revert in the JSX. */
 .zv-philosophy-what-is-not {
   position: sticky;
   top: 80px;
   padding: 24px;
   border: var(--border);
-  background: #f5f5f5;
+  background: var(--surface-raised);
   box-shadow: var(--shadow-hard);
 }
 
