@@ -6,7 +6,7 @@
 
 /* --- Body defaults for manifesto pages --- */
 body {
-  color: #000;
+  color: var(--text-primary);
   margin: 0;
   min-height: 100vh;
 }
@@ -17,39 +17,9 @@ body {
   z-index: 1;
   min-height: 100vh;
   transition: opacity 0.25s ease;
-
-  /* Site-wide palette inversion for the Orbital Brutalism direction.
-   * Flips every color token from dark-first to white-first so the
-   * hundreds of var(--text-*) and var(--void-*) references across
-   * the zv system resolve correctly on white backgrounds.
-   * Investiture and Zero Hack bypass SiteLayout so they keep
-   * their original dark palettes. */
-
-  /* Neon primaries replace old accents */
-  --cyan: var(--neon-green);
-  --magenta: var(--neon-pink);
-  --orange: var(--neon-orange);
-
-  /* Derivative accent tokens — neon equivalents */
-  --cyan-dim: var(--neon-green);
-  --cyan-glow: rgba(0, 255, 128, 0.15);
-  --cyan-subtle: rgba(0, 255, 128, 0.06);
-  --magenta-dim: var(--neon-pink);
-  --magenta-glow: rgba(255, 0, 251, 0.15);
-  --orange-dim: var(--neon-orange);
-  --orange-glow: rgba(255, 170, 0, 0.15);
-
-  /* Text — inverted for white backgrounds */
-  --text-primary: var(--neon-green);
-  --text-secondary: #ffffff;
-  --text-tertiary: #666;
-  --text-muted: rgba(0, 0, 0, 0.4);
-
-  /* Void (backgrounds) — inverted to white-first */
-  --void: #fff;
-  --void-elevated: #fff;
-  --void-surface: #fafafa;
-  --void-border: rgba(0, 0, 0, 0.08);
+  /* Palette comes from shared/tokens.css (:root, white-first).
+   * Dark sections opt in with .zv-invert — no token re-declarations
+   * here or anywhere else. */
 }
 
 .zv-page-enter {
@@ -74,43 +44,16 @@ body {
 
 /* --- Info Page Tighter Spacing + Containment --- */
 .zv-info-page {
-  background: #fff;
-
-  /* Override the site-wide neon text tokens so subpage body
-   * copy is actually readable on white. The homepage manifesto
-   * keeps the neon-green/white tokens set on .zv-site for its
-   * own hero/section treatments. */
-  --text-primary: #000;
-  --text-secondary: #333;
-  --text-tertiary: #666;
-  --text-muted: rgba(0, 0, 0, 0.4);
+  background: var(--surface);
 }
 
 .zv-info-page .zv-section {
   padding: clamp(40px, 6vh, 64px) 0;
-  background: #fff;
+  background: var(--surface);
 }
 
-/* First content section after the hero — inverted to black
- * so the page has rhythm: white hero → black section → white rest.
- * Text tokens flip inside this section so everything reads. */
+/* The black first-section after a page hero is now explicit:
+ * add .zv-invert to that section in the page JSX. */
 .zv-info-page .zv-page-hero + .zv-section {
   padding-top: 80px;
-  background: #000;
-  color: #fff;
-  --text-primary: #fff;
-  --text-secondary: #ccc;
-  --text-tertiary: #999;
-  --text-muted: rgba(255, 255, 255, 0.4);
-  --void-border: rgba(255, 255, 255, 0.1);
-  --void-elevated: #111;
-}
-
-/* Neon accents stay the same on black — they pop even harder */
-.zv-info-page .zv-page-hero + .zv-section a {
-  color: var(--neon-green);
-}
-
-.zv-info-page .zv-page-hero + .zv-section a:hover {
-  color: var(--neon-pink);
 }

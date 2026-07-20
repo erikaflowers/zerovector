@@ -17,7 +17,7 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  background: #fff;
+  background: var(--surface);
   min-height: 70vh;
   padding: 0 0 clamp(48px, 8vh, 96px);
   overflow: hidden;
@@ -81,13 +81,13 @@
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 0.95;
-  color: #000;
+  color: var(--text-primary);
   max-width: 100%;
 }
 
 /* --- Subtitle — scoped override so it reads on white --- */
 .zv-page-hero .zv-hero-subtitle {
-  color: #000;
+  color: var(--text-primary);
   margin-top: 24px;
   max-width: 640px;
 }
@@ -110,7 +110,7 @@
   font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-page-hero-essay-label svg {
@@ -122,17 +122,17 @@
 .zv-page-hero-essay {
   display: block;
   width: clamp(240px, 22vw, 320px);
-  background: #fff;
-  border: 1px solid #000;
-  box-shadow: 4px 4px 0 #000;
+  background: var(--surface);
+  border: var(--border);
+  box-shadow: var(--shadow-hard);
   text-decoration: none;
-  color: #000;
+  color: var(--text-primary);
   overflow: hidden;
   transition: box-shadow 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
 .zv-page-hero-essay:hover {
-  box-shadow: 8px 8px 0 #000;
+  box-shadow: var(--shadow-hard-lg);
   transform: translate(-3px, -3px);
 }
 
@@ -140,14 +140,14 @@
 .zv-page-hero-essay:hover .zv-page-hero-essay-title,
 .zv-page-hero-essay:hover .zv-page-hero-essay-subtitle,
 .zv-page-hero-essay:hover .zv-page-hero-essay-date {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-page-hero-essay-img {
   display: block;
   width: 100%;
   height: auto;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--text-primary);
 }
 
 .zv-page-hero-essay-meta {
@@ -159,7 +159,7 @@
   font-weight: 600;
   font-size: 0.7rem;
   letter-spacing: 0.02em;
-  color: #666;
+  color: var(--text-tertiary);
   margin-bottom: 10px;
 }
 
@@ -170,7 +170,7 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   margin-bottom: 8px;
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-page-hero-essay-subtitle {
@@ -201,8 +201,7 @@
   }
 }
 
-/* --- Legacy keyframes — still referenced by homepage
- * hero-combined declaration block via source order --- */
+/* --- Entrance keyframe for the hero content --- */
 @keyframes glyph-resolve {
   0% {
     opacity: 0;

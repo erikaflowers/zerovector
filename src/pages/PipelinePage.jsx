@@ -23,7 +23,7 @@ function PipelinePage() {
       <PageHero eyebrow={approach.eyebrow} title={approach.title} subtitle={approach.subtitle} />
 
       {/* Intro — Black First Section */}
-      <section className="zv-section">
+      <section className="zv-section zv-invert">
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">The Full Pipeline</h2>

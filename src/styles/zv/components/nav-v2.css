@@ -83,8 +83,8 @@ body.nav-open {
   line-height: 1.2;
   letter-spacing: -0.01em;
   padding: 0.4em 0.85em;
-  color: #000;
-  background: #fff;
+  color: var(--text-primary);
+  background: var(--surface);
   border: none;
   text-decoration: none;
   text-shadow: none;
@@ -102,7 +102,7 @@ body.nav-open {
   line-height: 1.2;
   letter-spacing: -0.01em;
   padding: 0.4em 0.85em;
-  color: #fff;
+  color: var(--surface);
   background: var(--neon-pink);
   border: none;
   text-decoration: none;
@@ -118,14 +118,14 @@ body.nav-open {
 
 .zv-nav-group-trigger:hover,
 .zv-nav-link:hover {
-  background: #000;
+  background: var(--surface-inverse);
   color: var(--neon-pink);
   opacity: 1;
   text-shadow: none;
 }
 
 .zv-nav-signin:hover {
-  background: #000;
+  background: var(--surface-inverse);
   color: var(--neon-green);
   opacity: 1;
   text-shadow: none;
@@ -133,8 +133,8 @@ body.nav-open {
 
 .zv-nav-group-trigger--active,
 .zv-nav-link-active {
-  color: #000;
-  background: #fff;
+  color: var(--text-primary);
+  background: var(--surface);
 }
 
 .zv-nav-group-chevron {
@@ -158,11 +158,11 @@ body.nav-open {
  * override it. Heart inherits parent color now so it follows the
  * hover flip instead of staying red. */
 .zv-nav-support {
-  color: #000 !important;
+  color: var(--text-primary) !important;
 }
 
 .zv-nav-support:hover {
-  background: #000;
+  background: var(--surface-inverse);
   color: var(--neon-pink) !important;
   opacity: 1;
 }
@@ -178,10 +178,10 @@ body.nav-open {
   left: 0;
   transform: none;
   top: calc(100% + 4px);
-  background: #fff;
-  border: 1px solid #000;
+  background: var(--surface);
+  border: var(--border);
   border-radius: 0;
-  box-shadow: 4px 4px 0 #000;
+  box-shadow: var(--shadow-hard);
   min-width: 0;
   padding: 0;
   animation: none;
@@ -191,20 +191,20 @@ body.nav-open {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.95rem;
-  color: #000;
-  background: #fff;
+  color: var(--text-primary);
+  background: var(--surface);
   padding: 0.5em 1em;
   transition: background 0.15s var(--ease-out), color 0.15s var(--ease-out);
 }
 
 .zv-nav-group-item:hover {
-  background: #000;
+  background: var(--surface-inverse);
   color: var(--neon-pink);
   text-shadow: none;
 }
 
 .zv-nav-group-item--active {
-  color: #000;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -218,7 +218,7 @@ body.nav-open {
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.2;
-  color: #fff;
+  color: var(--surface);
   background: var(--neon-pink);
   padding: 0.4em 1.4em;
   letter-spacing: 0;
@@ -232,7 +232,7 @@ body.nav-open {
 }
 
 .zv-nav-start:hover {
-  background: #000;
+  background: var(--surface-inverse);
   color: var(--neon-green);
   opacity: 1;
   box-shadow: none;

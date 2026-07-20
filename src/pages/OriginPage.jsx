@@ -23,7 +23,7 @@ function OriginPage() {
       <PageHero eyebrow={origin.eyebrow} title={origin.title} subtitle={origin.subtitle} />
 
       {/* Intro — Black First Section */}
-      <section className="zv-section zv-origin-intro-section">
+      <section className="zv-section zv-invert zv-origin-intro-section">
         <div className="zv-container">
           <div className="zv-origin-intro-row">
             <div className="zv-origin-intro-text">

@@ -27,7 +27,7 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--cyan);
+  color: var(--neon-green);
   letter-spacing: 0.2em;
   margin-bottom: 20px;
 }
@@ -79,14 +79,14 @@
 }
 
 .zv-name-stage-item:hover {
-  border-color: var(--orange);
+  border-color: var(--neon-orange);
 }
 
 .zv-name-stage-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--neon-orange);
   letter-spacing: 0.2em;
   margin-bottom: 8px;
 }

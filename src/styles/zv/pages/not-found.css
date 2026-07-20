@@ -27,7 +27,7 @@
 .zv-404-code {
   font-size: clamp(4rem, 10vw, 8rem);
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--neon-green);
   letter-spacing: 0.1em;
   text-shadow: 0 0 30px rgba(0, 200, 200, 0.3);
 }
@@ -53,7 +53,7 @@
 }
 
 .zv-404-cursor {
-  color: var(--cyan);
+  color: var(--neon-green);
   animation: zv-blink 1s step-end infinite;
 }
 

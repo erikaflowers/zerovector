@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import NotifyForm from './NotifyForm';
 import Animate from './Animate';
+import ClosingNav from './ClosingNav';
 import { ArrowIcon, ExternalLinkIcon } from './icons';
 
 /**
@@ -62,16 +63,7 @@ function PageClosing({
             )}
           </div>
         </Animate>
-        <nav className="zv-page-closing-nav" aria-label="Site navigation">
-          <a href="https://open.zerovector.design">Open Vector</a>
-          <Link to="/investiture">Investiture</Link>
-          <Link to="/start">Get Started</Link>
-          <a href="https://arroyo.zerovector.design" target="_blank" rel="noopener noreferrer">Arroyo Labs</a>
-          <a href="https://herelabrador.ai" target="_blank" rel="noopener noreferrer">Labrador</a>
-          <a href="https://eflowers.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
-          <a href="https://www.linkedin.com/in/helloeflowers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://helloerikaflowers.com" target="_blank" rel="noopener noreferrer">helloerikaflowers.com</a>
-        </nav>
+        <ClosingNav />
       </div>
     </section>
   );

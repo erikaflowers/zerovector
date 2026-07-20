@@ -56,10 +56,6 @@
     display: none;
   }
 
-  .zv-coordinates {
-    display: none;
-  }
-
   /* --- Section titles — tighter on mobile --- */
   .zv-section-title {
     font-size: clamp(1.5rem, 6vw, 2rem);

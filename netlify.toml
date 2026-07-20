@@ -4,6 +4,7 @@
 
 [dev]
   port = 3006
+  targetPort = 5174
   framework = "#auto"
 
 [functions]

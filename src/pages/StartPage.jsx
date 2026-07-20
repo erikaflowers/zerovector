@@ -25,7 +25,7 @@ function StartPage() {
       <PageHero eyebrow={start.eyebrow} title={start.title} subtitle={start.subtitle} />
 
       {/* Intro — Black First Section */}
-      <section className="zv-section">
+      <section className="zv-section zv-invert">
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">Choose Your Path</h2>

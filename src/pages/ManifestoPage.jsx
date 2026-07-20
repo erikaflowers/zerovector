@@ -5,12 +5,22 @@ import SectionHeader from '../components/SectionHeader';
 import { ArrowIcon } from '../components/icons';
 import NotifyForm from '../components/NotifyForm';
 import Animate from '../components/Animate';
+import EssayCard from '../components/EssayCard';
+import ClosingNav from '../components/ClosingNav';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
 
 const { home } = en;
 
 const PATH_COLORS = ['pink', 'green', 'orange'];
+
+const FEATURED_ESSAY = {
+  title: 'Zero Stage to Orbit',
+  subtitle: 'The design-to-development pipeline is not broken; it is a multi-stage rocket, and we never questioned the gravity.',
+  date: 'February 21, 2026',
+  url: 'https://eflowers.substack.com/p/zero-stage-to-orbit',
+  image: 'https://substack-post-media.s3.amazonaws.com/public/images/04e8e131-9dcf-44ec-953a-b96e5ad85e1c_1600x678.jpeg',
+};
 
 function ManifestoPage() {
 
@@ -25,7 +35,7 @@ function ManifestoPage() {
     <div className="zv-manifesto">
       <Nav />
 
-      {/* Hero v2 — visual refresh WIP, lives above the old hero during makeover */}
+      {/* Hero — full-bleed video with title bar + featured links */}
       <section className="zv-hero-v2">
         <div className="zv-hero-v2-video-wrap" aria-hidden="true">
           <video
@@ -69,15 +79,12 @@ function ManifestoPage() {
         </div>
       </section>
 
-      {/* Combined Hero — Above the Fold */}
-      <section className="zv-section zv-hero-combined">
+      {/* Explainer + Missions — inverted first section below the hero */}
+      <section className="zv-section zv-invert zv-home-intro">
         <div className="zv-container">
           <div className="zv-hero-columns">
             {/* LEFT: Explainer + buttons */}
             <div className="zv-hero-col-left">
-              <div className="zv-hero-declaration-label">
-                <span>The Starting Point</span>
-              </div>
               <h2 className="zv-explainer-headline">{home.explainer.headline}</h2>
               {home.explainer.body.map((p, i) => (
                 <p key={i} className="zv-explainer-body">{p}</p>
@@ -93,27 +100,7 @@ function ManifestoPage() {
 
             {/* RIGHT: Featured Essay Card */}
             <div className="zv-hero-col-right">
-              <span className="zv-page-hero-essay-label" style={{color: '#fff'}}>
-                Featured Essay
-              </span>
-              <a
-                href="https://eflowers.substack.com/p/zero-stage-to-orbit"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="zv-page-hero-essay"
-              >
-                <img
-                  src="https://substack-post-media.s3.amazonaws.com/public/images/04e8e131-9dcf-44ec-953a-b96e5ad85e1c_1600x678.jpeg"
-                  alt="Zero Stage to Orbit"
-                  className="zv-page-hero-essay-img"
-                  loading="lazy"
-                />
-                <div className="zv-page-hero-essay-meta">
-                  <div className="zv-page-hero-essay-date">February 21, 2026</div>
-                  <div className="zv-page-hero-essay-title">Zero Stage to Orbit</div>
-                  <div className="zv-page-hero-essay-subtitle">The design-to-development pipeline is not broken; it is a multi-stage rocket, and we never questioned the gravity.</div>
-                </div>
-              </a>
+              <EssayCard essay={FEATURED_ESSAY} />
             </div>
           </div>
 
@@ -284,16 +271,7 @@ function ManifestoPage() {
               <NotifyForm variant="orange" tag="zerovector" />
             </div>
           </Animate>
-          <nav className="zv-page-closing-nav" aria-label="Site navigation">
-            <a href="https://open.zerovector.design">Open Vector</a>
-            <Link to="/investiture">Investiture</Link>
-            <Link to="/start">Get Started</Link>
-            <a href="https://arroyo.zerovector.design" target="_blank" rel="noopener noreferrer">Arroyo Labs</a>
-            <a href="https://herelabrador.ai" target="_blank" rel="noopener noreferrer">Labrador</a>
-            <a href="https://eflowers.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
-            <a href="https://www.linkedin.com/in/helloeflowers/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://helloerikaflowers.com" target="_blank" rel="noopener noreferrer">helloerikaflowers.com</a>
-          </nav>
+          <ClosingNav />
         </div>
       </section>
     </div>

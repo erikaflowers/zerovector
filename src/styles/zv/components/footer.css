@@ -5,7 +5,7 @@
  */
 
 .zv-footer {
-  border-top: 1px solid var(--void-border);
+  border-top: 1px solid var(--hairline);
   padding: 48px 0;
 }
 
@@ -34,5 +34,5 @@
 }
 
 .zv-footer-links a:hover {
-  color: var(--cyan);
+  color: var(--neon-green);
 }
