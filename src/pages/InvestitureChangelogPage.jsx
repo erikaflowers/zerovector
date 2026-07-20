@@ -1,46 +1,21 @@
-import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 import useSEO from '../hooks/useSEO';
-import useBodyTheme from '../hooks/useBodyTheme';
-import useFonts from '../hooks/useFonts';
 import '../styles/inv/index.css';
 import en from '../content/en';
-
-const INV_FONT = 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap';
 
 const { investiture: inv } = en;
 
 function InvestitureChangelogPage() {
-  const { pathname } = useLocation();
-
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
-
   useSEO({
     title: 'Changelog | Investiture',
     description: 'Version history for the Investiture project scaffold and skill chain.',
     path: '/investiture/changelog',
   });
 
-  useBodyTheme({ background: '#0a1628', color: '#e8e0d0' });
-  useFonts([INV_FONT]);
-
   return (
     <div className="inv-page">
-      {/* Stormlight — floating spren particles */}
-      <div className="inv-stormlight" aria-hidden="true">
-        {Array.from({ length: 24 }, (_, i) => (
-          <span key={i} className="inv-spren" style={{ '--spren': i }} />
-        ))}
-      </div>
-
-      {/* Nav */}
-      <nav className="inv-nav">
-        <div className="inv-nav-inner">
-          <Link to="/investiture" className="inv-nav-back">{inv.nav.brand}</Link>
-          <span className="inv-nav-brand">{inv.nav.changelog}</span>
-          <a href={inv.cta.primaryUrl} target="_blank" rel="noopener noreferrer" className="inv-nav-link">{inv.nav.github}</a>
-        </div>
-      </nav>
+      <Nav />
 
       <section className="inv-section inv-changelog-section">
         <div className="inv-container">
@@ -65,6 +40,8 @@ function InvestitureChangelogPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
