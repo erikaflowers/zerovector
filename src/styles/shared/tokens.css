@@ -70,25 +70,6 @@
   --duration-fast: 150ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-
-  /* ------------------------------------------------------------------ *
-   * LEGACY TOKENS — retained only until the call-site sweep lands.
-   * Do not use in new code. Deleted in the same branch.
-   * ------------------------------------------------------------------ */
-  --void: #ffffff;
-  --void-elevated: #ffffff;
-  --void-surface: #fafafa;
-  --void-border: rgba(255, 255, 255, 0.06);
-  --cyan: #00ffff;
-  --cyan-dim: #00cccc;
-  --cyan-glow: rgba(0, 255, 255, 0.15);
-  --cyan-subtle: rgba(0, 255, 255, 0.06);
-  --magenta: #ff0080;
-  --magenta-dim: #cc0066;
-  --magenta-glow: rgba(255, 0, 128, 0.15);
-  --orange: #FF6B1A;
-  --orange-dim: #E05A10;
-  --orange-glow: rgba(255, 107, 26, 0.15);
 }
 
 @media (max-width: 768px) {

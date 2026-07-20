@@ -245,14 +245,14 @@
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--cyan);
+  color: var(--neon-green);
   text-decoration: none;
   margin-top: 20px;
   transition: color 0.2s, gap 0.2s;
 }
 
 .zv-name-teaser-cta:hover {
-  color: var(--orange);
+  color: var(--neon-orange);
   gap: 12px;
 }
 
@@ -268,8 +268,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 0;
   padding: 0;
-  border: 1px solid var(--void-border);
-  background: var(--void-elevated);
+  border: 1px solid var(--hairline);
+  background: var(--surface);
 }
 
 .zv-contrast-side {
@@ -285,11 +285,11 @@
 }
 
 .zv-contrast-not .zv-contrast-label {
-  color: var(--magenta-dim);
+  color: var(--neon-pink);
 }
 
 .zv-contrast-is .zv-contrast-label {
-  color: var(--orange);
+  color: var(--neon-orange);
 }
 
 .zv-contrast-title {

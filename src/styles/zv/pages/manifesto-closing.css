@@ -294,7 +294,7 @@
 /* --- Closing Permission (base) --- */
 .zv-closing-permission {
   font-size: 1.25rem;
-  color: var(--cyan);
+  color: var(--neon-green);
   font-weight: 500;
 }
 

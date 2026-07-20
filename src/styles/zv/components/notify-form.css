@@ -94,7 +94,7 @@
 }
 
 .zv-notify--light .zv-notify-input:focus {
-  border-color: var(--cyan);
+  border-color: var(--neon-green);
   box-shadow: 0 0 0 2px rgba(0, 200, 200, 0.15);
 }
 

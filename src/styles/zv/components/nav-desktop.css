@@ -15,7 +15,7 @@
   background: transparent;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--void-border);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .zv-nav-inner {
@@ -60,7 +60,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: var(--cyan);
+  background: var(--neon-green);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s var(--ease-out);
@@ -76,7 +76,7 @@
 }
 
 .zv-nav-link-active {
-  color: var(--cyan);
+  color: var(--neon-green);
 }
 
 .zv-nav-link-active::after {
@@ -111,7 +111,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: var(--cyan);
+  background: var(--neon-green);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s var(--ease-out);
@@ -126,7 +126,7 @@
 }
 
 .zv-nav-group-trigger--active {
-  color: var(--cyan);
+  color: var(--neon-green);
 }
 
 .zv-nav-group-trigger--active::after {
@@ -189,7 +189,7 @@
 }
 
 .zv-nav-group-item--active {
-  color: var(--cyan);
+  color: var(--neon-green);
 }
 
 /* --- Nav Support Link --- */
@@ -213,15 +213,15 @@
 
 /* --- Nav Join Us Link --- */
 .zv-nav-join {
-  color: var(--cyan) !important;
+  color: var(--neon-green) !important;
   font-weight: 600;
 }
 .zv-nav-join:hover {
   color: var(--text-primary) !important;
-  text-shadow: 0 0 12px var(--cyan-glow);
+  text-shadow: 0 0 12px var(--neon-green-soft);
 }
 .zv-nav-join-mobile {
-  color: var(--cyan) !important;
+  color: var(--neon-green) !important;
   font-weight: 600;
 }
 
@@ -230,8 +230,8 @@
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--void);
-  background: var(--cyan);
+  color: var(--surface);
+  background: var(--neon-green);
   padding: 6px 16px;
   text-decoration: none;
   letter-spacing: 0.05em;
@@ -250,8 +250,8 @@
 }
 
 .zv-nav-start-mobile {
-  color: var(--void) !important;
-  background: var(--cyan);
+  color: var(--surface) !important;
+  background: var(--neon-green);
   text-align: center;
   font-weight: 600;
   margin-top: 8px;

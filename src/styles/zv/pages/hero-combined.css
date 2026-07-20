@@ -14,7 +14,7 @@
   font-family: var(--font-mono);
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--cyan);
+  color: var(--neon-green);
   text-decoration: none;
   padding: 12px 20px;
   border: 1px solid rgba(0, 255, 255, 0.3);
@@ -23,7 +23,7 @@
 
 .zv-declaration-article:hover {
   background: rgba(0, 255, 255, 0.08);
-  border-color: var(--cyan);
+  border-color: var(--neon-green);
 }
 
 /* --- Decrypt Layout Anchor --- */
@@ -45,8 +45,8 @@
 
 /* --- Decrypt Cursor --- */
 .zv-decrypt-cursor {
-  background: var(--cyan);
-  color: var(--void);
+  background: var(--neon-green);
+  color: var(--surface);
 }
 
 .zv-decrypt-cursor-off {
@@ -60,8 +60,8 @@
 
 @keyframes decrypt-cursor-dissolve {
   0% {
-    background: var(--cyan);
-    color: var(--void);
+    background: var(--neon-green);
+    color: var(--surface);
   }
   100% {
     background: transparent;
@@ -76,7 +76,7 @@
   right: 24px;
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--cyan-dim);
+  color: var(--neon-green);
   letter-spacing: 0.1em;
   animation: coordinate-drift 6s ease-in-out infinite;
   z-index: 2;
@@ -155,7 +155,7 @@
   display: inline-block;
   width: 6px;
   height: 6px;
-  background: var(--cyan);
+  background: var(--neon-green);
   border-radius: 0;
   animation: pulse-dot 2s ease-in-out infinite;
 }

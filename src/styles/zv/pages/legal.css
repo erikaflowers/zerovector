@@ -44,7 +44,7 @@
   margin: 8px 0;
 }
 .zv-legal a {
-  color: var(--cyan);
+  color: var(--neon-green);
 }
 .zv-legal a:hover {
   text-decoration: underline;

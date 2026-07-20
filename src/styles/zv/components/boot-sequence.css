@@ -21,7 +21,7 @@
 .zv-boot-inline {
   font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--cyan);
+  color: var(--neon-green);
   letter-spacing: 0.05em;
   line-height: 2.0;
   transition: opacity 0.7s ease-out;
@@ -38,6 +38,6 @@
 
 .zv-boot-cursor {
   display: inline-block;
-  color: var(--cyan);
+  color: var(--neon-green);
   animation: boot-blink 0.5s step-end infinite;
 }
