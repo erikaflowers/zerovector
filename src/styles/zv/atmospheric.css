@@ -47,20 +47,6 @@
     2px 0 rgba(0, 255, 255, 0.15);
 }
 
-/* --- Coordinate Display Flicker --- */
-/* Occasional power fluctuation on the fixed coordinate readout */
-.zv-manifesto .zv-coordinates {
-  animation: coordinate-drift 6s ease-in-out infinite, coord-flicker 18s linear infinite;
-}
-
-@keyframes coord-flicker {
-  0%, 95%, 96%, 97%, 100% { filter: none; }
-  95.3% { filter: brightness(0.15); }
-  95.6% { filter: none; }
-  96.3% { filter: brightness(0.25); }
-  96.6% { filter: none; }
-}
-
 /* --- Scanline Sweep Keyframe (used by atmospheric overlays) --- */
 @keyframes scanline-sweep {
   0% { transform: translateY(-100vh); opacity: 0; }
@@ -69,9 +55,3 @@
   100% { transform: translateY(100vh); opacity: 0; }
 }
 
-/* --- Coordinate Drift --- */
-@keyframes coordinate-drift {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.12; }
-  100% { opacity: 0.3; }
-}

@@ -110,7 +110,7 @@
   font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-page-hero-essay-label svg {
@@ -201,8 +201,7 @@
   }
 }
 
-/* --- Legacy keyframes — still referenced by homepage
- * hero-combined declaration block via source order --- */
+/* --- Entrance keyframe for the hero content --- */
 @keyframes glyph-resolve {
   0% {
     opacity: 0;

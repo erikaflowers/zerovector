@@ -42,7 +42,6 @@
 /* Pages — specific compositions */
 @import './pages/manifesto.css';
 @import './pages/manifesto-closing.css';
-@import './pages/hero-combined.css';
 @import './pages/hero-v2.css';
 @import './pages/name.css';
 @import './pages/philosophy.css';

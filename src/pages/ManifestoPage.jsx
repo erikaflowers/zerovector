@@ -25,7 +25,7 @@ function ManifestoPage() {
     <div className="zv-manifesto">
       <Nav />
 
-      {/* Hero v2 — visual refresh WIP, lives above the old hero during makeover */}
+      {/* Hero — full-bleed video with title bar + featured links */}
       <section className="zv-hero-v2">
         <div className="zv-hero-v2-video-wrap" aria-hidden="true">
           <video
@@ -69,15 +69,12 @@ function ManifestoPage() {
         </div>
       </section>
 
-      {/* Combined Hero — Above the Fold */}
-      <section className="zv-section zv-hero-combined">
+      {/* Explainer + Missions — inverted first section below the hero */}
+      <section className="zv-section zv-invert zv-home-intro">
         <div className="zv-container">
           <div className="zv-hero-columns">
             {/* LEFT: Explainer + buttons */}
             <div className="zv-hero-col-left">
-              <div className="zv-hero-declaration-label">
-                <span>The Starting Point</span>
-              </div>
               <h2 className="zv-explainer-headline">{home.explainer.headline}</h2>
               {home.explainer.body.map((p, i) => (
                 <p key={i} className="zv-explainer-body">{p}</p>
@@ -93,7 +90,7 @@ function ManifestoPage() {
 
             {/* RIGHT: Featured Essay Card */}
             <div className="zv-hero-col-right">
-              <span className="zv-page-hero-essay-label" style={{color: '#fff'}}>
+              <span className="zv-page-hero-essay-label">
                 Featured Essay
               </span>
               <a

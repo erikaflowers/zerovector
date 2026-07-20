@@ -1,14 +1,9 @@
-/* Zero-Vector — Manifesto Hero v2 (Visual Refresh WIP)
+/* Zero-Vector — Manifesto Hero
  *
- * New hero under development on the visual-redo branch. Renders above
- * the existing .zv-hero-combined while the makeover is in progress.
- * Will eventually replace the old hero entirely — until then, both
- * coexist on the homepage and this file lives alongside hero-combined.css.
- *
- * Full-bleed video background. Pattern ported verbatim from the
- * Arroyo Labs hero: absolute-positioned wrapper with the video +
- * overlay behind the content, content on top at z-index 10, GPU
- * acceleration on the wrapper, object-fit: cover on the video.
+ * THE homepage hero. Full-bleed video background. Pattern ported
+ * from the Arroyo Labs hero: absolute-positioned wrapper with the
+ * video + overlay behind the content, content on top at z-index 10,
+ * GPU acceleration on the wrapper, object-fit: cover on the video.
  */
 
 /* ============================================
