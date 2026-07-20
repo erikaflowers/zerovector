@@ -24,3 +24,9 @@
 
   --link: var(--neon-green);
 }
+
+/* Inverted link hover: neon-pink pop (carried over from the old
+ * black-first-section rule). */
+.zv-invert a:hover {
+  color: var(--neon-pink);
+}

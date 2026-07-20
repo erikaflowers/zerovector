@@ -23,17 +23,17 @@
   border-color: #000;
 }
 
-/* On black sections, flip to white border so buttons stay visible */
-.zv-info-page .zv-page-hero + .zv-section .zv-cta {
-  color: #fff;
+/* On inverted sections, flip to white border so buttons stay visible */
+.zv-invert .zv-cta {
+  color: var(--text-primary);
   background: transparent;
-  border-color: #fff;
+  border-color: var(--text-primary);
 }
 
-.zv-info-page .zv-page-hero + .zv-section .zv-cta:hover {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
+.zv-invert .zv-cta:hover {
+  background: var(--text-primary);
+  color: var(--surface);
+  border-color: var(--text-primary);
 }
 
 .zv-cta-outline {

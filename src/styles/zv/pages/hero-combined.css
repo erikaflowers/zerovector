@@ -94,7 +94,7 @@
   --text-primary: #fff;
   --text-secondary: #ccc;
   --text-tertiary: #999;
-  --void-border: rgba(255, 255, 255, 0.1);
+  --hairline: rgba(255, 255, 255, 0.1);
 }
 
 .zv-hero-title-block {

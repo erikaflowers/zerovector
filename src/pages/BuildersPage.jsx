@@ -25,7 +25,7 @@ function BuildersPage() {
       <PageHero eyebrow={builders.eyebrow} title={builders.title} subtitle={builders.subtitle} />
 
       {/* Intro + Catchphrase + Start CTA */}
-      <section className="zv-section">
+      <section className="zv-section zv-invert">
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">The Builder's Mindset</h2>

@@ -22,7 +22,7 @@ function EnterprisePage() {
       <PageHero eyebrow={enterprise.eyebrow} title={enterprise.title} subtitle={enterprise.subtitle} />
 
       {/* Intro */}
-      <section className="zv-section">
+      <section className="zv-section zv-invert">
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">The Enterprise Reality</h2>

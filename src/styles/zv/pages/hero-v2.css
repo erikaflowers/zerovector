@@ -22,20 +22,7 @@
   --hero-nav-bg: var(--hero-accent);
   --hero-title-bg: #000;
   --hero-title-fg: #fff;
-
-  /* Text tokens for the homepage — same fix as .zv-info-page in
-   * base.css. Without this, body text inherits --text-secondary:
-   * #ffffff from .zv-site (intended for the neon hero) and renders
-   * invisible on white sections below the hero. */
-  --text-primary: #000;
-  --text-secondary: #333;
-  --text-tertiary: #666;
-  --text-muted: rgba(0, 0, 0, 0.4);
 }
-
-/* Note: --cyan / --magenta / --orange neon overrides moved to
- * zv/base.css (.zv-site scope) so every manifesto page inherits
- * them, not just the homepage. */
 
 .zv-hero-v2 {
   position: relative;

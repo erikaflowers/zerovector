@@ -23,7 +23,7 @@ function LeadersPage() {
       <PageHero eyebrow={leaders.eyebrow} title={leaders.title} subtitle={leaders.subtitle} />
 
       {/* Intro */}
-      <section className="zv-section">
+      <section className="zv-section zv-invert">
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">The Leadership Problem</h2>
