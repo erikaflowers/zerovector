@@ -7,10 +7,10 @@
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
-  color: #000;
-  background: #fff;
+  color: var(--text-primary);
+  background: var(--surface);
   padding: 14px 28px;
-  border: 2px solid #000;
+  border: 2px solid var(--text-primary);
   border-radius: 0;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
@@ -18,9 +18,9 @@
 }
 
 .zv-cta:hover {
-  background: #000;
-  color: #fff;
-  border-color: #000;
+  background: var(--surface-inverse);
+  color: var(--surface);
+  border-color: var(--text-primary);
 }
 
 /* On inverted sections, flip to white border so buttons stay visible */
@@ -43,7 +43,7 @@
 }
 
 .zv-cta-outline:hover {
-  color: #fff;
+  color: var(--surface);
   background: var(--neon-pink);
 }
 

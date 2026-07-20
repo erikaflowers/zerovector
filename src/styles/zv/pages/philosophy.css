@@ -28,9 +28,9 @@
   position: sticky;
   top: 80px;
   padding: 24px;
-  border: 1px solid #000;
+  border: var(--border);
   background: #f5f5f5;
-  box-shadow: 4px 4px 0 #000;
+  box-shadow: var(--shadow-hard);
 }
 
 .zv-philosophy-sidebar-title {
@@ -58,7 +58,7 @@
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   margin-bottom: 4px;
 }
 
@@ -87,7 +87,7 @@
   font-family: var(--font-display);
   font-size: 0.75rem;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   line-height: 1;
   margin-bottom: 16px;
   letter-spacing: 0.08em;
@@ -98,7 +98,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3.5vw, 2.25rem);
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   line-height: 1.25;
   max-width: 700px;
   margin: 0;
@@ -127,7 +127,7 @@
   flex-direction: column;
   gap: 0;
   margin-top: 32px;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0 clamp(24px, 3vw, 48px);
 }
@@ -161,7 +161,7 @@
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   margin-bottom: 8px;
   line-height: 1.2;
 }
@@ -169,7 +169,7 @@
 /* Body — the thesis sentence, normal weight */
 .zv-philosophy-principle-body {
   font-size: 1rem;
-  color: #333;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 0;
 }
@@ -179,7 +179,7 @@
  * secondary to the title and body above it. */
 .zv-philosophy-principle-why {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-tertiary);
   line-height: 1.55;
   padding-top: 14px;
   margin-top: 14px;
@@ -218,7 +218,7 @@
   font-family: var(--font-display);
   font-size: 0.7rem;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   background: var(--neon-orange);
   padding: 4px 10px;
   text-decoration: none;
@@ -229,7 +229,7 @@
 }
 
 .zv-philosophy-principle-link:hover {
-  background: #000;
+  background: var(--surface-inverse);
   color: var(--neon-pink);
 }
 

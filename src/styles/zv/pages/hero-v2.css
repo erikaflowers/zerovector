@@ -25,7 +25,7 @@
   display: flex;
   width: 100%;
   aspect-ratio: 16 / 9; /* fluid 1080p — height derives from browser width */
-  background: #ffffff; /* fallback if the video fails to load */
+  background: var(--surface); /* fallback if the video fails to load */
   overflow: hidden;
   min-height: 60vh;
 }
@@ -117,8 +117,8 @@
     font-size: 0.6em;
     line-height: 1;
     letter-spacing: inherit;
-    color: #000;
-    background: #fff;
+    color: var(--text-primary);
+    background: var(--surface);
     clip-path: inset(0 100% 0 0);
     transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -184,7 +184,7 @@
   font-size: 1rem;
   line-height: 1.2;
   letter-spacing: -0.005em;
-  color: #000;
+  color: var(--text-primary);
   background: var(--neon-orange);
   text-decoration: none;
   transition: font-size 0.25s ease-in-out, padding 0.25s ease-in-out;

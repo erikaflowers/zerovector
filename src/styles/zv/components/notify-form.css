@@ -74,7 +74,7 @@
 
 .zv-notify--dark .zv-notify-btn {
   background: #fff;
-  color: #0a0a0a;
+  color: #000;
 }
 
 .zv-notify--dark .zv-notify-btn:hover {
@@ -84,13 +84,13 @@
 
 /* Light variant — for white/light backgrounds */
 .zv-notify--light .zv-notify-input {
-  background: #fff;
-  color: #0a0a0a;
+  background: var(--surface);
+  color: var(--text-primary);
   border-color: rgba(0, 0, 0, 0.15);
 }
 
 .zv-notify--light .zv-notify-input::placeholder {
-  color: #999;
+  color: var(--text-tertiary);
 }
 
 .zv-notify--light .zv-notify-input:focus {
@@ -99,12 +99,12 @@
 }
 
 .zv-notify--light .zv-notify-btn {
-  background: #0a0a0a;
-  color: #fff;
+  background: var(--text-primary);
+  color: var(--surface);
 }
 
 .zv-notify--light .zv-notify-btn:hover {
-  background: #333;
+  background: var(--text-secondary);
   box-shadow: none;
 }
 

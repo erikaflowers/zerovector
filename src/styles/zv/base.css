@@ -6,7 +6,7 @@
 
 /* --- Body defaults for manifesto pages --- */
 body {
-  color: #000;
+  color: var(--text-primary);
   margin: 0;
   min-height: 100vh;
 }
