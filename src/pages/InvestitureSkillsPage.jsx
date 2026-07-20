@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
 import '../styles/inv/index.css';
@@ -16,18 +17,15 @@ function InvestitureSkillsPage() {
   });
 
   return (
-    <div className="inv-page">
+    <div className="zv-page zv-info-page inv-page">
       <Nav />
 
-      {/* Header */}
-      <section className="inv-section">
-        <div className="inv-container">
-          <Animate>
-            <h1 className="inv-section-headline">{inv.skillsPage.title}</h1>
-            <p className="inv-section-body" style={{ marginBottom: 56 }}>{inv.skillsPage.subtitle}</p>
-          </Animate>
-        </div>
-      </section>
+      {/* Hero — standard subpage pattern */}
+      <PageHero
+        eyebrow="Investiture"
+        title={inv.skillsPage.title}
+        subtitle={inv.skillsPage.subtitle}
+      />
 
       {/* Skill Groups */}
       {inv.skillsPage.groups.map((group, gi) => (

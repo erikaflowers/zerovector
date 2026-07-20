@@ -82,7 +82,7 @@
 
 .inv-cta-section {
   text-align: center;
-  padding: 100px 0 140px;
+  padding: clamp(64px, 10vh, 96px) 0 clamp(80px, 12vh, 120px);
 }
 
 .inv-cta-buttons {

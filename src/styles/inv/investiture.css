@@ -11,48 +11,5 @@
   overflow: hidden;
 }
 
-/* --- Hero --- */
-
-.inv-hero {
-  position: relative;
-  padding-top: 64px;
-  padding-bottom: 80px;
-  text-align: center;
-}
-
-.inv-hero-epigraph {
-  font-family: var(--font-mono);
-  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-  color: var(--neon-orange);
-  line-height: 1.8;
-  margin: 0 auto 36px;
-  max-width: 520px;
-}
-
-.inv-hero-ornament {
-  width: 60px;
-  height: 2px;
-  background: var(--text-primary);
-  margin: 0 auto 48px;
-  position: relative;
-}
-
-.inv-hero-ornament::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 7px;
-  height: 7px;
-  background: var(--text-primary);
-}
-
-.inv-hero-creed {
-  font-family: var(--font-mono);
-  font-size: clamp(0.8rem, 1.4vw, 1rem);
-  font-weight: 700;
-  color: var(--text-tertiary);
-  letter-spacing: 0.2em;
-  margin: 0;
-}
+/* Hero: the page uses the shared PageHero component (see
+ * components/page-hero.css) like every other subpage. */

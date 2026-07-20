@@ -7,33 +7,6 @@
  * Imported after components and pages so that hover/state overrides
  * win via source order. Ends with a reduced-motion mirror. */
 
-/* --- Delight: Hero Entrance Choreography --- */
-
-.inv-hero .inv-hero-epigraph,
-.inv-hero .inv-hero-ornament,
-.inv-hero .inv-hero-prompt-whisper,
-.inv-hero .inv-hero-prompt,
-.inv-hero .inv-hero-creed {
-  animation: inv-hero-enter 0.4s var(--ease-out) both;
-}
-
-.inv-hero .inv-hero-epigraph { animation-delay: 0.1s; }
-.inv-hero .inv-hero-ornament { animation-delay: 0.2s; }
-.inv-hero .inv-hero-prompt-whisper { animation-delay: 0.3s; }
-.inv-hero .inv-hero-prompt { animation-delay: 0.35s; }
-.inv-hero .inv-hero-creed { animation-delay: 0.5s; }
-
-@keyframes inv-hero-enter {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* --- Delight: Buttons --- */
 
 .inv-btn {
@@ -95,15 +68,6 @@
 /* --- Delight: Reduced Motion --- */
 
 @media (prefers-reduced-motion: reduce) {
-  .inv-hero .inv-hero-epigraph,
-  .inv-hero .inv-hero-ornament,
-  .inv-hero .inv-hero-prompt-whisper,
-  .inv-hero .inv-hero-prompt,
-  .inv-hero .inv-hero-creed {
-    animation: none;
-    opacity: 1;
-  }
-  .inv-hero-prompt-cursor,
   .inv-terminal-cursor {
     animation: none;
   }

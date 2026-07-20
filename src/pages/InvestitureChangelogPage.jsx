@@ -1,5 +1,6 @@
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import PageHero from '../components/PageHero';
 import useSEO from '../hooks/useSEO';
 import '../styles/inv/index.css';
 import en from '../content/en';
@@ -14,14 +15,18 @@ function InvestitureChangelogPage() {
   });
 
   return (
-    <div className="inv-page">
+    <div className="zv-page zv-info-page inv-page">
       <Nav />
+
+      {/* Hero — standard subpage pattern */}
+      <PageHero
+        eyebrow="Investiture"
+        title={inv.changelog.title}
+        subtitle={inv.changelog.subtitle}
+      />
 
       <section className="inv-section inv-changelog-section">
         <div className="inv-container">
-          <h1 className="inv-section-headline">{inv.changelog.title}</h1>
-          <p className="inv-section-body" style={{ marginBottom: 56 }}>{inv.changelog.subtitle}</p>
-
           <div className="inv-changelog-entries">
             {inv.changelog.versions.map((ver, i) => (
               <div key={i} className="inv-changelog-entry">

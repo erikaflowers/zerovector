@@ -12,8 +12,9 @@
 
 /* --- Layout --- */
 
+/* Match the info-page vertical rhythm (see zv/base.css) */
 .inv-section {
-  padding: 80px 0;
+  padding: clamp(40px, 6vh, 64px) 0;
 }
 
 .inv-container {

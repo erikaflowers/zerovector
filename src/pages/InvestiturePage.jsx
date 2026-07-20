@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
 import '../styles/inv/index.css';
@@ -11,9 +12,6 @@ const { investiture: inv } = en;
 
 function InvestiturePage() {
   const [copiedIdx, setCopiedIdx] = useState(null);
-  const [heroInput, setHeroInput] = useState('Investiture');
-  const [promptFocused, setPromptFocused] = useState(false);
-  const promptRef = useRef(null);
 
   const copyCmd = (cmd, idx) => {
     navigator.clipboard.writeText(cmd);
@@ -37,53 +35,15 @@ function InvestiturePage() {
   }, []);
 
   return (
-    <div className="inv-page">
+    <div className="zv-page zv-info-page inv-page">
       <Nav />
 
-      {/* Hero */}
-      <section className="inv-section inv-hero">
-        <div className="inv-container">
-          <p className="inv-hero-epigraph">{inv.hero.epigraph[0]}<br />{inv.hero.epigraph[1]}</p>
-          <div className="inv-hero-ornament" aria-hidden="true" />
-          <h1 className="inv-sr-only">Investiture</h1>
-          {/* The title IS a prompt — Investiture is something you build */}
-          <div className="inv-hero-prompt-whisper" aria-hidden="true">"Say the words..."</div>
-          <label
-            className={`inv-hero-prompt${promptFocused ? ' inv-hero-prompt--focused' : ''}`}
-            onClick={() => promptRef.current?.focus()}
-          >
-            <span className="inv-hero-prompt-char" aria-hidden="true">&gt;</span>
-            <input
-              ref={promptRef}
-              className="inv-hero-prompt-input"
-              type="text"
-              value={heroInput}
-              onChange={(e) => setHeroInput(e.target.value)}
-              onFocus={() => {
-                setPromptFocused(true);
-                if (heroInput === 'Investiture') setHeroInput('');
-              }}
-              onBlur={() => {
-                setPromptFocused(false);
-                if (!heroInput.trim()) setHeroInput('Investiture');
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && heroInput.trim() && heroInput !== 'Investiture') {
-                  e.target.blur();
-                }
-              }}
-              placeholder="What will you build?"
-              aria-label="Investiture: what will you build?"
-              spellCheck={false}
-              autoComplete="off"
-            />
-            {!promptFocused && heroInput === 'Investiture' && (
-              <span className="inv-hero-prompt-cursor" aria-hidden="true">_</span>
-            )}
-          </label>
-          <p className="inv-hero-creed">{inv.hero.subtitle}</p>
-        </div>
-      </section>
+      {/* Hero — standard subpage pattern (see PhilosophyPage) */}
+      <PageHero
+        eyebrow={inv.hero.label}
+        title={inv.hero.title}
+        subtitle={`${inv.hero.epigraph[0]} ${inv.hero.epigraph[1]}`}
+      />
 
       {/* CTA — Start Building (inverted) */}
       <section className="inv-section" style={{ paddingTop: 0 }}>
