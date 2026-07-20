@@ -1,40 +1,37 @@
 /* Investiture — Quickstart + Hero Prompt
  * The quickstart terminal (inv-terminal--hero variant, alt commands,
  * copy states) and the hero prompt input shown as the title.
- * Also the inv-sr-only visually-hidden helper. */
+ * Also the inv-sr-only visually-hidden helper. Quickstart lives
+ * inside a .zv-invert section, so semantic tokens resolve dark. */
 
 /* --- Quick Start --- */
 
 .inv-quickstart-headline {
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 600;
-  color: #c9a84c;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
   margin: 0 0 12px;
 }
 
 .inv-quickstart-intro {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 1.05rem;
-  color: #c0b99a;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0 0 24px;
 }
 
-.inv-terminal--hero {
-  border: 1px solid rgba(201, 168, 76, 0.3);
-}
-
 .inv-terminal--hero .inv-terminal-cmd {
-  color: #c9a84c;
-  font-weight: 600;
+  color: #fff;
+  font-weight: 700;
   font-size: 1.1rem;
 }
 
 .inv-quickstart-alt {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.9rem;
-  color: #6b7a94;
+  color: var(--text-tertiary);
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -42,52 +39,51 @@
 }
 
 .inv-quickstart-alt-label {
-  color: #8a9ab5;
+  color: var(--text-secondary);
 }
 
 .inv-quickstart-alt-cmd {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: #5facc8;
-  background: rgba(95, 172, 200, 0.08);
+  color: var(--text-primary);
+  background: var(--surface);
+  border: var(--border);
   padding: 8px 14px;
-  border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  transition: background 0.2s;
+  transition: background var(--duration-fast), box-shadow var(--duration-fast);
   word-break: break-all;
 }
 
 .inv-quickstart-alt-cmd:hover {
-  background: rgba(95, 172, 200, 0.15);
+  box-shadow: var(--shadow-hard);
 }
 
 .inv-quickstart-alt-hint {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.75rem;
-  color: #6b7a94;
+  color: var(--text-tertiary);
   white-space: nowrap;
   flex-shrink: 0;
-  transition: color 0.2s;
+  transition: color var(--duration-fast);
 }
 
 .inv-quickstart-alt-cmd:hover .inv-quickstart-alt-hint {
-  color: #8a9ab5;
+  color: var(--text-secondary);
 }
 
 .inv-quickstart-alt-cmd--copied .inv-quickstart-alt-hint {
-  color: #c9a84c;
+  color: var(--neon-green);
 }
 
 /* "Say the words..." whisper */
 .inv-hero-prompt-whisper {
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-size: clamp(0.85rem, 1.5vw, 1rem);
-  font-style: italic;
-  color: rgba(201, 168, 76, 0.35);
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+  color: var(--text-muted);
   margin-bottom: 16px;
   letter-spacing: 0.03em;
 }
@@ -102,37 +98,34 @@
   cursor: text;
   max-width: calc(100% - 48px);
   box-sizing: border-box;
-  background: rgba(6, 12, 24, 0.6);
-  border: 1px solid rgba(201, 168, 76, 0.1);
-  border-radius: 12px;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: var(--surface-inverse);
+  border: var(--border);
+  transition: box-shadow var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
 }
 
 .inv-hero-prompt:hover {
-  border-color: rgba(201, 168, 76, 0.25);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 168, 76, 0.04);
+  box-shadow: var(--shadow-hard);
 }
 
 .inv-hero-prompt--focused {
-  border-color: rgba(201, 168, 76, 0.4);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 30px rgba(201, 168, 76, 0.06);
+  box-shadow: var(--shadow-hard-lg);
+  transform: translate(-2px, -2px);
 }
 
 .inv-hero-prompt-char {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: clamp(2rem, 5vw, 3.25rem);
-  color: rgba(200, 90, 68, 0.5);
+  color: var(--neon-green);
   flex-shrink: 0;
   user-select: none;
   line-height: 1;
 }
 
 .inv-hero-prompt-input {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 500;
-  color: #c9a84c;
+  font-weight: 700;
+  color: var(--surface);
   background: transparent;
   border: none;
   outline: none;
@@ -140,22 +133,19 @@
   min-width: 0;
   width: 22ch;
   max-width: 60vw;
-  caret-color: #c9a84c;
+  caret-color: var(--neon-green);
   line-height: 1;
 }
 
 .inv-hero-prompt-input::placeholder {
-  color: rgba(201, 168, 76, 0.2);
-  font-style: italic;
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-weight: 400;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .inv-hero-prompt-cursor {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 500;
-  color: #c9a84c;
+  font-weight: 700;
+  color: var(--neon-green);
   animation: inv-prompt-blink 1s step-end infinite;
   user-select: none;
   flex-shrink: 0;

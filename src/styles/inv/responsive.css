@@ -12,7 +12,7 @@
   }
 
   .inv-hero {
-    padding-top: calc(56px + 80px);
+    padding-top: 48px;
     padding-bottom: 56px;
   }
 
@@ -47,15 +47,6 @@
 
   .inv-rule {
     margin-bottom: 40px;
-  }
-
-  .inv-nav-brand {
-    font-size: 12px;
-  }
-
-  .inv-nav-center .inv-nav-btn {
-    font-size: 11px;
-    padding: 4px 10px;
   }
 
   .inv-terminal-line {

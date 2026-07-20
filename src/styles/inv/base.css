@@ -1,34 +1,13 @@
 /* Investiture — Base
- * Page root, blueprint grid background, layering, section/container
- * primitives, rule dividers (including the diamond ornament variant). */
-
-/* ===================================================================
-   INVESTITURE PAGE — Deep Blue + Gold Premium Scaffold Showcase
-   =================================================================== */
+ * Page root, section/container primitives, rule dividers (including
+ * the diamond ornament variant). Orbital Brutalism: white-first,
+ * dark sections opt in via .zv-invert in the JSX. */
 
 .inv-page {
   position: relative;
-  background: #0a1628;
-  color: #e8e0d0;
+  background: var(--surface);
+  color: var(--text-primary);
   min-height: 100vh;
-}
-
-/* Blueprint grid background */
-.inv-page::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(rgba(201, 168, 76, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 168, 76, 0.025) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.inv-page > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* --- Layout --- */
@@ -46,9 +25,8 @@
 .inv-rule {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(201, 168, 76, 0.25) 20%, rgba(201, 168, 76, 0.25) 80%, transparent 100%);
+  background: var(--text-primary);
   margin-bottom: 56px;
-  box-shadow: 0 0 16px rgba(201, 168, 76, 0.06), 0 0 4px rgba(201, 168, 76, 0.04);
 }
 
 /* Diamond ornament on quote rule */
@@ -65,7 +43,5 @@
   transform: translateX(-50%) rotate(45deg);
   width: 12px;
   height: 12px;
-  background: #c85a44;
-  opacity: 0.55;
-  box-shadow: 0 0 20px rgba(200, 90, 68, 0.3);
+  background: var(--text-primary);
 }

@@ -1,23 +1,25 @@
 /* Investiture — File Tree, Reading Order, Roadmap Badge
  * The tangible "What You Get" components: inv-filetree ascii tree,
  * numbered inv-reading-step list, and the small inv-roadmap-version
- * and inv-roadmap-shipped badges used nearby. */
+ * and inv-roadmap-shipped badges used nearby. These live inside a
+ * .zv-invert section, so semantic tokens resolve dark-scope. */
 
 /* --- File Tree (What You Get) --- */
 
 .inv-filetree-wrapper {
-  background: #080e1a;
-  border: 1px solid rgba(201, 168, 76, 0.2);
+  background: #000;
+  border: 1px solid #fff;
+  box-shadow: var(--shadow-hard);
   overflow: hidden;
   margin-bottom: 48px;
   box-sizing: border-box;
 }
 
 .inv-filetree {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   line-height: 1.9;
-  color: #e8d89c;
+  color: #fff;
   padding: 24px;
   margin: 0;
   white-space: pre;
@@ -37,15 +39,14 @@
   display: flex;
   gap: 32px;
   align-items: flex-start;
-  background: rgba(10, 22, 40, 0.8);
-  border: 1px solid rgba(201, 168, 76, 0.12);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
   padding: 28px 32px;
-  transition: border-color 0.3s var(--ease-out);
+  transition: border-color var(--duration-fast) var(--ease-out);
 }
 
 .inv-reading-step:hover {
-  border-color: rgba(95, 172, 200, 0.25);
-  box-shadow: inset 4px 0 30px -12px rgba(95, 172, 200, 0.1);
+  border-color: var(--neon-green);
 }
 
 .inv-reading-step + .inv-reading-step {
@@ -53,21 +54,18 @@
 }
 
 .inv-reading-step-number {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 300;
-  color: #5facc8;
-  opacity: 0.35;
+  font-weight: 700;
+  color: var(--text-tertiary);
   flex-shrink: 0;
   width: 64px;
   line-height: 1;
-  text-shadow: 0 0 30px rgba(95, 172, 200, 0.1);
-  transition: opacity 0.3s var(--ease-out), text-shadow 0.3s var(--ease-out);
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .inv-reading-step:hover .inv-reading-step-number {
-  opacity: 0.6;
-  text-shadow: 0 0 40px rgba(95, 172, 200, 0.25);
+  color: var(--neon-green);
 }
 
 .inv-reading-step-content {
@@ -76,26 +74,26 @@
 }
 
 .inv-reading-step-file {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 1rem;
-  font-weight: 600;
-  color: #c9a84c;
+  font-weight: 700;
+  color: var(--text-primary);
   margin: 0 0 6px;
   letter-spacing: 0.02em;
 }
 
 .inv-reading-step-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.95rem;
-  color: #8a9ab5;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
 }
 
 .inv-reading-caption {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.9rem;
-  color: rgba(201, 168, 76, 0.5);
+  color: var(--text-muted);
   font-style: italic;
   margin-top: 20px;
 }
@@ -104,12 +102,12 @@
 
 .inv-roadmap-version {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 500;
-  color: #c9a84c;
+  font-weight: 700;
+  color: var(--text-primary);
   letter-spacing: 0.08em;
-  border: 1px solid rgba(201, 168, 76, 0.3);
+  border: var(--border);
   padding: 3px 10px;
   margin-bottom: 14px;
 }
@@ -118,15 +116,16 @@
 
 .inv-roadmap-shipped {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 10px;
-  font-weight: 600;
-  color: #c85a44;
+  font-weight: 700;
+  color: var(--surface);
+  background: var(--surface-inverse);
+  padding: 2px 8px;
   letter-spacing: 0.1em;
   margin-left: 8px;
 }
 
 .inv-card--shipped {
-  border-color: rgba(201, 168, 76, 0.2);
   opacity: 0.75;
 }

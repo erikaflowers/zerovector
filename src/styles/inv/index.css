@@ -1,9 +1,9 @@
 /* Zero-Vector Design — Investiture Design System Entry
  *
- * All inv-* prefixed rules for the Investiture standalone pages
+ * All inv-* prefixed rules for the Investiture pages
  * (/investiture, /investiture/skills, /investiture/changelog).
- * Imported by InvestiturePage.jsx, InvestitureSkillsPage.jsx,
- * InvestitureChangelogPage.jsx — these pages bypass SiteLayout.
+ * These pages live inside SiteLayout and wear the Orbital
+ * Brutalism skin from shared/tokens.css.
  *
  * This file is just a cascade-order index. Each partial is under
  * 500 lines and handles a single concern. Add new rules to the
@@ -14,6 +14,7 @@
 @import '../shared/tokens.css';
 @import '../shared/invert.css';
 @import '../shared/reset.css';
+@import '../shared/fonts.css';
 @import '../shared/scroll-reveal.css';
 
 /* Base + bridge */
@@ -21,9 +22,7 @@
 @import './scroll-reveal-bridge.css';
 
 /* Cross-component primitives */
-@import './atmospheric.css';
 @import './typography.css';
-@import './nav.css';
 
 /* Components */
 @import './card.css';

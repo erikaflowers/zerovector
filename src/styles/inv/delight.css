@@ -1,35 +1,32 @@
 /* Investiture — Delight Layer
- * Choreographed hero entrance, button hover lift/press, nav brand
- * shimmer, and terminal click-to-copy states. All the interactions
- * that turn functional chrome into something that feels alive.
+ * Choreographed hero entrance, button hover, and terminal
+ * click-to-copy states. OB motion: mechanical — 150ms for state
+ * changes, ~0.4s only for entrance reveals. No shimmer, no lift
+ * floatiness; hovers are hard shadow-grows.
  *
  * Imported after components and pages so that hover/state overrides
- * win via source order. Ends with a reduced-motion mirror that
- * suppresses the delight animations only. Atmospheric reduced-motion
- * lives in atmospheric.css. */
+ * win via source order. Ends with a reduced-motion mirror. */
 
 /* --- Delight: Hero Entrance Choreography --- */
 
-.inv-hero .inv-label,
 .inv-hero .inv-hero-epigraph,
 .inv-hero .inv-hero-ornament,
 .inv-hero .inv-hero-prompt-whisper,
 .inv-hero .inv-hero-prompt,
 .inv-hero .inv-hero-creed {
-  animation: inv-hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: inv-hero-enter 0.4s var(--ease-out) both;
 }
 
-.inv-hero .inv-label { animation-delay: 0.1s; }
-.inv-hero .inv-hero-epigraph { animation-delay: 0.3s; }
-.inv-hero .inv-hero-ornament { animation-delay: 0.5s; }
-.inv-hero .inv-hero-prompt-whisper { animation-delay: 0.65s; }
-.inv-hero .inv-hero-prompt { animation-delay: 0.7s; }
-.inv-hero .inv-hero-creed { animation-delay: 0.95s; }
+.inv-hero .inv-hero-epigraph { animation-delay: 0.1s; }
+.inv-hero .inv-hero-ornament { animation-delay: 0.2s; }
+.inv-hero .inv-hero-prompt-whisper { animation-delay: 0.3s; }
+.inv-hero .inv-hero-prompt { animation-delay: 0.35s; }
+.inv-hero .inv-hero-creed { animation-delay: 0.5s; }
 
 @keyframes inv-hero-enter {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -37,76 +34,48 @@
   }
 }
 
-/* --- Delight: Button Hover Lift + Active Press --- */
+/* --- Delight: Buttons --- */
 
 .inv-btn {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 14px 28px;
-  border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.inv-btn:hover {
-  transform: translateY(-2px);
+  transition: background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 }
 
 .inv-btn:active {
-  transform: translateY(1px);
+  transform: translate(1px, 1px);
   transition-duration: 0.08s;
-}
-
-/* --- Delight: Nav Brand Shimmer --- */
-
-.inv-nav-brand {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  font-weight: 500;
-  color: #c9a84c;
-  letter-spacing: 0.06em;
-  background: linear-gradient(
-    120deg,
-    #c9a84c 0%, #c9a84c 40%,
-    #e8d89c 50%,
-    #c9a84c 60%, #c9a84c 100%
-  );
-  background-size: 200% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: inv-shimmer 4s ease-in-out infinite;
-}
-
-@keyframes inv-shimmer {
-  0%, 100% { background-position: 100% 50%; }
-  50% { background-position: 0% 50%; }
 }
 
 /* --- Delight: Terminal Click-to-Copy Lines --- */
 
 .inv-terminal-line--copyable {
   cursor: pointer;
-  border-radius: 4px;
   padding: 4px 8px;
   margin-left: -8px;
   margin-right: -8px;
   position: relative;
-  transition: background 0.2s ease;
+  transition: background var(--duration-fast) ease;
 }
 
 .inv-terminal-line--copyable:hover {
-  background: rgba(201, 168, 76, 0.06);
+  background: rgba(0, 255, 128, 0.1);
 }
 
 .inv-terminal-copy-hint {
   margin-left: auto;
   font-size: 11px;
-  color: rgba(201, 168, 76, 0.3);
+  color: rgba(255, 255, 255, 0.35);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--duration-fast) ease;
   flex-shrink: 0;
 }
 
@@ -116,17 +85,16 @@
 
 .inv-terminal-line--copied .inv-terminal-copy-hint {
   opacity: 1;
-  color: #c9a84c;
+  color: var(--neon-green);
 }
 
 .inv-terminal-line--copied {
-  background: rgba(201, 168, 76, 0.08);
+  background: rgba(0, 255, 128, 0.12);
 }
 
 /* --- Delight: Reduced Motion --- */
 
 @media (prefers-reduced-motion: reduce) {
-  .inv-hero .inv-label,
   .inv-hero .inv-hero-epigraph,
   .inv-hero .inv-hero-ornament,
   .inv-hero .inv-hero-prompt-whisper,
@@ -135,18 +103,11 @@
     animation: none;
     opacity: 1;
   }
-  .inv-hero::before {
-    animation: none;
-    opacity: 1;
-  }
-  .inv-hero-prompt-cursor {
+  .inv-hero-prompt-cursor,
+  .inv-terminal-cursor {
     animation: none;
   }
-  .inv-nav-brand {
-    animation: none;
-    background-position: 0% 50%;
-  }
-  .inv-btn:hover {
+  .inv-btn:active {
     transform: none;
   }
 }

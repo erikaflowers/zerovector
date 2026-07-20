@@ -1,13 +1,17 @@
 /* Investiture — Terminal Component
- * The inv-terminal chrome (bar, dots, title, body, lines, cursor) and
- * the inv-blink keyframe. The inv-terminal-dots gem pulse lives in
- * atmospheric.css; copy-state hover styling lives in delight.css. */
+ * The inv-terminal chrome (bar, dots, title, body, lines, cursor)
+ * and the inv-blink keyframe. OB: black terminal, hard border +
+ * shadow, square dots, neon-green prompt/cursor. Terminals are
+ * always dark, on white or black sections alike — literals, not
+ * tokens, so they don't flip inside .zv-invert. */
 
 /* --- Terminal --- */
 
 .inv-terminal {
-  background: #080e1a;
-  border: 1px solid rgba(201, 168, 76, 0.2);
+  background: #000;
+  border: 1px solid #fff;
+  outline: 1px solid #000;
+  box-shadow: var(--shadow-hard);
   overflow: hidden;
 }
 
@@ -15,8 +19,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(201, 168, 76, 0.06);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   padding: 10px 20px;
 }
 
@@ -28,17 +32,13 @@
 .inv-terminal-dots span {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
 }
 
-.inv-terminal-dots span:nth-child(1) { background: #c85a44; opacity: 0.7; }
-.inv-terminal-dots span:nth-child(2) { background: #c9a84c; opacity: 0.5; }
-.inv-terminal-dots span:nth-child(3) { background: #5facc8; opacity: 0.5; }
-
 .inv-terminal-title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
-  color: rgba(232, 224, 208, 0.3);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .inv-terminal-body {
@@ -50,7 +50,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 14px;
   line-height: 1.6;
 }
@@ -60,12 +60,12 @@
 }
 
 .inv-terminal-prompt {
-  color: #5facc8;
+  color: var(--neon-green);
   flex-shrink: 0;
 }
 
 .inv-terminal-cmd {
-  color: #e8d89c;
+  color: #fff;
   word-break: break-all;
 }
 
@@ -73,7 +73,7 @@
   display: inline-block;
   width: 8px;
   height: 16px;
-  background: #c9a84c;
+  background: var(--neon-green);
   animation: inv-blink 1.2s step-end infinite;
 }
 
