@@ -158,7 +158,7 @@
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: #0a0a0a;
+  color: var(--text-primary);
   background: #00ff88;
   padding: 3px 10px;
   border-radius: 0;
