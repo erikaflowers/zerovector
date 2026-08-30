@@ -7,29 +7,6 @@
 /* --- Responsive: 768px --- */
 
 @media (max-width: 768px) {
-  .inv-section {
-    padding: 56px 0;
-  }
-
-  .inv-hero {
-    padding-top: calc(56px + 80px);
-    padding-bottom: 56px;
-  }
-
-  .inv-hero-prompt-input,
-  .inv-hero-prompt-char,
-  .inv-hero-prompt-cursor {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-  }
-
-  .inv-hero-prompt-input {
-    width: 14ch;
-  }
-
-  .inv-hero-epigraph {
-    font-size: 1rem;
-  }
-
   .inv-two-col,
   .inv-three-col {
     grid-template-columns: 1fr;
@@ -47,15 +24,6 @@
 
   .inv-rule {
     margin-bottom: 40px;
-  }
-
-  .inv-nav-brand {
-    font-size: 12px;
-  }
-
-  .inv-nav-center .inv-nav-btn {
-    font-size: 11px;
-    padding: 4px 10px;
   }
 
   .inv-terminal-line {
@@ -94,20 +62,6 @@
 /* --- Responsive: 480px --- */
 
 @media (max-width: 480px) {
-  .inv-hero-prompt-input,
-  .inv-hero-prompt-char,
-  .inv-hero-prompt-cursor {
-    font-size: clamp(1.25rem, 6vw, 2rem);
-  }
-
-  .inv-hero-prompt-input {
-    width: 12ch;
-  }
-
-  .inv-hero-creed {
-    letter-spacing: 0.12em;
-  }
-
   .inv-card {
     padding: 24px 20px;
   }

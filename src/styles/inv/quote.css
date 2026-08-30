@@ -1,21 +1,21 @@
 /* Investiture — Quote Section
  * Centered pull-quote block with smart-quote glyphs, citation and
- * contextual aftertext. The diamond glow breathe effect lives in
- * atmospheric.css (inv-rule--diamond::after). */
+ * contextual aftertext. OB: display-face quote in ink, Courier
+ * orange citation. */
 
 /* --- Quote --- */
 
 .inv-quote-section {
   text-align: center;
-  padding: 120px 0;
+  padding: clamp(64px, 10vh, 96px) 0;
 }
 
 .inv-quote {
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
-  font-style: italic;
-  color: #e8e0d0;
-  line-height: 1.6;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
   margin: 0 auto 24px;
 }
 
@@ -24,17 +24,17 @@
 
 .inv-cite {
   display: block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   font-style: normal;
-  color: #5facc8;
+  color: var(--neon-orange);
   letter-spacing: 0.05em;
 }
 
 .inv-context {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.95rem;
-  color: rgba(232, 224, 208, 0.35);
+  color: var(--text-tertiary);
   line-height: 1.7;
   margin: 48px auto 0;
   text-align: center;

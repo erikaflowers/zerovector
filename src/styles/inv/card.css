@@ -1,6 +1,8 @@
 /* Investiture — Card Component
- * The inv-card component, its gold and steel variants, the three-col
- * grid wrapper. Hover light-leak effect lives in atmospheric.css. */
+ * The inv-card component and the three-col grid wrapper. OB: white
+ * card, hard border + offset shadow, shadow-grow on hover. The old
+ * gold/steel variants collapse to the base card (classnames remain
+ * as no-ops so the JSX stays untouched). */
 
 /* --- Cards --- */
 
@@ -12,54 +14,30 @@
 
 .inv-card {
   position: relative;
-  overflow: hidden;
-  background: rgba(201, 168, 76, 0.03);
-  border: 1px solid rgba(201, 168, 76, 0.1);
+  background: var(--surface);
+  border: var(--border);
+  box-shadow: var(--shadow-hard);
   padding: 36px 32px;
-  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
-}
-
-.inv-card--gold::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(201, 168, 76, 0.7), rgba(201, 168, 76, 0.05));
-}
-
-.inv-card--steel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(95, 172, 200, 0.6), rgba(95, 172, 200, 0.05));
+  transition: box-shadow var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
 }
 
 .inv-card:hover {
-  border-color: rgba(201, 168, 76, 0.25);
-  box-shadow: inset 4px 0 30px -12px rgba(201, 168, 76, 0.1);
+  box-shadow: var(--shadow-hard-lg);
+  transform: translate(-2px, -2px);
 }
 
 .inv-card-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 700;
-  color: #c9a84c;
+  color: var(--text-primary);
   margin: 0 0 16px;
 }
 
-.inv-card--steel .inv-card-title {
-  color: #5facc8;
-}
-
 .inv-card-body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.95rem;
-  color: #8a9ab5;
+  color: var(--text-secondary);
   line-height: 1.8;
   margin: 0;
 }

@@ -5,7 +5,7 @@
 /* --- Investiture Changelog Page --- */
 
 .inv-changelog-section {
-  padding-top: calc(56px + 80px);
+  padding-top: 0;
 }
 
 .inv-changelog-entries {
@@ -16,18 +16,18 @@
 
 .inv-changelog-entry {
   padding: 36px 32px;
-  border: 1px solid rgba(201, 168, 76, 0.1);
+  border: var(--border);
   border-bottom: none;
-  background: rgba(201, 168, 76, 0.02);
-  transition: border-color 0.3s var(--ease-out);
+  background: var(--surface);
+  transition: background var(--duration-fast) var(--ease-out);
 }
 
 .inv-changelog-entry:last-child {
-  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+  border-bottom: var(--border);
 }
 
 .inv-changelog-entry:hover {
-  border-color: rgba(201, 168, 76, 0.25);
+  background: var(--surface-raised);
 }
 
 .inv-changelog-entry-meta {
@@ -38,9 +38,9 @@
 }
 
 .inv-changelog-entry-date {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
-  color: #8a9ab5;
+  color: var(--text-tertiary);
 }
 
 .inv-changelog-list {
@@ -50,9 +50,9 @@
 }
 
 .inv-changelog-list li {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.9rem;
-  color: #8a9ab5;
+  color: var(--text-secondary);
   line-height: 1.7;
   padding: 4px 0 4px 16px;
   position: relative;
@@ -62,5 +62,5 @@
   content: '\2192';
   position: absolute;
   left: 0;
-  color: rgba(95, 172, 200, 0.5);
+  color: var(--neon-orange);
 }

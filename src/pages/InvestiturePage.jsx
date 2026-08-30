@@ -1,32 +1,23 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
-import useBodyTheme from '../hooks/useBodyTheme';
-import useFonts from '../hooks/useFonts';
 import '../styles/inv/index.css';
 import en from '../content/en';
-
-const INV_FONT = 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap';
 
 const { investiture: inv } = en;
 
 function InvestiturePage() {
-  const { pathname } = useLocation();
   const [copiedIdx, setCopiedIdx] = useState(null);
-  const [heroInput, setHeroInput] = useState('Investiture');
-  const [promptFocused, setPromptFocused] = useState(false);
-  const promptRef = useRef(null);
 
   const copyCmd = (cmd, idx) => {
     navigator.clipboard.writeText(cmd);
     setCopiedIdx(idx);
     setTimeout(() => setCopiedIdx(null), 1800);
   };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   useSEO({
     title: 'Investiture',
@@ -35,87 +26,24 @@ function InvestiturePage() {
     ogImage: 'https://zerovector.design/og/investiture.png',
   });
 
-  useBodyTheme({ background: '#0a1628', color: '#e8e0d0' });
-  useFonts([INV_FONT]);
-
   useEffect(() => {
     console.log(
       '%c"The most important step a man can take is the next one." %c- Dalinar Kholin',
-      'color: #c9a84c; font-size: 14px; font-style: italic;',
-      'color: #8a9ab5; font-size: 12px;'
+      'color: #000; font-size: 14px; font-style: italic;',
+      'color: #666; font-size: 12px;'
     );
   }, []);
 
   return (
-    <div className="inv-page">
-      {/* Stormlight — floating spren particles */}
-      <div className="inv-stormlight" aria-hidden="true">
-        {Array.from({ length: 24 }, (_, i) => (
-          <span key={i} className="inv-spren" style={{ '--spren': i }} />
-        ))}
-      </div>
+    <div className="zv-page zv-info-page inv-page">
+      <Nav />
 
-      {/* Nav */}
-      <nav className="inv-nav">
-        <div className="inv-nav-inner">
-          <div className="inv-nav-left">
-            <Link to="/" className="inv-nav-back">{inv.nav.back}</Link>
-            <span className="inv-nav-sep" aria-hidden="true">|</span>
-            <span className="inv-nav-brand">{inv.nav.brand}</span>
-          </div>
-          <div className="inv-nav-center">
-            <a href={inv.cta.primaryUrl} target="_blank" rel="noopener noreferrer" className="inv-nav-btn">{inv.cta.primaryCta}</a>
-            <a href="https://open.zerovector.design/learn/curriculum/03-the-pipeline/investiture" className="inv-nav-btn inv-nav-btn--outline">Learn</a>
-            <Link to="/investiture/changelog" className="inv-nav-btn inv-nav-btn--outline">{inv.nav.changelog}</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="inv-section inv-hero">
-        <div className="inv-container">
-          <div className="inv-hero-glow" aria-hidden="true" />
-          <p className="inv-hero-epigraph">{inv.hero.epigraph[0]}<br />{inv.hero.epigraph[1]}</p>
-          <div className="inv-hero-ornament" aria-hidden="true" />
-          <h1 className="inv-sr-only">Investiture</h1>
-          {/* The title IS a prompt — Investiture is something you build */}
-          <div className="inv-hero-prompt-whisper" aria-hidden="true">"Say the words..."</div>
-          <label
-            className={`inv-hero-prompt${promptFocused ? ' inv-hero-prompt--focused' : ''}`}
-            onClick={() => promptRef.current?.focus()}
-          >
-            <span className="inv-hero-prompt-char" aria-hidden="true">&gt;</span>
-            <input
-              ref={promptRef}
-              className="inv-hero-prompt-input"
-              type="text"
-              value={heroInput}
-              onChange={(e) => setHeroInput(e.target.value)}
-              onFocus={() => {
-                setPromptFocused(true);
-                if (heroInput === 'Investiture') setHeroInput('');
-              }}
-              onBlur={() => {
-                setPromptFocused(false);
-                if (!heroInput.trim()) setHeroInput('Investiture');
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && heroInput.trim() && heroInput !== 'Investiture') {
-                  e.target.blur();
-                }
-              }}
-              placeholder="What will you build?"
-              aria-label="Investiture: what will you build?"
-              spellCheck={false}
-              autoComplete="off"
-            />
-            {!promptFocused && heroInput === 'Investiture' && (
-              <span className="inv-hero-prompt-cursor" aria-hidden="true">_</span>
-            )}
-          </label>
-          <p className="inv-hero-creed">{inv.hero.subtitle}</p>
-        </div>
-      </section>
+      {/* Hero — standard subpage pattern (see PhilosophyPage) */}
+      <PageHero
+        eyebrow={inv.hero.label}
+        title={inv.hero.title}
+        subtitle={`${inv.hero.epigraph[0]} ${inv.hero.epigraph[1]}`}
+      />
 
       {/* CTA — Start Building (inverted) */}
       <section className="inv-section" style={{ paddingTop: 0 }}>
@@ -183,7 +111,7 @@ function InvestiturePage() {
       </section>
 
       {/* What You Get — file tree + reading order */}
-      <section className="inv-section inv-section--blueprint">
+      <section className="inv-section inv-section--blueprint zv-invert">
         <div className="inv-container">
           <Animate>
             <div className="inv-label">{inv.whatYouGet.label}</div>
@@ -229,7 +157,7 @@ function InvestiturePage() {
       </section>
 
       {/* Quick Start */}
-      <section className="inv-section inv-section--blueprint">
+      <section className="inv-section inv-section--blueprint zv-invert">
         <div className="inv-container">
           <Animate>
             <div className="inv-label">{inv.quickstart.label}</div>
@@ -368,6 +296,8 @@ function InvestiturePage() {
           </Animate>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

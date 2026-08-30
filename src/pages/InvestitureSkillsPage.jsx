@@ -1,63 +1,31 @@
-import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+import PageHero from '../components/PageHero';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
-import useBodyTheme from '../hooks/useBodyTheme';
-import useFonts from '../hooks/useFonts';
 import '../styles/inv/index.css';
 import en from '../content/en';
-
-const INV_FONT = 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap';
 
 const { investiture: inv } = en;
 
 function InvestitureSkillsPage() {
-  const { pathname } = useLocation();
-
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
-
   useSEO({
     title: 'Skills | Investiture',
     description: 'Full reference for all eight Investiture skills — doctrine chain and audit chain.',
     path: '/investiture/skills',
   });
 
-  useBodyTheme({ background: '#0a1628', color: '#e8e0d0' });
-  useFonts([INV_FONT]);
-
   return (
-    <div className="inv-page">
-      {/* Stormlight — floating spren particles */}
-      <div className="inv-stormlight" aria-hidden="true">
-        {Array.from({ length: 24 }, (_, i) => (
-          <span key={i} className="inv-spren" style={{ '--spren': i }} />
-        ))}
-      </div>
+    <div className="zv-page zv-info-page inv-page">
+      <Nav />
 
-      {/* Nav */}
-      <nav className="inv-nav">
-        <div className="inv-nav-inner">
-          <div className="inv-nav-left">
-            <Link to="/investiture" className="inv-nav-back">{inv.nav.brand}</Link>
-            <span className="inv-nav-sep" aria-hidden="true">|</span>
-            <span className="inv-nav-brand">Skills</span>
-          </div>
-          <div className="inv-nav-center">
-            <a href={inv.cta.primaryUrl} target="_blank" rel="noopener noreferrer" className="inv-nav-btn">{inv.cta.primaryCta}</a>
-            <Link to="/investiture/changelog" className="inv-nav-btn inv-nav-btn--outline">{inv.nav.changelog}</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Header */}
-      <section className="inv-section">
-        <div className="inv-container">
-          <Animate>
-            <h1 className="inv-section-headline">{inv.skillsPage.title}</h1>
-            <p className="inv-section-body" style={{ marginBottom: 56 }}>{inv.skillsPage.subtitle}</p>
-          </Animate>
-        </div>
-      </section>
+      {/* Hero — standard subpage pattern */}
+      <PageHero
+        eyebrow="Investiture"
+        title={inv.skillsPage.title}
+        subtitle={inv.skillsPage.subtitle}
+      />
 
       {/* Skill Groups */}
       {inv.skillsPage.groups.map((group, gi) => (
@@ -115,6 +83,8 @@ function InvestitureSkillsPage() {
           </Animate>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
