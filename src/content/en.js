@@ -5,7 +5,7 @@
 // To edit content for a specific page, open the corresponding file:
 //   home.js, philosophy.js, approach.js, builders.js, leaders.js,
 //   media.js, origin.js, start.js, investiture.js, name.js,
-//   enterprise.js, zerohack.js, zerohack-background.js
+//   enterprise.js, zerohack.js, zerohack-background.js, zero-camp.js
 
 import home from './home';
 import philosophy from './philosophy';
@@ -20,6 +20,7 @@ import name from './name';
 import enterprise from './enterprise';
 import zerohack from './zerohack';
 import zerohackBackground from './zerohack-background';
+import zeroCamp from './zero-camp';
 
 const en = {
   home,
@@ -35,6 +36,7 @@ const en = {
   name,
   zerohack,
   zerohackBackground,
+  zeroCamp,
 };
 
 export default en;

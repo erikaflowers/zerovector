@@ -1,0 +1,345 @@
+/* Zero-Vector Design — /zero-camp Page
+ *
+ * Zero Camp bootcamp landing page. Built on the standard info-page
+ * rhythm (white hero → black first section → white rest) with a
+ * price card, before/after split, loadout columns, session cards,
+ * an itemized bill, a black "Launching from Orbit" band, and FAQ.
+ * Orbital Brutalism: hard borders, 4px offset shadows, no radius.
+ */
+
+/* --- Promise + price card (inside the black first section) --- */
+.zv-camp-promise {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.zv-camp-price-card {
+  background: #fff;
+  color: #000;
+  border: 2px solid #fff;
+  box-shadow: 6px 6px 0 var(--neon-green);
+  padding: 28px;
+}
+
+.zv-camp-price-label {
+  color: var(--neon-pink);
+}
+
+.zv-camp-price {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #000;
+  margin: 6px 0 12px;
+}
+
+.zv-camp-price-note {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.zv-camp-price-waitlist {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+/* --- Shared two-up split (before/after, for/not-for) --- */
+.zv-camp-split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.zv-camp-split-card {
+  border: 2px solid #000;
+  padding: 28px;
+  background: #fff;
+}
+
+.zv-camp-split-card--after {
+  background: #000;
+  color: #fff;
+  box-shadow: 4px 4px 0 var(--neon-green);
+}
+
+.zv-camp-split-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 8px 0 16px;
+}
+
+.zv-camp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.zv-camp-list li {
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 10px 0;
+  border-top: 1px solid currentColor;
+}
+
+.zv-camp-list li:first-child {
+  border-top: none;
+}
+
+.zv-camp-fit {
+  padding-top: 8px;
+}
+
+/* --- Loadout --- */
+.zv-camp-loadout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.zv-camp-loadout-col {
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.zv-camp-loadout-label {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: #000;
+  color: var(--neon-green);
+  padding: 12px 20px;
+}
+
+.zv-camp-loadout-item {
+  padding: 14px 20px;
+  border-top: 1px solid #000;
+}
+
+.zv-camp-loadout-label + .zv-camp-loadout-item {
+  border-top: none;
+}
+
+.zv-camp-loadout-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.zv-camp-loadout-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* --- Sessions --- */
+.zv-camp-sessions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.zv-camp-session {
+  border: 2px solid #000;
+  padding: 24px;
+  background: #fff;
+}
+
+.zv-camp-session:last-child {
+  background: var(--neon-orange);
+  box-shadow: 4px 4px 0 #000;
+}
+
+.zv-camp-session-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--neon-pink);
+}
+
+.zv-camp-session:last-child .zv-camp-session-num {
+  color: #000;
+}
+
+.zv-camp-session-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #000;
+  margin-top: 12px;
+}
+
+.zv-camp-session-time {
+  font-family: 'Courier', 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #000;
+  margin: 4px 0 12px;
+}
+
+.zv-camp-session-desc {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* --- The bill --- */
+.zv-camp-bill {
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  margin-top: 24px;
+  max-width: 820px;
+}
+
+.zv-camp-bill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 18px 24px;
+  border-top: 1px solid #000;
+}
+
+.zv-camp-bill-row:first-child {
+  border-top: none;
+}
+
+.zv-camp-bill-item {
+  min-width: 0;
+}
+
+.zv-camp-bill-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.zv-camp-bill-note {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.zv-camp-bill-amount {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #000;
+  white-space: nowrap;
+}
+
+/* --- Launching from Orbit teaser band --- */
+.zv-info-page .zv-camp-next {
+  background: #000;
+  color: #fff;
+}
+
+.zv-camp-next-label {
+  color: var(--neon-orange);
+}
+
+.zv-camp-next-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--neon-green);
+  margin: 8px 0 16px;
+}
+
+.zv-camp-next-body {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* --- FAQ --- */
+.zv-camp-faq {
+  border-top: 2px solid #000;
+  margin-top: 20px;
+  max-width: 820px;
+}
+
+.zv-camp-faq-item {
+  border-bottom: 2px solid #000;
+}
+
+.zv-camp-faq-q {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000;
+  padding: 18px 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.zv-camp-faq-q::-webkit-details-marker {
+  display: none;
+}
+
+.zv-camp-faq-q::after {
+  content: '+';
+  color: var(--neon-pink);
+}
+
+.zv-camp-faq-item[open] .zv-camp-faq-q::after {
+  content: '\2212';
+}
+
+.zv-camp-faq-q:focus-visible {
+  outline: 2px solid var(--neon-orange);
+  outline-offset: 3px;
+}
+
+.zv-camp-faq-a {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  padding-bottom: 18px;
+  max-width: 720px;
+}
+
+@media (max-width: 900px) {
+  .zv-camp-promise {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .zv-camp-sessions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .zv-camp-split,
+  .zv-camp-loadout {
+    grid-template-columns: 1fr;
+  }
+  .zv-camp-bill-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

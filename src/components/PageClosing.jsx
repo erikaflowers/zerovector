@@ -12,6 +12,7 @@ import { ArrowIcon, ExternalLinkIcon } from './icons';
  * @param {{ label: string, to?: string, href?: string }} secondaryCta - Second button (internal or external)
  * @param {boolean} showNewsletter - Show email signup (default true)
  * @param {string} newsletterTag - Buttondown tag (default "zerovector")
+ * @param {string} notifyLabel - Label above the email signup
  */
 function PageClosing({
   headline,
@@ -20,6 +21,7 @@ function PageClosing({
   secondaryCta,
   showNewsletter = true,
   newsletterTag = 'zerovector',
+  notifyLabel = 'Get notified when new content drops.',
 }) {
   return (
     <section className="zv-page-closing">
@@ -56,7 +58,7 @@ function PageClosing({
             </div>
             {showNewsletter && (
               <div className="zv-page-closing-secondary">
-                <p className="zv-page-closing-notify-label">Get notified when new content drops.</p>
+                <p className="zv-page-closing-notify-label">{notifyLabel}</p>
                 <NotifyForm variant="orange" tag={newsletterTag} />
               </div>
             )}
