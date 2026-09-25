@@ -23,8 +23,27 @@
   padding: 28px;
 }
 
-.zv-camp-price-label {
-  color: var(--neon-pink);
+/* --- Readability rule for this page ---
+ * Neon green and neon orange are unreadable as text on white.
+ * On white, text is black; neon appears only as a background,
+ * a shadow, or as text on black. Labels that need a neon voice
+ * sit in a black chip (.zv-camp-chip). */
+.zv-camp-chip {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: #000;
+  padding: 4px 10px;
+}
+
+.zv-camp-chip--pink { color: var(--neon-pink); }
+.zv-camp-chip--green { color: var(--neon-green); }
+
+/* Orange Courier subtitles are the site-wide pattern, but orange
+ * on white fails contrast. Black here; same typeface and weight. */
+.zv-camp .zv-section:not(.zv-camp-next) .zv-section-subtitle {
+  color: #000;
 }
 
 .zv-camp-price {
@@ -64,6 +83,7 @@
   border: 2px solid #000;
   padding: 28px;
   background: #fff;
+  color: #000;
 }
 
 .zv-camp-split-card--after {
@@ -100,6 +120,7 @@
 
 .zv-camp-fit {
   padding-top: 8px;
+  color: #000;
 }
 
 /* --- Loadout --- */
@@ -271,6 +292,15 @@
   color: #ccc;
   line-height: 1.7;
   max-width: 640px;
+}
+
+/* --- Instructor --- */
+.zv-camp-instructor-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: #000;
+  margin: 12px 0 16px;
 }
 
 /* --- FAQ --- */

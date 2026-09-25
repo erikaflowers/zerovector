@@ -37,7 +37,7 @@ function ZeroCampPage() {
             ))}
           </div>
           <Animate className="zv-camp-price-card">
-            <div className="zv-eyebrow zv-camp-price-label">{promise.priceLabel}</div>
+            <div className="zv-camp-chip zv-camp-chip--pink">{promise.priceLabel}</div>
             <div className="zv-camp-price">{promise.price}</div>
             <p className="zv-camp-price-note">{promise.priceNote}</p>
             <p className="zv-camp-price-waitlist">{promise.waitlistLabel}</p>
@@ -52,7 +52,7 @@ function ZeroCampPage() {
           <div className="zv-camp-split">
             {[beforeAfter.before, beforeAfter.after].map((side, i) => (
               <Animate key={side.label} className={`zv-camp-split-card ${i === 1 ? 'zv-camp-split-card--after' : ''}`}>
-                <div className={`zv-eyebrow ${i === 0 ? 'zv-eyebrow-before' : 'zv-eyebrow-after'}`}>{side.label}</div>
+                <div className={`zv-camp-chip ${i === 0 ? 'zv-camp-chip--pink' : 'zv-camp-chip--green'}`}>{side.label}</div>
                 <h3 className="zv-camp-split-title">{side.title}</h3>
                 <ul className="zv-camp-list">
                   {side.items.map((item) => <li key={item}>{item}</li>)}
@@ -136,7 +136,7 @@ function ZeroCampPage() {
           <div className="zv-camp-split">
             {[fit.for, fit.notFor].map((side, i) => (
               <Animate key={side.label} className="zv-camp-fit">
-                <div className={`zv-eyebrow ${i === 0 ? 'zv-eyebrow-after' : 'zv-eyebrow-before'}`}>{side.label}</div>
+                <div className={`zv-camp-chip ${i === 0 ? 'zv-camp-chip--green' : 'zv-camp-chip--pink'}`}>{side.label}</div>
                 <ul className="zv-camp-list">
                   {side.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
@@ -162,7 +162,7 @@ function ZeroCampPage() {
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">{instructor.title}</h2>
-            <p className="zv-callout">{instructor.name}</p>
+            <p className="zv-camp-instructor-name">{instructor.name}</p>
           </Animate>
           {instructor.body.map((p, i) => (
             <Animate key={i}>
