@@ -1,5 +1,5 @@
 import Nav from '../components/Nav';
-import PageHero from '../components/PageHero';
+import ZeroCampHero from '../components/ZeroCampHero';
 import PageClosing from '../components/PageClosing';
 import NotifyForm from '../components/NotifyForm';
 import Animate from '../components/Animate';
@@ -21,10 +21,10 @@ function ZeroCampPage() {
     <div className="zv-page zv-info-page zv-camp">
       <Nav />
 
-      <PageHero eyebrow={zeroCamp.hero.eyebrow} title={zeroCamp.hero.title} subtitle={zeroCamp.hero.subtitle} />
+      <ZeroCampHero hero={zeroCamp.hero} />
 
-      {/* Promise + price — the black first section */}
-      <section className="zv-section">
+      {/* Promise + price */}
+      <section className="zv-section zv-camp-promise-section" id="waitlist">
         <div className="zv-container zv-camp-promise">
           <div className="zv-camp-promise-copy">
             <Animate>

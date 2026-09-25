@@ -1,0 +1,313 @@
+/* Zero-Vector Design — /zero-camp Launch Hero
+ *
+ * Black full-bleed field, two parallax layers of square stars,
+ * Stendig-scale title, flight manifest card, trajectory rail.
+ * Orbital Brutalism: flat color, hard edges, offset shadows.
+ * Chips (.zv-camp-chip) are defined in zero-camp.css.
+ */
+
+.zv-camp-hero {
+  position: relative;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding: 128px 0 56px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* --- Starfield --- */
+.zv-camp-sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.zv-camp-stars {
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  display: flex;
+  animation: zv-camp-drift linear infinite;
+}
+
+.zv-camp-stars svg {
+  width: 50%;
+  height: 100%;
+  display: block;
+}
+
+.zv-camp-stars--far { animation-duration: 240s; }
+.zv-camp-stars--near { animation-duration: 90s; }
+
+.zv-camp-star--white { fill: #fff; }
+.zv-camp-star--green { fill: var(--neon-green); }
+.zv-camp-star--pink { fill: var(--neon-pink); }
+
+@keyframes zv-camp-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zv-camp-stars { animation: none; }
+}
+
+/* --- Layout --- */
+.zv-camp-hero-inner {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  grid-template-areas:
+    'copy manifest'
+    'trajectory trajectory';
+  column-gap: 48px;
+  row-gap: 64px;
+  align-items: end;
+}
+
+.zv-camp-hero-copy { grid-area: copy; }
+
+/* --- Title --- */
+.zv-camp-hero-kicker {
+  margin-bottom: 20px;
+}
+
+.zv-camp-hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  margin: 0;
+}
+
+.zv-camp-hero-title span {
+  display: block;
+}
+
+.zv-camp-hero-title-top {
+  font-size: clamp(5rem, 17vw, 13rem);
+  color: #fff;
+}
+
+.zv-camp-hero-title-bottom {
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  color: var(--neon-green);
+}
+
+.zv-camp-hero-lede {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+  max-width: 560px;
+  margin: 28px 0 32px;
+}
+
+/* --- CTA --- */
+.zv-camp-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+}
+
+.zv-camp-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #000;
+  background: var(--neon-green);
+  padding: 16px 28px;
+  border: 2px solid var(--neon-green);
+  box-shadow: 4px 4px 0 #fff;
+  transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out);
+}
+
+.zv-camp-hero-cta:hover {
+  color: #000;
+  text-shadow: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #fff;
+}
+
+.zv-camp-hero-cta:focus-visible {
+  outline: 2px solid var(--neon-orange);
+  outline-offset: 4px;
+}
+
+.zv-camp-hero-note {
+  font-family: 'Courier', 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* --- Flight manifest --- */
+.zv-camp-manifest {
+  grid-area: manifest;
+  background: #fff;
+  color: #000;
+  border: 2px solid #fff;
+  box-shadow: 6px 6px 0 var(--neon-pink);
+}
+
+.zv-camp-manifest-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: #000;
+  color: var(--neon-green);
+  padding: 10px 18px;
+}
+
+.zv-camp-manifest-rows {
+  margin: 0;
+}
+
+.zv-camp-manifest-row {
+  padding: 12px 18px;
+  border-top: 1px solid #000;
+}
+
+.zv-camp-manifest-row:first-child {
+  border-top: none;
+}
+
+.zv-camp-manifest-row dt {
+  font-family: 'Courier', 'Courier New', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.zv-camp-manifest-row dd {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #000;
+}
+
+/* --- Trajectory rail --- */
+.zv-camp-trajectory {
+  grid-area: trajectory;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 28px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* The rail itself — bleeds off the right edge of the viewport */
+.zv-camp-trajectory::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: -100vw;
+  height: 2px;
+  background: #fff;
+}
+
+.zv-camp-waypoint {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Square waypoint marker sitting on the rail */
+.zv-camp-waypoint::before {
+  content: '';
+  position: absolute;
+  top: -28px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: #000;
+  border: 2px solid #fff;
+}
+
+.zv-camp-waypoint--here::before {
+  background: var(--neon-pink);
+  border-color: var(--neon-pink);
+}
+
+.zv-camp-waypoint-mark {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  margin-top: 4px;
+}
+
+.zv-camp-waypoint--here .zv-camp-waypoint-mark {
+  color: var(--neon-pink);
+}
+
+.zv-camp-waypoint-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.zv-camp-waypoint-note {
+  font-family: 'Courier', 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--neon-green);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .zv-camp-hero {
+    padding-top: 112px;
+  }
+  .zv-camp-hero-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'copy'
+      'manifest'
+      'trajectory';
+    row-gap: 48px;
+  }
+  .zv-camp-manifest {
+    max-width: 480px;
+  }
+}
+
+/* Phones: the rail turns vertical, still running off the bottom */
+@media (max-width: 600px) {
+  .zv-camp-trajectory {
+    grid-template-columns: 1fr;
+    padding: 0 0 0 36px;
+    gap: 28px;
+  }
+  .zv-camp-trajectory::before {
+    top: 0;
+    bottom: -56px;
+    left: 7px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .zv-camp-waypoint::before {
+    top: 4px;
+    left: -36px;
+  }
+  .zv-camp-waypoint-mark {
+    margin-top: 0;
+  }
+}

@@ -11,9 +11,27 @@ const zeroCamp = {
   },
 
   hero: {
-    eyebrow: 'Zero Camp',
-    title: 'Zero Camp',
-    subtitle: 'From Zero to Hero. Blank machine in. Your own copy of the stack out.',
+    kicker: 'Zero Camp \u00B7 Basic Training',
+    titleTop: 'Zero',
+    titleBottom: 'to Hero',
+    lede: 'You get the same ship I fly, and basic training to fly it. After that, the galaxy is yours.',
+    cta: { label: 'Claim a presale seat', href: '#waitlist' },
+    ctaNote: '$999 presale \u00B7 Small live cohorts',
+    manifest: {
+      title: 'Flight Manifest',
+      rows: [
+        { key: 'Vessel', value: 'A machine just like mine' },
+        { key: 'Crew', value: 'Claude Code agents, configured' },
+        { key: 'Ground support', value: 'GitHub, Supabase, Netlify, and more' },
+        { key: 'Training', value: 'Two live half-days + a capstone' },
+        { key: 'Destination', value: 'Unwritten' },
+      ],
+    },
+    trajectory: [
+      { mark: '00', title: 'Zero Camp', note: 'You are here' },
+      { mark: '01', title: 'Launching from Orbit', note: 'Next' },
+      { mark: '\u221E', title: 'The galaxy', note: 'Yours to explore' },
+    ],
   },
 
   promise: {
