@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import { supabase } from '../lib/supabase';
-import { getOffering, getMyRegistration, preRegister, withdraw, startCheckout } from '../lib/registration';
+import { getOffering, getMyRegistration, preRegister, updatePreference, withdraw, startCheckout } from '../lib/registration';
 import en from '../content/en';
 
 const { accounts } = en;
@@ -36,12 +36,16 @@ function takeIntent(slug) {
  * PreRegister — Google-login registration for any offering.
  * Pick a preference, then pre-register. Logged out, the same click
  * signs in with Google and finishes the registration on return.
- * Registered → confirmation, withdraw, and (when the offering is
- * payable) the checkout button, currently the Stripe stub.
+ * Registered → a "what's next" view: personal headline, numbered
+ * next steps, the preference echoed back (changeable while
+ * 'interested'), an optional prep link, My ZV + withdraw. When the
+ * offering is payable, the checkout button (currently the Stripe stub).
  *
  * @param {string} slug - offerings.slug
+ * @param {object} nextSteps - overrides for accounts.registered
+ *   ({ headline, stepsTitle, steps: [{ title, body }], prep: { text, link } })
  */
-function PreRegister({ slug }) {
+function PreRegister({ slug, nextSteps }) {
   const { user, isLoggedIn, loading: authLoading, signIn } = useUser();
   const [offering, setOffering] = useState(null);
   const [registration, setRegistration] = useState(null);
@@ -50,6 +54,8 @@ function PreRegister({ slug }) {
   const [message, setMessage] = useState('');
   const intentHandled = useRef(false);
   const rootRef = useRef(null);
+  const [editingPref, setEditingPref] = useState(false);
+  const next = { ...accounts.registered, ...nextSteps };
 
   const load = useCallback(async () => {
     if (!supabase) { setPhase('unavailable'); return; }
@@ -112,6 +118,16 @@ function PreRegister({ slug }) {
     setPhase('ready');
   };
 
+  const handleChangePreference = async (value) => {
+    if (value === registration.preference) { setEditingPref(false); return; }
+    setPhase('saving');
+    setMessage('');
+    const { data, error } = await updatePreference(registration.id, value);
+    if (error) setMessage(copy.error);
+    else { setRegistration(data); setEditingPref(false); }
+    setPhase('ready');
+  };
+
   const handleCheckout = async () => {
     const result = await startCheckout(registration.id);
     if (result.mode === 'live' && result.url) window.location.assign(result.url);
@@ -127,21 +143,77 @@ function PreRegister({ slug }) {
   }
 
   if (registration) {
+    const fill = (text) => text
+      .replace('{firstName}', user?.name?.split(' ')[0] || '')
+      .replace('{email}', user?.email || 'your inbox');
     const prefLabel = accounts.preferences.find((p) => p.value === registration.preference)?.label;
     const canPay = PAYABLE.includes(offering.status) && registration.status === 'interested';
+    const canEdit = registration.status === 'interested';
     return (
-      <div className="zv-prereg" ref={rootRef}>
+      <div className="zv-prereg zv-prereg--done" ref={rootRef}>
         <div className="zv-chip zv-chip--green">{copy.registeredChip}</div>
-        {prefLabel && (
-          <p className="zv-prereg-detail">{copy.registeredPreference}: <strong>{prefLabel}</strong></p>
-        )}
+        <h3 className="zv-prereg-headline">{fill(next.headline)}</h3>
+
         {canPay && (
           <button type="button" className="zv-prereg-btn" onClick={handleCheckout}>{copy.payCta}</button>
         )}
+
+        <div className="zv-prereg-steps-title">{next.stepsTitle}</div>
+        <ol className="zv-prereg-steps">
+          {next.steps.map((step, i) => (
+            <li key={step.title} className="zv-prereg-step">
+              <span className="zv-prereg-step-num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <div className="zv-prereg-step-title">{fill(step.title)}</div>
+                <p className="zv-prereg-step-body">{fill(step.body)}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        {editingPref ? (
+          <div className="zv-prereg-pref-edit">
+            <p className="zv-prereg-prompt" id={`prereg-edit-${slug}`}>{copy.preferencePrompt}</p>
+            <div className="zv-prereg-options" role="group" aria-labelledby={`prereg-edit-${slug}`}>
+              {accounts.preferences.map((p) => (
+                <button
+                  key={p.value}
+                  type="button"
+                  className={`zv-prereg-option ${registration.preference === p.value ? 'zv-prereg-option--on' : ''}`}
+                  aria-pressed={registration.preference === p.value}
+                  onClick={() => handleChangePreference(p.value)}
+                  disabled={phase === 'saving'}
+                >
+                  {p.label}
+                </button>
+              ))}
+            </div>
+            <button type="button" className="zv-prereg-linkbtn" onClick={() => setEditingPref(false)}>{copy.keepCta}</button>
+          </div>
+        ) : prefLabel && (
+          <p className="zv-prereg-detail">
+            {copy.preferenceEcho} <strong>{prefLabel}</strong>
+            {canEdit && (
+              <>
+                {' \u00B7 '}
+                <button type="button" className="zv-prereg-linkbtn" onClick={() => setEditingPref(true)}>{copy.changeCta}</button>
+              </>
+            )}
+          </p>
+        )}
+
+        {next.prep && (
+          <p className="zv-prereg-prep">
+            {next.prep.text}{' '}
+            <Link to={next.prep.link.to}>{next.prep.link.label} &rarr;</Link>
+          </p>
+        )}
+
         {message && <p className="zv-prereg-message" role="status">{message}</p>}
+
         <div className="zv-prereg-links">
           <Link to="/my">{copy.myZvLink}</Link>
-          {registration.status === 'interested' && (
+          {canEdit && (
             <button type="button" className="zv-prereg-linkbtn" onClick={handleWithdraw} disabled={phase === 'saving'}>
               {copy.withdrawCta}
             </button>

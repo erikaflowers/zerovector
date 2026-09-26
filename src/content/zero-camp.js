@@ -46,6 +46,19 @@ const zeroCamp = {
     waitlistLabel: 'Pre-register free. Presale seats go to the list first.',
   },
 
+  // "What's next" view after pre-registering (overrides accounts.registered)
+  registered: {
+    steps: [
+      { title: 'Presale seats come to you first', body: 'Pre-registered students get first access to presale seats, before the public.' },
+      { title: 'Watch your inbox', body: 'We’ll email {email} the moment presale opens.' },
+      { title: 'Cohort dates come next', body: 'Dates and format are set by who signs up. Your preference counts.' },
+    ],
+    prep: {
+      text: 'While you wait: the stack you’re getting is built on a way of working. Start there.',
+      link: { label: 'Read the Philosophy', to: '/philosophy' },
+    },
+  },
+
   beforeAfter: {
     before: {
       label: 'Day zero',

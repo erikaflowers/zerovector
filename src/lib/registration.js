@@ -38,6 +38,18 @@ export async function preRegister(offeringId, preference) {
     .single();
 }
 
+// Column grant allows only `preference`; RLS allows only your own
+// row while still 'interested'. See 20260926010000 migration.
+export async function updatePreference(registrationId, preference) {
+  if (!supabase) return NOT_CONFIGURED;
+  return supabase
+    .from('registrations')
+    .update({ preference })
+    .eq('id', registrationId)
+    .select('id, status, preference, created_at')
+    .single();
+}
+
 export async function withdraw(registrationId) {
   if (!supabase) return NOT_CONFIGURED;
   return supabase.from('registrations').delete().eq('id', registrationId);

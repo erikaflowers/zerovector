@@ -30,7 +30,9 @@ const accounts = {
     submitCta: 'Pre-register',
     submitting: 'Saving…',
     registeredChip: 'You’re on the list',
-    registeredPreference: 'Preference',
+    preferenceEcho: 'You told us you’d prefer',
+    changeCta: 'Change',
+    keepCta: 'Keep it',
     payCta: 'Reserve & pay',
     stubMessage: 'Payments open soon. Your spot is held, and we’ll email you first.',
     myZvLink: 'View in My ZV',
@@ -38,6 +40,20 @@ const accounts = {
     withdrawConfirm: 'Withdraw your pre-registration?',
     unavailable: 'Registration opens soon. Check back shortly.',
     error: 'Something went wrong. Please try again.',
+  },
+
+  // Default "what's next" view after registering. Pages override any
+  // key by passing `nextSteps` to <PreRegister>. Tokens: {firstName},
+  // {email}. Set `prep` to null to hide the prep line.
+  registered: {
+    headline: 'You’re in, {firstName}.',
+    stepsTitle: 'What happens next',
+    steps: [
+      { title: 'Your spot is saved', body: 'It lives in your ZV account. You can check it any time in My ZV.' },
+      { title: 'Watch your inbox', body: 'We’ll email {email} before registration opens to anyone else.' },
+      { title: 'Details are coming', body: 'Dates and format are announced as soon as they’re set.' },
+    ],
+    prep: null,
   },
 
   myZv: {

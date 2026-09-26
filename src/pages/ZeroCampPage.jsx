@@ -41,7 +41,7 @@ function ZeroCampPage() {
             <div className="zv-camp-price">{promise.price}</div>
             <p className="zv-camp-price-note">{promise.priceNote}</p>
             <p className="zv-camp-price-waitlist">{promise.waitlistLabel}</p>
-            <PreRegister slug="zero-camp" />
+            <PreRegister slug="zero-camp" nextSteps={zeroCamp.registered} />
           </Animate>
         </div>
       </section>

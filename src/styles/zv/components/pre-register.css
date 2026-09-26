@@ -127,3 +127,101 @@
   background: var(--neon-green);
   text-shadow: none;
 }
+
+/* --- Registered: the "what's next" view --- */
+.zv-prereg--done {
+  gap: 14px;
+}
+
+.zv-prereg-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #000;
+  margin: 0;
+}
+
+.zv-prereg-steps-title {
+  font-family: 'Courier', 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #000;
+  margin-top: 4px;
+}
+
+.zv-prereg-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-top: 2px solid #000;
+}
+
+.zv-prereg-step {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid #000;
+}
+
+.zv-prereg-step-num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--neon-pink);
+}
+
+.zv-prereg-step-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.zv-prereg-step-body {
+  font-size: 0.875rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 2px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.zv-prereg-pref-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.zv-prereg-detail .zv-prereg-linkbtn {
+  font-size: inherit;
+}
+
+.zv-prereg-prep {
+  font-size: 0.9rem;
+  color: #000;
+  line-height: 1.5;
+  background: #f4f4f4;
+  border-left: 4px solid var(--neon-green);
+  padding: 10px 14px;
+  margin: 0;
+}
+
+.zv-prereg-prep a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.zv-prereg-prep a:hover {
+  color: #000;
+  background: var(--neon-green);
+  text-shadow: none;
+}
