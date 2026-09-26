@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import { supabase } from '../lib/supabase';
@@ -9,9 +9,33 @@ const { accounts } = en;
 const copy = accounts.preRegister;
 const PAYABLE = ['presale', 'open'];
 
+// Pre-register intent survives the Google OAuth round trip in
+// sessionStorage (same tab), so a logged-out visitor picks a
+// preference, signs in, and lands back already registered.
+const INTENT_KEY = 'zv-prereg-intent';
+const INTENT_TTL_MS = 30 * 60 * 1000;
+
+function saveIntent(slug, preference) {
+  try { sessionStorage.setItem(INTENT_KEY, JSON.stringify({ slug, preference, at: Date.now() })); } catch {}
+}
+
+function takeIntent(slug) {
+  try {
+    const raw = sessionStorage.getItem(INTENT_KEY);
+    if (!raw) return null;
+    const intent = JSON.parse(raw);
+    if (intent.slug !== slug) return null;
+    sessionStorage.removeItem(INTENT_KEY);
+    return Date.now() - intent.at < INTENT_TTL_MS ? intent : null;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * PreRegister — Google-login registration for any offering.
- * Logged out → sign in. Logged in → pick a preference and pre-register.
+ * Pick a preference, then pre-register. Logged out, the same click
+ * signs in with Google and finishes the registration on return.
  * Registered → confirmation, withdraw, and (when the offering is
  * payable) the checkout button, currently the Stripe stub.
  *
@@ -24,6 +48,8 @@ function PreRegister({ slug }) {
   const [preference, setPreference] = useState(null);
   const [phase, setPhase] = useState('loading'); // loading | ready | saving | unavailable
   const [message, setMessage] = useState('');
+  const intentHandled = useRef(false);
+  const rootRef = useRef(null);
 
   const load = useCallback(async () => {
     if (!supabase) { setPhase('unavailable'); return; }
@@ -32,7 +58,18 @@ function PreRegister({ slug }) {
     setOffering(off);
     if (user) {
       const { data: reg } = await getMyRegistration(off.id, user.id);
-      setRegistration(reg || null);
+      // Returning from Google with a saved intent: finish the registration
+      const intent = intentHandled.current ? null : takeIntent(slug);
+      intentHandled.current = true;
+      let current = reg || null;
+      if (!current && intent) {
+        const { data: created, error: err } = await preRegister(off.id, intent.preference);
+        if (!err) current = created;
+        else if (err.code === '23505') current = (await getMyRegistration(off.id, user.id)).data || null;
+        else { setMessage(copy.error); setPreference(intent.preference); }
+      }
+      setRegistration(current);
+      if (intent) requestAnimationFrame(() => rootRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
     } else {
       setRegistration(null);
     }
@@ -45,6 +82,13 @@ function PreRegister({ slug }) {
 
   const handleSubmit = async () => {
     if (!preference) return;
+    if (!isLoggedIn) {
+      // No #anchor on the return URL: implicit-flow OAuth returns the
+      // session in the hash. We scroll to the card after finishing instead.
+      saveIntent(slug, preference);
+      signIn();
+      return;
+    }
     setPhase('saving');
     setMessage('');
     const { data, error } = await preRegister(offering.id, preference);
@@ -82,20 +126,11 @@ function PreRegister({ slug }) {
     return <div className="zv-prereg"><p className="zv-prereg-note">{copy.unavailable}</p></div>;
   }
 
-  if (!isLoggedIn) {
-    return (
-      <div className="zv-prereg">
-        <button type="button" className="zv-prereg-btn" onClick={signIn}>{copy.signInCta}</button>
-        <p className="zv-prereg-note">{copy.signInNote}</p>
-      </div>
-    );
-  }
-
   if (registration) {
     const prefLabel = accounts.preferences.find((p) => p.value === registration.preference)?.label;
     const canPay = PAYABLE.includes(offering.status) && registration.status === 'interested';
     return (
-      <div className="zv-prereg">
+      <div className="zv-prereg" ref={rootRef}>
         <div className="zv-chip zv-chip--green">{copy.registeredChip}</div>
         {prefLabel && (
           <p className="zv-prereg-detail">{copy.registeredPreference}: <strong>{prefLabel}</strong></p>
@@ -117,7 +152,7 @@ function PreRegister({ slug }) {
   }
 
   return (
-    <div className="zv-prereg">
+    <div className="zv-prereg" ref={rootRef}>
       <p className="zv-prereg-prompt" id={`prereg-pref-${slug}`}>{copy.preferencePrompt}</p>
       <div className="zv-prereg-options" role="group" aria-labelledby={`prereg-pref-${slug}`}>
         {accounts.preferences.map((p) => (
@@ -138,8 +173,9 @@ function PreRegister({ slug }) {
         onClick={handleSubmit}
         disabled={!preference || phase === 'saving'}
       >
-        {phase === 'saving' ? copy.submitting : copy.submitCta}
+        {phase === 'saving' ? copy.submitting : isLoggedIn ? copy.submitCta : copy.signInCta}
       </button>
+      {!isLoggedIn && <p className="zv-prereg-note">{copy.signInNote}</p>}
       {message && <p className="zv-prereg-message" role="alert">{message}</p>}
     </div>
   );
