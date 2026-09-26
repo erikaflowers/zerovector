@@ -84,3 +84,9 @@
 .zv-my-signout {
   margin-top: 40px;
 }
+
+.zv-my-pref-edit {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #000;
+}

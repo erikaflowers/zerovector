@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import { supabase } from '../lib/supabase';
+import PreferenceOptions from './PreferenceOptions';
 import { getOffering, getMyRegistration, preRegister, updatePreference, withdraw, startCheckout } from '../lib/registration';
 import en from '../content/en';
 
@@ -173,21 +174,12 @@ function PreRegister({ slug, nextSteps }) {
 
         {editingPref ? (
           <div className="zv-prereg-pref-edit">
-            <p className="zv-prereg-prompt" id={`prereg-edit-${slug}`}>{copy.preferencePrompt}</p>
-            <div className="zv-prereg-options" role="group" aria-labelledby={`prereg-edit-${slug}`}>
-              {accounts.preferences.map((p) => (
-                <button
-                  key={p.value}
-                  type="button"
-                  className={`zv-prereg-option ${registration.preference === p.value ? 'zv-prereg-option--on' : ''}`}
-                  aria-pressed={registration.preference === p.value}
-                  onClick={() => handleChangePreference(p.value)}
-                  disabled={phase === 'saving'}
-                >
-                  {p.label}
-                </button>
-              ))}
-            </div>
+            <PreferenceOptions
+              id={`prereg-edit-${slug}`}
+              value={registration.preference}
+              onSelect={handleChangePreference}
+              disabled={phase === 'saving'}
+            />
             <button type="button" className="zv-prereg-linkbtn" onClick={() => setEditingPref(false)}>{copy.keepCta}</button>
           </div>
         ) : prefLabel && (
@@ -225,20 +217,7 @@ function PreRegister({ slug, nextSteps }) {
 
   return (
     <div className="zv-prereg" ref={rootRef}>
-      <p className="zv-prereg-prompt" id={`prereg-pref-${slug}`}>{copy.preferencePrompt}</p>
-      <div className="zv-prereg-options" role="group" aria-labelledby={`prereg-pref-${slug}`}>
-        {accounts.preferences.map((p) => (
-          <button
-            key={p.value}
-            type="button"
-            className={`zv-prereg-option ${preference === p.value ? 'zv-prereg-option--on' : ''}`}
-            aria-pressed={preference === p.value}
-            onClick={() => setPreference(p.value)}
-          >
-            {p.label}
-          </button>
-        ))}
-      </div>
+      <PreferenceOptions id={`prereg-pref-${slug}`} value={preference} onSelect={setPreference} />
       <button
         type="button"
         className="zv-prereg-btn"

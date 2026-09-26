@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Animate from '../components/Animate';
+import PreferenceOptions from '../components/PreferenceOptions';
 import { useUser } from '../contexts/UserContext';
 import { supabase } from '../lib/supabase';
-import { getMyRegistrations, getMyCharges, withdraw, formatPrice } from '../lib/registration';
+import { getMyRegistrations, getMyCharges, updatePreference, withdraw, formatPrice } from '../lib/registration';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
 
@@ -22,6 +23,8 @@ function MyZvPage() {
   const [charges, setCharges] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [editingId, setEditingId] = useState(null);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (authLoading) return;
@@ -43,6 +46,19 @@ function MyZvPage() {
     const { error: err } = await withdraw(id);
     if (err) setError(accounts.preRegister.error);
     else setRegistrations((rows) => rows.filter((r) => r.id !== id));
+  };
+
+  const handleChangePreference = async (row, value) => {
+    if (value === row.preference) { setEditingId(null); return; }
+    setSaving(true);
+    setError('');
+    const { data, error: err } = await updatePreference(row.id, value);
+    if (err) setError(accounts.preRegister.error);
+    else {
+      setRegistrations((rows) => rows.map((r) => (r.id === row.id ? { ...r, preference: data.preference } : r)));
+      setEditingId(null);
+    }
+    setSaving(false);
   };
 
   const prefLabel = (value) => accounts.preferences.find((p) => p.value === value)?.label;
@@ -107,8 +123,12 @@ function MyZvPage() {
                         <div className="zv-ledger-note">
                           {formatDate(r.created_at)}
                           {prefLabel(r.preference) && ` · ${prefLabel(r.preference)}`}
-                          {r.status === 'interested' && (
+                          {r.status === 'interested' && editingId !== r.id && (
                             <>
+                              {' · '}
+                              <button type="button" className="zv-prereg-linkbtn" onClick={() => setEditingId(r.id)}>
+                                {accounts.preRegister.changeCta}
+                              </button>
                               {' · '}
                               <button type="button" className="zv-prereg-linkbtn" onClick={() => handleWithdraw(r.id)}>
                                 {accounts.preRegister.withdrawCta}
@@ -116,6 +136,19 @@ function MyZvPage() {
                             </>
                           )}
                         </div>
+                        {editingId === r.id && (
+                          <div className="zv-prereg-pref-edit zv-my-pref-edit">
+                            <PreferenceOptions
+                              id={`my-pref-${r.id}`}
+                              value={r.preference}
+                              onSelect={(value) => handleChangePreference(r, value)}
+                              disabled={saving}
+                            />
+                            <button type="button" className="zv-prereg-linkbtn" onClick={() => setEditingId(null)}>
+                              {accounts.preRegister.keepCta}
+                            </button>
+                          </div>
+                        )}
                       </div>
                       <div className={`zv-chip zv-chip--status-${r.status}`}>{accounts.statusLabels[r.status]}</div>
                     </div>
