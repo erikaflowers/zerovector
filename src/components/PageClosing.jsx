@@ -8,7 +8,7 @@ import { ArrowIcon, ExternalLinkIcon } from './icons';
  *
  * @param {string} headline - Section headline
  * @param {string} body - Optional body text below headline
- * @param {{ label: string, to: string }} primaryCta - Internal link button
+ * @param {{ label: string, to?: string, href?: string }} primaryCta - Button: `to` = route, `href` = external (new tab) or '#anchor' (same page)
  * @param {{ label: string, to?: string, href?: string }} secondaryCta - Second button (internal or external)
  * @param {boolean} showNewsletter - Show email signup (default true)
  * @param {string} newsletterTag - Buttondown tag (default "zerovector")
@@ -33,7 +33,11 @@ function PageClosing({
               {body && <p className="zv-page-closing-body">{body}</p>}
               <div className="zv-page-closing-actions">
                 {primaryCta && (
-                  primaryCta.href ? (
+                  primaryCta.href?.startsWith('#') ? (
+                    <a href={primaryCta.href} className="zv-page-closing-cta zv-page-closing-cta--primary">
+                      {primaryCta.label} <ArrowIcon size={14} />
+                    </a>
+                  ) : primaryCta.href ? (
                     <a href={primaryCta.href} target="_blank" rel="noopener noreferrer" className="zv-page-closing-cta zv-page-closing-cta--primary">
                       {primaryCta.label} <ExternalLinkIcon size={14} />
                     </a>
@@ -44,7 +48,11 @@ function PageClosing({
                   )
                 )}
                 {secondaryCta && (
-                  secondaryCta.href ? (
+                  secondaryCta.href?.startsWith('#') ? (
+                    <a href={secondaryCta.href} className="zv-page-closing-cta zv-page-closing-cta--secondary">
+                      {secondaryCta.label} <ArrowIcon size={14} />
+                    </a>
+                  ) : secondaryCta.href ? (
                     <a href={secondaryCta.href} target="_blank" rel="noopener noreferrer" className="zv-page-closing-cta zv-page-closing-cta--secondary">
                       {secondaryCta.label} <ExternalLinkIcon size={14} />
                     </a>

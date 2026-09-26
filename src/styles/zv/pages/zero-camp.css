@@ -3,7 +3,7 @@
  * Zero Camp bootcamp landing page. Below its own black hero
  * (zero-camp-hero.css) the page runs white, with a
  * price card, before/after split, loadout columns, session cards,
- * an itemized bill, a black "Launching from Orbit" band, and FAQ.
+ * an itemized bill (.zv-ledger), a black "Launching from Orbit" band, and FAQ.
  * Orbital Brutalism: hard borders, 4px offset shadows, no radius.
  */
 
@@ -31,18 +31,7 @@
  * Neon green and neon orange are unreadable as text on white.
  * On white, text is black; neon appears only as a background,
  * a shadow, or as text on black. Labels that need a neon voice
- * sit in a black chip (.zv-camp-chip). */
-.zv-camp-chip {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  font-weight: 700;
-  background: #000;
-  padding: 4px 10px;
-}
-
-.zv-camp-chip--pink { color: var(--neon-pink); }
-.zv-camp-chip--green { color: var(--neon-green); }
+ * sit in a black chip (.zv-chip, components/chip.css). */
 
 /* Orange Courier subtitles are the site-wide pattern, but orange
  * on white fails contrast. Black here; same typeface and weight. */
@@ -225,52 +214,6 @@
   line-height: 1.6;
 }
 
-/* --- The bill --- */
-.zv-camp-bill {
-  border: 2px solid #000;
-  box-shadow: 4px 4px 0 #000;
-  margin-top: 24px;
-  max-width: 820px;
-}
-
-.zv-camp-bill-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-  padding: 18px 24px;
-  border-top: 1px solid #000;
-}
-
-.zv-camp-bill-row:first-child {
-  border-top: none;
-}
-
-.zv-camp-bill-item {
-  min-width: 0;
-}
-
-.zv-camp-bill-name {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #000;
-}
-
-.zv-camp-bill-note {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
-}
-
-.zv-camp-bill-amount {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #000;
-  white-space: nowrap;
-}
-
 /* --- Launching from Orbit teaser band --- */
 .zv-info-page .zv-camp-next {
   background: #000;
@@ -371,9 +314,5 @@
   .zv-camp-split,
   .zv-camp-loadout {
     grid-template-columns: 1fr;
-  }
-  .zv-camp-bill-row {
-    flex-direction: column;
-    gap: 4px;
   }
 }

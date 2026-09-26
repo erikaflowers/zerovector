@@ -3,7 +3,7 @@
  * Black full-bleed field, two parallax layers of square stars,
  * Stendig-scale title, flight manifest card, trajectory rail.
  * Orbital Brutalism: flat color, hard edges, offset shadows.
- * Chips (.zv-camp-chip) are defined in zero-camp.css.
+ * Chips (.zv-chip) are defined in components/chip.css.
  */
 
 .zv-camp-hero {

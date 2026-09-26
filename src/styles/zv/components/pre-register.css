@@ -1,0 +1,129 @@
+/* Zero-Vector Design — PreRegister
+ *
+ * Google-login registration block (components/PreRegister.jsx).
+ * Designed for white cards; black primary button, one-tap
+ * preference toggles, text-link actions.
+ */
+
+.zv-prereg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  color: #000;
+}
+
+.zv-prereg--loading {
+  min-height: 56px;
+}
+
+.zv-prereg-btn {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: #000;
+  border: 2px solid #000;
+  padding: 14px 24px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--neon-green);
+  transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out);
+}
+
+.zv-prereg-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--neon-green);
+}
+
+.zv-prereg-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.zv-prereg-btn:focus-visible,
+.zv-prereg-option:focus-visible,
+.zv-prereg-linkbtn:focus-visible {
+  outline: 2px solid var(--neon-orange);
+  outline-offset: 3px;
+}
+
+.zv-prereg-prompt {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.zv-prereg-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zv-prereg-option {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #000;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.zv-prereg-option:hover {
+  background: #f0f0f0;
+}
+
+.zv-prereg-option--on,
+.zv-prereg-option--on:hover {
+  color: var(--neon-green);
+  background: #000;
+}
+
+.zv-prereg-note,
+.zv-prereg-detail {
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.zv-prereg-message {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #000;
+  background: var(--neon-orange);
+  padding: 8px 12px;
+  margin: 0;
+}
+
+.zv-prereg-links {
+  display: flex;
+  gap: 16px;
+  font-size: 0.85rem;
+}
+
+.zv-prereg-links a,
+.zv-prereg-linkbtn {
+  font-family: var(--font-display);
+  font-size: inherit;
+  font-weight: 700;
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.zv-prereg-links a:hover,
+.zv-prereg-linkbtn:hover {
+  color: #000;
+  background: var(--neon-green);
+  text-shadow: none;
+}

@@ -51,7 +51,7 @@ function ZeroCampHero({ hero }) {
 
       <div className="zv-container zv-camp-hero-inner">
         <div className="zv-camp-hero-copy">
-          <div className="zv-camp-chip zv-camp-chip--green zv-camp-hero-kicker">{hero.kicker}</div>
+          <div className="zv-chip zv-chip--green zv-camp-hero-kicker">{hero.kicker}</div>
           <h1 className="zv-camp-hero-title">
             <span className="zv-camp-hero-title-top">{hero.titleTop}</span>{' '}
             <span className="zv-camp-hero-title-bottom">{hero.titleBottom}</span>

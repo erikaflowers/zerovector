@@ -1,7 +1,7 @@
 import Nav from '../components/Nav';
 import ZeroCampHero from '../components/ZeroCampHero';
 import PageClosing from '../components/PageClosing';
-import NotifyForm from '../components/NotifyForm';
+import PreRegister from '../components/PreRegister';
 import Animate from '../components/Animate';
 import useSEO from '../hooks/useSEO';
 import en from '../content/en';
@@ -37,11 +37,11 @@ function ZeroCampPage() {
             ))}
           </div>
           <Animate className="zv-camp-price-card">
-            <div className="zv-camp-chip zv-camp-chip--pink">{promise.priceLabel}</div>
+            <div className="zv-chip zv-chip--pink">{promise.priceLabel}</div>
             <div className="zv-camp-price">{promise.price}</div>
             <p className="zv-camp-price-note">{promise.priceNote}</p>
             <p className="zv-camp-price-waitlist">{promise.waitlistLabel}</p>
-            <NotifyForm variant="light" tag={closing.tag} />
+            <PreRegister slug="zero-camp" />
           </Animate>
         </div>
       </section>
@@ -52,7 +52,7 @@ function ZeroCampPage() {
           <div className="zv-camp-split">
             {[beforeAfter.before, beforeAfter.after].map((side, i) => (
               <Animate key={side.label} className={`zv-camp-split-card ${i === 1 ? 'zv-camp-split-card--after' : ''}`}>
-                <div className={`zv-camp-chip ${i === 0 ? 'zv-camp-chip--pink' : 'zv-camp-chip--green'}`}>{side.label}</div>
+                <div className={`zv-chip ${i === 0 ? 'zv-chip--pink' : 'zv-chip--green'}`}>{side.label}</div>
                 <h3 className="zv-camp-split-title">{side.title}</h3>
                 <ul className="zv-camp-list">
                   {side.items.map((item) => <li key={item}>{item}</li>)}
@@ -113,14 +113,14 @@ function ZeroCampPage() {
             <h2 className="zv-section-title">{cost.title}</h2>
             <p className="zv-section-subtitle">{cost.subtitle}</p>
           </Animate>
-          <Animate className="zv-camp-bill">
+          <Animate className="zv-ledger">
             {cost.lines.map((line) => (
-              <div key={line.item} className="zv-camp-bill-row">
-                <div className="zv-camp-bill-item">
-                  <div className="zv-camp-bill-name">{line.item}</div>
-                  <div className="zv-camp-bill-note">{line.note}</div>
+              <div key={line.item} className="zv-ledger-row">
+                <div className="zv-ledger-item">
+                  <div className="zv-ledger-name">{line.item}</div>
+                  <div className="zv-ledger-note">{line.note}</div>
                 </div>
-                <div className="zv-camp-bill-amount">{line.amount}</div>
+                <div className="zv-ledger-amount">{line.amount}</div>
               </div>
             ))}
           </Animate>
@@ -136,7 +136,7 @@ function ZeroCampPage() {
           <div className="zv-camp-split">
             {[fit.for, fit.notFor].map((side, i) => (
               <Animate key={side.label} className="zv-camp-fit">
-                <div className={`zv-camp-chip ${i === 0 ? 'zv-camp-chip--green' : 'zv-camp-chip--pink'}`}>{side.label}</div>
+                <div className={`zv-chip ${i === 0 ? 'zv-chip--green' : 'zv-chip--pink'}`}>{side.label}</div>
                 <ul className="zv-camp-list">
                   {side.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
@@ -192,8 +192,8 @@ function ZeroCampPage() {
       <PageClosing
         headline={closing.headline}
         body={closing.body}
-        newsletterTag={closing.tag}
-        notifyLabel={closing.notifyLabel}
+        primaryCta={closing.cta}
+        showNewsletter={false}
       />
     </div>
   );

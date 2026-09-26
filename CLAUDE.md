@@ -23,7 +23,7 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 | Fonts | Proxima Nova (self-hosted via `shared/fonts.css`), Space Grotesk, Inter, JetBrains Mono |
 | State | React Context (UserContext) |
 | Backend | None — purely a static SPA. No serverless functions. |
-| Auth | Supabase (Google OAuth) — decorative only; nothing is gated. |
+| Auth + data | Supabase (Google OAuth) + registration tables under RLS. Gates registration and `/my` only. Database shared with Open Vector. See ARCHITECTURE.md → Registration data model. |
 | Newsletter | Kestris subscribe proxy → Buttondown (tagged) |
 | Deployment | Netlify (auto-deploy on push) |
 

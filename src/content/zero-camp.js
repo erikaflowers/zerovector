@@ -43,7 +43,7 @@ const zeroCamp = {
     priceLabel: 'Presale',
     price: '$999',
     priceNote: 'Plus at least one month of the hosted services the stack runs on. Full breakdown below.',
-    waitlistLabel: 'Presale seats open to the waitlist first.',
+    waitlistLabel: 'Pre-register free. Presale seats go to the list first.',
   },
 
   beforeAfter: {
@@ -188,10 +188,9 @@ const zeroCamp = {
   },
 
   closing: {
-    headline: 'Get on the Waitlist',
-    body: 'Presale seats go to the waitlist first. Cohorts run through the end of the year.',
-    notifyLabel: 'Join the Zero Camp waitlist.',
-    tag: 'zero-camp',
+    headline: 'Claim Your Seat',
+    body: 'Pre-registered students get presale seats first. Cohorts run through the end of the year.',
+    cta: { label: 'Pre-register', href: '#waitlist' },
   },
 };
 

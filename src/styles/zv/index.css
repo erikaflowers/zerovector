@@ -38,6 +38,9 @@
 @import './components/page-hero.css';
 @import './components/page-closing.css';
 @import './components/resource-card.css';
+@import './components/chip.css';
+@import './components/ledger.css';
+@import './components/pre-register.css';
 
 /* Pages — specific compositions */
 @import './pages/manifesto.css';
@@ -59,6 +62,7 @@
 @import './pages/legal.css';
 @import './pages/zero-camp-hero.css';
 @import './pages/zero-camp.css';
+@import './pages/my-zv.css';
 
 /* Responsive — MUST be last. */
 @import './responsive.css';

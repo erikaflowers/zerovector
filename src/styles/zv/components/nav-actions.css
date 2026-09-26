@@ -95,6 +95,25 @@
   word-break: break-all;
 }
 
+/* My ZV — neon block so it reads on any dropdown background */
+.zv-nav-dropdown-link {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  color: #000;
+  background: var(--neon-green);
+  padding: 6px 12px;
+  margin-bottom: 8px;
+}
+
+.zv-nav-dropdown-link:hover {
+  color: #000;
+  background: var(--neon-pink);
+  text-shadow: none;
+}
+
 .zv-nav-dropdown-signout {
   font-family: var(--font-mono);
   font-size: 11px;

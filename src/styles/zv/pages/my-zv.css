@@ -1,0 +1,86 @@
+/* Zero-Vector Design — /my (My ZV)
+ *
+ * Account page: black identity header, then white sections with
+ * ledgers for registrations and charges (components/ledger.css).
+ */
+
+.zv-my-header {
+  background: #000;
+  color: #fff;
+  padding: 136px 0 56px;
+}
+
+.zv-my-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 16px 0 0;
+}
+
+.zv-my-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.zv-my-avatar {
+  width: 56px;
+  height: 56px;
+  border: 2px solid #fff;
+  box-shadow: 4px 4px 0 var(--neon-pink);
+  object-fit: cover;
+}
+
+.zv-my-avatar--initial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  background: var(--neon-green);
+}
+
+.zv-my-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.zv-my-email {
+  font-family: 'Courier', 'Courier New', monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ccc;
+}
+
+.zv-my-signin .zv-prereg-btn {
+  margin-top: 8px;
+}
+
+.zv-my-empty {
+  border: 2px dashed #000;
+  padding: 24px;
+  max-width: 820px;
+  margin-top: 20px;
+  color: #333;
+}
+
+.zv-my-empty p {
+  margin: 0 0 16px;
+}
+
+.zv-my-empty p:last-child {
+  margin-bottom: 0;
+}
+
+.zv-my-signout {
+  margin-top: 40px;
+}

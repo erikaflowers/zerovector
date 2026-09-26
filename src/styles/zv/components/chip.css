@@ -1,0 +1,27 @@
+/* Zero-Vector Design — Chips
+ *
+ * Small black label blocks with neon text. The readable way to give
+ * a label a neon voice on white pages (neon text on white fails
+ * contrast). Used by Zero Camp, PreRegister, and My ZV.
+ */
+
+.zv-chip {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: #000;
+  color: #fff;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.zv-chip--pink { color: var(--neon-pink); }
+.zv-chip--green { color: var(--neon-green); }
+
+/* Registration status — My ZV */
+.zv-chip--status-interested { color: var(--neon-green); }
+.zv-chip--status-reserved { color: var(--neon-orange); }
+.zv-chip--status-paid { color: #000; background: var(--neon-green); }
+.zv-chip--status-cancelled,
+.zv-chip--status-refunded { color: #fff; background: #666; }
