@@ -16,7 +16,7 @@ const formatDate = (iso) =>
   new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
 function MyZvPage() {
-  useSEO({ title: copy.seo.title, description: copy.seo.description, path: '/my' });
+  useSEO({ title: copy.seo.title, description: copy.seo.description, path: '/my', noindex: true });
 
   const { user, isLoggedIn, loading: authLoading, signIn, signOut } = useUser();
   const [registrations, setRegistrations] = useState([]);

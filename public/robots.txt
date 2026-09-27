@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+# Private account page
+Disallow: /my
 Sitemap: https://zerovector.design/sitemap.xml
 
 # LLM context
