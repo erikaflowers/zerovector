@@ -137,7 +137,8 @@ src/
 │   └── SiteLayout.jsx      # Manifesto layout: ErrorBoundary + Outlet + scroll-to-top
 ├── lib/
 │   ├── supabase.js         # createClient singleton, null-safe
-│   └── registration.js     # offerings / registrations / charges queries + Stripe stub
+│   ├── registration.js     # offerings / registrations / charges queries + Stripe stub
+│   └── learning.js         # Open Vector progress × ov_lessons catalog → My ZV summary
 ├── pages/                  # 17 page components — one per route
 └── styles/                 # ~8,300 lines across 71 files, scoped by design system
     ├── shared/             # Cross-system primitives imported by every system entry
@@ -225,7 +226,11 @@ Schema, RLS, and seed live in `supabase/migrations/20260926000000_zv_registratio
 | `offerings` | Catalog: cohorts, 1:1, workshops, courses. `status`: draft → interest → presale/open → closed | Public read (non-draft); admin write |
 | `registrations` | One per user per offering. `status`: interested → reserved → paid (or cancelled/refunded). `preference`: cohort / one_on_one / either | Read own; insert own as `interested` only; delete own while `interested` |
 | `charges` | Account ledger. Repeat customers accrue rows | Read own; no browser writes |
+| `progress` | Open Vector lesson completions (`lesson_key` = `<level>/<lesson>`), written by open.zerovector.design | Read/insert/delete own |
+| `ov_lessons` | Open Vector catalog: one row per lesson + Approach guide. Written only by openvector `scripts/sync-catalog.mjs` on each production build | Public read; no client writes |
 | `offering_interest` (view) | Demand counts per offering and preference | Full counts for admins only |
+
+**My ZV is the ecosystem home.** `/my` shows Open Vector learning (`LearningSummary` → `src/lib/learning.js`, which joins `progress` to `ov_lessons`), registrations, and charges. New ZV properties that store per-user data in this database should add a section here.
 
 Status changes beyond `interested` (reserve, pay, refund) happen only with the service role, which will be the Stripe webhook. **Stripe is stubbed:** `startCheckout()` in `src/lib/registration.js` returns `{ mode: 'stub' }`. Turning it on means porting `create-checkout` + `stripe-webhook` from openvector's `feature/workflow-lms` branch as Netlify functions.
 - Embedded-browser detection (FB / Instagram / LinkedIn / Slack / Twitter / WeChat / Line) falls back to a `window.prompt` URL copy because Google blocks OAuth in in-app browsers.

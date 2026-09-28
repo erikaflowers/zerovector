@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Animate from '../components/Animate';
 import PreferenceOptions from '../components/PreferenceOptions';
+import LearningSummary from '../components/LearningSummary';
 import { useUser } from '../contexts/UserContext';
 import { supabase } from '../lib/supabase';
 import { getMyRegistrations, getMyCharges, updatePreference, withdraw, formatPrice } from '../lib/registration';
@@ -103,6 +104,8 @@ function MyZvPage() {
         </section>
       ) : (
         <>
+          <LearningSummary userId={user.id} />
+
           <section className="zv-section">
             <div className="zv-container">
               <h2 className="zv-section-title">{copy.registrations.title}</h2>
