@@ -33,3 +33,14 @@ Build registration into zerovector.design instead of adopting a third-party regi
 - The Supabase project is shared with Open Vector, so schema changes must be additive. Open Vector's unmerged `feature/workflow-lms` migration drops `is_admin()`, which our policies depend on. Fix that migration before it ever runs.
 - Email is not wired. The "we'll email you" promises on the page depend on Erika emailing the list manually, until registrations are connected to Buttondown.
 - Stripe Phase 2 still has to be built: port Open Vector's checkout and webhook functions, and fix the bug in its fallback upsert.
+
+## Update (2026-09-28): Stripe built
+
+Checkout is live-capable and sandbox-tested (`scripts/e2e/`, 19 API checks plus a UI loop). What changed from the plan:
+
+- **Pricing is inline** from `offerings.price_cents`. `offerings.stripe_price_id` stays unused, reserved in case Stripe-side coupons or prices are ever needed.
+- **Test and live share one database.** `charges.livemode` marks which mode created each charge, and `profiles.stripe_test_customer_id` keeps sandbox customers apart from live ones.
+- **Delayed payment methods** (Klarna, bank debits) are handled through `checkout.session.async_payment_*` events.
+- **One shared Stripe account:** Helloerikaflowers, for Zero Vector and Open Vector. Zero Vector's checkout sessions carry `metadata.site = 'zv'`.
+
+Production has no Stripe key yet, so no real charge is possible until the one-time setup in the playbook (step 8).

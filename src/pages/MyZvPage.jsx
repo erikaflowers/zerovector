@@ -26,6 +26,11 @@ function MyZvPage() {
   const [error, setError] = useState('');
   const [editingId, setEditingId] = useState(null);
   const [saving, setSaving] = useState(false);
+  // Back from Stripe (?checkout=success): the webhook may land a moment
+  // after the redirect, so poll until a completed charge shows up.
+  const [checkoutState, setCheckoutState] = useState(() =>
+    new URLSearchParams(window.location.search).get('checkout') === 'success' ? 'confirming' : null
+  );
 
   useEffect(() => {
     if (authLoading) return;
@@ -41,6 +46,25 @@ function MyZvPage() {
     })();
     return () => { cancelled = true; };
   }, [authLoading, user]);
+
+  useEffect(() => {
+    if (checkoutState !== 'confirming' || !user) return;
+    window.history.replaceState(null, '', window.location.pathname);
+    const since = Date.now() - 60 * 60 * 1000;
+    let tries = 0;
+    const timer = setInterval(async () => {
+      tries += 1;
+      const [regs, chs] = await Promise.all([getMyRegistrations(user.id), getMyCharges(user.id)]);
+      if (regs.data) setRegistrations(regs.data);
+      if (chs.data) setCharges(chs.data);
+      const confirmed = (chs.data || []).some((c) => c.status === 'completed' && new Date(c.created_at).getTime() > since);
+      if (confirmed || tries >= 15) {
+        clearInterval(timer);
+        setCheckoutState(confirmed ? 'confirmed' : 'slow');
+      }
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [checkoutState, user]);
 
   const handleWithdraw = async (id) => {
     if (!window.confirm(accounts.preRegister.withdrawConfirm)) return;
@@ -61,6 +85,9 @@ function MyZvPage() {
     }
     setSaving(false);
   };
+
+  // Pending rows are open checkout sessions; they settle or expire.
+  const settledCharges = charges.filter((c) => c.status !== 'pending');
 
   const prefLabel = (value) => accounts.preferences.find((p) => p.value === value)?.label;
 
@@ -104,6 +131,14 @@ function MyZvPage() {
         </section>
       ) : (
         <>
+          {checkoutState && (
+            <div className="zv-container">
+              <p className={`zv-my-checkout zv-my-checkout--${checkoutState}`} role="status">
+                {copy.checkout[checkoutState]}
+              </p>
+            </div>
+          )}
+
           <LearningSummary userId={user.id} />
 
           <section className="zv-section">
@@ -164,14 +199,17 @@ function MyZvPage() {
           <section className="zv-section">
             <div className="zv-container">
               <h2 className="zv-section-title">{copy.charges.title}</h2>
-              {loading ? null : charges.length === 0 ? (
+              {loading ? null : settledCharges.length === 0 ? (
                 <div className="zv-my-empty"><p>{copy.charges.empty}</p></div>
               ) : (
                 <div className="zv-ledger">
-                  {charges.map((c) => (
+                  {settledCharges.map((c) => (
                     <div key={c.id} className="zv-ledger-row">
                       <div className="zv-ledger-item">
-                        <div className="zv-ledger-name">{c.offering?.title}</div>
+                        <div className="zv-ledger-name">
+                          {c.offering?.title}
+                          {!c.livemode && <span className="zv-chip zv-chip--pink zv-my-test-chip">{copy.charges.testChip}</span>}
+                        </div>
                         <div className="zv-ledger-note">
                           {formatDate(c.created_at)} {'·'} {accounts.chargeStatusLabels[c.status]}
                         </div>

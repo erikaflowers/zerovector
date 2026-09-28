@@ -67,7 +67,7 @@ Rules the Zero Camp build learned the hard way:
 |--------|---------------------|-----|
 | `draft` | Nothing; the page shows "Registration opens soon" | Default |
 | `interest` | Pre-register with a preference | Migration: `update offerings set status='interest' where slug=…` |
-| `presale` / `open` | Pre-register, plus a "Reserve & pay" button (**Stripe stub until Phase 2**) | Same, with the new status |
+| `presale` / `open` | Pre-register, plus "Reserve & pay" → Stripe Checkout (**only once production has live Stripe keys; see step 8**) | Same, with the new status |
 | `closed` | Registration hidden | Same |
 
 Then add the page to `public/sitemap.xml` and link it from wherever it should be discovered (nav, homepage, Start).
@@ -99,14 +99,35 @@ The cleaner future path is to sync registrations into Buttondown, tagged per off
 
 The 700+ existing `profiles` signed in, but they never opted into marketing. Invite them with a one-time opt-in; don't bulk-add them to a list.
 
-## 8. Turn on payments (Stripe Phase 2, not built yet)
+## 8. Take payments (Stripe)
 
-1. **Port the functions.** Copy `create-checkout.js`, `stripe-webhook.js` and `lib/auth.js` from openvector `feature/workflow-lms` into `netlify/functions/`. Retarget them from `workflows`/`purchases` to `offerings`/`registrations`/`charges`.
-2. **Fix the webhook bug.** Its fallback upsert only runs on a database error, and an update that matches 0 rows is not an error.
-3. **Wire the client.** Replace the body of `startCheckout()` in `src/lib/registration.js`. Callers already handle `{ mode: 'live', url }`.
-4. **Add the dependency.** Add `stripe`, and record it in the Matilda stack doctrine.
-5. **Set Netlify environment variables.** Add `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`. `SUPABASE_SERVICE_ROLE_KEY` is already there. Local dev then needs `netlify dev`.
-6. **Configure Stripe.** Create the product and price in Stripe, save `stripe_price_id` on the offering, and point a webhook at `/.netlify/functions/stripe-webhook`.
+Built and tested (sandbox). Checkout is priced from `offerings.price_cents`, so there's nothing to create in Stripe per offering. What an offering charges is what its row says: full price, or a deposit if you set a deposit amount.
+
+**Before the first real charge (one time):**
+1. **Live key.** In Stripe (Helloerikaflowers, live), create a **restricted key** with write access to *Checkout Sessions* and *Customers* only. Set it as `STRIPE_SECRET_KEY` in Netlify, **production context only**.
+2. **Live webhook.** `stripe webhook_endpoints create --live --url https://zerovector.design/.netlify/functions/stripe-webhook -d "enabled_events[]=checkout.session.completed" -d "enabled_events[]=checkout.session.async_payment_succeeded" -d "enabled_events[]=checkout.session.async_payment_failed" -d "enabled_events[]=checkout.session.expired" -d "enabled_events[]=charge.refunded"`. Put the returned signing secret in `STRIPE_WEBHOOK_SECRET` (production only). Redirect its output to `/dev/null` and read the secret into a variable; never print it.
+3. **Receipts.** Stripe → Settings → Customer emails → turn on *Successful payments*. The paid view promises a receipt.
+4. **Policies.** Refund policy + terms of sale published and linked from the offering page.
+5. Then flip the offering to `presale` or `open` (step 4).
+
+**Refunds:** issue them in the Stripe dashboard. The webhook marks the charge and registration `refunded`; My ZV shows it.
+
+### Testing payments
+
+Local only, Stripe sandbox `zv-dev`, `STRIPE_SECRET_KEY=sk_test_…` in `.env`:
+
+```bash
+# terminal 1: forwards sandbox webhooks; prints the whsec_ for this listener
+stripe listen --api-key "$STRIPE_SECRET_KEY" --forward-to localhost:3006/.netlify/functions/stripe-webhook \
+  --events checkout.session.completed,checkout.session.async_payment_succeeded,checkout.session.async_payment_failed,checkout.session.expired,charge.refunded
+# terminal 2: functions + Vite (5175, so Renner's :5174 is untouched)
+STRIPE_WEBHOOK_SECRET=whsec_… netlify dev --port 3006 --target-port 5175 --command "npx vite --port 5175 --strictPort"
+# terminal 3: the suites (self-cleaning: create + delete their own $1 offering and temp user)
+node scripts/e2e/stripe-e2e.mjs      # 19 checks: guard rails, decline, pay, repeat, RLS, refund
+node scripts/e2e/stripe-ui-e2e.mjs   # our own pages end to end, screenshots to $SHOTS
+```
+
+The dev-only page `/checkout-test` (absent from production builds) renders `<PreRegister slug="checkout-test">`; it needs the fixture row, which the scripts create. Test cards: `4242 4242 4242 4242` succeeds, `4000 0000 0000 0002` declines.
 
 ## Checklist before sharing a launch link
 
@@ -116,3 +137,4 @@ The 700+ existing `profiles` signed in, but they never opted into marketing. Inv
 - [ ] Supabase Auth → Redirect URLs include `https://zerovector.design/**` and `https://*--zerovector.netlify.app/**` (deploy previews)
 - [ ] Page added to `public/sitemap.xml`
 - [ ] You're ready to email the list the page promises to email
+- [ ] If taking payments: step 8's one-time setup is done, and the Stripe suites pass

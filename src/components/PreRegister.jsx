@@ -40,7 +40,7 @@ function takeIntent(slug) {
  * Registered → a "what's next" view: personal headline, numbered
  * next steps, the preference echoed back (changeable while
  * 'interested'), an optional prep link, My ZV + withdraw. When the
- * offering is payable, the checkout button (currently the Stripe stub).
+ * offering is payable, Reserve & pay → Stripe Checkout (lib/registration).
  *
  * @param {string} slug - offerings.slug
  * @param {object} nextSteps - overrides for accounts.registered
@@ -87,6 +87,17 @@ function PreRegister({ slug, nextSteps }) {
     if (!authLoading) load();
   }, [authLoading, load]);
 
+  // Back from Stripe via cancel_url (?checkout=cancelled): say so, once.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('checkout') !== 'cancelled') return;
+    setMessage(copy.cancelledMessage);
+    params.delete('checkout');
+    const qs = params.toString();
+    window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
+    requestAnimationFrame(() => rootRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+  }, []);
+
   const handleSubmit = async () => {
     if (!preference) return;
     if (!isLoggedIn) {
@@ -130,9 +141,12 @@ function PreRegister({ slug, nextSteps }) {
   };
 
   const handleCheckout = async () => {
-    const result = await startCheckout(registration.id);
-    if (result.mode === 'live' && result.url) window.location.assign(result.url);
-    else setMessage(copy.stubMessage);
+    setPhase('saving');
+    setMessage('');
+    const { url, error } = await startCheckout(registration.id);
+    if (url) { window.location.assign(url); return; }
+    setMessage(error || copy.error);
+    setPhase('ready');
   };
 
   if (phase === 'loading' || authLoading) {
@@ -150,18 +164,24 @@ function PreRegister({ slug, nextSteps }) {
     const prefLabel = accounts.preferences.find((p) => p.value === registration.preference)?.label;
     const canPay = PAYABLE.includes(offering.status) && registration.status === 'interested';
     const canEdit = registration.status === 'interested';
+    const isPaid = registration.status === 'paid';
+    const view = isPaid ? { ...next, ...accounts.registered.paid, ...next.paid } : next;
     return (
       <div className="zv-prereg zv-prereg--done" ref={rootRef}>
-        <div className="zv-chip zv-chip--green">{copy.registeredChip}</div>
-        <h3 className="zv-prereg-headline">{fill(next.headline)}</h3>
+        <div className={`zv-chip ${isPaid ? 'zv-chip--status-paid' : 'zv-chip--green'}`}>
+          {isPaid ? copy.paidChip : copy.registeredChip}
+        </div>
+        <h3 className="zv-prereg-headline">{fill(view.headline)}</h3>
 
         {canPay && (
-          <button type="button" className="zv-prereg-btn" onClick={handleCheckout}>{copy.payCta}</button>
+          <button type="button" className="zv-prereg-btn" onClick={handleCheckout} disabled={phase === 'saving'}>
+            {phase === 'saving' ? copy.redirecting : copy.payCta}
+          </button>
         )}
 
-        <div className="zv-prereg-steps-title">{next.stepsTitle}</div>
+        <div className="zv-prereg-steps-title">{view.stepsTitle}</div>
         <ol className="zv-prereg-steps">
-          {next.steps.map((step, i) => (
+          {view.steps.map((step, i) => (
             <li key={step.title} className="zv-prereg-step">
               <span className="zv-prereg-step-num">{String(i + 1).padStart(2, '0')}</span>
               <div>
@@ -194,10 +214,10 @@ function PreRegister({ slug, nextSteps }) {
           </p>
         )}
 
-        {next.prep && (
+        {view.prep && (
           <p className="zv-prereg-prep">
-            {next.prep.text}{' '}
-            <Link to={next.prep.link.to}>{next.prep.link.label} &rarr;</Link>
+            {view.prep.text}{' '}
+            <Link to={view.prep.link.to}>{view.prep.link.label} &rarr;</Link>
           </p>
         )}
 

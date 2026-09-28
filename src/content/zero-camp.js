@@ -57,6 +57,14 @@ const zeroCamp = {
       text: 'While you wait: the stack you’re getting is built on a way of working. Start there.',
       link: { label: 'Read the Philosophy', to: '/philosophy' },
     },
+    paid: {
+      headline: 'Welcome to Zero Camp, {firstName}.',
+      steps: [
+        { title: 'Seat confirmed', body: 'Your receipt is on its way to {email}, and the charge is in My ZV.' },
+        { title: 'Cohort details next', body: 'Dates, the session links, and your pre-camp checklist come by email. TBD: when.' },
+        { title: 'Get your machine ready', body: 'The one you’re willing to dedicate to this. Requirements TBD.' },
+      ],
+    },
   },
 
   beforeAfter: {

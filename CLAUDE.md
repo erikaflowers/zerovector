@@ -22,7 +22,7 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 | Styling | Modular CSS partials under `src/styles/`, CSS custom properties, domain-scoped prefixes |
 | Fonts | Proxima Nova (self-hosted via `shared/fonts.css`), Space Grotesk, Inter, JetBrains Mono |
 | State | React Context (UserContext) |
-| Backend | None — purely a static SPA. No serverless functions. |
+| Backend | Two Netlify functions for Stripe (`create-checkout`, `stripe-webhook`). Everything else is a static SPA talking to Supabase under RLS. |
 | Auth + data | Supabase (Google OAuth) + registration tables under RLS. Gates registration and `/my` only. Database shared with Open Vector. See ARCHITECTURE.md → Registration data model. |
 | Newsletter | Kestris subscribe proxy → Buttondown (tagged) |
 | Deployment | Netlify (auto-deploy on push) |
@@ -39,7 +39,7 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 
 - **Two routing patterns coexist.** Manifesto pages use `SiteLayout` (most routes). Standalone pages — `/investiture`, `/investiture/skills`, `/investiture/changelog`, `/zerohack`, `/zerohack/background` — bypass `SiteLayout` and use `useBodyTheme` + `useFonts` hooks to manage their own theming. Know which pattern your page follows.
 
-- **No serverless functions exist.** `netlify/functions/` is empty. The Ask, Quiz, and Join features were retired and their backends were deleted. If you need a backend, add a function and document it in ARCHITECTURE.md.
+- **Two serverless functions, both for payments.** `netlify/functions/create-checkout.js` and `stripe-webhook.js` (helpers in `lib/auth.js`). They are the only code that writes `charges` or moves a registration to paid/refunded, using the service role. Don't add browser write paths for money. The old Ask, Quiz, and Join backends are retired. Any new function gets documented in ARCHITECTURE.md → Backend.
 
 - **Sister sites live on subdomains:**
   - `open.zerovector.design` — Open Vector learning platform (separate repo)
@@ -48,7 +48,7 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
   - `terminus.zerovector.design` — Terminus terminal
   - This repo links out to them. It does not contain them.
 
-- **Dev server:** `npm run dev` (Vite, port 5174). There are no Netlify functions to proxy, so plain Vite is sufficient.
+- **Dev server:** `npm run dev` (Vite, port 5174) for everything except payments. To exercise checkout locally, run `netlify dev` + `stripe listen` (recipe in `vector/playbooks/launch-an-offering.md` → Testing payments); plain Vite has no functions.
 
 - **Homepage hero uses a random video background.** Five `.mov` files in `public/video/bg-*.mov` are randomly selected on each page load. The video is full-bleed with a tunable white overlay (`--hero-video-overlay` on `.zv-manifesto`).
 
