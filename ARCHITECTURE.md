@@ -6,7 +6,7 @@ The single technical authority for this codebase. Read after VECTOR.md and CLAUD
 
 ## Project Type
 
-Static React SPA. No backend, no serverless functions, no database beyond a Supabase auth client. Hosted on Netlify with auto-deploy from `main`.
+Static React SPA. No serverless functions. Supabase provides Google OAuth plus a small registration database (offerings, registrations, charges) accessed directly from the browser under row-level security. Hosted on Netlify with auto-deploy from `main`.
 
 The repo serves three distinct properties on one bundle:
 
@@ -27,12 +27,12 @@ Sister sites live on subdomains and are linked but not contained: `open.zerovect
 | Routing | React Router DOM 7.12 | Client-side, BrowserRouter |
 | Styling | Plain CSS | Single file, custom properties, domain-prefixed classes |
 | State | React Context | Just `UserContext` for auth |
-| Auth | Supabase Google OAuth | `@supabase/supabase-js`, optional, null-safe |
+| Auth + data | Supabase Google OAuth + Postgres (RLS) | `@supabase/supabase-js`, optional, null-safe. Database shared with open.zerovector.design |
 | Newsletter | Kestris proxy → Buttondown | Direct client POST, no API key required |
 | Analytics | Google Analytics + Plausible | Both load from `index.html` |
 | Hosting | Netlify | Auto-deploy on push to `main` |
 
-**Not used:** TypeScript, tests, linters, CSS frameworks, state libraries, serverless functions, database, ORM.
+**Not used:** TypeScript, tests, linters, CSS frameworks, state libraries, serverless functions, ORM.
 
 **Fonts:** Three core families load globally from `index.html` — Space Grotesk (display), Inter (body), JetBrains Mono (code). Three additional families load per-page via `useFonts` hook — Source Serif 4 on Investiture, Fraunces + Outfit on Zero Hack.
 
@@ -136,7 +136,8 @@ src/
 ├── layouts/
 │   └── SiteLayout.jsx      # Manifesto layout: ErrorBoundary + Outlet + scroll-to-top
 ├── lib/
-│   └── supabase.js         # createClient singleton, null-safe
+│   ├── supabase.js         # createClient singleton, null-safe
+│   └── registration.js     # offerings / registrations / charges queries + Stripe stub
 ├── pages/                  # 17 page components — one per route
 └── styles/                 # ~8,300 lines across 71 files, scoped by design system
     ├── shared/             # Cross-system primitives imported by every system entry
@@ -209,12 +210,29 @@ The exceptions are limited and documented:
 ### Auth
 
 - Supabase Google OAuth via `UserContext`. Null-safe — if env vars are missing, the context returns no user and the sign-in button is hidden.
-- **Nothing is gated.** The sign-in is purely cosmetic (avatar in nav). No protected routes, no auth-required forms.
+- **Registration is gated on Google login.** `PreRegister` (Zero Camp price card) and `/my` (My ZV) require a signed-in user. Everything else stays public.
+- Null-safe still holds: with no Supabase env vars, `PreRegister` shows "Registration opens soon" and `/my` shows "Accounts are not available."
+
+### Registration data model
+
+Schema, RLS, and seed live in `supabase/migrations/20260926000000_zv_registration.sql` (run in the Supabase SQL Editor; idempotent).
+
+**Shared database.** zerovector.design and open.zerovector.design use one Supabase project. `profiles` and its helpers (`handle_new_user`, `is_admin()`, `protect_admin_flag`) are shared with Open Vector's workflow LMS and are created additively, never dropped. ZV tables avoid OV's `purchases` name.
+
+| Table | Purpose | Browser access (RLS) |
+|-------|---------|----------------------|
+| `profiles` | One row per Google user, auto-created on signup | Read/update own row |
+| `offerings` | Catalog: cohorts, 1:1, workshops, courses. `status`: draft → interest → presale/open → closed | Public read (non-draft); admin write |
+| `registrations` | One per user per offering. `status`: interested → reserved → paid (or cancelled/refunded). `preference`: cohort / one_on_one / either | Read own; insert own as `interested` only; delete own while `interested` |
+| `charges` | Account ledger. Repeat customers accrue rows | Read own; no browser writes |
+| `offering_interest` (view) | Demand counts per offering and preference | Full counts for admins only |
+
+Status changes beyond `interested` (reserve, pay, refund) happen only with the service role, which will be the Stripe webhook. **Stripe is stubbed:** `startCheckout()` in `src/lib/registration.js` returns `{ mode: 'stub' }`. Turning it on means porting `create-checkout` + `stripe-webhook` from openvector's `feature/workflow-lms` branch as Netlify functions.
 - Embedded-browser detection (FB / Instagram / LinkedIn / Slack / Twitter / WeChat / Line) falls back to a `window.prompt` URL copy because Google blocks OAuth in in-app browsers.
 
 ### Backend
 
-There is no backend. There are no Netlify functions in `netlify/functions/`. The directory exists but is empty. If you add a function, document it here.
+There are no Netlify functions yet. `netlify/functions/` is declared but empty. Stripe checkout will be the first; document it here when added.
 
 The newsletter signup in `NotifyForm.jsx` POSTs directly to `https://kestris.netlify.app/api/subscribe` from the client. Kestris is the proxy.
 
@@ -226,10 +244,10 @@ The newsletter signup in `NotifyForm.jsx` POSTs directly to `https://kestris.net
 
 | Variable | Required | Purpose |
 |----------|----------|---------|
-| `VITE_SUPABASE_URL` | Optional | Supabase project URL — for the nav sign-in avatar |
+| `VITE_SUPABASE_URL` | Optional | Supabase project URL: sign-in, registration, My ZV |
 | `VITE_SUPABASE_ANON_KEY` | Optional | Supabase anon public key |
 
-Both are exposed to the browser via Vite's `VITE_` prefix. The site builds and runs without them — Supabase is null-safe and the sign-in button just won't work.
+Both are exposed to the browser via Vite's `VITE_` prefix. The site builds and runs without them. Supabase is null-safe: sign-in and registration are simply unavailable.
 
 ### Build configuration
 
@@ -239,7 +257,7 @@ Both are exposed to the browser via Vite's `VITE_` prefix. The site builds and r
 
 ### External services
 
-- **Supabase** — auth only (one Google OAuth button)
+- **Supabase**: Google OAuth + registration tables (shared project with Open Vector)
 - **Kestris** — proxy for newsletter signups → Buttondown
 - **Buttondown** — email list, tagged per source
 - **Google Analytics** (`G-X52T2864Z1`) — gtag with manual page_view from `SiteLayout`
@@ -256,5 +274,5 @@ Both are exposed to the browser via Vite's `VITE_` prefix. The site builds and r
 4. **No new dependencies without a reason.** The constraint is the point.
 5. **Three design systems coexist deliberately.** Do not unify Investiture and Zero Hack into shared components.
 6. **Standalone pages manage their own theming via `useBodyTheme` and their own fonts via `useFonts`.** Do not pollute `index.html` with page-specific font loads.
-7. **Auth is null-safe and decorative.** Never gate functionality on it without changing this document first.
+7. **Auth is null-safe and gates registration only.** Never gate content or other features on it without changing this document first. Never add browser write access to `charges` or to registration status changes.
 8. **The redirect routes in `App.jsx` exist for bookmarked URLs.** Do not delete them when retiring features.

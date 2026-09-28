@@ -8,10 +8,11 @@ import { ArrowIcon, ExternalLinkIcon } from './icons';
  *
  * @param {string} headline - Section headline
  * @param {string} body - Optional body text below headline
- * @param {{ label: string, to: string }} primaryCta - Internal link button
+ * @param {{ label: string, to?: string, href?: string }} primaryCta - Button: `to` = route, `href` = external (new tab) or '#anchor' (same page)
  * @param {{ label: string, to?: string, href?: string }} secondaryCta - Second button (internal or external)
  * @param {boolean} showNewsletter - Show email signup (default true)
  * @param {string} newsletterTag - Buttondown tag (default "zerovector")
+ * @param {string} notifyLabel - Label above the email signup
  */
 function PageClosing({
   headline,
@@ -20,6 +21,7 @@ function PageClosing({
   secondaryCta,
   showNewsletter = true,
   newsletterTag = 'zerovector',
+  notifyLabel = 'Get notified when new content drops.',
 }) {
   return (
     <section className="zv-page-closing">
@@ -31,7 +33,11 @@ function PageClosing({
               {body && <p className="zv-page-closing-body">{body}</p>}
               <div className="zv-page-closing-actions">
                 {primaryCta && (
-                  primaryCta.href ? (
+                  primaryCta.href?.startsWith('#') ? (
+                    <a href={primaryCta.href} className="zv-page-closing-cta zv-page-closing-cta--primary">
+                      {primaryCta.label} <ArrowIcon size={14} />
+                    </a>
+                  ) : primaryCta.href ? (
                     <a href={primaryCta.href} target="_blank" rel="noopener noreferrer" className="zv-page-closing-cta zv-page-closing-cta--primary">
                       {primaryCta.label} <ExternalLinkIcon size={14} />
                     </a>
@@ -42,7 +48,11 @@ function PageClosing({
                   )
                 )}
                 {secondaryCta && (
-                  secondaryCta.href ? (
+                  secondaryCta.href?.startsWith('#') ? (
+                    <a href={secondaryCta.href} className="zv-page-closing-cta zv-page-closing-cta--secondary">
+                      {secondaryCta.label} <ArrowIcon size={14} />
+                    </a>
+                  ) : secondaryCta.href ? (
                     <a href={secondaryCta.href} target="_blank" rel="noopener noreferrer" className="zv-page-closing-cta zv-page-closing-cta--secondary">
                       {secondaryCta.label} <ExternalLinkIcon size={14} />
                     </a>
@@ -56,7 +66,7 @@ function PageClosing({
             </div>
             {showNewsletter && (
               <div className="zv-page-closing-secondary">
-                <p className="zv-page-closing-notify-label">Get notified when new content drops.</p>
+                <p className="zv-page-closing-notify-label">{notifyLabel}</p>
                 <NotifyForm variant="orange" tag={newsletterTag} />
               </div>
             )}

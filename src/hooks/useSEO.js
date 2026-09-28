@@ -9,6 +9,7 @@ import { useEffect } from 'react';
  * @param {string} options.description - Meta description for this page
  * @param {string} [options.path] - URL path (e.g. '/builders') for canonical + og:url
  * @param {string} [options.ogImage] - OG image URL (defaults to site-wide card)
+ * @param {boolean} [options.noindex] - Private pages (e.g. /my): robots noindex,nofollow
  */
 
 const SITE = 'Zero-Vector Design';
@@ -36,7 +37,7 @@ function setCanonical(url) {
   el.setAttribute('href', url);
 }
 
-export default function useSEO({ title, description, path = '/', ogImage } = {}) {
+export default function useSEO({ title, description, path = '/', ogImage, noindex = false } = {}) {
   useEffect(() => {
     const fullTitle = path === '/' ? SITE : `${title} — ${SITE}`;
     const desc = description || DEFAULT_DESC;
@@ -62,7 +63,10 @@ export default function useSEO({ title, description, path = '/', ogImage } = {})
     // Canonical
     setCanonical(url);
 
+    if (noindex) setMeta('robots', 'noindex, nofollow');
+
     return () => {
+      if (noindex) document.querySelector('meta[name="robots"]')?.remove();
       // Revert to defaults on unmount
       document.title = SITE;
       setMeta('description', DEFAULT_DESC);
@@ -75,5 +79,5 @@ export default function useSEO({ title, description, path = '/', ogImage } = {})
       setMeta('twitter:image', DEFAULT_IMAGE);
       setCanonical(BASE_URL);
     };
-  }, [title, description, path, ogImage]);
+  }, [title, description, path, ogImage, noindex]);
 }

@@ -63,9 +63,12 @@ export function UserProvider({ children }) {
       return;
     }
     try {
+      // Drop any #anchor: implicit-flow OAuth returns the session in the
+      // URL hash, and an existing hash (e.g. #waitlist) would collide with it.
+      const { origin, pathname, search } = window.location;
       supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: { redirectTo: window.location.href },
+        options: { redirectTo: `${origin}${pathname}${search}` },
       });
     } catch (err) {
       console.error('[UserContext] signIn failed:', err);

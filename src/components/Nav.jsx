@@ -188,6 +188,9 @@ function Nav() {
                     <div className="zv-nav-dropdown">
                       <div className="zv-nav-dropdown-name">{user.name}</div>
                       <div className="zv-nav-dropdown-email">{user.email}</div>
+                      <Link to="/my" className="zv-nav-dropdown-link" onClick={() => setUserDropdownOpen(false)}>
+                        My ZV
+                      </Link>
                       <button className="zv-nav-dropdown-signout" onClick={() => { signOut(); setUserDropdownOpen(false); }}>
                         Sign Out
                       </button>
@@ -225,6 +228,9 @@ function Nav() {
           <Link to="/start" className={`zv-nav-mobile-link ${pathname === '/start' ? 'zv-nav-link-active' : ''}`} onClick={() => setMenuOpen(false)}>Start</Link>
           {!loading && !isLoggedIn && (
             <button className="zv-nav-mobile-signin" onClick={() => { signIn(); setMenuOpen(false); }}>Sign In</button>
+          )}
+          {!loading && isLoggedIn && (
+            <Link to="/my" className={`zv-nav-mobile-link ${pathname === '/my' ? 'zv-nav-link-active' : ''}`} onClick={() => setMenuOpen(false)}>My ZV</Link>
           )}
           {!loading && isLoggedIn && (
             <button className="zv-nav-mobile-signout" onClick={() => { signOut(); setMenuOpen(false); }}>Sign Out ({user.name.split(' ')[0]})</button>

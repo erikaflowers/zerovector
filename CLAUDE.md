@@ -23,7 +23,7 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 | Fonts | Proxima Nova (self-hosted via `shared/fonts.css`), Space Grotesk, Inter, JetBrains Mono |
 | State | React Context (UserContext) |
 | Backend | None — purely a static SPA. No serverless functions. |
-| Auth | Supabase (Google OAuth) — decorative only; nothing is gated. |
+| Auth + data | Supabase (Google OAuth) + registration tables under RLS. Gates registration and `/my` only. Database shared with Open Vector. See ARCHITECTURE.md → Registration data model. |
 | Newsletter | Kestris subscribe proxy → Buttondown (tagged) |
 | Deployment | Netlify (auto-deploy on push) |
 
@@ -51,6 +51,8 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 - **Dev server:** `npm run dev` (Vite, port 5174). There are no Netlify functions to proxy, so plain Vite is sufficient.
 
 - **Homepage hero uses a random video background.** Five `.mov` files in `public/video/bg-*.mov` are randomly selected on each page load. The video is full-bleed with a tunable white overlay (`--hero-video-overlay` on `.zv-manifesto`).
+
+- **Selling something? Follow the playbook.** Classes, cohorts, 1:1 and workshops are `offerings` rows plus a content file plus `<PreRegister>`. Step by step: `vector/playbooks/launch-an-offering.md`. Why it's built this way: `vector/decisions/ADR-002-registration-platform.md`. Migrations go through the linked Supabase CLI (`supabase db push`), never hand-edited in the dashboard.
 
 - **Per-page Substack essay cards.** `PageHero` maps each route to a relevant Substack article via a lookup object keyed by pathname. To add a new essay, edit the `ESSAYS` object in `src/components/PageHero.jsx`.
 

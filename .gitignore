@@ -8,3 +8,6 @@ dist
 .netlify
 /deno.lock
 *.log
+
+# Supabase CLI local state
+supabase/.temp/
