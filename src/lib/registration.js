@@ -68,16 +68,31 @@ export async function getMyCharges(userId) {
   if (!supabase) return { data: [], error: null };
   return supabase
     .from('charges')
-    .select('id, amount_cents, currency, status, created_at, offering:offerings(title)')
+    .select('id, amount_cents, currency, status, livemode, created_at, offering:offerings(title)')
     .eq('user_id', userId)
     .order('created_at', { ascending: false });
 }
 
-// Stripe stub. Phase 2 swaps the body for a call to the
-// create-checkout Netlify function (which returns { mode: 'live', url })
-// and redirects. Callers already branch on `mode`.
-export async function startCheckout(_registrationId) {
-  return { mode: 'stub', url: null, error: null };
+// Starts Stripe Checkout for one of the caller's registrations via the
+// create-checkout Netlify function. Returns { url } to redirect to, or
+// { error } with a message safe to show. Needs `netlify dev` locally;
+// plain Vite has no functions.
+export async function startCheckout(registrationId) {
+  if (!supabase) return { url: null, error: NOT_CONFIGURED.error.message };
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return { url: null, error: 'Please sign in first.' };
+  try {
+    const res = await fetch('/.netlify/functions/create-checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
+      body: JSON.stringify({ registrationId }),
+    });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok || !body.url) return { url: null, error: body.error || null };
+    return { url: body.url, error: null };
+  } catch {
+    return { url: null, error: null };
+  }
 }
 
 export function formatPrice(cents, currency = 'usd') {

@@ -15,7 +15,8 @@
     "@supabase/supabase-js": "^2.95.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-router-dom": "^7.12.0"
+    "react-router-dom": "^7.12.0",
+    "stripe": "^22.6.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.2",

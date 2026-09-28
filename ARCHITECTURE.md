@@ -6,7 +6,7 @@ The single technical authority for this codebase. Read after VECTOR.md and CLAUD
 
 ## Project Type
 
-Static React SPA. No serverless functions. Supabase provides Google OAuth plus a small registration database (offerings, registrations, charges) accessed directly from the browser under row-level security. Hosted on Netlify with auto-deploy from `main`.
+Static React SPA plus two Netlify functions for Stripe checkout. Supabase provides Google OAuth plus a small registration database (offerings, registrations, charges) accessed directly from the browser under row-level security. Hosted on Netlify with auto-deploy from `main`.
 
 The repo serves three distinct properties on one bundle:
 
@@ -32,7 +32,7 @@ Sister sites live on subdomains and are linked but not contained: `open.zerovect
 | Analytics | Google Analytics + Plausible | Both load from `index.html` |
 | Hosting | Netlify | Auto-deploy on push to `main` |
 
-**Not used:** TypeScript, tests, linters, CSS frameworks, state libraries, serverless functions, ORM.
+**Not used:** TypeScript, unit tests, linters, CSS frameworks, state libraries, ORM. (Payments have an end-to-end script: `scripts/e2e/`.)
 
 **Fonts:** Three core families load globally from `index.html` — Space Grotesk (display), Inter (body), JetBrains Mono (code). Three additional families load per-page via `useFonts` hook — Source Serif 4 on Investiture, Fraunces + Outfit on Zero Hack.
 
@@ -137,7 +137,7 @@ src/
 │   └── SiteLayout.jsx      # Manifesto layout: ErrorBoundary + Outlet + scroll-to-top
 ├── lib/
 │   ├── supabase.js         # createClient singleton, null-safe
-│   ├── registration.js     # offerings / registrations / charges queries + Stripe stub
+│   ├── registration.js     # offerings / registrations / charges queries + startCheckout()
 │   └── learning.js         # Open Vector progress × ov_lessons catalog → My ZV summary
 ├── pages/                  # 17 page components — one per route
 └── styles/                 # ~8,300 lines across 71 files, scoped by design system
@@ -232,12 +232,21 @@ Schema, RLS, and seed live in `supabase/migrations/20260926000000_zv_registratio
 
 **My ZV is the ecosystem home.** `/my` shows Open Vector learning (`LearningSummary` → `src/lib/learning.js`, which joins `progress` to `ov_lessons`), registrations, and charges. New ZV properties that store per-user data in this database should add a section here.
 
-Status changes beyond `interested` (reserve, pay, refund) happen only with the service role, which will be the Stripe webhook. **Stripe is stubbed:** `startCheckout()` in `src/lib/registration.js` returns `{ mode: 'stub' }`. Turning it on means porting `create-checkout` + `stripe-webhook` from openvector's `feature/workflow-lms` branch as Netlify functions.
+Status changes beyond `interested` (paid, refunded) happen only in the Stripe webhook, with the service role. `charges.livemode` separates sandbox from real payments in this one database (`delete from charges where not livemode` purges test data). Sandbox and live Stripe customers live in `profiles.stripe_test_customer_id` / `stripe_customer_id` respectively.
 - Embedded-browser detection (FB / Instagram / LinkedIn / Slack / Twitter / WeChat / Line) falls back to a `window.prompt` URL copy because Google blocks OAuth in in-app browsers.
 
 ### Backend
 
-There are no Netlify functions yet. `netlify/functions/` is declared but empty. Stripe checkout will be the first; document it here when added.
+Two Netlify functions (v2 handlers, esbuild), ported from openvector's `feature/workflow-lms` and fixed:
+
+| Function | Called by | Does |
+|----------|-----------|------|
+| `create-checkout` | `startCheckout()` in the browser, with the user's Supabase JWT | Verifies the user owns the registration, the offering is `presale`/`open`, not already paid, capacity left. Finds or creates the Stripe customer, creates a Checkout Session priced inline from `offerings.price_cents` (no Stripe products to maintain), writes a `pending` charge. Returns `{ url }`. |
+| `stripe-webhook` | Stripe (signed) | `checkout.session.completed` / `async_payment_succeeded` → charge `completed`, registration `paid` (upsert on session id, so a missing pending row can't drop a sale). `expired` / `async_payment_failed` → pending charge deleted. `charge.refunded` (full) → charge + registration `refunded`. Ignores checkout sessions without `metadata.site = 'zv'` (the Stripe account is shared with Open Vector). |
+
+Shared helpers: `netlify/functions/lib/auth.js` (service-role client, JWT verification, JSON responses).
+
+Stripe account: **Helloerikaflowers** (`acct_1T0BucLw4IgSJuRJ`), shared with Open Vector. Sandbox for development: `zv-dev`.
 
 The newsletter signup in `NotifyForm.jsx` POSTs directly to `https://kestris.netlify.app/api/subscribe` from the client. Kestris is the proxy.
 
@@ -251,13 +260,17 @@ The newsletter signup in `NotifyForm.jsx` POSTs directly to `https://kestris.net
 |----------|----------|---------|
 | `VITE_SUPABASE_URL` | Optional | Supabase project URL: sign-in, registration, My ZV |
 | `VITE_SUPABASE_ANON_KEY` | Optional | Supabase anon public key |
+| `SUPABASE_URL` | Functions | Same project URL, server side |
+| `SUPABASE_SERVICE_ROLE_KEY` | Functions | Bypasses RLS; functions only, never `VITE_` |
+| `STRIPE_SECRET_KEY` | Functions | `sk_test_`/`rk_test_` (sandbox) or `rk_live_` (production, restricted to Checkout Sessions + Customers). Unset → checkout returns 503 |
+| `STRIPE_WEBHOOK_SECRET` | Functions | Signing secret of the webhook endpoint for that environment (`stripe listen` prints one for local) |
 
-Both are exposed to the browser via Vite's `VITE_` prefix. The site builds and runs without them. Supabase is null-safe: sign-in and registration are simply unavailable.
+Only `VITE_` variables reach the browser. Stripe needs no browser key at all (Checkout is a hosted redirect), so there is deliberately **no** `VITE_STRIPE_*` variable. The site builds and runs without any of these; features degrade (no sign-in, or checkout returns 503).
 
 ### Build configuration
 
 - `vite.config.js` — React plugin, dev port 5174, dist output. No path aliases.
-- `netlify.toml` — Build command, dev port 3006, functions dir (empty), 301 redirects, SPA fallback
+- `netlify.toml` — Build command, dev port 3006, functions dir (`netlify/functions`, esbuild), 301 redirects, SPA fallback
 - `package.json` scripts — `dev`, `dev:standalone` (port 3006), `build`, `preview`
 
 ### External services

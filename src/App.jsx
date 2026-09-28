@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import SiteLayout from './layouts/SiteLayout';
 import ManifestoPage from './pages/ManifestoPage';
@@ -19,6 +20,10 @@ import EnterprisePage from './pages/EnterprisePage';
 import ForHirePage from './pages/ForHirePage';
 import ZeroCampPage from './pages/ZeroCampPage';
 import MyZvPage from './pages/MyZvPage';
+
+// Dev-only Stripe checkout harness; Vite folds DEV to false in production
+// builds, so this import is dropped from the bundle entirely.
+const CheckoutTestPage = import.meta.env.DEV ? lazy(() => import('./pages/CheckoutTestPage')) : null;
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -36,6 +41,9 @@ function App() {
         <Route path="/for-hire" element={<ForHirePage />} />
         <Route path="/zero-camp" element={<ZeroCampPage />} />
         <Route path="/my" element={<MyZvPage />} />
+        {CheckoutTestPage && (
+          <Route path="/checkout-test" element={<Suspense fallback={null}><CheckoutTestPage /></Suspense>} />
+        )}
         <Route path="/media" element={<ReadingPage />} />
         <Route path="/origin" element={<OriginPage />} />
         <Route path="/start" element={<StartPage />} />

@@ -91,6 +91,12 @@
   border-top: 1px dashed #000;
 }
 
+/* Orange Courier subtitles fail contrast on white (see zero-camp.css);
+ * black here, same typeface and weight. */
+.zv-my .zv-section-subtitle {
+  color: #000;
+}
+
 /* --- Open Vector learning summary (components/LearningSummary.jsx) --- */
 .zv-meter {
   height: 10px;
@@ -214,4 +220,30 @@ a.zv-learn-next:hover {
   .zv-learn-top {
     grid-template-columns: 1fr;
   }
+}
+
+/* --- Back from Stripe checkout --- */
+.zv-my-checkout {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  border: 2px solid #000;
+  padding: 14px 18px;
+  margin: 32px 0 0;
+  max-width: 820px;
+}
+
+.zv-my-checkout--confirming { background: #fff; }
+.zv-my-checkout--confirmed { background: var(--neon-green); }
+.zv-my-checkout--slow { background: var(--neon-orange); }
+
+.zv-my-test-chip {
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Dev-only checkout harness */
+.zv-checkout-test {
+  max-width: 520px;
 }

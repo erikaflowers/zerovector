@@ -30,11 +30,13 @@ const accounts = {
     submitCta: 'Pre-register',
     submitting: 'Saving…',
     registeredChip: 'You’re on the list',
+    paidChip: 'Paid · you’re booked',
     preferenceEcho: 'You told us you’d prefer',
     changeCta: 'Change',
     keepCta: 'Keep it',
     payCta: 'Reserve & pay',
-    stubMessage: 'Payments open soon. Your spot is held, and we’ll email you first.',
+    redirecting: 'Opening secure checkout…',
+    cancelledMessage: 'Checkout cancelled. Nothing was charged; your spot is still saved.',
     myZvLink: 'View in My ZV',
     withdrawCta: 'Withdraw',
     withdrawConfirm: 'Withdraw your pre-registration?',
@@ -44,7 +46,8 @@ const accounts = {
 
   // Default "what's next" view after registering. Pages override any
   // key by passing `nextSteps` to <PreRegister>. Tokens: {firstName},
-  // {email}. Set `prep` to null to hide the prep line.
+  // {email}. Set `prep` to null to hide the prep line. `paid` replaces
+  // headline/steps once the registration is paid.
   registered: {
     headline: 'You’re in, {firstName}.',
     stepsTitle: 'What happens next',
@@ -54,6 +57,22 @@ const accounts = {
       { title: 'Details are coming', body: 'Dates and format are announced as soon as they’re set.' },
     ],
     prep: null,
+    // Shown instead once the registration is paid. Same override rules.
+    paid: {
+      headline: 'You’re booked, {firstName}.',
+      steps: [
+        { title: 'Payment received', body: 'Stripe emails your receipt to {email}. Your charge is in My ZV.' },
+        { title: 'Your seat is confirmed', body: 'Nothing else to do right now.' },
+        { title: 'Details are coming', body: 'We’ll email {email} with dates, links, and how to prepare.' },
+      ],
+    },
+  },
+
+  // Dev-only harness (pages/CheckoutTestPage.jsx); never in production builds.
+  devCheckoutTest: {
+    chip: 'DEV ONLY',
+    title: 'Checkout test',
+    body: 'Sandbox checkout against the checkout-test offering. Card 4242 4242 4242 4242, any future date, any CVC. Decline: 4000 0000 0000 0002.',
   },
 
   myZv: {
@@ -90,6 +109,12 @@ const accounts = {
     charges: {
       title: 'Charges',
       empty: 'No charges yet.',
+      testChip: 'TEST',
+    },
+    checkout: {
+      confirming: 'Payment received. Confirming with Stripe…',
+      confirmed: 'Payment confirmed. You’re in.',
+      slow: 'Stripe is still confirming. Refresh in a minute; your payment is safe.',
     },
     signOut: 'Sign out',
     unavailable: 'Accounts are not available right now.',
