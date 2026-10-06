@@ -52,6 +52,8 @@ For anyone — human or AI — about to work in this codebase. Read it after VEC
 
 - **Homepage hero uses a random video background.** Five `.mov` files in `public/video/bg-*.mov` are randomly selected on each page load. The video is full-bleed with a tunable white overlay (`--hero-video-overlay` on `.zv-manifesto`).
 
+- **Picking up registration or payments?** Start with `vector/catchup/registration-and-payments.md`: current state, how it works, where everything lives, open items.
+
 - **Selling something? Follow the playbook.** Classes, cohorts, 1:1 and workshops are `offerings` rows plus a content file plus `<PreRegister>`. Step by step: `vector/playbooks/launch-an-offering.md`. Why it's built this way: `vector/decisions/ADR-002-registration-platform.md`. Migrations go through the linked Supabase CLI (`supabase db push`), never hand-edited in the dashboard.
 
 - **Per-page Substack essay cards.** `PageHero` maps each route to a relevant Substack article via a lookup object keyed by pathname. To add a new essay, edit the `ESSAYS` object in `src/components/PageHero.jsx`.
