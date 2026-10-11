@@ -22,17 +22,16 @@ body {
   font-size: 1.125rem;
   line-height: 1.7;
   color: var(--text-primary);
-  background: var(--void);
+  background: var(--surface);
   overflow-x: hidden;
 }
 
 a {
-  color: var(--cyan);
+  color: var(--link);
   text-decoration: none;
   transition: color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
 }
 
 a:hover {
   color: var(--text-primary);
-  text-shadow: 0 0 12px var(--cyan-glow);
 }

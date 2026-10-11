@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import EssayCard from './EssayCard';
 
 /* Per-page featured essay mapping. PageHero reads the current
  * pathname and picks the matching essay. If no match, falls back
@@ -122,27 +123,7 @@ function PageHero({ eyebrow, title, subtitle }) {
           <p className="zv-hero-subtitle">{subtitle}</p>
         </div>
         <div className="zv-page-hero-essay-wrapper">
-          <span className="zv-page-hero-essay-label">
-            <SubstackIcon /> Related Essay
-          </span>
-          <a
-            href={essay.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="zv-page-hero-essay"
-          >
-            <img
-              src={essay.image}
-              alt={essay.title}
-              className="zv-page-hero-essay-img"
-              loading="lazy"
-            />
-            <div className="zv-page-hero-essay-meta">
-              <div className="zv-page-hero-essay-date">{essay.date}</div>
-              <div className="zv-page-hero-essay-title">{essay.title}</div>
-              <div className="zv-page-hero-essay-subtitle">{essay.subtitle}</div>
-            </div>
-          </a>
+          <EssayCard essay={essay} label="Related Essay" icon={<SubstackIcon />} />
         </div>
       </div>
     </section>

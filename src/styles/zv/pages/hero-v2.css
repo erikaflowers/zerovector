@@ -1,14 +1,9 @@
-/* Zero-Vector — Manifesto Hero v2 (Visual Refresh WIP)
+/* Zero-Vector — Manifesto Hero
  *
- * New hero under development on the visual-redo branch. Renders above
- * the existing .zv-hero-combined while the makeover is in progress.
- * Will eventually replace the old hero entirely — until then, both
- * coexist on the homepage and this file lives alongside hero-combined.css.
- *
- * Full-bleed video background. Pattern ported verbatim from the
- * Arroyo Labs hero: absolute-positioned wrapper with the video +
- * overlay behind the content, content on top at z-index 10, GPU
- * acceleration on the wrapper, object-fit: cover on the video.
+ * THE homepage hero. Full-bleed video background. Pattern ported
+ * from the Arroyo Labs hero: absolute-positioned wrapper with the
+ * video + overlay behind the content, content on top at z-index 10,
+ * GPU acceleration on the wrapper, object-fit: cover on the video.
  */
 
 /* ============================================
@@ -22,20 +17,7 @@
   --hero-nav-bg: var(--hero-accent);
   --hero-title-bg: #000;
   --hero-title-fg: #fff;
-
-  /* Text tokens for the homepage — same fix as .zv-info-page in
-   * base.css. Without this, body text inherits --text-secondary:
-   * #ffffff from .zv-site (intended for the neon hero) and renders
-   * invisible on white sections below the hero. */
-  --text-primary: #000;
-  --text-secondary: #333;
-  --text-tertiary: #666;
-  --text-muted: rgba(0, 0, 0, 0.4);
 }
-
-/* Note: --cyan / --magenta / --orange neon overrides moved to
- * zv/base.css (.zv-site scope) so every manifesto page inherits
- * them, not just the homepage. */
 
 .zv-hero-v2 {
   position: relative;
@@ -43,7 +25,7 @@
   display: flex;
   width: 100%;
   aspect-ratio: 16 / 9; /* fluid 1080p — height derives from browser width */
-  background: #ffffff; /* fallback if the video fails to load */
+  background: var(--surface); /* fallback if the video fails to load */
   overflow: hidden;
   min-height: 60vh;
 }
@@ -135,8 +117,8 @@
     font-size: 0.6em;
     line-height: 1;
     letter-spacing: inherit;
-    color: #000;
-    background: #fff;
+    color: var(--text-primary);
+    background: var(--surface);
     clip-path: inset(0 100% 0 0);
     transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -202,7 +184,7 @@
   font-size: 1rem;
   line-height: 1.2;
   letter-spacing: -0.005em;
-  color: #000;
+  color: var(--text-primary);
   background: var(--neon-orange);
   text-decoration: none;
   transition: font-size 0.25s ease-in-out, padding 0.25s ease-in-out;

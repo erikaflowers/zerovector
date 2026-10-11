@@ -34,7 +34,7 @@
    ============================================ */
 
 .zv-approach-phase {
-  border-top: 1px solid var(--void-border);
+  border-top: 1px solid var(--hairline);
 }
 
 .zv-approach-phase-header {
@@ -48,7 +48,7 @@
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 700;
-  color: var(--orange);
+  color: var(--neon-orange);
   letter-spacing: 0.1em;
 }
 

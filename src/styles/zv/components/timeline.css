@@ -41,7 +41,7 @@
   top: 6px;
   width: 9px;
   height: 9px;
-  background: var(--cyan);
+  background: var(--neon-green);
   border-radius: 0;
   box-shadow: none;
 }
@@ -62,7 +62,7 @@
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
-  color: var(--cyan);
+  color: var(--neon-green);
   letter-spacing: 0.1em;
   margin-bottom: 4px;
 }

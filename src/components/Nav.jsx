@@ -1,36 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
-
-const navGroups = [
-  {
-    label: 'Mindset',
-    items: [
-      { to: '/philosophy', label: 'Philosophy' },
-      { to: '/approach', label: 'Approach' },
-      { to: '/origin', label: 'The Origin' },
-    ],
-  },
-  {
-    label: 'Application',
-    items: [
-      { to: '/for-builders', label: 'For Builders' },
-      { to: '/for-leaders', label: 'For Leaders' },
-      { to: '/for-enterprise', label: 'For Enterprise' },
-      { to: '/for-hire', label: 'For Hire' },
-    ],
-  },
-  {
-    label: 'Resources',
-    items: [
-      { to: '/media', label: 'Media' },
-      { to: '/investiture', label: 'Investiture' },
-      { href: 'https://herelabrador.ai', label: 'Labrador' },
-      { href: 'https://terminus.zerovector.design', label: 'Terminus' },
-      { href: 'https://arroyo.zerovector.design', label: 'Arroyo Labs' },
-    ],
-  },
-];
+import { navGroups } from '../content/links';
 
 function NavDropdown({ group, pathname, isOpen, onToggle }) {
   const ref = useRef(null);

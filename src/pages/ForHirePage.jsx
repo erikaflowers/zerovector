@@ -23,7 +23,7 @@ function ForHirePage() {
       />
 
       {/* Black first section */}
-      <section className="zv-section">
+      <section className="zv-section zv-invert">
         <div className="zv-container">
           <Animate>
             <h2 className="zv-section-title">Arroyo Labs</h2>

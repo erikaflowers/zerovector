@@ -24,7 +24,7 @@ function PhilosophyPage() {
       <PageHero eyebrow={philosophy.eyebrow} title={philosophy.title} subtitle={philosophy.subtitle} />
 
       {/* What ZV Is + What ZV Is Not — Two Column */}
-      <section className="zv-section">
+      <section className="zv-section zv-invert">
         <div className="zv-container">
           <div className="zv-philosophy-split">
             <div className="zv-philosophy-what-is">
@@ -37,7 +37,7 @@ function PhilosophyPage() {
                 </Animate>
               ))}
             </div>
-            <div className="zv-philosophy-what-is-not">
+            <div className="zv-philosophy-what-is-not zv-revert">
               <h3 className="zv-philosophy-sidebar-title">What It Is Not</h3>
               {philosophy.what_it_is_not.map((item, i) => (
                 <div key={i} className="zv-philosophy-not-item">

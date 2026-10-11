@@ -70,7 +70,7 @@
 .zv-origin-photo {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--void-border);
+  border: 1px solid var(--hairline);
 }
 
 .zv-origin-photo img {

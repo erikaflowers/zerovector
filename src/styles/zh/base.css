@@ -11,6 +11,17 @@
 
 /* --- Page Root & Tokens --- */
 
+/* Zero Hack predates the OB white-first reset. Preserve its original
+ * link behavior exactly: raw-cyan links, white hover with cyan glow. */
+.zh-page {
+  --link: #00ffff;
+}
+
+.zh-page a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
+}
+
 .zh-page {
   --zh-burnt: #C03A08;
   --zh-sangria: #E04A10;

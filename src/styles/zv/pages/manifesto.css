@@ -7,9 +7,9 @@
  *   - Timeline section background treatment
  *   - Name teaser CTA block
  *
- * The actual hero-combined grid lives in pages/hero-combined.css.
- * The closing orange CTA band + Open Vector / Arroyo cards live
- * in pages/manifesto-closing.css.
+ * The home intro (explainer + missions grid) lives at the bottom
+ * of this file. The closing orange CTA band + Open Vector / Arroyo
+ * cards live in pages/manifesto-closing.css.
  */
 
 /* ============================================
@@ -45,7 +45,7 @@
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   text-decoration: none;
   padding: 14px 16px;
   border: none;
@@ -61,7 +61,7 @@
 .zv-explainer-path:hover {
   opacity: 0.85;
   transform: translateY(-1px);
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-explainer-path--pink {
@@ -96,7 +96,7 @@
 .zv-section--principles {
   position: relative;
   padding: 80px 0;
-  background: #fff;
+  background: var(--surface);
 }
 
 .zv-section--principles::before {
@@ -138,7 +138,7 @@
   font-family: var(--font-display);
   font-size: 11px;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   letter-spacing: 0.25em;
   line-height: 1;
   margin-bottom: 12px;
@@ -150,7 +150,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 2vw, 1.5rem);
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   line-height: 1.35;
   max-width: 700px;
   margin: 0 auto;
@@ -188,18 +188,18 @@
 }
 
 .zv-section--contrasts .zv-contrast-pair {
-  border: 1px solid #000;
+  border: var(--border);
   overflow: hidden;
-  background: #fff;
+  background: var(--surface);
 }
 
 .zv-section--contrasts .zv-contrast-not {
   padding: 16px 20px;
-  background: #fff;
+  background: var(--surface);
 }
 
 .zv-section--contrasts .zv-contrast-is {
-  background: #fafafa;
+  background: var(--surface-raised);
   padding: 16px 20px;
 }
 
@@ -212,11 +212,11 @@
 }
 
 .zv-section--contrasts .zv-contrast-not .zv-contrast-title {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-section--contrasts .zv-contrast-is .zv-contrast-title {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-section--contrasts .zv-contrast-not .zv-contrast-body {
@@ -224,7 +224,7 @@
 }
 
 .zv-section--contrasts .zv-contrast-is .zv-contrast-body {
-  color: #333;
+  color: var(--text-secondary);
 }
 
 /* --- 006 Name Teaser: tighter than full sections --- */
@@ -245,14 +245,14 @@
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--cyan);
+  color: var(--neon-green);
   text-decoration: none;
   margin-top: 20px;
   transition: color 0.2s, gap 0.2s;
 }
 
 .zv-name-teaser-cta:hover {
-  color: var(--orange);
+  color: var(--neon-orange);
   gap: 12px;
 }
 
@@ -268,8 +268,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 0;
   padding: 0;
-  border: 1px solid var(--void-border);
-  background: var(--void-elevated);
+  border: 1px solid var(--hairline);
+  background: var(--surface);
 }
 
 .zv-contrast-side {
@@ -285,11 +285,11 @@
 }
 
 .zv-contrast-not .zv-contrast-label {
-  color: var(--magenta-dim);
+  color: var(--neon-pink);
 }
 
 .zv-contrast-is .zv-contrast-label {
-  color: var(--orange);
+  color: var(--neon-orange);
 }
 
 .zv-contrast-title {
@@ -301,11 +301,11 @@
 }
 
 .zv-contrast-not .zv-contrast-title {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-contrast-is .zv-contrast-title {
-  color: #000;
+  color: var(--text-primary);
 }
 
 .zv-contrast-body {
@@ -348,7 +348,7 @@
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
-  color: #000;
+  color: var(--text-primary);
   margin-bottom: 2px;
 }
 
@@ -378,4 +378,148 @@
 
 .zv-principles-heading {
   margin-top: 64px;
+}
+
+/* ============================================
+   Home intro — explainer + missions
+   (inverted first section below the hero)
+   ============================================ */
+
+.zv-home-intro {
+  padding-top: calc(56px + 40px);
+  padding-bottom: 48px;
+}
+
+.zv-hero-columns {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: start;
+}
+
+.zv-hero-col-left .zv-explainer-headline {
+  text-align: left;
+}
+
+.zv-hero-col-left .zv-explainer-body {
+  text-align: left;
+}
+
+.zv-hero-col-left .zv-explainer-paths {
+  justify-content: flex-start;
+}
+
+/* --- Missions — the active arms of Zero Vector --- */
+
+.zv-missions {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--hairline);
+}
+
+.zv-missions-intro {
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+
+.zv-missions-headline {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.zv-missions-body {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.zv-missions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.zv-mission-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-raised);
+  border: 1px solid var(--hairline);
+  text-decoration: none;
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+
+.zv-mission-card:hover {
+  border-color: var(--neon-pink);
+  box-shadow: 4px 4px 0 var(--neon-pink);
+  color: inherit;
+  text-shadow: none;
+}
+
+.zv-mission-card-graphic {
+  width: 100%;
+  aspect-ratio: 1200 / 630;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.zv-mission-card-graphic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zv-mission-card-content {
+  padding: 20px;
+}
+
+.zv-mission-card-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.zv-mission-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .zv-missions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .zv-home-intro {
+    padding-top: calc(48px + 16px);
+  }
+
+  .zv-hero-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .zv-hero-col-right {
+    padding-left: 0;
+    align-items: flex-start;
+  }
+
+  .zv-missions {
+    margin-top: 40px;
+    padding-top: 32px;
+  }
+
+  .zv-missions-grid {
+    grid-template-columns: 1fr;
+  }
 }
