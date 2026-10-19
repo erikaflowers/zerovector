@@ -12,7 +12,7 @@ project:
   repo: "git@github.com:erikaflowers/zerovector.git"
 
 owner:
-  name: "Erika Flowers"
+  name: "Allison Flowers"
   role: "Systems Auteur"
 
 knowledge:
